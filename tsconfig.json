@@ -19,7 +19,9 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@src/*": ["./src/*"],
+      "@ui-kit/*": ["./src/ui-kit/*"],
+      "@helpers/*": ["./src/helpers/*"]
     }
   },
   "include": [

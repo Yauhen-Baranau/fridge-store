@@ -1,0 +1,45 @@
+@use '../../styles/colors.scss';
+@use '../../styles/fonts.scss';
+
+.button {
+  height: 3em;
+  @include fonts.font(14px, 600, 125%);
+  cursor: pointer;
+  // transition-duration: 0.1s;
+
+  &.rounded {
+    border-radius: 6px;
+  }
+
+  &.default {
+    border: none;
+    color: colors.$color-main-white;
+    background-color: colors.$color-main-blue;
+
+    &:hover:not(:active) {
+      background-color: colors.$color-blue-dark;
+    }
+  }
+
+  &.monochrome {
+    border: solid colors.$color-main-black 1px;
+    color: colors.$color-main-black;
+    background-color: colors.$color-main-white;
+
+    &:hover:not(:active) {
+      border: none;
+      color: colors.$color-main-white;
+      background-color: colors.$color-main-blue;
+    }
+  }
+
+  &.light {
+    border: none;
+    background-color: transparent;
+    color: colors.$color-main-blue;
+
+    &:hover:not(:active) {
+      color: colors.$color-blue-dark;
+    }
+  }
+}
