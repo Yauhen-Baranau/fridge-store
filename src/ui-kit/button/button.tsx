@@ -6,12 +6,14 @@ export default function Button({
   text = 'Кнопка',
   rounded = true,
   width = 100,
+  fontSize,
   style = 'default',
 }: {
   iconPath?: string,
   text?: string,
   rounded?: boolean,
   width?: number | string,
+  fontSize?: number,
   style?: 'default' | 'monochrome' | 'light',
 }) {
   return <button
@@ -20,7 +22,10 @@ export default function Button({
       styles[style],
       rounded && styles.rounded,
     )}
-    style={{ width: !isNaN(+width) ? `${width}px` : width }}
+    style={{
+      width: !isNaN(+width) ? `${width}px` : width,
+      fontSize: fontSize && !isNaN(+fontSize) ? `${fontSize}px` : '',
+    }}
   >
     {iconPath && <img src={iconPath} alt='Иконка' />}
     <span>{text}</span>

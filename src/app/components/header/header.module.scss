@@ -1,0 +1,44 @@
+@use '../../../styles/fonts.scss';
+
+.header {
+  display: flex;
+  align-items: center;
+
+  .icon-text-pair {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    @include fonts.font(14px, 400, 140%);
+
+    .header-icon {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  .open-hours, .contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .socials {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+
+    &-icon {
+      width: 26px;
+      height: 26px;
+    }
+  }
+
+  .logo, .open-hours {
+    margin-right: 50px;
+  }
+
+  .contacts, .socials {
+    margin-right: 38px;
+  }
+}

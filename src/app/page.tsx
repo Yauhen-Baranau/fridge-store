@@ -1,10 +1,8 @@
-import List from "@src/ui-kit/list/list";
+import styles from './page.module.scss';
+import Header from "./components/header/header";
 
 export default function Home() {
-  return <List items={[
-    { text: 'item1' },
-    { text: 'item2' },
-    { text: 'item3', subItems: [{ text: 'item31' }, { text: 'item32' }] },
-    { text: 'item4' },
-  ]} />;
+  return <div className={styles.home}>
+    <Header />
+  </div>;
 }
