@@ -1,4 +1,4 @@
-import composeClassNames from '@helpers/compose-class-names';
+import composeClassNames from '@src/helpers/compose-class-name';
 import styles from './button.module.scss';
 
 export default function Button({

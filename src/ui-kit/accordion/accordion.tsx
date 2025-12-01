@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import styles from './accordion.module.scss';
-import composeClassName from '@src/helpers/compose-class-names';
+import composeClassName from '@src/helpers/compose-class-name';
 
 export default function Accordion({
   children
