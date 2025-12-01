@@ -1,0 +1,10 @@
+.outer-wrapper {
+  .content-wrapper {
+    height: 0;
+    overflow: hidden;
+
+    &.revealed {
+      height: auto;
+    }
+  }
+}
