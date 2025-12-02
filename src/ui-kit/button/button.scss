@@ -1,0 +1,17 @@
+@use '../../styles/colors.scss';
+@use '../../styles/fonts.scss';
+
+.button {
+  @include fonts.font(14px, 600, 125%);
+  height: 3em;
+  padding: 0 1em;
+  border: none;
+  border-radius: 6px;
+  color: colors.$color-main-white;
+  background-color: colors.$color-main-blue;
+  cursor: pointer;
+  
+  &:hover:not(:active) {
+    background-color: colors.$color-blue-dark;
+  }
+}

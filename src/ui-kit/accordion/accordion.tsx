@@ -1,24 +1,26 @@
 'use client';
 
+import './accordion.scss';
 import { useState } from 'react';
-import styles from './accordion.module.scss';
 import composeClassName from '@src/helpers/compose-class-name';
 
 export default function Accordion({
-  children
+  children,
+  customClass,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode,
+  customClass?: string,
 }) {
   const [isRevealed, setIsRevealed] = useState(false);
   const toggleRevealed = () => setIsRevealed(!isRevealed);
 
-  return <div className={styles['outer-wrapper']}>
-    <div className={styles['toggle-area']} onClick={toggleRevealed}>
+  return <div className={composeClassName('outer-accordion-wrapper', customClass)}>
+    <div className='accordion-toggle-area' onClick={toggleRevealed}>
       toggle
     </div>
     <div className={composeClassName(
-      styles['content-wrapper'],
-      isRevealed && styles.revealed
+      'content-wrapper',
+      isRevealed && 'revealed'
     )}>{children}</div>
   </div>
 }
