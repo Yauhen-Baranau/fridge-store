@@ -1,5 +1,7 @@
-import Accordion from '../accordion/accordion';
 import styles from './list.module.scss';
+import Accordion from '@ui-kit/accordion/accordion';
+import PopupWrapper from '@ui-kit/popup/popup';
+import composeClassName from '@src/helpers/compose-class-name';
 
 interface ListItem {
   text: string;
@@ -8,15 +10,33 @@ interface ListItem {
   subItems?: Array<ListItem>;
 }
 
-export default function List({ items }: { items: Array<ListItem> }) {
-  return <ul className={styles.list}>
+export default function List({
+  items,
+  direction = 'vertical',
+  nestedItemsStyle = 'always-visible',
+}: {
+  items: Array<ListItem>,
+  direction?: 'vertical' | 'horizontal',
+  nestedItemsStyle?: 'always-visible' | 'accordion' | 'popup',
+}) {
+  return <ul className={composeClassName(styles.list, styles[direction])}>
     {items.map((item, index) => {
       if (!item.subItems || item.subItems.length === 0) {
         return <li key={index}>{item.text}</li>;
       }
-      return <Accordion key={index}>
-        <List items={item.subItems} />
-      </Accordion>
+
+      const nestedList = <List items={item.subItems} />;
+      const nestedElement = (() => {
+        switch (nestedItemsStyle) {
+          case 'accordion':
+            return <Accordion>{nestedList}</Accordion>
+          case 'popup':
+            return <PopupWrapper popupContent={nestedList}><div>{item.text}</div></PopupWrapper>
+          default:
+            return nestedList;
+        }
+      })();
+      return <li key={index}>{nestedElement}</li>
     })}
   </ul>
 }
