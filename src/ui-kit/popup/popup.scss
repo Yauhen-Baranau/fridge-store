@@ -1,4 +1,4 @@
-.outer-wrapper {
+.popup-outer-wrapper {
   .popup-trigger-wrapper {
     cursor: pointer;
   }
@@ -9,7 +9,6 @@
     position: absolute;
     margin-top: 5px;
     overflow: hidden;
-    transition-duration: 0.2s;
 
     outline: solid red 1px;
   }
