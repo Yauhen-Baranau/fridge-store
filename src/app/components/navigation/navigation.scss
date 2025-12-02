@@ -1,0 +1,102 @@
+@use '../../../styles/fonts.scss';
+@use '../../../styles/colors.scss';
+
+$navbar-horizontal-padding: 15px;
+$navbar-item-horizontal-padding: 10px;
+
+.nav {
+  margin: 24px 0 82px 0; // could be moved higher up in the tree
+
+  .nav-list {
+    @include fonts.font(14px, 400, 140%);
+
+    height: 66px;
+    align-items: center;
+    gap: 16px;
+    padding: 0 $navbar-horizontal-padding;
+    border-radius: 12px;
+    background-color: colors.$color-gray-light;
+
+    .list-item, .list-item-icon, .popup-trigger-wrapper span {
+      transition-duration: var(--global-transition-duration);
+    }
+
+    > .list-item {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      padding: 0 $navbar-item-horizontal-padding;
+      gap: 8px;
+
+      > .list-item-icon {
+        width: 8px;
+        height: 5px;
+        position: relative;
+        bottom: 1px;
+      }
+
+      &:hover {
+        color: colors.$color-main-blue;
+        cursor: pointer;
+
+        .popup-trigger-wrapper span {
+          color: colors.$color-main-blue;
+        }
+
+        > .list-item-icon {
+          filter: var(--main-blue-color-filter);
+          transform: rotate(-180deg);
+        }
+      }
+
+      &.nested-list-item {
+        .popup-outer-wrapper {
+          height: 100%;
+
+          .popup-trigger-wrapper {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+          }
+
+          .popup-content-wrapper {
+            width: calc(100% + 100px);
+            padding-top: 10px;
+            left: calc(-1 * $navbar-horizontal-padding - $navbar-item-horizontal-padding);
+
+            > .list {
+              gap: 30px;
+              padding: 24px 32px;
+              border-radius: 10px;
+              background-color: colors.$color-gray-light;
+
+              .list-item {
+                @include fonts.font(16px, 600, 140%);
+
+                display: flex;
+                align-items: flex-start;
+                gap: 13px;
+
+                > .list-item-icon {
+                  width: 7px;
+                  height: 7px;
+                  position: relative;
+                  top: 5px;
+                }
+
+                &:hover {
+                  color: colors.$color-main-blue;
+
+                  > .list-item-icon {
+                    filter: var(--main-blue-color-filter);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
