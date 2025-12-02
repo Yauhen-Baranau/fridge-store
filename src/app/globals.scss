@@ -1,8 +1,16 @@
+@use '../styles/colors.scss';
+
+:root {
+  --global-transition-duration: 0.2s;
+  --main-blue-color-filter: brightness(0) saturate(100%) invert(45%) sepia(38%) saturate(4293%) hue-rotate(185deg) brightness(99%) contrast(98%);
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
   font-family: inherit;
+  color: colors.$color-main-black;
 }
 
 a {

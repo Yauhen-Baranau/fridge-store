@@ -7,9 +7,12 @@
   padding: 0 1em;
   border: none;
   border-radius: 6px;
-  color: colors.$color-main-white;
   background-color: colors.$color-main-blue;
   cursor: pointer;
+  
+  span {
+    color: colors.$color-main-white;
+  }
   
   &:hover:not(:active) {
     background-color: colors.$color-blue-dark;
