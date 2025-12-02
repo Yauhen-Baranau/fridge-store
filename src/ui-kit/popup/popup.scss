@@ -1,22 +1,21 @@
 .popup-outer-wrapper {
-  .popup-trigger-wrapper {
-    cursor: pointer;
-  }
+  position: relative;
 
   .popup-content-wrapper {
     visibility: hidden;
     opacity: 0;
     position: absolute;
-    margin-top: 5px;
+    top: 100%;
     overflow: hidden;
-
-    outline: solid red 1px;
   }
 
-  &:hover .popup-content-wrapper,
-  .popup-content-wrapper:hover
-  {
-    visibility: visible;
-    opacity: 1;
-  }
+    .popup-trigger-wrapper {
+      cursor: pointer;
+  
+      &:hover + .popup-content-wrapper,
+      & + .popup-content-wrapper:hover {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
 }

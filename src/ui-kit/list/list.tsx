@@ -24,11 +24,12 @@ export default function List({
   return <ul className={composeClassName('list', direction, customClass)}>
     {items.map((item, index) => {
       let itemContent;
+      const isNested = !!item.subItems?.length;
 
-      if (!item.subItems || item.subItems.length === 0) {
+      if (!isNested) {
         itemContent = item.text;
       } else {
-        const nestedList = <List items={item.subItems} />;
+        const nestedList = <List items={item.subItems!} />;
         switch (nestedItemsStyle) {
             case 'accordion':
               itemContent = <Accordion>{nestedList}</Accordion>
@@ -41,7 +42,12 @@ export default function List({
               break;
           }
       }
-      return <li className='list-item' key={index}>{itemContent}</li>
+      return <li
+        className={composeClassName('list-item', isNested && 'nested-list-item')}
+        key={index}
+      >
+        {itemContent}
+      </li>
     })}
   </ul>
 }
