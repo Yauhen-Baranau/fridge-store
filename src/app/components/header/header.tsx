@@ -34,6 +34,6 @@ export default function Header() {
       <img className={styles['socials-icon']} src='whatsapp.webp' alt='Иконка' />
       <img className={styles['socials-icon']} src='telegram.webp' alt='Иконка' />
     </div>
-    <Button text='Заказать звонок' width={187} fontSize={16} />
+    <Button customClass={styles['call-me-back']} text='Заказать звонок' />
   </header>
 }
