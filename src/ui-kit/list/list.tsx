@@ -6,6 +6,7 @@ import composeClassName from '@src/helpers/compose-class-name';
 interface ListItem {
   text: string;
   iconPath?: string;
+  iconPosition?: 'before' | 'after';
   redirectTo?: string;
   subItems?: Array<ListItem>;
 }
@@ -42,11 +43,19 @@ export default function List({
               break;
           }
       }
+      
+      const icon = item.iconPath && <img className='list-item-icon' src={item.iconPath} alt='Иконка' />
+      if (icon && !item.iconPosition) {
+        item.iconPosition = 'before';
+      }
+
       return <li
         className={composeClassName('list-item', isNested && 'nested-list-item')}
         key={index}
       >
+        {item.iconPosition === 'before' && icon}
         {itemContent}
+        {item.iconPosition === 'after' && icon}
       </li>
     })}
   </ul>
