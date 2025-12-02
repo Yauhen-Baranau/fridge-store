@@ -23,22 +23,25 @@ export default function List({
 }) {
   return <ul className={composeClassName('list', direction, customClass)}>
     {items.map((item, index) => {
-      if (!item.subItems || item.subItems.length === 0) {
-        return <li key={index}>{item.text}</li>;
-      }
+      let itemContent;
 
-      const nestedList = <List items={item.subItems} />;
-      const nestedElement = (() => {
+      if (!item.subItems || item.subItems.length === 0) {
+        itemContent = item.text;
+      } else {
+        const nestedList = <List items={item.subItems} />;
         switch (nestedItemsStyle) {
-          case 'accordion':
-            return <Accordion>{nestedList}</Accordion>
-          case 'popup':
-            return <PopupWrapper popupContent={nestedList}><div>{item.text}</div></PopupWrapper>
-          default:
-            return nestedList;
-        }
-      })();
-      return <li key={index}>{nestedElement}</li>
+            case 'accordion':
+              itemContent = <Accordion>{nestedList}</Accordion>
+              break;
+            case 'popup':
+              itemContent = <PopupWrapper popupContent={nestedList}><span>{item.text}</span></PopupWrapper>
+              break;
+            default:
+              itemContent = nestedList;
+              break;
+          }
+      }
+      return <li className='list-item' key={index}>{itemContent}</li>
     })}
   </ul>
 }
