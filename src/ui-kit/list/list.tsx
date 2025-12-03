@@ -3,7 +3,7 @@ import Accordion from '@ui-kit/accordion/accordion';
 import PopupWrapper from '@ui-kit/popup/popup';
 import composeClassName from '@src/helpers/compose-class-name';
 
-interface ListItem {
+export interface ListItem {
   content: string | React.ReactNode;
   iconPath?: string;
   iconPosition?: 'before' | 'after';

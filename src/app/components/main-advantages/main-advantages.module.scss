@@ -1,0 +1,61 @@
+@use '../../../styles/fonts.scss';
+@use '../../../styles/colors.scss';
+
+.main-advantages {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+  padding: 100px;
+
+  .title {
+    @include fonts.font(40px, 600, 125%);
+    text-align: center;
+  }
+
+  .advantages-block {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 270px);
+    gap: 64px 73px;
+
+    .advantage {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      .advantage-header {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding-bottom: 30px;
+        border-bottom: solid colors.$color-gray-lighter 1px;
+
+        .advantage-title {
+          @include fonts.font(20px, 600, 100%);
+
+          .advantage-subtitle {
+            @include fonts.font(14px, 600, 100%);
+            color: colors.$color-main-blue;
+          }
+        }
+      }
+
+      .advantage-content {
+        gap: 16px;
+        
+        li {
+          display: flex;
+          align-items: flex-start;
+          gap: 12px;
+
+          img {
+            width: 7px;
+            height: 7px;
+            position: relative;
+            top: 5px;
+          }
+        }
+      }
+    }
+  }
+}
