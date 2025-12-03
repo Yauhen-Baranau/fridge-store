@@ -6,6 +6,7 @@ import MainAdvantages from './components/main-advantages/main-advantages';
 import PopularServices from './components/popular-services/popular-services';
 import DiscountBlock from './components/discount-block/discount-block';
 import FridgeManufacturers from './components/fridge-manufacturers/fridge-manufacturers';
+import AboutUs from './components/about-us/about-us';
 
 export default function Home() {
   return <>
@@ -17,6 +18,7 @@ export default function Home() {
       <PopularServices />
       <DiscountBlock />
       <FridgeManufacturers />
+      <AboutUs />
     </main>
   </>;
 }

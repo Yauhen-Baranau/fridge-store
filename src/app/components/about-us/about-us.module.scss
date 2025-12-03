@@ -1,0 +1,38 @@
+@use '../../../styles/colors.scss';
+@use '../../../styles/fonts.scss';
+
+.about-us {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+
+  .about-us-title {
+    @include fonts.font(40px, 600, 125%);
+  }
+
+  .about-us-content {
+    display: flex;
+    gap: 130px;
+
+    .about-us-text {
+      @include fonts.font(16px, 400, 160%);
+      width: 570px;
+
+      .bold {
+        font-weight: 600;
+      }
+
+      .learn-more-button {
+        padding: 0;
+        color: colors.$color-main-blue;
+        background-color: colors.$color-main-white;
+        transition-duration: var(--global-transition-duration);
+
+        &:hover {
+          color: colors.$color-blue-dark;
+        }
+      }
+    }
+
+  }
+}
