@@ -1,17 +1,18 @@
 @use '../../../styles/fonts.scss';
 @use '../../../styles/colors.scss';
 
-$main-advantages-padding: 100px;
-$upper-left-snowflake-center-x: 75px;
-$upper-left-snowflake-center-y: 85px;
-$upper-right-snowflake-center-x: 75px;
-$upper-right-snowflake-center-y: 85px;
+$snowflake-width: 131px;
+$snowflake-height: 127px;
+$upper-left-snowflake-center-x: 40px;
+$upper-left-snowflake-center-y: 48px;
+$upper-right-snowflake-center-x: 40px;
+$upper-right-snowflake-center-y: 48px;
 
 .main-advantages {
   display: flex;
   flex-direction: column;
   gap: 56px;
-  padding: $main-advantages-padding;
+  padding: 100px;
   border: solid colors.$color-blue-lighter 5px;
   border-radius: 12px;
   position: relative;
@@ -74,13 +75,13 @@ $upper-right-snowflake-center-y: 85px;
     transform: rotate(-150deg);
 
     &-upper-left {
-      top: calc($upper-left-snowflake-center-y - $main-advantages-padding);
-      left: calc($upper-left-snowflake-center-x - $main-advantages-padding);
+      top: calc($upper-left-snowflake-center-y - $snowflake-height / 2);
+      left: calc($upper-left-snowflake-center-x - $snowflake-width / 2);
     }
 
     &-upper-right {
-      top: calc($upper-right-snowflake-center-y - $main-advantages-padding);
-      right: calc($upper-right-snowflake-center-x - $main-advantages-padding);
+      top: calc($upper-right-snowflake-center-y - $snowflake-height / 2);
+      right: calc($upper-right-snowflake-center-x - $snowflake-width / 2);
     }
   }
 }
