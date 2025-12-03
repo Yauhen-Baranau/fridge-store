@@ -99,6 +99,7 @@ $white-color-filter: brightness(0) saturate(100%) invert(100%) sepia(27%) satura
   .snowflake {
     position: absolute;
     filter: $white-color-filter;
+    opacity: 0.4;
     transform: rotate(-30deg);
     z-index: -1;
 
