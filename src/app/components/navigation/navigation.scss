@@ -17,7 +17,7 @@ $navbar-item-horizontal-padding: 10px;
     border-radius: 12px;
     background-color: colors.$color-gray-light;
 
-    .list-item, .list-item-icon, .popup-trigger-wrapper span {
+    .list-item, .list-item-icon, .popup-trigger-wrapper {
       transition-duration: var(--global-transition-duration);
     }
 
@@ -39,7 +39,7 @@ $navbar-item-horizontal-padding: 10px;
         color: colors.$color-main-blue;
         cursor: pointer;
 
-        .popup-trigger-wrapper span {
+        .popup-trigger-wrapper {
           color: colors.$color-main-blue;
         }
 
