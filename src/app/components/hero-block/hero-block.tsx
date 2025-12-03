@@ -10,9 +10,9 @@ export default function HeroBlock() {
         ХОЛОДИЛЬНИКОВ
       </h1>
       <List customClass={styles.guarantees} items={[
-        { iconPath: 'circle.webp', content: <span>Гарантия до <b>12 месяцев</b></span> },
-        { iconPath: 'circle.webp', content: <span><b>Любой</b> ремонт холодильников на дому</span> },
-        { iconPath: 'circle.webp', content: <span>Озвучиваем цену <b>ДО</b> начала ремонта</span> },
+        { iconPath: 'icons/circle.webp', content: <span>Гарантия до <b>12 месяцев</b></span> },
+        { iconPath: 'icons/circle.webp', content: <span><b>Любой</b> ремонт холодильников на дому</span> },
+        { iconPath: 'icons/circle.webp', content: <span>Озвучиваем цену <b>ДО</b> начала ремонта</span> },
       ]} />
       <Button customClass={styles['discount-button']} text='Получить скидку 10%' />
       <p className={styles.note}>
