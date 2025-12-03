@@ -3,6 +3,7 @@
 import Button from '@src/ui-kit/button/button';
 import styles from './header.module.scss';
 import composeClassName from '@src/helpers/compose-class-name';
+import Socials from '@src/ui-kit/socials/socials';
 
 export default async function Header({ customClass }: { customClass?: string }) {
   const address = 'г. Минск, ул. Домбровская, 9';
@@ -32,11 +33,7 @@ export default async function Header({ customClass }: { customClass?: string }) 
         <span>{email}</span>
       </div>
     </div>
-    <div className={styles.socials}>
-      <img className={styles['socials-icon']} src='icons/viber.webp' alt='Иконка' />
-      <img className={styles['socials-icon']} src='icons/whatsapp.webp' alt='Иконка' />
-      <img className={styles['socials-icon']} src='icons/telegram.webp' alt='Иконка' />
-    </div>
+    <Socials />
     <Button customClass={styles['call-me-back']} text='Заказать звонок' />
   </header>
 }

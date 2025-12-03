@@ -22,18 +22,6 @@
     flex-direction: column;
     gap: 8px;
   }
-  
-  .socials {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
-
-    &-icon {
-      width: 26px;
-      height: 26px;
-    }
-  }
 
   .logo, .open-hours {
     margin-right: 50px;
@@ -42,13 +30,10 @@
   .contacts {
     margin-right: 38px;
   }
-  
-  .socials {
-    margin-right: auto;
-  }
 
   .call-me-back {
     width: 187px;
     height: 48px;
+    margin-left: auto;
   }
 }
