@@ -86,6 +86,7 @@ export default function MainAdvantages() {
         ]
       })}
     </div>
+    {/* didn't use background-image because these snowflakes are rotated */}
     <img src='snowflake.webp' width={131} height={127} className={composeClassName(styles['snowflake'], styles['snowflake-upper-left'])} />
     <img src='snowflake.webp' width={131} height={127} className={composeClassName(styles['snowflake'], styles['snowflake-upper-right'])} />
   </section>

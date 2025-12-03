@@ -1,0 +1,93 @@
+@use '../../../styles/colors.scss';
+@use '../../../styles/fonts.scss';
+
+$snowflake-width: 131px;
+$snowflake-height: 127px;
+$upper-left-snowflake-center-x: 40px; // from the left border
+$upper-left-snowflake-center-y: 48px; // from the upper border
+$upper-right-snowflake-center-x: 40px; // from the right border
+$upper-right-snowflake-center-y: 48px; // from the upper border
+
+.fridge-manufacturers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100px;
+  border: solid colors.$color-blue-lighter 5px;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+
+  &-title {
+    @include fonts.font(40px, 600, 125%);
+    margin-bottom: 56px;
+    text-align: center;
+  }
+
+  &-list {
+    display: grid;
+    grid-template-rows: repeat(2, 406px);
+    grid-template-columns: repeat(3, 303px);
+    gap: 30px;
+    margin-bottom: 24px;
+
+    .fridge-manufacturer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 60px;
+      border-radius: 8px;
+      transition-duration: var(--global-transition-duration);
+
+      &-name {
+        @include fonts.font(20px, 600, 140%);
+        margin: 50px 0 24px 0;
+      }
+
+      &-button {
+        @include fonts.font(16px, 600, 140%);
+        border: solid colors.$color-main-black 1px;
+        color: colors.$color-main-black;
+        background-color: colors.$color-main-white;
+        transition-duration: var(--global-transition-duration);
+      }
+
+      &:hover {
+        box-shadow: 2px 2px 50px 0px #2020200F;
+        cursor: pointer;
+
+        &:not(:active) .fridge-manufacturer-button {
+          border: none;
+          color: colors.$color-main-white;
+          background-color: colors.$color-main-blue;
+        }
+      }
+    }
+  }
+
+  .view-all-models-button {
+    color: colors.$color-main-blue;
+    background: transparent;
+    transition-duration: var(--global-transition-duration);
+
+    &:hover {
+      color: colors.$color-blue-dark;
+      background: transparent;
+    }
+  }
+
+  .snowflake {
+    position: absolute;
+    transform: rotate(-150deg);
+
+    &-upper-left {
+      top: calc($upper-left-snowflake-center-y - $snowflake-height / 2);
+      left: calc($upper-left-snowflake-center-x - $snowflake-width / 2);
+    }
+
+    &-upper-right {
+      top: calc($upper-right-snowflake-center-y - $snowflake-height / 2);
+      right: calc($upper-right-snowflake-center-x - $snowflake-width / 2);
+    }
+  }
+}

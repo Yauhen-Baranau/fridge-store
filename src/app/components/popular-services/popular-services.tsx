@@ -120,6 +120,8 @@ export default function PopularServices() {
         {serviceFactory(params)}
       </React.Fragment>)}
     </div>
+    {/* TO DO: view all services */}
+    {/* didn't use background-image because these snowflakes are rotated */}
     <img className={composeClassName(styles.snowflake, styles['snowflake-upper-left'])} src='snowflake.webp' width={658} height={638} />
     <img className={composeClassName(styles.snowflake, styles['snowflake-lower-right'])} src='snowflake.webp' width={658} height={638} />
   </section>
