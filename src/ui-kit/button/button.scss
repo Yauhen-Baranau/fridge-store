@@ -8,10 +8,37 @@
   border: none;
   border-radius: 6px;
   transition-duration: var(--global-transition-duration);
+  position: relative;
   cursor: pointer;
 
-  span {
+  .button-text {
     color: inherit;
+  }
+
+  &.with-hover-icon {
+    .icon, .hover-icon {
+      transition-duration: var(--global-transition-duration);
+    }
+
+    .hover-icon {
+      position: absolute;
+      top: 0;
+      left: 0;
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    &:hover {
+      .icon {
+        visibility: hidden;
+        opacity: 0;
+      }
+
+      .hover-icon {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
   }
 
   &.default {
