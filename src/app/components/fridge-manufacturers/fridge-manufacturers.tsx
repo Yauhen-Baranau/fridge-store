@@ -8,7 +8,7 @@ export default function FridgeManufacturers() {
     return <div className={styles['fridge-manufacturer']}>
       <img src={imagePath} width={69} height={160} />
       <h3 className={styles['fridge-manufacturer-name']}>{name}</h3>
-      <Button customClass={styles['fridge-manufacturer-button']} text='Узнать подробнее' />
+      <Button customClass={styles['fridge-manufacturer-button']} text='Узнать подробнее' style='monochrome' />
     </div>
   };
 
@@ -27,7 +27,7 @@ export default function FridgeManufacturers() {
         { name: 'BOSCH', imagePath: 'fridges/bosch.webp' },
       ].map((params, index) => <React.Fragment key={index}>{fridgeManufacturerFactory(params)}</React.Fragment>)}
     </div>
-    <Button customClass={styles['view-all-models-button']} text='Смотреть все модели' />
+    <Button text='Смотреть все модели' style='text-only' />
     {/* didn't use background-image because these snowflakes are rotated */}
     <img src='snowflake.webp' width={131} height={127} className={composeClassName(styles['snowflake'], styles['snowflake-upper-left'])} />
     <img src='snowflake.webp' width={131} height={127} className={composeClassName(styles['snowflake'], styles['snowflake-upper-right'])} />

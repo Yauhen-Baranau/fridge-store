@@ -14,7 +14,8 @@ export default function AboutUs() {
         уже <span className={styles.bold}>в день обращения</span>. Мы используем <span className={styles.bold}>только оригинальные запчасти</span>, предоставляем гарантию на все виды работ
         и всегда объясняем клиенту суть проблемы простыми словами.<br /><br />
         <span className={styles.bold}>Наша цель</span> — не просто отремонтировать технику, а сделать так, чтобы вы больше не волновались о её работе.<br /><br /><br />
-        <Button customClass={styles['learn-more-button']} text='Подробнее' />
+        {/* TO DO: fix margin */}
+        <Button text='Подробнее' style='text-only' />
       </p>
       <img src='about-us-photo.webp' width={470} height={522} alt='Специалист по ремонту холодильников' />
     </div>

@@ -21,18 +21,6 @@
       .bold {
         font-weight: 600;
       }
-
-      .learn-more-button {
-        padding: 0;
-        color: colors.$color-main-blue;
-        background-color: colors.$color-main-white;
-        transition-duration: var(--global-transition-duration);
-
-        &:hover {
-          color: colors.$color-blue-dark;
-        }
-      }
     }
-
   }
 }

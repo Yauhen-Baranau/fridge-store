@@ -46,33 +46,12 @@ $upper-right-snowflake-center-y: 48px; // from the upper border
 
       &-button {
         @include fonts.font(16px, 600, 140%);
-        border: solid colors.$color-main-black 1px;
-        color: colors.$color-main-black;
-        background-color: colors.$color-main-white;
-        transition-duration: var(--global-transition-duration);
       }
 
       &:hover {
         box-shadow: 2px 2px 50px 0px #2020200F;
         cursor: pointer;
-
-        &:not(:active) .fridge-manufacturer-button {
-          border: none;
-          color: colors.$color-main-white;
-          background-color: colors.$color-main-blue;
-        }
       }
-    }
-  }
-
-  .view-all-models-button {
-    color: colors.$color-main-blue;
-    background: transparent;
-    transition-duration: var(--global-transition-duration);
-
-    &:hover {
-      color: colors.$color-blue-dark;
-      background: transparent;
     }
   }
 

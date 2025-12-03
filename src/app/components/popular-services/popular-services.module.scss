@@ -96,17 +96,6 @@ $white-color-filter: brightness(0) saturate(100%) invert(100%) sepia(27%) satura
     }
   }
 
-  .view-all-services-button {
-    color: colors.$color-main-blue;
-    background: transparent;
-    transition-duration: var(--global-transition-duration);
-
-    &:hover {
-      color: colors.$color-blue-dark;
-      background: transparent;
-    }
-  }
-
   .snowflake {
     position: absolute;
     filter: $white-color-filter;
