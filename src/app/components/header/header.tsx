@@ -12,28 +12,28 @@ export default function Header({ customClass }: { customClass?: string }) {
     <img className={styles.logo} src='logo.webp' alt='Логотип' width={227} height={40} />
     <div className={styles['open-hours']}>
       <div className={styles['icon-text-pair']}>
-        <img className={styles['header-icon']} src='location.webp' alt='Иконка' />
+        <img className={styles['header-icon']} src='icons/location.webp' alt='Иконка' />
         <span className={styles['header-text']}>{address}</span>
       </div>
       <div className={styles['icon-text-pair']}>
-        <img className={styles['header-icon']} src='clock.webp' alt='Иконка' />
+        <img className={styles['header-icon']} src='icons/clock.webp' alt='Иконка' />
         <span>{openHours}</span>
       </div>
     </div>
     <div className={styles.contacts}>
       <div className={styles['icon-text-pair']}>
-        <img className={styles['header-icon']} src='phone.webp' alt='Иконка' />
+        <img className={styles['header-icon']} src='icons/phone.webp' alt='Иконка' />
         <span>{phoneNumber}</span>
       </div>
       <div className={styles['icon-text-pair']}>
-        <img className={styles['header-icon']} src='envelope.webp' alt='Иконка' />
+        <img className={styles['header-icon']} src='icons/envelope.webp' alt='Иконка' />
         <span>{email}</span>
       </div>
     </div>
     <div className={styles.socials}>
-      <img className={styles['socials-icon']} src='viber.webp' alt='Иконка' />
-      <img className={styles['socials-icon']} src='whatsapp.webp' alt='Иконка' />
-      <img className={styles['socials-icon']} src='telegram.webp' alt='Иконка' />
+      <img className={styles['socials-icon']} src='icons/viber.webp' alt='Иконка' />
+      <img className={styles['socials-icon']} src='icons/whatsapp.webp' alt='Иконка' />
+      <img className={styles['socials-icon']} src='icons/telegram.webp' alt='Иконка' />
     </div>
     <Button customClass={styles['call-me-back']} text='Заказать звонок' />
   </header>
