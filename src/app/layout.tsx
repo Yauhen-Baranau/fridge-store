@@ -1,4 +1,4 @@
-'use server';
+export const dynamic = 'force-static';
 
 import { Montserrat } from "next/font/google";
 import "./globals.scss";
