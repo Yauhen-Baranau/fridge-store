@@ -1,5 +1,6 @@
 import List, { ListItem } from '@src/ui-kit/list/list';
 import styles from './main-advantages.module.scss';
+import composeClassName from '@src/helpers/compose-class-name';
 
 export default function MainAdvantages() {
   const advantageFactory = ({
@@ -85,5 +86,7 @@ export default function MainAdvantages() {
         ]
       })}
     </div>
+    <img src='snowflake.webp' width={131} height={127} className={composeClassName(styles['snowflake'], styles['snowflake-upper-left'])} />
+    <img src='snowflake.webp' width={131} height={127} className={composeClassName(styles['snowflake'], styles['snowflake-upper-right'])} />
   </section>
 }
