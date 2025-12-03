@@ -1,3 +1,13 @@
-.home {
-  margin: 29px calc((100vw - 1170px) / 2) 296px;
+.header {
+  margin-bottom: 24px;
+}
+
+.nav {
+  margin-bottom: 82px;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 140px;
 }
