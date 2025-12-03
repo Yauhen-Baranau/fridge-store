@@ -19,18 +19,31 @@ interface FormValue {
 
 interface FormConfig {
   fieldConfigs: Array<FormFieldConfig>;
-  submitButtonText: string,
-  submitCallback: (formValue: FormValue) => void,
 }
 
-export default function Form({ config }: { config: FormConfig }) {
+export default function Form({
+  config,
+  submitButtonText,
+  submitCallback,
+  preSubmitButtonContent,
+  customClass
+}: {
+  config: FormConfig,
+  submitButtonText: string,
+  submitCallback: (formValue: FormValue) => void,
+  preSubmitButtonContent?: React.ReactNode,
+  customClass?: string
+}) {
   const [activeInputName, setActiveInputName] = useState('');
   const resetActiveInput = () => setActiveInputName('');
 
   const [formValue, setFormValue] = useState<FormValue>(Object.fromEntries(config.fieldConfigs.map(fieldConfig => [fieldConfig.name, null])));
   const setFormValueField = (name: string, newValue: unknown) => setFormValue({ ...formValue, [name]: newValue });
 
-  return <form className='form' onClick={resetActiveInput}>
+  return <form
+    className={composeClassName('form', customClass)}
+    onClick={resetActiveInput}
+  >
     {config.fieldConfigs.map((fieldConfig, index) => {
       return <div
         key={index}
@@ -49,6 +62,7 @@ export default function Form({ config }: { config: FormConfig }) {
         {fieldConfig.placeholder && <span className='placeholder'>{fieldConfig.placeholder}</span>}
       </div>
     })}
-    <Button text={config.submitButtonText} onClick={() => config.submitCallback(formValue)} />
+    {preSubmitButtonContent}
+    <Button text={submitButtonText} onClick={() => submitCallback(formValue)} />
   </form>;
 }

@@ -4,8 +4,8 @@
 $input-upper-padding: 22px;
 
 .form {
-  outline: solid red 1px;
   .input-wrapper {
+    margin-bottom: 10px;
     border-bottom: solid colors.$color-gray-lighter 1px;
     position: relative;
     transition-duration: var(--global-transition-duration);
