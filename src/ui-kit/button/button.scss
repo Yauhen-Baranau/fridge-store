@@ -28,7 +28,7 @@
       opacity: 0;
     }
 
-    &:hover {
+    &:hover:not(:active) {
       .icon {
         visibility: hidden;
         opacity: 0;
