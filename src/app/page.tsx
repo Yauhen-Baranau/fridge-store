@@ -4,6 +4,7 @@ import Navigation from './components/navigation/navigation';
 import HeroBlock from './components/hero-block/hero-block';
 import MainAdvantages from './components/main-advantages/main-advantages';
 import PopularServices from './components/popular-services/popular-services';
+import DiscountBlock from './components/discount-block/discount-block';
 
 export default function Home() {
   return <>
@@ -13,6 +14,7 @@ export default function Home() {
       <HeroBlock />
       <MainAdvantages />
       <PopularServices />
+      <DiscountBlock />
     </main>
   </>;
 }

@@ -1,0 +1,41 @@
+@use '../../../styles/colors.scss';
+@use '../../../styles/fonts.scss';
+
+.discount-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px 204px;
+  border-radius: 12px;
+  background-color: colors.$color-blue-light;
+  background-image: url('/percent.webp'), url('/percent.webp');
+  background-size: 430px 400px;
+  background-repeat: no-repeat;
+  background-position: -77px 100px, 808px -50px;
+
+  &-title {
+    @include fonts.font(40px, 600, 125%);
+    margin-bottom: 40px;
+
+    &-bold {
+      color: colors.$color-main-blue;
+    }
+  }
+
+  &-text {
+    @include fonts.font(20px, 600, 140%);
+    margin-bottom: 48px;
+    text-align: center;
+    color: colors.$color-gray-dark;
+
+    &-bold {
+      color: colors.$color-main-black;
+    }
+  }
+
+  .discount-button {
+    @include fonts.font(16px, 600, 140%);
+    width: 370px;
+    height: 60px;
+  }
+}
