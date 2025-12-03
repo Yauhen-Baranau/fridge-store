@@ -1,0 +1,110 @@
+@use '../../../styles/colors.scss';
+@use '../../../styles/fonts.scss';
+
+$snowflake-width: 658px;
+$snowflake-height: 638px;
+$upper-left-snowflake-center-y: 94px; // from the upper border
+$upper-left-snowflake-center-x: 0px; // from the left border
+$lower-right-snowflake-center-y: 222px; // from the lower border
+$lower-right-snowflake-center-x: 33px; // from the right border
+$white-color-filter: brightness(0) saturate(100%) invert(100%) sepia(27%) saturate(200%) hue-rotate(236deg) brightness(107%) contrast(101%);
+
+.popular-services {
+  padding: 100px;
+  background-color: colors.$color-gray-light;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+
+  .popular-services-title {
+    @include fonts.font(40px, 600, 125%);
+    margin-bottom: 56px;
+    text-align: center;
+  }
+
+  .services-list {
+    display: grid;
+    grid-template-rows: repeat(3, 400px);
+    grid-template-columns: repeat(3, 303px);
+    gap: 30px;
+
+    .service {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 20px;
+      border: solid colors.$color-gray-darker 1px;
+      border-radius: 8px;
+      background-color: colors.$color-gray-light;
+      transition-duration: var(--global-transition-duration);
+      cursor: pointer;
+
+      &:hover {
+        border: solid colors.$color-main-white 1px;
+        background-color: colors.$color-main-white;
+      }
+
+      .service-image {
+        border-radius: 3px;
+      }
+
+      .service-title {
+        @include fonts.font(20px, 600, 120%);
+      }
+      
+      .price-block {
+        @include fonts.font(16px, 600, 140%);
+        white-space: nowrap;
+
+        .dynamic-price-text {
+          color: colors.$color-gray-dark;
+        }
+
+        .price, .free-with-repairs-text {
+          color: colors.$color-main-blue;
+        }
+
+        .price-comment {
+          color: colors.$color-gray-darker;
+        }
+      }
+
+      .service-footer {
+        display: flex;
+        margin-top: auto;
+
+        &-block {
+          display: flex;
+          flex-direction: column;
+          font-weight: 600;
+
+          &-title {
+            color: colors.$color-gray-darker;
+          }
+
+          &:first-child {
+            margin-right: auto;
+          }
+        }
+      }
+    }
+  }
+
+  .snowflake {
+    position: absolute;
+    filter: $white-color-filter;
+    transform: rotate(-30deg);
+    z-index: -1;
+
+    &-upper-left {
+      top: calc($upper-left-snowflake-center-y - $snowflake-height / 2);
+      left: calc($upper-left-snowflake-center-x - $snowflake-width / 2);
+    }
+
+    &-lower-right {
+      bottom: calc($lower-right-snowflake-center-y - $snowflake-height / 2);
+      right: calc($lower-right-snowflake-center-x - $snowflake-width / 2);
+    }
+  }
+}

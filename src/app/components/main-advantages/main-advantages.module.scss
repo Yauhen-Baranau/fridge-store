@@ -3,10 +3,10 @@
 
 $snowflake-width: 131px;
 $snowflake-height: 127px;
-$upper-left-snowflake-center-x: 40px;
-$upper-left-snowflake-center-y: 48px;
-$upper-right-snowflake-center-x: 40px;
-$upper-right-snowflake-center-y: 48px;
+$upper-left-snowflake-center-x: 40px; // from the left border
+$upper-left-snowflake-center-y: 48px; // from the upper border
+$upper-right-snowflake-center-x: 40px; // from the right border
+$upper-right-snowflake-center-y: 48px; // from the upper border
 
 .main-advantages {
   display: flex;

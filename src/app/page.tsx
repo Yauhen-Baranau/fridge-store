@@ -3,6 +3,7 @@ import Header from "./components/header/header";
 import Navigation from './components/navigation/navigation';
 import HeroBlock from './components/hero-block/hero-block';
 import MainAdvantages from './components/main-advantages/main-advantages';
+import PopularServices from './components/popular-services/popular-services';
 
 export default function Home() {
   return <>
@@ -11,6 +12,7 @@ export default function Home() {
     <main className={styles.main}>
       <HeroBlock />
       <MainAdvantages />
+      <PopularServices />
     </main>
   </>;
 }
