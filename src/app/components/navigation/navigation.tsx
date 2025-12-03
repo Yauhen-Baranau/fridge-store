@@ -1,10 +1,12 @@
+'use server';
+
 // not using css modules because this component has a lot of
 // nested components that need custom styling
 import composeClassName from '@src/helpers/compose-class-name';
 import './navigation.scss';
 import List from '@src/ui-kit/list/list';
 
-export default function Navigation({ customClass }: { customClass?: string }) {
+export default async function Navigation({ customClass }: { customClass?: string }) {
   return <nav className={composeClassName('nav', customClass)}>
     <List
       customClass='nav-list'

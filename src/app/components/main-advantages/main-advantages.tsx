@@ -1,8 +1,10 @@
+'use server';
+
 import List, { ListItem } from '@src/ui-kit/list/list';
 import styles from './main-advantages.module.scss';
 import composeClassName from '@src/helpers/compose-class-name';
 
-export default function MainAdvantages() {
+export default async function MainAdvantages() {
   const advantageFactory = ({
     imagePath,
     title,
@@ -35,6 +37,7 @@ export default function MainAdvantages() {
       нашей компании
     </h1>
     <div className={styles['advantages-block']}>
+      {/* TO DO: refactor */}
       {advantageFactory({
         imagePath: 'icons/clock-bg.webp',
         title: 'Быстро',

@@ -1,8 +1,10 @@
+'use server';
+
 import List from '@src/ui-kit/list/list';
 import styles from './hero-block.module.scss';
 import Button from '@src/ui-kit/button/button';
 
-export default function HeroBlock() {
+export default async function HeroBlock() {
   return <section className={styles['hero-block']}>
     <div className={styles['hero-block-left']}>
       <h1 className={styles.title}>

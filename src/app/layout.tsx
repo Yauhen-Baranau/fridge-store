@@ -1,3 +1,5 @@
+'use server';
+
 import { Montserrat } from "next/font/google";
 import "./globals.scss";
 import Header from "./components/header/header";
@@ -7,7 +9,7 @@ const montserrat = Montserrat({
   subsets: ["cyrillic", "latin"],
 });
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;

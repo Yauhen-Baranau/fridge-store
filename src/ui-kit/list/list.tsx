@@ -1,3 +1,5 @@
+'use server'; // seems fishy
+
 import './list.scss';
 import Accordion from '@ui-kit/accordion/accordion';
 import PopupWrapper from '@ui-kit/popup/popup';
@@ -11,7 +13,7 @@ export interface ListItem {
   subItems?: Array<ListItem>;
 }
 
-export default function List({
+export default async function List({
   items,
   direction = 'vertical',
   nestedItemsStyle = 'always-visible',

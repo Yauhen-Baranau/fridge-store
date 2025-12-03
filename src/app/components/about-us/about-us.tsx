@@ -1,7 +1,9 @@
+'use server';
+
 import Button from '@src/ui-kit/button/button';
 import styles from './about-us.module.scss';
 
-export default function AboutUs() {
+export default async function AboutUs() {
   return <section className={styles['about-us']}>
     <h1 className={styles['about-us-title']}>О компании</h1>
     <div className={styles['about-us-content']}>

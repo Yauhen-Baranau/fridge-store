@@ -1,9 +1,11 @@
+'use server';
+
 import React from 'react';
 import styles from './popular-services.module.scss';
 import composeClassName from '@src/helpers/compose-class-name';
 import Button from '@src/ui-kit/button/button';
 
-export default function PopularServices() {
+export default async function PopularServices() {
   const serviceFactory = ({
     imagePath,
     title,

@@ -1,3 +1,5 @@
+'use server';
+
 import styles from './page.module.scss';
 import HeroBlock from './components/hero-block/hero-block';
 import MainAdvantages from './components/main-advantages/main-advantages';

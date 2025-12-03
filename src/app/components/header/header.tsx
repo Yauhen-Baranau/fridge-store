@@ -1,8 +1,10 @@
+'use server';
+
 import Button from '@src/ui-kit/button/button';
 import styles from './header.module.scss';
 import composeClassName from '@src/helpers/compose-class-name';
 
-export default function Header({ customClass }: { customClass?: string }) {
+export default async function Header({ customClass }: { customClass?: string }) {
   const address = 'г. Минск, ул. Домбровская, 9';
   const openHours = 'Пн-Вс с 09.00 до 21.00';
   const phoneNumber= '+375 (33) 364-18-81';

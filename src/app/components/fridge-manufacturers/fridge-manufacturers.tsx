@@ -1,9 +1,11 @@
+'use server';
+
 import Button from '@src/ui-kit/button/button';
 import styles from './fridge-manufacturers.module.scss';
 import React from 'react';
 import composeClassName from '@src/helpers/compose-class-name';
 
-export default function FridgeManufacturers() {
+export default async function FridgeManufacturers() {
   const fridgeManufacturerFactory = ({ name, imagePath }: { name: string, imagePath: string }) => {
     return <div className={styles['fridge-manufacturer']}>
       <img src={imagePath} width={69} height={160} />
