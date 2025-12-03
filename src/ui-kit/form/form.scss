@@ -1,0 +1,47 @@
+@use '../../styles/colors.scss';
+@use '../../styles/fonts.scss';
+
+$input-upper-padding: 22px;
+
+.form {
+  outline: solid red 1px;
+  .input-wrapper {
+    border-bottom: solid colors.$color-gray-lighter 1px;
+    position: relative;
+    transition-duration: var(--global-transition-duration);
+
+    .input, .placeholder {
+      @include fonts.font(16px, 400, 140%);
+    }
+
+    .input {
+      width: 100%;
+      padding: $input-upper-padding 0 14px 0;
+      outline: none;
+      border: none;
+    }
+
+    .placeholder {
+      position: absolute;
+      top: $input-upper-padding;
+      left: 0;
+      transition-duration: var(--global-transition-duration);
+    }
+
+    &:hover, &.active-input {
+      border-bottom: solid colors.$color-main-blue 1px;
+
+      .placeholder {
+        color: colors.$color-main-blue;
+      }
+    }
+
+    &.active-input {
+      .placeholder {
+        top: 0;
+        transform-origin: 0 0;
+        transform: scale(0.8);
+      }
+    }
+  }
+}
