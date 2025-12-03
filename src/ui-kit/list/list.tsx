@@ -4,7 +4,7 @@ import PopupWrapper from '@ui-kit/popup/popup';
 import composeClassName from '@src/helpers/compose-class-name';
 
 interface ListItem {
-  text: string;
+  content: string | React.ReactNode;
   iconPath?: string;
   iconPosition?: 'before' | 'after';
   redirectTo?: string;
@@ -28,7 +28,7 @@ export default function List({
       const isNested = !!item.subItems?.length;
 
       if (!isNested) {
-        itemContent = item.text;
+        itemContent = item.content;
       } else {
         const nestedList = <List items={item.subItems!} />;
         switch (nestedItemsStyle) {
@@ -36,7 +36,7 @@ export default function List({
               itemContent = <Accordion>{nestedList}</Accordion>
               break;
             case 'popup':
-              itemContent = <PopupWrapper popupContent={nestedList}><span>{item.text}</span></PopupWrapper>
+              itemContent = <PopupWrapper popupContent={nestedList}>{item.content}</PopupWrapper>
               break;
             default:
               itemContent = nestedList;
