@@ -15,7 +15,7 @@ export default async function Navigation({ customClass }: { customClass?: string
       nestedItemsStyle='popup'
       items={[
         {
-          content: <Link href='https://google.com'>УСЛУГИ ПО РЕМОНТУ ХОЛОДИЛЬНИКОВ</Link>,
+          content: <Link href='fridge-repair-services'>УСЛУГИ ПО РЕМОНТУ ХОЛОДИЛЬНИКОВ</Link>,
           iconPath: 'icons/chevron-down.webp',
           iconPosition: 'after',
           subItems: [
