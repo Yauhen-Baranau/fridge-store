@@ -7,12 +7,12 @@ import FridgeManufacturers from './components/fridge-manufacturers/fridge-manufa
 import AboutUs from './components/about-us/about-us';
 
 export default async function Home() {
-  return <>
-    <HeroBlock customClass={styles['hero-block']} />
+  return <main className={styles.main}>
+    <HeroBlock />
     <MainAdvantages />
     <PopularServices />
     <DiscountBlock />
     <FridgeManufacturers />
     <AboutUs />
-  </>
+  </main>
 }

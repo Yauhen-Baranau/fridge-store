@@ -3,10 +3,9 @@
 import List from '@src/ui-kit/list/list';
 import styles from './hero-block.module.scss';
 import Button from '@src/ui-kit/button/button';
-import composeClassName from '@src/helpers/compose-class-name';
 
-export default async function HeroBlock({ customClass }: { customClass?: string }) {
-  return <section className={composeClassName(styles['hero-block'], customClass)}>
+export default async function HeroBlock() {
+  return <section className={styles['hero-block']}>
     <div className={styles['hero-block-left']}>
       <h1 className={styles.title}>
         РЕМОНТ &nbsp;&nbsp;<span className={styles['in-minsk']}>в Минске</span><br />

@@ -23,7 +23,7 @@ export default async function RootLayout({
       <body className={composeClassName(montserrat.className, styles.body)}>
         <Header />
         <Navigation />
-        <main className={styles.main}>{children}</main>
+        {children}
         <CallMeBack customClass={styles['call-me-back']} />
         <Footer />
       </body>
