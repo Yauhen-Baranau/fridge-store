@@ -35,7 +35,7 @@ $upper-right-snowflake-center-y: 48px; // from the upper border
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding-top: 60px;
+      padding: 60px 0 30px 0;
       border-radius: 8px;
       transition-duration: var(--global-transition-duration);
 
