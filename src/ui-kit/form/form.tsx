@@ -34,6 +34,7 @@ export default function Form({
   preSubmitButtonContent?: React.ReactNode,
   customClass?: string
 }) {
+  // TO DO: incorporate click-outside hook to defocus inputs on click outside form
   const [activeInputName, setActiveInputName] = useState('');
   const resetActiveInput = () => setActiveInputName('');
 
