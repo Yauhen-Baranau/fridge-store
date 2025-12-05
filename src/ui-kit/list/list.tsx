@@ -29,8 +29,17 @@ export default function List({
       let itemContent;
       const isNested = !!item.subItems?.length;
 
+      const icon = item.iconPath && <img className='list-item-icon' src={item.iconPath} alt='Иконка' />
+      if (icon && !item.iconPosition) {
+        item.iconPosition = 'before';
+      }
+      const itemLabel = <>
+        {item.iconPosition === 'before' && icon}
+        {item.content}
+        {item.iconPosition === 'after' && icon}</>
+
       if (!isNested) {
-        itemContent = item.content;
+        itemContent = itemLabel;
       } else {
         const nestedList = <List items={item.subItems!} />;
         switch (nestedItemsStyle) {
@@ -38,26 +47,22 @@ export default function List({
               itemContent = <Accordion>{nestedList}</Accordion>
               break;
             case 'popup':
-              itemContent = <PopupWrapper popupContent={nestedList}>{item.content}</PopupWrapper>
+              itemContent = <PopupWrapper popupContent={nestedList}>{itemLabel}</PopupWrapper>
               break;
             default:
-              itemContent = nestedList;
+              itemContent = <>
+                {itemLabel}
+                {nestedList}
+              </>;
               break;
           }
-      }
-      
-      const icon = item.iconPath && <img className='list-item-icon' src={item.iconPath} alt='Иконка' />
-      if (icon && !item.iconPosition) {
-        item.iconPosition = 'before';
       }
 
       return <li
         className={composeClassName('list-item', isNested && 'nested-list-item')}
         key={index}
       >
-        {item.iconPosition === 'before' && icon}
         {itemContent}
-        {item.iconPosition === 'after' && icon}
       </li>
     })}
   </ul>
