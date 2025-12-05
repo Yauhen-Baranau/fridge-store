@@ -1,7 +1,5 @@
 @use '../styles/colors.scss';
 
-$desktop-content-width: 1170px;
-
 :root {
   --global-transition-duration: 0.2s;
   --main-blue-color-filter: brightness(0) saturate(100%) invert(45%) sepia(38%) saturate(4293%) hue-rotate(185deg) brightness(99%) contrast(98%);
@@ -13,14 +11,6 @@ $desktop-content-width: 1170px;
   margin: 0;
   font-family: inherit;
   color: colors.$color-main-black;
-}
-
-body {
-  padding: 29px calc((100vw - $desktop-content-width) / 2) 296px;
-
-  > * {
-    width: $desktop-content-width;
-  }
 }
 
 a {
