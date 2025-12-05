@@ -21,7 +21,8 @@
     "paths": {
       "@src/*": ["./src/*"],
       "@ui-kit/*": ["./src/ui-kit/*"],
-      "@helpers/*": ["./src/helpers/*"]
+      "@helpers/*": ["./src/helpers/*"],
+      "@constants/*": ["./src/constants/*"],
     }
   },
   "include": [

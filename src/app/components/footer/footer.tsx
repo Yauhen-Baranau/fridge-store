@@ -2,9 +2,8 @@
 
 import List from '@src/ui-kit/list/list';
 import styles from './footer.module.scss';
-import composeClassName from '@src/helpers/compose-class-name';
 import Link from 'next/link';
-import { contactInfo } from '@src/constants/contact-info';
+import { contactInfo } from '@constants/contact-info';
 import Socials from '@src/ui-kit/socials/socials';
 import Button from '@src/ui-kit/button/button';
 

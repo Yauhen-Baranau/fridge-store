@@ -4,7 +4,7 @@ import Button from '@src/ui-kit/button/button';
 import styles from './call-me-back.module.scss';
 import Form from '@src/ui-kit/form/form';
 import composeClassName from '@src/helpers/compose-class-name';
-import { contactInfo } from '@src/constants/contact-info';
+import { contactInfo } from '@constants/contact-info';
 
 export default function CallMeBack({ customClass }: { customClass?: string }) {
   return <section className={composeClassName(styles['call-me-back'], customClass)}>

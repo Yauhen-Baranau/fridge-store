@@ -4,7 +4,7 @@ import Button from '@src/ui-kit/button/button';
 import styles from './header.module.scss';
 import composeClassName from '@src/helpers/compose-class-name';
 import Socials from '@src/ui-kit/socials/socials';
-import { contactInfo } from '@src/constants/contact-info';
+import { contactInfo } from '@constants/contact-info';
 import Link from 'next/link';
 
 export default async function Header({ customClass }: { customClass?: string }) {
