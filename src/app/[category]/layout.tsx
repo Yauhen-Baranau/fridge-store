@@ -8,7 +8,7 @@ export default function CategoryLayout({
   children: React.ReactNode;
 }>) {
   return <>
-    <Breadcrumbs />
+    <Breadcrumbs customClass={styles.breadcrumbs} />
     {children}
   </>
 }

@@ -5,8 +5,6 @@ $navbar-horizontal-padding: 15px;
 $navbar-item-horizontal-padding: 10px;
 
 .nav {
-  margin-bottom: 82px;
-  
   .nav-list {
     @include fonts.font(14px, 400, 140%);
 

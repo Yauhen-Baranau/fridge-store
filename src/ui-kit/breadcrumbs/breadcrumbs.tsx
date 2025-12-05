@@ -10,7 +10,7 @@ interface Breadcrumb {
   redirectTo: string,
 }
 
-export default function Breadcrumbs() {
+export default function Breadcrumbs({ customClass }: { customClass?: string }) {
   const pathname = usePathname();
 
   const getBreadcrumbs = (): Array<Breadcrumb> => {
@@ -44,7 +44,7 @@ export default function Breadcrumbs() {
     </Link>
   };
 
-  return <div className='breadcrumbs'>
+  return <div className={composeClassName('breadcrumbs', customClass)}>
     {getBreadcrumbs().map((breadcrumb, index, arr) => <React.Fragment key={index}>
       {breadcrumbFactory({
         breadcrumb,
