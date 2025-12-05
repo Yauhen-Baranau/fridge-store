@@ -23,12 +23,14 @@ interface FormConfig {
 
 export default function Form({
   config,
+  preFieldsContent,
   submitButtonText,
   submitCallback,
   preSubmitButtonContent,
   customClass
 }: {
   config: FormConfig,
+  preFieldsContent?: React.ReactNode,
   submitButtonText: string,
   submitCallback: (formValue: FormValue) => void,
   preSubmitButtonContent?: React.ReactNode,
@@ -46,6 +48,7 @@ export default function Form({
     className={composeClassName('form', customClass)}
     onClick={resetActiveInput}
   >
+    {preFieldsContent}
     {config.fieldConfigs.map((fieldConfig, index) => {
       return <div
         key={index}
