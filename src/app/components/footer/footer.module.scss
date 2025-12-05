@@ -22,12 +22,6 @@
     li {
       @include fonts.font(16px, 400, 140%);
       color: colors.$color-gray-light;
-      transition-duration: var(--global-transition-duration);
-
-      &:hover {
-        cursor: pointer;
-        color: colors.$color-main-blue;
-      }
 
       .socials {
         width: min-content;

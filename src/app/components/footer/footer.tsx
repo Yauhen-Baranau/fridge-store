@@ -14,19 +14,19 @@ export default function Footer() {
     <h3 className={styles['footer-column-title']}>УСЛУГИ</h3>
     <h3 className={styles['footer-column-title']}>КОНТАКТЫ</h3>
     <List customClass={styles['footer-column-content']} items={[
-      { content: 'О компании' },
-      { content: 'Цены' },
-      { content: 'Оплата' },
-      { content: 'Отзывы' },
-      { content: 'Популярные вопросы' },
-      { content: 'Частые проблемы' },
-      { content: 'Контакты' },
+      { content: <Link href='https://google.com'>О компании</Link> },
+      { content: <Link href='https://google.com'>Цены</Link> },
+      { content: <Link href='https://google.com'>Оплата</Link> },
+      { content: <Link href='https://google.com'>Отзывы</Link> },
+      { content: <Link href='https://google.com'>Популярные вопросы</Link> },
+      { content: <Link href='https://google.com'>Частые проблемы</Link> },
+      { content: <Link href='https://google.com'>Контакты</Link> },
     ]} />
     <List customClass={styles['footer-column-content']} items={[
-      { content: 'Услуги по ремонту холодильников' },
-      { content: 'Ремонт холодильников по виду' },
-      { content: 'Ремонт холодильников по модели' },
-      { content: 'Ремонт холодильников по городам' },
+      { content: <Link href='https://google.com'>Услуги по ремонту холодильников</Link> },
+      { content: <Link href='https://google.com'>Ремонт холодильников по виду</Link> },
+      { content: <Link href='https://google.com'>Ремонт холодильников по модели</Link> },
+      { content: <Link href='https://google.com'>Ремонт холодильников по городам</Link> },
     ]} />
     <List customClass={styles['footer-column-content']} items={[
       { content: contactInfo.phoneNumber, iconPath: 'icons/phone-4.webp' },
@@ -36,7 +36,9 @@ export default function Footer() {
       { content: <Socials customClass={styles.socials} /> }
     ]} />
     <div className={styles['footer-column-footer']}>&copy; Copyright</div>
-    <div className={composeClassName(styles['footer-column-footer'], styles['privacy-policy'])}>Политика конфиденциальности</div>
+    <div className={styles['footer-column-footer']}>
+      <Link href='https://google.com'>Политика конфиденциальности</Link>
+    </div>
     <div className={styles['footer-column-footer']}>
       <Link className={styles['designed-by-link']} href='https://www.instagram.com/kutsenko_olga1990?igsh=ZDlsY3JoNG0zeTh1'>Design by Volha Kutsenka</Link>
       <Button

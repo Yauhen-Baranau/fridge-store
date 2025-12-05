@@ -37,12 +37,12 @@ $white-color-filter: brightness(0) saturate(100%) invert(100%) sepia(27%) satura
       display: flex;
       flex-direction: column;
       gap: 16px;
+      height: 100%;
       padding: 20px;
       border: solid colors.$color-gray-darker 1px;
       border-radius: 8px;
       background-color: colors.$color-gray-light;
       transition-duration: var(--global-transition-duration);
-      cursor: pointer;
 
       &:hover {
         border: solid colors.$color-main-white 1px;

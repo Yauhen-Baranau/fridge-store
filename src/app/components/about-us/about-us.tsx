@@ -2,6 +2,7 @@
 
 import Button from '@src/ui-kit/button/button';
 import styles from './about-us.module.scss';
+import Link from 'next/link';
 
 export default async function AboutUs() {
   return <section className={styles['about-us']}>
@@ -17,7 +18,9 @@ export default async function AboutUs() {
         и всегда объясняем клиенту суть проблемы простыми словами.<br /><br />
         <span className={styles.bold}>Наша цель</span> — не просто отремонтировать технику, а сделать так, чтобы вы больше не волновались о её работе.<br /><br /><br />
         {/* TO DO: fix margin */}
-        <Button text='Подробнее' style='text-only' />
+        <Link href='https://google.com'>
+          <Button text='Подробнее' style='text-only' />
+        </Link>
       </p>
       <img src='about-us-photo.webp' width={470} height={522} alt='Специалист по ремонту холодильников' />
     </div>

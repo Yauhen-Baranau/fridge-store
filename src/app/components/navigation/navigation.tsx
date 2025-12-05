@@ -5,6 +5,7 @@
 import composeClassName from '@src/helpers/compose-class-name';
 import './navigation.scss';
 import List from '@src/ui-kit/list/list';
+import Link from 'next/link';
 
 export default async function Navigation({ customClass }: { customClass?: string }) {
   return <nav className={composeClassName('nav', customClass)}>
@@ -14,44 +15,44 @@ export default async function Navigation({ customClass }: { customClass?: string
       nestedItemsStyle='popup'
       items={[
         {
-          content: 'УСЛУГИ ПО РЕМОНТУ ХОЛОДИЛЬНИКОВ',
+          content: <Link href='https://google.com'>УСЛУГИ ПО РЕМОНТУ ХОЛОДИЛЬНИКОВ</Link>,
           // TO DO: hovering above icon doesn't trigger popup
           iconPath: 'icons/chevron-down.webp',
           iconPosition: 'after',
           subItems: [
-            { iconPath: 'icons/square-small.webp', content: 'ЗАМЕНА И РЕМОНТ КОМПОНЕНТОВ СИСТЕМЫ ОХЛАЖДЕНИЯ' },
-            { iconPath: 'icons/square-small.webp', content: 'РЕМОНТА И ЗАМЕНА ЭЛЕКТРИЧЕСКИХ КОМПОНЕНТОВ' },
-            { iconPath: 'icons/square-small.webp', content: 'ЗАМЕНА ЭЛЕМЕНТОВ СИСТЕМЫ NO FROST' },
-            { iconPath: 'icons/square-small.webp', content: 'ЗАМЕНА И РЕМОНТ МЕХАНИЧЕСКИХ УЗЛОВ' },
-            { iconPath: 'icons/square-small.webp', content: 'РЕМОНТ ДВЕРЕЙ И КОРПУСА' },
-            { iconPath: 'icons/square-small.webp', content: 'ПРОЧИЕ УСЛУГИ' },
+            { iconPath: 'icons/square-small.webp', content: <Link href='https://google.com'>ЗАМЕНА И РЕМОНТ КОМПОНЕНТОВ СИСТЕМЫ ОХЛАЖДЕНИЯ</Link> },
+            { iconPath: 'icons/square-small.webp', content: <Link href='https://google.com'>РЕМОНТА И ЗАМЕНА ЭЛЕКТРИЧЕСКИХ КОМПОНЕНТОВ</Link> },
+            { iconPath: 'icons/square-small.webp', content: <Link href='https://google.com'>ЗАМЕНА ЭЛЕМЕНТОВ СИСТЕМЫ NO FROST</Link> },
+            { iconPath: 'icons/square-small.webp', content: <Link href='https://google.com'>ЗАМЕНА И РЕМОНТ МЕХАНИЧЕСКИХ УЗЛОВ</Link> },
+            { iconPath: 'icons/square-small.webp', content: <Link href='https://google.com'>РЕМОНТ ДВЕРЕЙ И КОРПУСА</Link> },
+            { iconPath: 'icons/square-small.webp', content: <Link href='https://google.com'>ПРОЧИЕ УСЛУГИ</Link> },
           ],
         },
         {
-          content: 'ВИДЫ ХОЛОДИЛЬНИКОВ',
+          content: <Link href='https://google.com'>ВИДЫ ХОЛОДИЛЬНИКОВ</Link>,
           iconPath: 'icons/chevron-down.webp',
           iconPosition: 'after',
           subItems: [
-            { iconPath: 'icons/square-small.webp', content: 'РЕМОНТ БЫТОВЫХ ХОЛОДИЛЬНИКОВ' },
-            { iconPath: 'icons/square-small.webp', content: 'РЕМОНТ КОММЕРЧЕСКИХ ХОЛОДИЛЬНИКОВ' },
-            { iconPath: 'icons/square-small.webp', content: 'РЕМОНТ СПЕЦИАЛЬНЫХ ХОЛОДИЛЬНЫХ УСТАНОВОК' },
-            { iconPath: 'icons/square-small.webp', content: 'РЕМОНТ ПРОМЫШЛЕННЫХ СИСТЕМ ОХЛАЖДЕНИЯ' },
+            { iconPath: 'icons/square-small.webp', content: <Link href='https://google.com'>РЕМОНТ БЫТОВЫХ ХОЛОДИЛЬНИКОВ</Link> },
+            { iconPath: 'icons/square-small.webp', content: <Link href='https://google.com'>РЕМОНТ КОММЕРЧЕСКИХ ХОЛОДИЛЬНИКОВ</Link> },
+            { iconPath: 'icons/square-small.webp', content: <Link href='https://google.com'>РЕМОНТ СПЕЦИАЛЬНЫХ ХОЛОДИЛЬНЫХ УСТАНОВОК</Link> },
+            { iconPath: 'icons/square-small.webp', content: <Link href='https://google.com'>РЕМОНТ ПРОМЫШЛЕННЫХ СИСТЕМ ОХЛАЖДЕНИЯ</Link> },
           ],
         },
         {
-          content: 'ЦЕНЫ',
+          content: <Link href='https://google.com'>ЦЕНЫ</Link>,
         },
         {
-          content: 'ОПЛАТА',
+          content: <Link href='https://google.com'>ОПЛАТА</Link>,
         },
         {
-          content: 'ОТЗЫВЫ',
+          content: <Link href='https://google.com'>ОТЗЫВЫ</Link>,
         },
         {
-          content: 'О КОМПАНИИ',
+          content: <Link href='https://google.com'>О КОМПАНИИ</Link>,
         },
         {
-          content: 'КОНТАКТЫ',
+          content: <Link href='https://google.com'>КОНТАКТЫ</Link>,
         },
       ]} />
   </nav>

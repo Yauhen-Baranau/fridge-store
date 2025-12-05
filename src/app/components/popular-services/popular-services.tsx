@@ -4,6 +4,7 @@ import React from 'react';
 import styles from './popular-services.module.scss';
 import composeClassName from '@src/helpers/compose-class-name';
 import Button from '@src/ui-kit/button/button';
+import Link from 'next/link';
 
 export default async function PopularServices() {
   const serviceFactory = ({
@@ -25,29 +26,31 @@ export default async function PopularServices() {
     requiredTime: string,
     guarantee?: string,
   }) => {
-    return <div className={styles.service}>
-      <img className={styles['service-image']} src={imagePath} width={263} height={173} alt='Изображение услуги' />
-      <h3 className={styles['service-title']}>{title}</h3>
-      <p className={styles['price-block']}>
-        {dynamicPrice && <span className={styles['dynamic-price-text']}>от </span>}
-        <span className={styles.price}>{price} руб.</span>
-        {priceComment && <span className={styles['price-comment']}> ({priceComment})</span>}
-        {freeWithRepairs && <>
-          <br />
-          <span className={styles['free-with-repairs-text']}>Бесплатно (при ремонте)</span>
-        </>}
-      </p>
-      <div className={styles['service-footer']}>
-        <div className={styles['service-footer-block']}>
-          <span className={styles['service-footer-block-title']}>Время работы:</span>
-          <span>{requiredTime}</span>
+    return <Link href='https://google.com'>
+      <div className={styles.service}>
+        <img className={styles['service-image']} src={imagePath} width={263} height={173} alt='Изображение услуги' />
+        <h3 className={styles['service-title']}>{title}</h3>
+        <p className={styles['price-block']}>
+          {dynamicPrice && <span className={styles['dynamic-price-text']}>от </span>}
+          <span className={styles.price}>{price} руб.</span>
+          {priceComment && <span className={styles['price-comment']}> ({priceComment})</span>}
+          {freeWithRepairs && <>
+            <br />
+            <span className={styles['free-with-repairs-text']}>Бесплатно (при ремонте)</span>
+          </>}
+        </p>
+        <div className={styles['service-footer']}>
+          <div className={styles['service-footer-block']}>
+            <span className={styles['service-footer-block-title']}>Время работы:</span>
+            <span>{requiredTime}</span>
+          </div>
+          {guarantee && <div className={styles['service-footer-block']}>
+            <span className={styles['service-footer-block-title']}>Гарантия:</span>
+            <span>{guarantee}</span>
+          </div>}
         </div>
-        {guarantee && <div className={styles['service-footer-block']}>
-          <span className={styles['service-footer-block-title']}>Гарантия:</span>
-          <span>{guarantee}</span>
-        </div>}
       </div>
-    </div>
+    </Link>
   };
 
   return <section className={styles['popular-services']}>
@@ -123,7 +126,9 @@ export default async function PopularServices() {
         {serviceFactory(params)}
       </React.Fragment>)}
     </div>
-    <Button text='Смотреть все услуги' style='text-only' />
+    <Link href='https://google.com'>
+      <Button text='Смотреть все услуги' style='text-only' />
+    </Link>
     {/* didn't use background-image because these snowflakes are rotated */}
     <img className={composeClassName(styles.snowflake, styles['snowflake-upper-left'])} src='snowflake.webp' width={658} height={638} />
     <img className={composeClassName(styles.snowflake, styles['snowflake-lower-right'])} src='snowflake.webp' width={658} height={638} />

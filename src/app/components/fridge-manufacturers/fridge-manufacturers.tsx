@@ -4,14 +4,17 @@ import Button from '@src/ui-kit/button/button';
 import styles from './fridge-manufacturers.module.scss';
 import React from 'react';
 import composeClassName from '@src/helpers/compose-class-name';
+import Link from 'next/link';
 
 export default async function FridgeManufacturers() {
   const fridgeManufacturerFactory = ({ name, imagePath }: { name: string, imagePath: string }) => {
-    return <div className={styles['fridge-manufacturer']}>
-      <img src={imagePath} width={69} height={160} />
-      <h3 className={styles['fridge-manufacturer-name']}>{name}</h3>
-      <Button customClass={styles['fridge-manufacturer-button']} text='Узнать подробнее' style='monochrome' />
-    </div>
+    return <Link href='https://google.com'>
+      <div className={styles['fridge-manufacturer']}>
+        <img src={imagePath} width={69} height={160} />
+        <h3 className={styles['fridge-manufacturer-name']}>{name}</h3>
+        <Button customClass={styles['fridge-manufacturer-button']} text='Узнать подробнее' style='monochrome' />
+      </div>
+    </Link>
   };
 
   return <section className={styles['fridge-manufacturers']}>
