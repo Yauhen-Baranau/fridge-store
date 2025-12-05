@@ -24,8 +24,14 @@ body {
 }
 
 a {
-  color: inherit;
   text-decoration: none;
+  color: inherit;
+  transition-duration: var(--global-transition-duration);
+
+  &:hover {
+    cursor: pointer;
+    color: colors.$color-main-blue;
+  }
 }
 
 @media (prefers-color-scheme: dark) {

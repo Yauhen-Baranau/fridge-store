@@ -39,7 +39,7 @@
         display: flex;
         align-items: center;
         gap: 8px;
-        width: fit-content;
+        width: 100%;
         
         &:nth-of-type(3) {
           padding-bottom: 20px;
@@ -58,17 +58,35 @@
     color: colors.$color-gray-darker;
     align-self: end;
 
-    &.privacy-policy, &.designed-by {
-      transition-duration: var(--global-transition-duration);
+    &:nth-of-type(3) {
+      display: flex;
+      align-items: flex-end;
 
-      &:hover {
-        cursor: pointer;
-        color: colors.$color-main-blue;
+      .designed-by-link {
+        text-decoration: underline;
       }
-    }
+      
+      .scroll-up-button {
+        width: 48px;
+        height: 48px;
+        margin-left: auto;
+        background-color: colors.$color-gray-dark;
 
-    &.designed-by {
-      text-decoration: underline;
+        &:hover {
+          background-color: colors.$color-main-blue;
+
+          &:active {
+            background-color: colors.$color-main-black;
+          }
+        }
+
+        img {
+          width: 14px;
+          height: 18px;
+          position: relative;
+          top: 2px;
+        }
+      }
     }
   }
 }

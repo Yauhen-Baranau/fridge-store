@@ -1,4 +1,4 @@
-'use server';
+'use client'; // to pass the scroll up callback to the button
 
 import List from '@src/ui-kit/list/list';
 import styles from './footer.module.scss';
@@ -6,8 +6,9 @@ import composeClassName from '@src/helpers/compose-class-name';
 import Link from 'next/link';
 import { contactInfo } from '@src/constants/contact-info';
 import Socials from '@src/ui-kit/socials/socials';
+import Button from '@src/ui-kit/button/button';
 
-export default async function Footer() {
+export default function Footer() {
   return <footer className={styles.footer}>
     <h3 className={styles['footer-column-title']}>ИНФОРМАЦИЯ</h3>
     <h3 className={styles['footer-column-title']}>УСЛУГИ</h3>
@@ -36,9 +37,13 @@ export default async function Footer() {
     ]} />
     <div className={styles['footer-column-footer']}>&copy; Copyright</div>
     <div className={composeClassName(styles['footer-column-footer'], styles['privacy-policy'])}>Политика конфиденциальности</div>
-    <div className={composeClassName(styles['footer-column-footer'], styles['designed-by'])}>
-      <Link href='https://www.instagram.com/kutsenko_olga1990?igsh=ZDlsY3JoNG0zeTh1'>Design by Volha Kutsenka</Link>
-      {/* TO DO: go back button */}
+    <div className={styles['footer-column-footer']}>
+      <Link className={styles['designed-by-link']} href='https://www.instagram.com/kutsenko_olga1990?igsh=ZDlsY3JoNG0zeTh1'>Design by Volha Kutsenka</Link>
+      <Button
+        customClass={styles['scroll-up-button']}
+        iconPath='icons/arrow-up.webp'
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      />
     </div>
   </footer>
 }
