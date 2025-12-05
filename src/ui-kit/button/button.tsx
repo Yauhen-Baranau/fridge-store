@@ -6,7 +6,7 @@ import composeClassName from '@src/helpers/compose-class-name';
 export default function Button({
   iconPath,
   hoverIconPath,
-  text = 'Кнопка',
+  text,
   type = 'button',
   style = 'default',
   onClick = () => {},
@@ -32,6 +32,6 @@ export default function Button({
   >
     {iconPath && <img className='icon' src={iconPath} alt='Иконка' />}
     {hoverIconPath && <img className='hover-icon' src={hoverIconPath} alt='Иконка' />}
-    <span className='button-text'>{text}</span>
+    {text && <span className='button-text'>{text}</span>}
   </button>;
 }
