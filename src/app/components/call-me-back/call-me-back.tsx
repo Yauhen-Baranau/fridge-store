@@ -4,15 +4,15 @@ import Button from '@src/ui-kit/button/button';
 import styles from './call-me-back.module.scss';
 import Form from '@src/ui-kit/form/form';
 import composeClassName from '@src/helpers/compose-class-name';
+import { contactInfo } from '@src/constants/contact-info';
 
 export default function CallMeBack() {
-  const phoneNumber = '+375 (33) 364-18-81';
   return <section className={styles['call-me-back']}>
     <div className={styles['call-me-back-left-block']}>
       <h1 className={styles['call-me-back-title']}>Остались вопросы?</h1>
       <p className={styles['call-me-back-text']}>Оставьте контактный телефон и в ближайшее время с вами свяжется наш специалист</p>
       <p className={styles['call-me-back-text']}>Или позвоните по этому номеру:</p>
-      <p className={styles['call-me-back-phone']}>{phoneNumber}</p>
+      <p className={styles['call-me-back-phone']}>{contactInfo.phoneNumber}</p>
       <Button
         customClass={styles['call-me-back-button']}
         text='Позвонить'

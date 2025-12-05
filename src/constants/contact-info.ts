@@ -1,5 +1,3 @@
-// TO DO: use everywhere
-
 export const contactInfo = {
   phoneNumber: '+375 (33) 364-18-81',
   email: 'online888bazar@gmail.com',
