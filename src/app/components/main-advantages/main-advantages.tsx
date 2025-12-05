@@ -3,6 +3,7 @@
 import List, { ListItem } from '@src/ui-kit/list/list';
 import styles from './main-advantages.module.scss';
 import composeClassName from '@src/helpers/compose-class-name';
+import React from 'react';
 
 export default async function MainAdvantages() {
   const advantageFactory = ({
@@ -37,57 +38,58 @@ export default async function MainAdvantages() {
       нашей компании
     </h1>
     <div className={styles['advantages-block']}>
-      {/* TO DO: refactor */}
-      {advantageFactory({
-        imagePath: 'icons/clock-bg.webp',
-        title: 'Быстро',
-        items: [
-          { iconPath: 'icons/circle.webp', content: 'Ремонт в день заявки' },
-          { iconPath: 'icons/circle.webp', content: 'От 15 минут до 24 часов, в зависимости от поломки' },
-        ]
-      })}
-      {advantageFactory({
-        imagePath: 'icons/calendar-bg.webp',
-        title: 'Ежедневно',
-        items: [
-          { iconPath: 'icons/circle.webp', content: 'Пн-Вс с 08:00 до 21:00' },
-          { iconPath: 'icons/circle.webp', content: 'Без выходных' },
-        ]
-      })}
-      {advantageFactory({
-        imagePath: 'icons/medal-bg.webp',
-        title: 'С гарантией',
-        items: [
-          { iconPath: 'icons/circle.webp', content: 'Опытные мастера' },
-          { iconPath: 'icons/circle.webp', content: 'От 3 до 12 месяцев гарантии' },
-          { iconPath: 'icons/circle.webp', content: 'Гарантийный талон' },
-        ]
-      })}
-      {advantageFactory({
-        imagePath: 'icons/wallet-bg.webp',
-        title: 'Недорого',
-        items: [
-          { iconPath: 'icons/circle.webp', content: 'Низкие цены на ремонт' },
-          { iconPath: 'icons/circle.webp', content: 'Ремонт от 35 руб.' },
-        ]
-      })}
-      {advantageFactory({
-        imagePath: 'icons/piggybank-bg.webp',
-        title: 'Бесплатно',
-        subtitle: 'При выполнении ремонта',
-        items: [
-          { iconPath: 'icons/circle.webp', content: 'Диагностика техники' },
-          { iconPath: 'icons/circle.webp', content: 'Выезд мастера на дом' },
-        ]
-      })}
-      {advantageFactory({
-        imagePath: 'icons/tick-bg.webp',
-        title: 'Без б/у запчастей',
-        items: [
-          { iconPath: 'icons/circle.webp', content: 'Оригинальные запчасти' },
-          { iconPath: 'icons/circle.webp', content: 'Если деталь вышла из строя, заменяем ее на новую' },
-        ]
-      })}
+      {[
+        {
+          imagePath: 'icons/clock-bg.webp',
+          title: 'Быстро',
+          items: [
+            { iconPath: 'icons/circle.webp', content: 'Ремонт в день заявки' },
+            { iconPath: 'icons/circle.webp', content: 'От 15 минут до 24 часов, в зависимости от поломки' },
+          ]
+        },
+        {
+          imagePath: 'icons/calendar-bg.webp',
+          title: 'Ежедневно',
+          items: [
+            { iconPath: 'icons/circle.webp', content: 'Пн-Вс с 08:00 до 21:00' },
+            { iconPath: 'icons/circle.webp', content: 'Без выходных' },
+          ]
+        },
+        {
+          imagePath: 'icons/medal-bg.webp',
+          title: 'С гарантией',
+          items: [
+            { iconPath: 'icons/circle.webp', content: 'Опытные мастера' },
+            { iconPath: 'icons/circle.webp', content: 'От 3 до 12 месяцев гарантии' },
+            { iconPath: 'icons/circle.webp', content: 'Гарантийный талон' },
+          ]
+        },
+        {
+          imagePath: 'icons/wallet-bg.webp',
+          title: 'Недорого',
+          items: [
+            { iconPath: 'icons/circle.webp', content: 'Низкие цены на ремонт' },
+            { iconPath: 'icons/circle.webp', content: 'Ремонт от 35 руб.' },
+          ]
+        },
+        {
+          imagePath: 'icons/piggybank-bg.webp',
+          title: 'Бесплатно',
+          subtitle: 'При выполнении ремонта',
+          items: [
+            { iconPath: 'icons/circle.webp', content: 'Диагностика техники' },
+            { iconPath: 'icons/circle.webp', content: 'Выезд мастера на дом' },
+          ]
+        },
+        {
+          imagePath: 'icons/tick-bg.webp',
+          title: 'Без б/у запчастей',
+          items: [
+            { iconPath: 'icons/circle.webp', content: 'Оригинальные запчасти' },
+            { iconPath: 'icons/circle.webp', content: 'Если деталь вышла из строя, заменяем ее на новую' },
+          ]
+        },
+      ].map((params, index) => <React.Fragment key={index}>{advantageFactory(params)}</React.Fragment>)}
     </div>
     {/* didn't use background-image because these snowflakes are rotated */}
     <img src='snowflake.webp' width={131} height={127} className={composeClassName(styles['snowflake'], styles['snowflake-upper-left'])} />
