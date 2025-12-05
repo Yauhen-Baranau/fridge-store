@@ -7,6 +7,7 @@ import Header from "./components/header/header";
 import Navigation from "./components/navigation/navigation";
 import Footer from "./components/footer/footer";
 import composeClassName from "@src/helpers/compose-class-name";
+import CallMeBack from "./components/call-me-back/call-me-back";
 
 const montserrat = Montserrat({
   subsets: ["cyrillic", "latin"],
@@ -23,6 +24,7 @@ export default async function RootLayout({
         <Header />
         <Navigation />
         <main className={styles.main}>{children}</main>
+        <CallMeBack customClass={styles['call-me-back']} />
         <Footer />
       </body>
     </html>

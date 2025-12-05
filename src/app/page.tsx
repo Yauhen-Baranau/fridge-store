@@ -5,7 +5,6 @@ import PopularServices from './components/popular-services/popular-services';
 import DiscountBlock from './components/discount-block/discount-block';
 import FridgeManufacturers from './components/fridge-manufacturers/fridge-manufacturers';
 import AboutUs from './components/about-us/about-us';
-import CallMeBack from './components/call-me-back/call-me-back';
 
 export default async function Home() {
   return <>
@@ -15,6 +14,5 @@ export default async function Home() {
     <DiscountBlock />
     <FridgeManufacturers />
     <AboutUs />
-    <CallMeBack />
   </>
 }
