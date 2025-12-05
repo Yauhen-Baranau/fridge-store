@@ -16,7 +16,6 @@ export default async function Navigation({ customClass }: { customClass?: string
       items={[
         {
           content: <Link href='https://google.com'>УСЛУГИ ПО РЕМОНТУ ХОЛОДИЛЬНИКОВ</Link>,
-          // TO DO: hovering above icon doesn't trigger popup
           iconPath: 'icons/chevron-down.webp',
           iconPosition: 'after',
           subItems: [
