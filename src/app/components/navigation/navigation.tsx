@@ -6,6 +6,7 @@ import composeClassName from '@src/helpers/compose-class-name';
 import './navigation.scss';
 import List from '@src/ui-kit/list/list';
 import Link from 'next/link';
+import { Routes } from '@src/constants/routes';
 
 export default async function Navigation({ customClass }: { customClass?: string }) {
   return <nav className={composeClassName('nav', customClass)}>
@@ -15,7 +16,7 @@ export default async function Navigation({ customClass }: { customClass?: string
       nestedItemsStyle='popup'
       items={[
         {
-          content: <Link href='fridge-repair-services'>УСЛУГИ ПО РЕМОНТУ ХОЛОДИЛЬНИКОВ</Link>,
+          content: <Link href={Routes.FridgeRepairServices}>УСЛУГИ ПО РЕМОНТУ ХОЛОДИЛЬНИКОВ</Link>,
           iconPath: 'icons/chevron-down.webp',
           iconPosition: 'after',
           subItems: [

@@ -4,6 +4,8 @@ import './breadcrumbs.scss';
 import React from 'react';
 import { usePathname } from 'next/navigation';
 import composeClassName from '@src/helpers/compose-class-name';
+import { routeToLabelMap } from '@constants/route-to-label-map';
+import { Routes } from '@constants/routes';
 
 interface Breadcrumb {
   label: string,
@@ -19,7 +21,7 @@ export default function Breadcrumbs({ customClass }: { customClass?: string }) {
     let currPath = '';
     pathFragments.forEach(fragment => {
       currPath += `/${fragment}`;
-      breadcrumbs.push({ label: fragment, redirectTo: currPath })
+      breadcrumbs.push({ label: routeToLabelMap.get(fragment as Routes) || '', redirectTo: currPath })
     });
     return breadcrumbs;
   }

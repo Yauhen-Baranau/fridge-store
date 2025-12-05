@@ -35,6 +35,7 @@ export default function Form({
   customClass?: string
 }) {
   // TO DO: incorporate click-outside hook to defocus inputs on click outside form
+  // TO DO: placeholder overlaps input value
   const [activeInputName, setActiveInputName] = useState('');
   const resetActiveInput = () => setActiveInputName('');
 
