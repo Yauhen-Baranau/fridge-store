@@ -1,9 +1,9 @@
-'use server'; // seems fishy
+'use client';
 
 import './popup.scss';
 import composeClassName from '@src/helpers/compose-class-name';
 
-export default async function PopupWrapper({
+export default function PopupWrapper({
   children,
   popupContent,
   customClass,

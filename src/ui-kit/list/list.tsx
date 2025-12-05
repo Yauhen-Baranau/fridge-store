@@ -1,4 +1,4 @@
-'use server'; // seems fishy
+'use client';
 
 import './list.scss';
 import Accordion from '@ui-kit/accordion/accordion';
@@ -13,7 +13,7 @@ export interface ListItem {
   subItems?: Array<ListItem>;
 }
 
-export default async function List({
+export default function List({
   items,
   direction = 'vertical',
   nestedItemsStyle = 'always-visible',
