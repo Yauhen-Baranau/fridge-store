@@ -1,6 +1,10 @@
 'use client';
+
 import Breadcrumbs from '@src/ui-kit/breadcrumbs/breadcrumbs';
 import styles from './layout.module.scss';
+import FrequentFridgeProblems from '@src/ui-kit/frequent-fridge-problems/frequent-fridge-problems';
+import DiscountBlock from '@src/ui-kit/discount-block/discount-block';
+import FridgeManufacturers from '@src/ui-kit/fridge-manufacturers/fridge-manufacturers';
 
 export default function CategoryLayout({
   children,
@@ -10,5 +14,9 @@ export default function CategoryLayout({
   return <>
     <Breadcrumbs customClass={styles.breadcrumbs} />
     {children}
+    <FrequentFridgeProblems customClass={styles['post-children-block']} />
+    <DiscountBlock customClass={styles['post-children-block']} />
+    <div>kak zakazat remont</div>
+    <FridgeManufacturers customClass={styles['post-children-block']} />
   </>
 }

@@ -1,0 +1,70 @@
+@use '../../styles/colors.scss';
+@use '../../styles/fonts.scss';
+
+.frequent-fridge-problems {
+  display: grid;
+  grid-template-areas:
+    "title title"
+    "left right"
+  ;
+  grid-template-columns: 470px 570px;
+  gap: 56px 130px;
+
+  .title {
+    @include fonts.font(40px, 600, 125%);
+    grid-area: title;
+  }
+
+  .left-content {
+    display: flex;
+    flex-direction: column;
+
+    .call-me-back-text {
+      margin: 56px 0 32px 0;
+    }
+
+    .call-me-back-button {
+      @include fonts.font(16px, 600, 140%);
+      width: 370px;
+      height: 60px;
+    }
+  }
+
+  .right-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .frequent-problem {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px;
+      border: solid colors.$color-main-blue 1px;
+      border-radius: 12px;
+
+      .frequent-problem-label {
+        @include fonts.font(18px, 600, 140%);
+        color: #000; // yes, this is by design
+      }
+
+      .frequent-problem-button {
+        width: 50px;
+        height: 50px;
+        padding: 0;
+
+        img {
+          position: relative;
+          top: 2px;
+          transform: rotate(45deg);
+        }
+      }
+    }
+
+    .view-all-problems-button {
+      @include fonts.font(16px, 600, 140%);
+      align-self: flex-start;
+      margin-top: auto;
+    }
+  }
+}

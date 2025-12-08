@@ -1,4 +1,4 @@
-'use server';
+'use client';
 
 import Button from '@src/ui-kit/button/button';
 import styles from './fridge-manufacturers.module.scss';
@@ -7,7 +7,7 @@ import composeClassName from '@src/helpers/compose-class-name';
 import Link from 'next/link';
 import Image from 'next/image';
 
-export default async function FridgeManufacturers() {
+export default function FridgeManufacturers({ customClass }: { customClass?: string }) {
   const fridgeManufacturerFactory = ({ name, imagePath }: { name: string, imagePath: string }) => {
     return <Link href='https://google.com'>
       <div className={styles['fridge-manufacturer']}>
@@ -18,7 +18,7 @@ export default async function FridgeManufacturers() {
     </Link>
   };
 
-  return <section className={styles['fridge-manufacturers']}>
+  return <section className={composeClassName(styles['fridge-manufacturers'], customClass)}>
     <h1 className={styles['fridge-manufacturers-title']}>
       Ремонтируем холодильники<br />
       всех производителей
