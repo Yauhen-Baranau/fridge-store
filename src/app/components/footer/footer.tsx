@@ -28,9 +28,23 @@ export default function Footer() {
       { content: <Link href='https://google.com'>Ремонт холодильников по городам</Link> },
     ]} />
     <List customClass={styles['footer-column-content']} items={[
-      { content: contactInfo.phoneNumber, iconPath: 'icons/phone-4.webp' },
-      { content: contactInfo.email, iconPath: 'icons/envelope-2.webp' },
-      { content: contactInfo.address, iconPath: 'icons/location-2.webp' },
+      {
+        content: <Link href={`tel:${contactInfo.phoneNumber
+          .split(' ').join('')
+          .split('-').join('')
+          .split('(').join('')
+          .split(')').join('')
+        }`}>{contactInfo.phoneNumber}</Link>,
+        iconPath: 'icons/phone-4.webp'
+      },
+      {
+        content: <Link href={`mailto:${contactInfo.email}`}>{contactInfo.email}</Link>,
+        iconPath: 'icons/envelope-2.webp'
+      },
+      {
+        content: <Link href='https://yandex.by/maps/157/minsk/house/Zk4YcgJkTEMEQFtpfXVwcH9gZw==/?ll=27.454669%2C53.911263&z=19.8'>{contactInfo.address}</Link>,
+        iconPath: 'icons/location-2.webp'
+      },
       { content: contactInfo.openHours, iconPath: 'icons/clock-2.webp' },
       { content: <Socials customClass={styles.socials} /> }
     ]} />

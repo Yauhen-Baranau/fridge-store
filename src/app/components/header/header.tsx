@@ -15,7 +15,7 @@ export default async function Header({ customClass }: { customClass?: string }) 
     <div className={styles['open-hours']}>
       <div className={styles['icon-text-pair']}>
         <img className={styles['header-icon']} src='icons/location.webp' alt='Иконка' />
-        <span className={styles['header-text']}>{contactInfo.address}</span>
+        <Link href='https://yandex.by/maps/157/minsk/house/Zk4YcgJkTEMEQFtpfXVwcH9gZw==/?ll=27.454669%2C53.911263&z=19.8'>{contactInfo.address}</Link>
       </div>
       <div className={styles['icon-text-pair']}>
         <img className={styles['header-icon']} src='icons/clock.webp' alt='Иконка' />
@@ -25,11 +25,16 @@ export default async function Header({ customClass }: { customClass?: string }) 
     <div className={styles.contacts}>
       <div className={styles['icon-text-pair']}>
         <img className={styles['header-icon']} src='icons/phone.webp' alt='Иконка' />
-        <span>{contactInfo.phoneNumber}</span>
+        <Link href={`tel:${contactInfo.phoneNumber
+          .split(' ').join('')
+          .split('-').join('')
+          .split('(').join('')
+          .split(')').join('')
+        }`}>{contactInfo.phoneNumber}</Link>
       </div>
       <div className={styles['icon-text-pair']}>
         <img className={styles['header-icon']} src='icons/envelope.webp' alt='Иконка' />
-        <span>{contactInfo.email}</span>
+        <Link href={`mailto:${contactInfo.email}`}>{contactInfo.email}</Link>
       </div>
     </div>
     <Socials />

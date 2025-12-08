@@ -6,10 +6,10 @@
   margin-bottom: 24px;
 
   .icon-text-pair {
+    @include fonts.font(14px, 400, 140%);
     display: flex;
     align-items: center;
     gap: 8px;
-    @include fonts.font(14px, 400, 140%);
 
     .header-icon {
       width: 20px;

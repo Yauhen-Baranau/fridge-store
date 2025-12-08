@@ -19,6 +19,12 @@ export default function CallMeBack({ customClass }: { customClass?: string }) {
         iconPath='icons/phone-2.webp'
         hoverIconPath='icons/phone-3.webp'
         style='text-only'
+        onClick={() => window.open(`tel:${contactInfo.phoneNumber
+          .split(' ').join('')
+          .split('-').join('')
+          .split('(').join('')
+          .split(')').join('')
+        }`)}
       />
     </div>
     <Form
