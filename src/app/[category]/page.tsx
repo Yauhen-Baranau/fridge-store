@@ -85,7 +85,7 @@ export default function Category() {
     submitCallback={console.log}
     preSubmitButtonContent={
       <p className={styles['privacy-policy-notice']}>
-        Нажимая на кнопку "Отправить" Вы даете согласие на <span className={styles.blue}>обработку данных</span>
+        Нажимая на кнопку &quot;Отправить&quot; Вы даете согласие на <span className={styles.blue}>обработку данных</span>
       </p>
     }
     config={{
