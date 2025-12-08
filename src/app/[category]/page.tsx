@@ -4,16 +4,19 @@ import { useParams } from 'next/navigation';
 import styles from './page.module.scss';
 import Form from '@src/ui-kit/form/form';
 import { Routes } from "@constants/routes";
-import categories from './category-structure/categories.json';
 import List from '@src/ui-kit/list/list';
-import React from 'react';
+import React, { useMemo } from 'react';
 import Image from 'next/image';
+import categories from './category-structure/categories.json';
+import allSubсategories from './category-structure/subcategories.json';
+import Button from '@src/ui-kit/button/button';
 
 const routeToCategoryIdMap: Map<Routes, string> = new Map([
   [Routes.FridgeRepairServices, '1'],
 ]);
 
-interface CategoryData {
+interface Category {
+  id: string,
   label: string,
   description: Array<
     { type: 'paragraph', content: string }
@@ -22,13 +25,23 @@ interface CategoryData {
   imagePath: string,
 }
 
+interface Subcategory {
+  parentCategoryId: string,
+  label: string,
+  price: number,
+  imagePath: string,
+}
+
 export default function Category() {
   const params = useParams();
   const categoryId = routeToCategoryIdMap.get(`${params.category}` as Routes);
-  const categoryData = categories.find(category => category.id === categoryId) as CategoryData;
+  const subcategories = useMemo(() => {
+    return (allSubсategories as Array<Subcategory>).filter(subcategory => subcategory.parentCategoryId === categoryId);
+  }, [categoryId]);
+  const categoryData = categories.find(category => category.id === categoryId) as Category;
 
-  const constructCategoryDescription = (categoryData: CategoryData) => {
-    return <>
+  const constructCategoryDescription = (categoryData: Category) => {
+    return <div className={styles['description-wrapper']}>
       <h1 className={styles['description-title']}>{categoryData.label}</h1>
       <div className={styles.description}>
         {categoryData.description.map((descriptionItem, index) => {
@@ -58,7 +71,23 @@ export default function Category() {
         })}
         <Image className={styles['description-image']} src={categoryData.imagePath} width={570} height={350} alt='Специалист по ремонту холодильников' />
       </div>
-    </>;
+    </div>;
+  };
+
+  const constructCategoryContent = (subcategories: Array<Subcategory>) => {
+    return <div className={styles['content-wrapper']}>
+      {subcategories.map((subcategory, index) => <React.Fragment key={index}>
+        <div className={styles.subcategory}>
+          <Image className={styles['subcategory-image']} src={subcategory.imagePath} width={180} height={180} alt='Изображение подкатегории услуг' />
+          <h4 className={styles['subcategory-label']}>{subcategory.label}</h4>
+          <span className={styles['with-parts']}>С учетом запчастей</span>
+          <div className={styles['subcategory-footer']}>
+            <span className={styles.price}>от {subcategory.price} руб.</span>
+            <Button customClass={styles['subcategory-learn-more']} text='Подробнее' style='text-only' />
+          </div>
+        </div>
+      </React.Fragment>)}
+    </div>
   };
 
   const description = categoryData && constructCategoryDescription(categoryData);
@@ -82,11 +111,11 @@ export default function Category() {
       ]
     }}
   />
-  const content = <></>;
+  const content = constructCategoryContent(subcategories);
 
   return categoryData && <main className={styles.category}>
-    <div className={styles['description-wrapper']}>{description}</div>
+    {description}
     {form}
-    <div className={styles['content-wrapper']}>{content}</div>
+    {content}
   </main>
 }
