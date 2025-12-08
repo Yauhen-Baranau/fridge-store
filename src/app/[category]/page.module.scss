@@ -8,13 +8,50 @@
     "content content"
   ;
   grid-template-columns: auto 460px;
+  gap: 56px 130px;
 
   .description-wrapper {
     grid-area: description;
+
+    .description-title {
+      @include fonts.font(40px, 600, 125%);
+      margin-bottom: 40px;
+    }
+
+    .description {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+
+      .description-text {
+        @include fonts.font(16px, 400, 160%);
+      }
+
+      .description-list-title {
+        @include fonts.font(20px, 600, 140%);
+      }
+
+      .description-list {
+        gap: 8px;
+        
+        li {
+          @include fonts.font(16px, 400, 160%);
+          display: flex;
+          align-items: flex-start;
+          gap: 14px;
+
+          img {
+            position: relative;
+            top: 7px;
+          }
+        }
+      }
+    }
   }
 
   .form {
     grid-area: form;
+    height: fit-content;
     padding: 48px;
     box-shadow: 2px 2px 50px 0px #2020200F;
 
