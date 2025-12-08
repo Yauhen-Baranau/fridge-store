@@ -9,7 +9,6 @@ import React, { useMemo } from 'react';
 import Image from 'next/image';
 import categories from './category-structure/categories.json';
 import allSubсategories from './category-structure/subcategories.json';
-import Button from '@src/ui-kit/button/button';
 import ServicesGrid from '@src/ui-kit/services-grid/services-grid';
 
 const routeToCategoryIdMap: Map<Routes, string> = new Map([
