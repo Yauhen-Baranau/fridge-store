@@ -34,7 +34,7 @@ export default function FrequentFridgeProblems({ customClass }: { customClass?: 
           <Button
             customClass={styles['frequent-problem-button']}
             icon={{
-              path: '/icons/arrow-up.svg',
+              path: '/icons/thick-arrow-up.svg',
               width: 24,
               height: 24,
             }}

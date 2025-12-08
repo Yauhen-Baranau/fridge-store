@@ -76,7 +76,7 @@ export default function Footer() {
       <Button
         customClass={styles['scroll-up-button']}
         icon={{
-          path: '/icons/arrow-up.svg',
+          path: '/icons/thick-arrow-up.svg',
           width: 24,
           height: 24,
         }}
