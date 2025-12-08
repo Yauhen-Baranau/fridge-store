@@ -7,7 +7,7 @@ import Header from "./components/header/header";
 import Navigation from "./components/navigation/navigation";
 import Footer from "./components/footer/footer";
 import composeClassName from "@src/helpers/compose-class-name";
-import CallMeBack from "./components/call-me-back/call-me-back";
+import CallMeBack from "../ui-kit/call-me-back/call-me-back";
 
 const montserrat = Montserrat({
   subsets: ["cyrillic", "latin"],
