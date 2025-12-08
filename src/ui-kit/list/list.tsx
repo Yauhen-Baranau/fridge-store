@@ -4,11 +4,16 @@ import './list.scss';
 import Accordion from '@ui-kit/accordion/accordion';
 import PopupWrapper from '@ui-kit/popup/popup';
 import composeClassName from '@src/helpers/compose-class-name';
+import Image from 'next/image';
 
 export interface ListItem {
   content: string | React.ReactNode;
-  iconPath?: string;
-  iconPosition?: 'before' | 'after';
+  icon?: {
+    path: string,
+    width: number,
+    height: number,
+    position?: 'before' | 'after',
+  },
   redirectTo?: string;
   subItems?: Array<ListItem>;
 }
@@ -24,19 +29,31 @@ export default function List({
   nestedItemsStyle?: 'always-visible' | 'accordion' | 'popup',
   customClass?: string,
 }) {
+  const getItemIconData = (item: ListItem) => {
+    const icon = item.icon && <Image
+      className='list-item-icon'
+      src={item.icon.path}
+      width={item.icon.width}
+      height={item.icon.height}
+      alt='Иконка'
+    />
+    return {
+      jsx: icon,
+      position: item.icon?.position ?? 'before',
+    }
+  }
+
   return <ul className={composeClassName('list', direction, customClass)}>
     {items.map((item, index) => {
       let itemContent;
       const isNested = !!item.subItems?.length;
 
-      const icon = item.iconPath && <img className='list-item-icon' src={item.iconPath} alt='Иконка' />
-      if (icon && !item.iconPosition) {
-        item.iconPosition = 'before';
-      }
+      const { jsx: iconJsx, position: iconPosition } = getItemIconData(item);
       const itemLabel = <>
-        {item.iconPosition === 'before' && icon}
+        {iconPosition === 'before' && iconJsx}
         {item.content}
-        {item.iconPosition === 'after' && icon}</>
+        {iconPosition === 'after' && iconJsx}
+      </>
 
       if (!isNested) {
         itemContent = itemLabel;

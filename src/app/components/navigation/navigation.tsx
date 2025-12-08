@@ -17,26 +17,104 @@ export default async function Navigation({ customClass }: { customClass?: string
       items={[
         {
           content: <Link href={Routes.FridgeRepairServices}>УСЛУГИ ПО РЕМОНТУ ХОЛОДИЛЬНИКОВ</Link>,
-          iconPath: 'icons/chevron-down.webp',
-          iconPosition: 'after',
+          icon: {
+            path: '/icons/chevron-down.webp',
+            width: 8,
+            height: 5,
+            position: 'after',
+          },
           subItems: [
-            { iconPath: 'icons/square-small.webp', content: <Link href='https://google.com'>ЗАМЕНА И РЕМОНТ КОМПОНЕНТОВ СИСТЕМЫ ОХЛАЖДЕНИЯ</Link> },
-            { iconPath: 'icons/square-small.webp', content: <Link href='https://google.com'>РЕМОНТА И ЗАМЕНА ЭЛЕКТРИЧЕСКИХ КОМПОНЕНТОВ</Link> },
-            { iconPath: 'icons/square-small.webp', content: <Link href='https://google.com'>ЗАМЕНА ЭЛЕМЕНТОВ СИСТЕМЫ NO FROST</Link> },
-            { iconPath: 'icons/square-small.webp', content: <Link href='https://google.com'>ЗАМЕНА И РЕМОНТ МЕХАНИЧЕСКИХ УЗЛОВ</Link> },
-            { iconPath: 'icons/square-small.webp', content: <Link href='https://google.com'>РЕМОНТ ДВЕРЕЙ И КОРПУСА</Link> },
-            { iconPath: 'icons/square-small.webp', content: <Link href='https://google.com'>ПРОЧИЕ УСЛУГИ</Link> },
+            {
+              content: <Link href='https://google.com'>ЗАМЕНА И РЕМОНТ КОМПОНЕНТОВ СИСТЕМЫ ОХЛАЖДЕНИЯ</Link>,
+              icon: {
+                path: '/icons/square-small.webp',
+                width: 7,
+                height: 7,
+              },
+            },
+            {
+              content: <Link href='https://google.com'>РЕМОНТА И ЗАМЕНА ЭЛЕКТРИЧЕСКИХ КОМПОНЕНТОВ</Link>,
+              icon: {
+                path: '/icons/square-small.webp',
+                width: 7,
+                height: 7,
+              },
+            },
+            {
+              content: <Link href='https://google.com'>ЗАМЕНА ЭЛЕМЕНТОВ СИСТЕМЫ NO FROST</Link>,
+              icon: {
+                path: '/icons/square-small.webp',
+                width: 7,
+                height: 7,
+              },
+            },
+            {
+              content: <Link href='https://google.com'>ЗАМЕНА И РЕМОНТ МЕХАНИЧЕСКИХ УЗЛОВ</Link>,
+              icon: {
+                path: '/icons/square-small.webp',
+                width: 7,
+                height: 7,
+              },
+            },
+            {
+              content: <Link href='https://google.com'>РЕМОНТ ДВЕРЕЙ И КОРПУСА</Link>,
+              icon: {
+                path: '/icons/square-small.webp',
+                width: 7,
+                height: 7,
+              },
+            },
+            {
+              content: <Link href='https://google.com'>ПРОЧИЕ УСЛУГИ</Link>,
+              icon: {
+                path: '/icons/square-small.webp',
+                width: 7,
+                height: 7,
+              },
+            },
           ],
         },
         {
           content: <Link href='https://google.com'>ВИДЫ ХОЛОДИЛЬНИКОВ</Link>,
-          iconPath: 'icons/chevron-down.webp',
-          iconPosition: 'after',
+          icon: {
+            path: '/icons/chevron-down.webp',
+            width: 8,
+            height: 5,
+            position: 'after',
+          },
           subItems: [
-            { iconPath: 'icons/square-small.webp', content: <Link href='https://google.com'>РЕМОНТ БЫТОВЫХ ХОЛОДИЛЬНИКОВ</Link> },
-            { iconPath: 'icons/square-small.webp', content: <Link href='https://google.com'>РЕМОНТ КОММЕРЧЕСКИХ ХОЛОДИЛЬНИКОВ</Link> },
-            { iconPath: 'icons/square-small.webp', content: <Link href='https://google.com'>РЕМОНТ СПЕЦИАЛЬНЫХ ХОЛОДИЛЬНЫХ УСТАНОВОК</Link> },
-            { iconPath: 'icons/square-small.webp', content: <Link href='https://google.com'>РЕМОНТ ПРОМЫШЛЕННЫХ СИСТЕМ ОХЛАЖДЕНИЯ</Link> },
+            {
+              content: <Link href='https://google.com'>РЕМОНТ БЫТОВЫХ ХОЛОДИЛЬНИКОВ</Link>,
+              icon: {
+                path: '/icons/square-small.webp',
+                width: 7,
+                height: 7,
+              },
+            },
+            {
+              content: <Link href='https://google.com'>РЕМОНТ КОММЕРЧЕСКИХ ХОЛОДИЛЬНИКОВ</Link>,
+              icon: {
+                path: '/icons/square-small.webp',
+                width: 7,
+                height: 7,
+              },
+            },
+            {
+              content: <Link href='https://google.com'>РЕМОНТ СПЕЦИАЛЬНЫХ ХОЛОДИЛЬНЫХ УСТАНОВОК</Link>,
+              icon: {
+                path: '/icons/square-small.webp',
+                width: 7,
+                height: 7,
+              },
+            },
+            {
+              content: <Link href='https://google.com'>РЕМОНТ ПРОМЫШЛЕННЫХ СИСТЕМ ОХЛАЖДЕНИЯ</Link>,
+              icon: {
+                path: '/icons/square-small.webp',
+                width: 7,
+                height: 7,
+              },
+            },
           ],
         },
         {

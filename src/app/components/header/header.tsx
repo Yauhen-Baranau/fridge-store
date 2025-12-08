@@ -6,25 +6,26 @@ import composeClassName from '@src/helpers/compose-class-name';
 import Socials from '@src/ui-kit/socials/socials';
 import { contactInfo } from '@constants/contact-info';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default async function Header({ customClass }: { customClass?: string }) {
   return <header className={composeClassName(styles.header, customClass)}>
     <Link href='/'>
-      <img className={styles.logo} src='logo.webp' alt='Логотип' width={227} height={40} />
+      <Image className={styles.logo} src='/logo.webp' alt='Логотип' width={227} height={40} />
     </Link>
     <div className={styles['open-hours']}>
       <div className={styles['icon-text-pair']}>
-        <img className={styles['header-icon']} src='icons/location.webp' alt='Иконка' />
+        <Image src='/icons/location.webp' alt='Маркер на карте' width={20} height={20} />
         <Link href='https://yandex.by/maps/157/minsk/house/Zk4YcgJkTEMEQFtpfXVwcH9gZw==/?ll=27.454669%2C53.911263&z=19.8'>{contactInfo.address}</Link>
       </div>
       <div className={styles['icon-text-pair']}>
-        <img className={styles['header-icon']} src='icons/clock.webp' alt='Иконка' />
+        <Image src='/icons/clock.webp' alt='Часы' width={20} height={20} />
         <span>{contactInfo.openHours}</span>
       </div>
     </div>
     <div className={styles.contacts}>
       <div className={styles['icon-text-pair']}>
-        <img className={styles['header-icon']} src='icons/phone.webp' alt='Иконка' />
+        <Image src='/icons/phone.webp' alt='Телефон' width={20} height={20} />
         <Link href={`tel:${contactInfo.phoneNumber
           .split(' ').join('')
           .split('-').join('')
@@ -33,7 +34,7 @@ export default async function Header({ customClass }: { customClass?: string }) 
         }`}>{contactInfo.phoneNumber}</Link>
       </div>
       <div className={styles['icon-text-pair']}>
-        <img className={styles['header-icon']} src='icons/envelope.webp' alt='Иконка' />
+        <Image src='/icons/envelope.webp' alt='Конверт' width={20} height={20} />
         <Link href={`mailto:${contactInfo.email}`}>{contactInfo.email}</Link>
       </div>
     </div>

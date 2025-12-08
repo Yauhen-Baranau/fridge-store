@@ -5,6 +5,7 @@ import styles from './popular-services.module.scss';
 import composeClassName from '@src/helpers/compose-class-name';
 import Button from '@src/ui-kit/button/button';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default async function PopularServices() {
   const serviceFactory = ({
@@ -28,7 +29,7 @@ export default async function PopularServices() {
   }) => {
     return <Link href='https://google.com'>
       <div className={styles.service}>
-        <img className={styles['service-image']} src={imagePath} width={263} height={173} alt='Изображение услуги' />
+        <Image className={styles['service-image']} src={imagePath} width={263} height={173} alt='Изображение услуги' />
         <h3 className={styles['service-title']}>{title}</h3>
         <p className={styles['price-block']}>
           {dynamicPrice && <span className={styles['dynamic-price-text']}>от </span>}
@@ -58,7 +59,7 @@ export default async function PopularServices() {
     <div className={styles['services-list']}>
       {[
         {
-          imagePath: 'services/diagnostics.webp',
+          imagePath: '/services/diagnostics.webp',
           title: 'Диагностика неисправности',
           price: 20,
           freeWithRepairs: true,
@@ -66,7 +67,7 @@ export default async function PopularServices() {
           requiredTime: '30-60 минут',
         },
         {
-          imagePath: 'services/compressor-repairs.webp',
+          imagePath: '/services/compressor-repairs.webp',
           title: 'Замена и ремонт компрессора',
           price: 350,
           priceComment: 'включая запчасти',
@@ -74,49 +75,49 @@ export default async function PopularServices() {
           guarantee: '6 месяцев',
         },
         {
-          imagePath: 'services/refrigerant-topup.webp',
+          imagePath: '/services/refrigerant-topup.webp',
           title: 'Заправка хладагентом (фреоном)',
           price: 130,
           requiredTime: '1-2 часа',
           guarantee: '3 месяца',
         },
         {
-          imagePath: 'services/thermostat-repairs.webp',
+          imagePath: '/services/thermostat-repairs.webp',
           title: 'Ремонт или замена термостата',
           price: 125,
           requiredTime: '40-90 минут',
           guarantee: '6 месяцев',
         },
         {
-          imagePath: 'services/drainage-cleaning.webp',
+          imagePath: '/services/drainage-cleaning.webp',
           title: 'Чистка и прочистка дренажной системы',
           price: 50,
           requiredTime: '30-60 минут',
           guarantee: '3 месяца',
         },
         {
-          imagePath: 'services/nofrost-repairs.webp',
+          imagePath: '/services/nofrost-repairs.webp',
           title: 'Ремонт системы No Frost',
           price: 125,
           requiredTime: '1.5-3 часа',
           guarantee: '6 месяцев',
         },
         {
-          imagePath: 'services/sealant-replacement.webp',
+          imagePath: '/services/sealant-replacement.webp',
           title: 'Замена уплотнителя дверцы',
           price: 85,
           requiredTime: '40-90 минут',
           guarantee: '6 месяцев',
         },
         {
-          imagePath: 'services/control-module-repairs.webp',
+          imagePath: '/services/control-module-repairs.webp',
           title: 'Ремонт модуля управления',
           price: 165,
           requiredTime: '1-3 часа',
           guarantee: '6 месяцев',
         },
         {
-          imagePath: 'services/cooling-ventilator-replacement.webp',
+          imagePath: '/services/cooling-ventilator-replacement.webp',
           title: 'Замена вентилятора охлаждения',
           price: 135,
           requiredTime: '1-2 часа',
@@ -130,7 +131,7 @@ export default async function PopularServices() {
       <Button text='Смотреть все услуги' style='text-only' />
     </Link>
     {/* didn't use background-image because these snowflakes are rotated */}
-    <img className={composeClassName(styles.snowflake, styles['snowflake-upper-left'])} src='snowflake.webp' width={658} height={638} />
-    <img className={composeClassName(styles.snowflake, styles['snowflake-lower-right'])} src='snowflake.webp' width={658} height={638} />
+    <Image className={composeClassName(styles.snowflake, styles['snowflake-upper-left'])} src='/snowflake.webp' width={658} height={638} alt='Снежинка' />
+    <Image className={composeClassName(styles.snowflake, styles['snowflake-lower-right'])} src='/snowflake.webp' width={658} height={638} alt='Снежинка' />
   </section>
 } 

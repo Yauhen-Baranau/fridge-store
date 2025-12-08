@@ -3,6 +3,7 @@
 import Button from '@src/ui-kit/button/button';
 import styles from './about-us.module.scss';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default async function AboutUs() {
   return <section className={styles['about-us']}>
@@ -22,6 +23,6 @@ export default async function AboutUs() {
         <Button text='Подробнее' style='text-only' />
       </Link>
     </div>
-    <img className={styles['about-us-image']} src='about-us-photo.webp' width={470} height={522} alt='Специалист по ремонту холодильников' />
+    <Image className={styles['about-us-image']} src='/about-us-photo.webp' width={470} height={522} alt='Специалист по ремонту холодильников' />
   </section>
 }

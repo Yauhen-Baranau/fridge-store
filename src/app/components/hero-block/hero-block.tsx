@@ -3,6 +3,7 @@
 import List from '@src/ui-kit/list/list';
 import styles from './hero-block.module.scss';
 import Button from '@src/ui-kit/button/button';
+import Image from 'next/image';
 
 export default async function HeroBlock() {
   return <section className={styles['hero-block']}>
@@ -12,9 +13,30 @@ export default async function HeroBlock() {
         ХОЛОДИЛЬНИКОВ
       </h1>
       <List customClass={styles.guarantees} items={[
-        { iconPath: 'icons/circle.webp', content: <span>Гарантия до <b>12 месяцев</b></span> },
-        { iconPath: 'icons/circle.webp', content: <span><b>Любой</b> ремонт холодильников на дому</span> },
-        { iconPath: 'icons/circle.webp', content: <span>Озвучиваем цену <b>ДО</b> начала ремонта</span> },
+        {
+          content: <span>Гарантия до <b>12 месяцев</b></span>,
+          icon: {
+            path: '/icons/circle.webp',
+            width: 7,
+            height: 7,
+          }
+        },
+        {
+          content: <span><b>Любой</b> ремонт холодильников на дому</span>,
+          icon: {
+            path: '/icons/circle.webp',
+            width: 7,
+            height: 7,
+          }
+        },
+        {
+          content: <span>Озвучиваем цену <b>ДО</b> начала ремонта</span>,
+          icon: {
+            path: '/icons/circle.webp',
+            width: 7,
+            height: 7,
+          }
+        },
       ]} />
       <Button customClass={styles['discount-button']} text='Получить скидку 10%' />
       <p className={styles.note}>
@@ -23,7 +45,7 @@ export default async function HeroBlock() {
       </p>
     </div>
     <div className={styles['hero-block-right']}>
-      <img src='hero-block-photo.webp' width={570} height={500} alt='Специалист по ремонту холодильников' />
+      <Image src='/hero-block-photo.webp' width={570} height={500} alt='Специалист по ремонту холодильников' />
     </div>
   </section>
 }

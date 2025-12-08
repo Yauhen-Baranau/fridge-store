@@ -5,6 +5,7 @@ import styles from './call-me-back.module.scss';
 import Form from '@src/ui-kit/form/form';
 import composeClassName from '@src/helpers/compose-class-name';
 import { contactInfo } from '@constants/contact-info';
+import Image from 'next/image';
 
 export default function CallMeBack({ customClass }: { customClass?: string }) {
   return <section className={composeClassName(styles['call-me-back'], customClass)}>
@@ -16,8 +17,16 @@ export default function CallMeBack({ customClass }: { customClass?: string }) {
       <Button
         customClass={styles['call-me-back-button']}
         text='Позвонить'
-        iconPath='icons/phone-2.webp'
-        hoverIconPath='icons/phone-3.webp'
+        icon={{
+          path: '/icons/phone-2.webp',
+          width: 24,
+          height: 24,
+        }}
+        hoverIcon={{
+          path: '/icons/phone-3.webp',
+          width: 24,
+          height: 24,
+        }}
         style='text-only'
         onClick={() => window.open(`tel:${contactInfo.phoneNumber
           .split(' ').join('')
@@ -44,7 +53,7 @@ export default function CallMeBack({ customClass }: { customClass?: string }) {
       }}
     />
     {/* didn't use background-image because these snowflakes are rotated */}
-    <img src='snowflake.webp' width={118} height={114} className={composeClassName(styles['snowflake'], styles['snowflake-upper-left'])} />
-    <img src='snowflake.webp' width={118} height={114} className={composeClassName(styles['snowflake'], styles['snowflake-lower-left'])} />
+    <Image className={composeClassName(styles['snowflake'], styles['snowflake-upper-left'])} src='/snowflake.webp' width={118} height={114} alt='Снежинка' />
+    <Image className={composeClassName(styles['snowflake'], styles['snowflake-lower-left'])} src='/snowflake.webp' width={118} height={114} alt='Снежинка' />
   </section>
 }

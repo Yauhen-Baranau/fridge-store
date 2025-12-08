@@ -35,17 +35,36 @@ export default function Footer() {
           .split('(').join('')
           .split(')').join('')
         }`}>{contactInfo.phoneNumber}</Link>,
-        iconPath: 'icons/phone-4.webp'
+        icon: {
+          path: '/icons/phone-4.webp',
+          width: 24,
+          height: 24,
+        }
       },
       {
         content: <Link href={`mailto:${contactInfo.email}`}>{contactInfo.email}</Link>,
-        iconPath: 'icons/envelope-2.webp'
+        icon: {
+          path: '/icons/envelope-2.webp',
+          width: 24,
+          height: 24,
+        }
       },
       {
         content: <Link href='https://yandex.by/maps/157/minsk/house/Zk4YcgJkTEMEQFtpfXVwcH9gZw==/?ll=27.454669%2C53.911263&z=19.8'>{contactInfo.address}</Link>,
-        iconPath: 'icons/location-2.webp'
+        icon: {
+          path: '/icons/location-2.webp',
+          width: 24,
+          height: 24,
+        }
       },
-      { content: contactInfo.openHours, iconPath: 'icons/clock-2.webp' },
+      {
+        content: contactInfo.openHours,
+        icon: {
+          path: '/icons/clock-2.webp',
+          width: 24,
+          height: 24,
+        }
+      },
       { content: <Socials customClass={styles.socials} /> }
     ]} />
     <div className={styles['footer-column-footer']}>&copy; Copyright</div>
@@ -56,7 +75,11 @@ export default function Footer() {
       <Link className={styles['designed-by-link']} href='https://www.instagram.com/kutsenko_olga1990?igsh=ZDlsY3JoNG0zeTh1'>Design by Volha Kutsenka</Link>
       <Button
         customClass={styles['scroll-up-button']}
-        iconPath='icons/arrow-up.webp'
+        icon={{
+          path: '/icons/arrow-up.webp',
+          width: 14,
+          height: 18,
+        }}
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
       />
     </div>

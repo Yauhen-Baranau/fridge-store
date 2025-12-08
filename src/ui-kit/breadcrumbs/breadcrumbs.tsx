@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import composeClassName from '@src/helpers/compose-class-name';
 import { routeToLabelMap } from '@constants/route-to-label-map';
 import { Routes } from '@constants/routes';
+import Image from 'next/image';
 
 interface Breadcrumb {
   label: string,
@@ -40,9 +41,9 @@ export default function Breadcrumbs({ customClass }: { customClass?: string }) {
       href={breadcrumb.redirectTo}
       aria-disabled={isLast}
     >
-      {isFirst && <img className='breadcrumb-arrow-icon' src='icons/home.webp' width={16} height={16} />}
+      {isFirst && <Image className='breadcrumb-arrow-icon' src='icons/home.webp' width={16} height={16} alt='Дом' />}
       <span className='breadcrumb-label'>{breadcrumb.label}</span>
-      {!isLast && <img className='breadcrumb-arrow-icon' src='icons/narrow-arrow-right.webp' width={24} height={24} />}
+      {!isLast && <Image className='breadcrumb-arrow-icon' src='icons/narrow-arrow-right.webp' width={24} height={24} alt='Стрелка' />}
     </Link>
   };
 
