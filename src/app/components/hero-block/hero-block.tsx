@@ -1,8 +1,8 @@
 'use server';
 
-import List from '@src/ui-kit/list/list';
+import List from '@ui-kit/list/list';
 import styles from './hero-block.module.scss';
-import Button from '@src/ui-kit/button/button';
+import Button from '@ui-kit/button/button';
 import Image from 'next/image';
 
 export default async function HeroBlock() {

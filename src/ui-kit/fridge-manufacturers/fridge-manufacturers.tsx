@@ -1,6 +1,6 @@
 'use client';
 
-import Button from '@src/ui-kit/button/button';
+import Button from '@ui-kit/button/button';
 import styles from './fridge-manufacturers.module.scss';
 import React from 'react';
 import composeClassName from '@src/helpers/compose-class-name';

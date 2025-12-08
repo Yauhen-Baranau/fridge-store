@@ -1,8 +1,8 @@
 'use client';
 
-import Button from '@src/ui-kit/button/button';
+import Button from '@ui-kit/button/button';
 import styles from './call-me-back.module.scss';
-import Form from '@src/ui-kit/form/form';
+import Form from '@ui-kit/form/form';
 import composeClassName from '@src/helpers/compose-class-name';
 import { contactInfo } from '@constants/contact-info';
 import Image from 'next/image';

@@ -1,11 +1,11 @@
 'use client'; // to pass the scroll up callback to the button
 
-import List from '@src/ui-kit/list/list';
+import List from '@ui-kit/list/list';
 import styles from './footer.module.scss';
 import Link from 'next/link';
 import { contactInfo } from '@constants/contact-info';
-import Socials from '@src/ui-kit/socials/socials';
-import Button from '@src/ui-kit/button/button';
+import Socials from '@ui-kit/socials/socials';
+import Button from '@ui-kit/button/button';
 
 export default function Footer() {
   return <footer className={styles.footer}>

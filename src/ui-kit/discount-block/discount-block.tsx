@@ -1,6 +1,6 @@
 'use client';
 
-import Button from '@src/ui-kit/button/button';
+import Button from '@ui-kit/button/button';
 import styles from './discount-block.module.scss';
 import composeClassName from '@src/helpers/compose-class-name';
 

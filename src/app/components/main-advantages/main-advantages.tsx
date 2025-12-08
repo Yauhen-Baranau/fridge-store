@@ -1,6 +1,6 @@
 'use server';
 
-import List, { ListItem } from '@src/ui-kit/list/list';
+import List, { ListItem } from '@ui-kit/list/list';
 import styles from './main-advantages.module.scss';
 import composeClassName from '@src/helpers/compose-class-name';
 import React from 'react';

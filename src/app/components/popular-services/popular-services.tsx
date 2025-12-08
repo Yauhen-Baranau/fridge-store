@@ -3,7 +3,7 @@
 import React from 'react';
 import styles from './popular-services.module.scss';
 import composeClassName from '@src/helpers/compose-class-name';
-import Button from '@src/ui-kit/button/button';
+import Button from '@ui-kit/button/button';
 import Link from 'next/link';
 import Image from 'next/image';
 

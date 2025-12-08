@@ -2,14 +2,14 @@
 
 import { useParams } from 'next/navigation';
 import styles from './page.module.scss';
-import Form from '@src/ui-kit/form/form';
+import Form from '@ui-kit/form/form';
 import { Routes } from "@constants/routes";
-import List from '@src/ui-kit/list/list';
+import List from '@ui-kit/list/list';
 import React, { useMemo } from 'react';
 import Image from 'next/image';
 import categories from './category-structure/categories.json';
 import allSubсategories from './category-structure/subcategories.json';
-import ServicesGrid from '@src/ui-kit/services-grid/services-grid';
+import ServicesGrid from '@ui-kit/services-grid/services-grid';
 
 const routeToCategoryIdMap: Map<Routes, string> = new Map([
   [Routes.FridgeRepairServices, '1'],

@@ -1,6 +1,6 @@
 'use server';
 
-import Button from '@src/ui-kit/button/button';
+import Button from '@ui-kit/button/button';
 import styles from './about-us.module.scss';
 import Link from 'next/link';
 import Image from 'next/image';

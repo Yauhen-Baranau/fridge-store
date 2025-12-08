@@ -1,9 +1,9 @@
 'use server';
 
-import Button from '@src/ui-kit/button/button';
+import Button from '@ui-kit/button/button';
 import styles from './header.module.scss';
 import composeClassName from '@src/helpers/compose-class-name';
-import Socials from '@src/ui-kit/socials/socials';
+import Socials from '@ui-kit/socials/socials';
 import { contactInfo } from '@constants/contact-info';
 import Link from 'next/link';
 import Image from 'next/image';

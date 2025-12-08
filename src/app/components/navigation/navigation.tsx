@@ -4,7 +4,7 @@
 // nested components that need custom styling
 import composeClassName from '@src/helpers/compose-class-name';
 import './navigation.scss';
-import List from '@src/ui-kit/list/list';
+import List from '@ui-kit/list/list';
 import Link from 'next/link';
 import { Routes } from '@src/constants/routes';
 
