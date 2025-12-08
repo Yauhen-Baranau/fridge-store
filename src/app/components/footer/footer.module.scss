@@ -58,6 +58,7 @@
       .scroll-up-button {
         width: 48px;
         height: 48px;
+        padding: 0;
         margin-left: auto;
         background-color: colors.$color-gray-dark;
 
@@ -71,7 +72,7 @@
 
         img {
           position: relative;
-          top: 2px;
+          top: 3px;
         }
       }
     }

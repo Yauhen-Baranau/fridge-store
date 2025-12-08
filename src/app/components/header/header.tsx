@@ -15,17 +15,17 @@ export default async function Header({ customClass }: { customClass?: string }) 
     </Link>
     <div className={styles['open-hours']}>
       <div className={styles['icon-text-pair']}>
-        <Image src='/icons/location.webp' alt='Маркер на карте' width={20} height={20} />
+        <Image src='/icons/location.svg' alt='Маркер на карте' width={20} height={20} />
         <Link href='https://yandex.by/maps/157/minsk/house/Zk4YcgJkTEMEQFtpfXVwcH9gZw==/?ll=27.454669%2C53.911263&z=19.8'>{contactInfo.address}</Link>
       </div>
       <div className={styles['icon-text-pair']}>
-        <Image src='/icons/clock.webp' alt='Часы' width={20} height={20} />
+        <Image src='/icons/clock.svg' alt='Часы' width={20} height={20} />
         <span>{contactInfo.openHours}</span>
       </div>
     </div>
     <div className={styles.contacts}>
       <div className={styles['icon-text-pair']}>
-        <Image src='/icons/phone.webp' alt='Телефон' width={20} height={20} />
+        <Image src='/icons/phone.svg' alt='Телефон' width={20} height={20} />
         <Link href={`tel:${contactInfo.phoneNumber
           .split(' ').join('')
           .split('-').join('')
@@ -34,7 +34,7 @@ export default async function Header({ customClass }: { customClass?: string }) 
         }`}>{contactInfo.phoneNumber}</Link>
       </div>
       <div className={styles['icon-text-pair']}>
-        <Image src='/icons/envelope.webp' alt='Конверт' width={20} height={20} />
+        <Image src='/icons/envelope.svg' alt='Конверт' width={20} height={20} />
         <Link href={`mailto:${contactInfo.email}`}>{contactInfo.email}</Link>
       </div>
     </div>

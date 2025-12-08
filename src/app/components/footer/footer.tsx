@@ -36,7 +36,7 @@ export default function Footer() {
           .split(')').join('')
         }`}>{contactInfo.phoneNumber}</Link>,
         icon: {
-          path: '/icons/phone-4.webp',
+          path: '/icons/phone-4.svg',
           width: 24,
           height: 24,
         }
@@ -44,7 +44,7 @@ export default function Footer() {
       {
         content: <Link href={`mailto:${contactInfo.email}`}>{contactInfo.email}</Link>,
         icon: {
-          path: '/icons/envelope-2.webp',
+          path: '/icons/envelope-2.svg',
           width: 24,
           height: 24,
         }
@@ -52,7 +52,7 @@ export default function Footer() {
       {
         content: <Link href='https://yandex.by/maps/157/minsk/house/Zk4YcgJkTEMEQFtpfXVwcH9gZw==/?ll=27.454669%2C53.911263&z=19.8'>{contactInfo.address}</Link>,
         icon: {
-          path: '/icons/location-2.webp',
+          path: '/icons/location-2.svg',
           width: 24,
           height: 24,
         }
@@ -60,7 +60,7 @@ export default function Footer() {
       {
         content: contactInfo.openHours,
         icon: {
-          path: '/icons/clock-2.webp',
+          path: '/icons/clock-2.svg',
           width: 24,
           height: 24,
         }
@@ -76,9 +76,9 @@ export default function Footer() {
       <Button
         customClass={styles['scroll-up-button']}
         icon={{
-          path: '/icons/arrow-up.webp',
-          width: 14,
-          height: 18,
+          path: '/icons/arrow-up.svg',
+          width: 24,
+          height: 24,
         }}
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
       />

@@ -18,58 +18,58 @@ export default async function Navigation({ customClass }: { customClass?: string
         {
           content: <Link href={Routes.FridgeRepairServices}>УСЛУГИ ПО РЕМОНТУ ХОЛОДИЛЬНИКОВ</Link>,
           icon: {
-            path: '/icons/chevron-down.webp',
-            width: 8,
-            height: 5,
+            path: '/icons/chevron-down.svg',
+            width: 10,
+            height: 7,
             position: 'after',
           },
           subItems: [
             {
               content: <Link href='https://google.com'>ЗАМЕНА И РЕМОНТ КОМПОНЕНТОВ СИСТЕМЫ ОХЛАЖДЕНИЯ</Link>,
               icon: {
-                path: '/icons/square-small.webp',
-                width: 7,
-                height: 7,
+                path: '/icons/square-small.svg',
+                width: 14,
+                height: 14,
               },
             },
             {
               content: <Link href='https://google.com'>РЕМОНТА И ЗАМЕНА ЭЛЕКТРИЧЕСКИХ КОМПОНЕНТОВ</Link>,
               icon: {
-                path: '/icons/square-small.webp',
-                width: 7,
-                height: 7,
+                path: '/icons/square-small.svg',
+                width: 14,
+                height: 14,
               },
             },
             {
               content: <Link href='https://google.com'>ЗАМЕНА ЭЛЕМЕНТОВ СИСТЕМЫ NO FROST</Link>,
               icon: {
-                path: '/icons/square-small.webp',
-                width: 7,
-                height: 7,
+                path: '/icons/square-small.svg',
+                width: 14,
+                height: 14,
               },
             },
             {
               content: <Link href='https://google.com'>ЗАМЕНА И РЕМОНТ МЕХАНИЧЕСКИХ УЗЛОВ</Link>,
               icon: {
-                path: '/icons/square-small.webp',
-                width: 7,
-                height: 7,
+                path: '/icons/square-small.svg',
+                width: 14,
+                height: 14,
               },
             },
             {
               content: <Link href='https://google.com'>РЕМОНТ ДВЕРЕЙ И КОРПУСА</Link>,
               icon: {
-                path: '/icons/square-small.webp',
-                width: 7,
-                height: 7,
+                path: '/icons/square-small.svg',
+                width: 14,
+                height: 14,
               },
             },
             {
               content: <Link href='https://google.com'>ПРОЧИЕ УСЛУГИ</Link>,
               icon: {
-                path: '/icons/square-small.webp',
-                width: 7,
-                height: 7,
+                path: '/icons/square-small.svg',
+                width: 14,
+                height: 14,
               },
             },
           ],
@@ -77,42 +77,42 @@ export default async function Navigation({ customClass }: { customClass?: string
         {
           content: <Link href='https://google.com'>ВИДЫ ХОЛОДИЛЬНИКОВ</Link>,
           icon: {
-            path: '/icons/chevron-down.webp',
-            width: 8,
-            height: 5,
+            path: '/icons/chevron-down.svg',
+            width: 10,
+            height: 7,
             position: 'after',
           },
           subItems: [
             {
               content: <Link href='https://google.com'>РЕМОНТ БЫТОВЫХ ХОЛОДИЛЬНИКОВ</Link>,
               icon: {
-                path: '/icons/square-small.webp',
-                width: 7,
-                height: 7,
+                path: '/icons/square-small.svg',
+                width: 14,
+                height: 14,
               },
             },
             {
               content: <Link href='https://google.com'>РЕМОНТ КОММЕРЧЕСКИХ ХОЛОДИЛЬНИКОВ</Link>,
               icon: {
-                path: '/icons/square-small.webp',
-                width: 7,
-                height: 7,
+                path: '/icons/square-small.svg',
+                width: 14,
+                height: 14,
               },
             },
             {
               content: <Link href='https://google.com'>РЕМОНТ СПЕЦИАЛЬНЫХ ХОЛОДИЛЬНЫХ УСТАНОВОК</Link>,
               icon: {
-                path: '/icons/square-small.webp',
-                width: 7,
-                height: 7,
+                path: '/icons/square-small.svg',
+                width: 14,
+                height: 14,
               },
             },
             {
               content: <Link href='https://google.com'>РЕМОНТ ПРОМЫШЛЕННЫХ СИСТЕМ ОХЛАЖДЕНИЯ</Link>,
               icon: {
-                path: '/icons/square-small.webp',
-                width: 7,
-                height: 7,
+                path: '/icons/square-small.svg',
+                width: 14,
+                height: 14,
               },
             },
           ],

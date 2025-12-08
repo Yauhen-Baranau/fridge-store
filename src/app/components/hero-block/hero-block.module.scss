@@ -35,6 +35,9 @@
         display: flex;
         align-items: center;
         gap: 12px;
+
+        // TO DO: why
+        white-space: nowrap;
       }
     }
 

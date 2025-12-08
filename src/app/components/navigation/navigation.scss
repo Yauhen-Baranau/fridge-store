@@ -33,8 +33,6 @@ $navbar-item-horizontal-padding: 10px;
         gap: 8px;
 
         > .list-item-icon {
-          width: 8px;
-          height: 5px;
           position: relative;
           bottom: 1px;
         }
@@ -80,7 +78,7 @@ $navbar-item-horizontal-padding: 10px;
 
                 > .list-item-icon {
                   position: relative;
-                  top: 5px;
+                  top: 2px;
                 }
 
                 &:hover {

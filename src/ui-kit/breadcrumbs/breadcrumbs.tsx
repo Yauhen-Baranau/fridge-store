@@ -41,9 +41,9 @@ export default function Breadcrumbs({ customClass }: { customClass?: string }) {
       href={breadcrumb.redirectTo}
       aria-disabled={isLast}
     >
-      {isFirst && <Image className='breadcrumb-arrow-icon' src='icons/home.webp' width={16} height={16} alt='Дом' />}
+      {isFirst && <Image className='breadcrumb-arrow-icon' src='/icons/home.svg' width={16} height={16} alt='Дом' />}
       <span className='breadcrumb-label'>{breadcrumb.label}</span>
-      {!isLast && <Image className='breadcrumb-arrow-icon' src='icons/narrow-arrow-right.webp' width={24} height={24} alt='Стрелка' />}
+      {!isLast && <Image className='breadcrumb-arrow-icon' src='/icons/narrow-arrow-right.svg' width={24} height={24} alt='Стрелка' />}
     </Link>
   };
 

@@ -16,15 +16,15 @@ export default async function HeroBlock() {
         {
           content: <span>Гарантия до <b>12 месяцев</b></span>,
           icon: {
-            path: '/icons/circle.webp',
+            path: '/icons/circle.svg',
             width: 7,
             height: 7,
           }
         },
         {
-          content: <span><b>Любой</b> ремонт холодильников на дому</span>,
+          content: <span><b>Любой</b> ремонт холодильников на&nbsp;дому</span>,
           icon: {
-            path: '/icons/circle.webp',
+            path: '/icons/circle.svg',
             width: 7,
             height: 7,
           }
@@ -32,7 +32,7 @@ export default async function HeroBlock() {
         {
           content: <span>Озвучиваем цену <b>ДО</b> начала ремонта</span>,
           icon: {
-            path: '/icons/circle.webp',
+            path: '/icons/circle.svg',
             width: 7,
             height: 7,
           }
