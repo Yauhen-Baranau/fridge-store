@@ -10,6 +10,7 @@ import Image from 'next/image';
 import categories from './category-structure/categories.json';
 import allSubсategories from './category-structure/subcategories.json';
 import Button from '@src/ui-kit/button/button';
+import ServicesGrid from '@src/ui-kit/services-grid/services-grid';
 
 const routeToCategoryIdMap: Map<Routes, string> = new Map([
   [Routes.FridgeRepairServices, '1'],
@@ -74,24 +75,6 @@ export default function Category() {
     </div>;
   };
 
-  const constructCategoryContent = (subcategories: Array<Subcategory>) => {
-    // TO DO: this is also used on subcategory and service pages,
-    // better make a separate component for it
-    return <div className={styles['content-wrapper']}>
-      {subcategories.map((subcategory, index) => <React.Fragment key={index}>
-        <div className={styles.subcategory}>
-          <Image className={styles['subcategory-image']} src={subcategory.imagePath} width={180} height={180} alt='Изображение подкатегории услуг' />
-          <h4 className={styles['subcategory-label']}>{subcategory.label}</h4>
-          <span className={styles['with-parts']}>С учетом запчастей</span>
-          <div className={styles['subcategory-footer']}>
-            <span className={styles.price}>от {subcategory.price} руб.</span>
-            <Button customClass={styles['subcategory-learn-more']} text='Подробнее' style='text-only' />
-          </div>
-        </div>
-      </React.Fragment>)}
-    </div>
-  };
-
   const description = categoryData && constructCategoryDescription(categoryData);
   const form = <Form
     customClass={styles.form}
@@ -113,7 +96,9 @@ export default function Category() {
       ]
     }}
   />
-  const content = constructCategoryContent(subcategories);
+  const content = <div className={styles['content-wrapper']}>
+    <ServicesGrid services={subcategories} />
+  </div>
 
   return categoryData && <main className={styles.category}>
     {description}

@@ -87,55 +87,5 @@
 
   .content-wrapper {
     grid-area: content;
-    display: grid;
-    grid-template-columns: repeat(2, 570px);
-    grid-template-rows: repeat(3, 240);
-    gap: 30px;
-
-    .subcategory {
-      display: grid;
-      grid-template-areas:
-        "image upper"
-        "image middle"
-        "image lower"
-      ;
-      grid-template-rows: 1fr min-content min-content;
-      column-gap: 30px;
-      padding: 30px;
-      border: solid colors.$color-gray-lighter 1px;
-      border-radius: 8px;
-      background-color: colors.$color-gray-light;
-
-      .subcategory-image {
-        grid-area: image;
-      }
-
-      .subcategory-label {
-        @include fonts.font(20px, 600, 120%);
-        grid-area: upper;
-      }
-
-      .with-parts {
-        @include fonts.font(16px, 600, 140%);
-        grid-area: middle;
-        color: colors.$color-gray-darker;
-      }
-
-      .subcategory-footer {
-        grid-area: lower;
-        display: flex;
-        align-items: flex-end;
-
-        .price {
-          @include fonts.font(20px, 600, 120%);
-        }
-
-        .subcategory-learn-more {
-          height: fit-content;
-          padding: 0;
-          margin-left: auto;
-        }
-      }
-    }
   }
 }
