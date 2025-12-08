@@ -75,6 +75,8 @@ export default function Category() {
   };
 
   const constructCategoryContent = (subcategories: Array<Subcategory>) => {
+    // TO DO: this is also used on subcategory and service pages,
+    // better make a separate component for it
     return <div className={styles['content-wrapper']}>
       {subcategories.map((subcategory, index) => <React.Fragment key={index}>
         <div className={styles.subcategory}>
