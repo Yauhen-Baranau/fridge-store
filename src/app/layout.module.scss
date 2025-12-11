@@ -1,7 +1,7 @@
 $desktop-content-width: 1170px;
 
 .body {
-  padding: 29px calc((100vw - $desktop-content-width) / 2) 296px;
+  padding: 29px calc((100vw - $desktop-content-width) / 2) 0;
 
   > * {
     width: $desktop-content-width;
