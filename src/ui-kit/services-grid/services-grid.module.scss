@@ -47,9 +47,12 @@
       }
 
       .service-learn-more {
-        height: fit-content;
-        padding: 0;
         margin-left: auto;
+
+        &-button {
+          height: fit-content;
+          padding: 0;
+        }
       }
     }
   }

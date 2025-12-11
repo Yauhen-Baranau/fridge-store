@@ -2,11 +2,14 @@ import React from 'react';
 import styles from './services-grid.module.scss';
 import Image from 'next/image';
 import Button from '../button/button';
+import Link from 'next/link';
+import { Routes } from '@constants/routes';
 
 interface Service {
   imagePath: string,
   label: string,
   price: number,
+  redirectTo: Routes,
 }
 
 export default function ServicesGrid({ services }: { services: Array<Service> }) {
@@ -18,7 +21,9 @@ export default function ServicesGrid({ services }: { services: Array<Service> })
         <span className={styles['with-parts']}>С учетом запчастей</span>
         <div className={styles['service-footer']}>
           <span className={styles.price}>от {service.price} руб.</span>
-          <Button customClass={styles['service-learn-more']} text='Подробнее' style='text-only' />
+          <Link className={styles['service-learn-more']} href={service.redirectTo}>
+            <Button customClass={styles['service-learn-more-button']} text='Подробнее' style='text-only' />
+          </Link>
         </div>
       </div>
     </React.Fragment>)}
