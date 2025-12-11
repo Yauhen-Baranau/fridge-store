@@ -12,7 +12,9 @@ const routeToSubcategoryIdMap: Map<Routes, string> = new Map([
   [Routes.CoolingSystemComponentReplacementAndRepairs, '1-1'],
 ]);
 
-export interface Service extends Subcategory {};
+export interface Service extends Subcategory {
+  relatedServiceIds: Array<string>
+};
 
 export default function SubcategoryPage() {
   const params = useParams();

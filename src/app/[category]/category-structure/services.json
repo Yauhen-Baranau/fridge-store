@@ -5,6 +5,7 @@
     "label": "Замена компрессора",
     "description": [],
     "price": 350,
-    "imagePath": ""
+    "imagePath": "",
+    "relatedServiceIds": []
   }
 ]
