@@ -9,12 +9,14 @@ export default function Accordion({
   toggleAreaContent,
   content,
   buttonStyle = 'arrow',
-  customClass,
+  toggleAreaCustomClass,
+  contentWrapperCustomClass,
 }: {
   toggleAreaContent: React.ReactNode,
   content: React.ReactNode,
   buttonStyle?: 'arrow' | 'plus',
-  customClass?: string,
+  toggleAreaCustomClass?: string,
+  contentWrapperCustomClass?: string,
 }) {
   const [isRevealed, setIsRevealed] = useState(false);
   const toggleRevealed = () => setIsRevealed(!isRevealed);
@@ -38,16 +40,13 @@ export default function Accordion({
       className={composeClassName(
         'accordion-toggle-area',
         isRevealed && 'revealed',
-        customClass
+        toggleAreaCustomClass
       )}
       onClick={toggleRevealed}
     >
       {toggleAreaContent}
       {getToggleButton(buttonStyle)}
     </div>
-    <div className={composeClassName(
-      'content-wrapper',
-      isRevealed && 'revealed'
-    )}>{content}</div>
+    {isRevealed && <div className={composeClassName( 'content-wrapper', contentWrapperCustomClass,)}>{content}</div>}
   </div>
 }

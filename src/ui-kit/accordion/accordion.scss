@@ -27,14 +27,4 @@
       }
     }
   }
-
-  .content-wrapper {
-    height: 0;
-    overflow: hidden;
-    transition-duration: var(--global-transition-duration);
-
-    &.revealed {
-      height: auto;
-    }
-  }
 }
