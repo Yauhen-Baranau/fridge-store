@@ -20,9 +20,11 @@ interface Service {
 export default function ServicePage({
   service,
   subservices,
+  preServiceGridContent,
 }: {
   service: Service,
   subservices: Array<Service & { redirectTo: string }>,
+  preServiceGridContent?: React.ReactNode,
 }) {
   const constructCategoryDescription = (serviceData: Service) => {
     return <div className={styles['description-wrapper']}>
@@ -80,6 +82,7 @@ export default function ServicePage({
     }}
   />
   const content = <div className={styles['content-wrapper']}>
+    {preServiceGridContent}
     <ServicesGrid services={subservices} />
   </div>
 

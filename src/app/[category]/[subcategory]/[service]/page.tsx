@@ -1,5 +1,6 @@
 'use client';
 
+import styles from './page.module.scss';
 import { useParams } from 'next/navigation';
 import { Routes } from "@constants/routes";
 import { useMemo } from 'react';
@@ -22,9 +23,13 @@ export default function ServicePag() {
       : [];
     return rawRelatedServices.map(service => ({
       ...service,
-      redirectTo: `${params.category}/${params.subcategory}/${serviceIdToRouteMap.get(service.id)}`
+      redirectTo: `./${serviceIdToRouteMap.get(service.id)}`
     }));
   }, [serviceId]);
   const serviceData = allServices.find(service => service.id === serviceId);
-  return serviceData && <ServicePage service={serviceData} subservices={relatedServices} />
+  return serviceData && <ServicePage
+    service={serviceData}
+    subservices={relatedServices}
+    preServiceGridContent={<h2 className={styles['related-services-title']}>Похожие услуги</h2>}
+  />
 }

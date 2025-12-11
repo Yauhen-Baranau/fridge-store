@@ -6,6 +6,6 @@
     "description": [],
     "imagePath": "/services/compressor-repairs.webp",
     "price": 350,
-    "relatedServiceIds": []
+    "relatedServiceIds": ["1-1-1"]
   }
 ]

@@ -1,0 +1,6 @@
+@use '../../../../styles/fonts.scss';
+
+.related-services-title {
+  @include fonts.font(40px, 600, 125%);
+  margin: 84px 0 56px;
+}
