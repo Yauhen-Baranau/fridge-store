@@ -6,7 +6,7 @@ import { useMemo } from 'react';
 import categories from './category-structure/categories.json';
 import allSubсategories from './category-structure/subcategories.json';
 import allServices from './category-structure/services.json';
-import ServicePage from '@ui-kit/service-page/service-page';
+import ServicePageComponent from '@src/ui-kit/service-page-component/service-page-component';
 import { Subcategory } from './[subcategory]/page';
 import { routeToCategoryIdMap, subcategoryIdToRouteMap } from './routing-maps';
 
@@ -40,5 +40,5 @@ export default function CategoryPage() {
     }));
   }, [categoryId]);
   const categoryData = categories.find(category => category.id === categoryId) as Category;
-  return categoryData && <ServicePage service={categoryData} subservices={subcategories} />
+  return categoryData && <ServicePageComponent service={categoryData} subservices={subcategories} />
 }

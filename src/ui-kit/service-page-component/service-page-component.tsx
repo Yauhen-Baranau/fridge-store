@@ -2,7 +2,7 @@
 
 import React from 'react';
 import List from '../list/list';
-import styles from './service-page.module.scss';
+import styles from './service-page-component.module.scss';
 import Image from 'next/image';
 import Form from '../form/form';
 import ServicesGrid from '../services-grid/services-grid';
@@ -17,7 +17,7 @@ interface Service {
   price?: number,
 }
 
-export default function ServicePage({
+export default function ServicePageComponent({
   service,
   subservices,
   preServiceGridContent,

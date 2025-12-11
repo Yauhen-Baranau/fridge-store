@@ -5,7 +5,7 @@ import { useParams } from 'next/navigation';
 import { Routes } from "@constants/routes";
 import { useMemo } from 'react';
 import allServices from '../../category-structure/services.json';
-import ServicePage from '@ui-kit/service-page/service-page';
+import ServicePageComponent from '@src/ui-kit/service-page-component/service-page-component';
 import { Subcategory } from '../page';
 import { routeToServiceIdMap, serviceIdToRouteMap } from '../../routing-maps';
 
@@ -27,7 +27,7 @@ export default function ServicePag() {
     }));
   }, [serviceId]);
   const serviceData = allServices.find(service => service.id === serviceId);
-  return serviceData && <ServicePage
+  return serviceData && <ServicePageComponent
     service={serviceData}
     subservices={relatedServices}
     preServiceGridContent={<h2 className={styles['related-services-title']}>Похожие услуги</h2>}
