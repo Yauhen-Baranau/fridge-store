@@ -1,6 +1,20 @@
 @use '../../styles/colors.scss';
 @use '../../styles/fonts.scss';
 
+$snowflake-width: 247px;
+$snowflake-height: 239px;
+$upper-left-snowflake-center-x: 81px; // from the left border
+$upper-left-snowflake-center-y: 30px; // from the upper border
+$upper-right-snowflake-center-x: 46px; // from the right border
+$upper-right-snowflake-center-y: 30px; // from the upper border
+// TO DO: make global variable for this filter
+$white-color-filter: brightness(0) saturate(100%) invert(100%) sepia(27%) saturate(200%) hue-rotate(236deg) brightness(107%) contrast(101%);
+$accordion-content-snowflake-width: 247px;
+$accordion-content-snowflake-height: 239px;
+$accordion-content-snowflake-center-x: 67px; // from the left border
+$accordion-content-snowflake-center-y: 84px; // from the bottom border
+$light-gray-color-filter: brightness(0) saturate(100%) invert(95%) sepia(90%) saturate(71%) hue-rotate(267deg) brightness(116%) contrast(94%);
+
 .prices {
   display: grid;
   grid-template-areas:
@@ -23,7 +37,8 @@
       border-radius: 12px;
       background-color: colors.$color-blue-light;
 
-      &-upper-row, &-lower-row {
+      &-upper-row,
+      &-lower-row {
         @include fonts.font(20px, 600, 140%);
         display: flex;
         justify-content: space-between;
@@ -49,5 +64,105 @@
 
   &-block {
     grid-area: prices;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 100px;
+    border-radius: 12px;
+    background-color: colors.$color-gray-light;
+    position: relative;
+
+    &-title {
+      @include fonts.font(40px, 600, 125%);
+      margin-bottom: 40px;
+    }
+
+    .with-parts {
+      @include fonts.font(20px, 600, 120%);
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      padding: 24px 0;
+      border: solid colors.$color-main-blue 1px;
+      border-radius: 12px;
+      color: colors.$color-main-blue;
+    }
+
+    .subcategory-price-accordion-toggle-area {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px;
+      border-radius: 12px;
+      background-color: colors.$color-main-white;
+      cursor: pointer;
+
+      &-label {
+        @include fonts.font(20px, 600, 140%);
+        text-transform: uppercase;
+      }
+    }
+
+    .subcategory-price-accordion-content-wrapper {
+      display: flex;
+      gap: 114px;
+      padding: 32px;
+      margin-top: 4px;
+      border-radius: 12px;
+      background-color: colors.$color-main-white;
+      overflow: hidden;
+      position: relative;
+
+      .subcategory-image {
+        z-index: 1;
+      }
+
+      .subcategory-service-list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        width: 100%;
+
+        .subcategory-service {
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+
+          &-label {
+            @include fonts.font(20px, 400, 140%);
+          }
+
+          &-price {
+            @include fonts.font(20px, 600, 140%);
+          }
+        }
+      }
+
+      .accordion-content-snowflake {
+        position: absolute;
+        left: calc($accordion-content-snowflake-center-x - $accordion-content-snowflake-width / 2);
+        bottom: calc($accordion-content-snowflake-center-y - $accordion-content-snowflake-height / 2);
+        filter: $light-gray-color-filter;
+        transform: rotate(-30deg);
+        z-index: 0;
+      }
+    }
+
+    .snowflake {
+      filter: $white-color-filter;
+      position: absolute;
+      transform: rotate(-30deg);
+
+      &-upper-left {
+        top: calc($upper-left-snowflake-center-y - $snowflake-height / 2);
+        left: calc($upper-left-snowflake-center-x - $snowflake-width / 2);
+      }
+
+      &-upper-right {
+        top: calc($upper-right-snowflake-center-y - $snowflake-height / 2);
+        right: calc($upper-right-snowflake-center-x - $snowflake-width / 2);
+      }
+    }
   }
 }
