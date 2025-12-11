@@ -72,36 +72,8 @@
     }
   }
 
-  .form {
+  .call-me-back-form {
     grid-area: form;
-    height: fit-content;
-    padding: 48px;
-    box-shadow: 2px 2px 50px 0px #2020200F;
-
-    .form-title {
-      @include fonts.font(20px, 600, 120%);
-      margin-bottom: 20px;
-    }
-
-    .form-subtitle {
-      @include fonts.font(16px, 400, 140%);
-      margin-bottom: 24px;
-    }
-
-    .privacy-policy-notice {
-      @include fonts.font(14px, 400, 140%);
-      margin: 24px 0 32px;
-      color: colors.$color-gray-dark;
-
-      .blue {
-        color: colors.$color-main-blue;
-      }
-    }
-
-    button {
-      width: 100%;
-      height: 60px;
-    }
   }
 
   .content-wrapper {

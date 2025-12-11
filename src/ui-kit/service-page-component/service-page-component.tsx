@@ -6,6 +6,7 @@ import styles from './service-page-component.module.scss';
 import Image from 'next/image';
 import Form from '../form/form';
 import ServicesGrid from '../services-grid/services-grid';
+import CallMeBackForm from '../call-me-back-form/call-me-back-form';
 
 interface Service {
   label: string,
@@ -65,27 +66,7 @@ export default function ServicePageComponent({
   };
 
   const description = service && constructCategoryDescription(service);
-  // TO DO: this form is reused a lot outisde this component, dedicate a component to it
-  const form = <Form
-    customClass={styles.form}
-    preFieldsContent={<>
-      <h3 className={styles['form-title']}>Оформить заказ</h3>
-      <p className={styles['form-subtitle']}>Оставьте заявку на оформление заказа и&nbsp;мы Вам перезвоним в ближайшее время</p>
-    </>}
-    submitButtonText='Получить консультацию'
-    submitCallback={console.log}
-    preSubmitButtonContent={
-      <p className={styles['privacy-policy-notice']}>
-        Нажимая на кнопку &quot;Отправить&quot; Вы даете согласие на <span className={styles.blue}>обработку данных</span>
-      </p>
-    }
-    config={{
-      fieldConfigs: [
-        { type: 'text', name: 'name', placeholder: 'Имя' },
-        { type: 'text', name: 'phone', placeholder: 'Телефон' }
-      ]
-    }}
-  />
+  const form = <CallMeBackForm customClass={styles['call-me-back-form']} />
   const content = <div className={styles['content-wrapper']}>
     {preServiceGridContent}
     <ServicesGrid services={subservices} />
