@@ -4,4 +4,5 @@ export enum Routes {
   CompressorReplacement = 'compressor-replacement',
 
   Prices = 'prices',
+  Payment = 'payment',
 }
