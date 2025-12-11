@@ -18,6 +18,25 @@
       margin-bottom: 40px;
     }
 
+    .description-price-block {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: fit-content;
+      padding: 24px;
+      border: solid colors.$color-main-blue 1px;
+      border-radius: 8px;
+
+      .description-price {
+        @include fonts.font(20px, 600, 120%);
+      }
+
+      .with-parts {
+        @include fonts.font(16px, 600, 140%);
+        color: colors.$color-main-blue;
+      }
+    }
+
     .description {
       display: flex;
       flex-direction: column;

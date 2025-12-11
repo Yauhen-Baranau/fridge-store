@@ -29,6 +29,10 @@ export default function ServicePageComponent({
   const constructCategoryDescription = (serviceData: Service) => {
     return <div className={styles['description-wrapper']}>
       <h1 className={styles['description-title']}>{serviceData.label}</h1>
+      {serviceData.price && <div className={styles['description-price-block']}>
+        <p className={styles['description-price']}>от {serviceData.price} руб.</p>
+        <p className={styles['with-parts']}>Цена указана с учетом новых запчастей</p>
+      </div>}
       <div className={styles.description}>
         {serviceData.description.map((descriptionItem, index) => {
           let descriptionItemContent;
