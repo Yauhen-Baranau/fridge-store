@@ -24,6 +24,7 @@
 
     .service-image {
       grid-area: image;
+      object-fit: cover;
     }
 
     .service-label {
