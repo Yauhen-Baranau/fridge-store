@@ -30,6 +30,6 @@ export default function ServicePag() {
   return serviceData && <ServicePageComponent
     service={serviceData}
     subservices={relatedServices}
-    preServiceGridContent={<h2 className={styles['related-services-title']}>Похожие услуги</h2>}
+    preServiceGridContent={relatedServices.length > 0 && <h2 className={styles['related-services-title']}>Похожие услуги</h2>}
   />
 }
