@@ -1,7 +1,37 @@
-.outer-wrapper {
+@use '../../styles/colors.scss';
+
+.outer-accordion-wrapper {
+  width: 100%;
+
+  .accordion-toggle-area {
+    .accordion-toggle-arrow-button {
+      width: 50px;
+      height: 50px;
+      padding: 13px;
+      margin-left: auto;
+
+      img {
+        transform: rotate(135deg);
+        transition-duration: var(--global-transition-duration);
+      }
+    }
+
+    &.revealed {
+      .accordion-toggle-arrow-button {
+        background-color: colors.$color-gray-light;
+
+        img {
+          filter: var(--main-blue-color-filter);
+          transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+
   .content-wrapper {
     height: 0;
     overflow: hidden;
+    transition-duration: var(--global-transition-duration);
 
     &.revealed {
       height: auto;
