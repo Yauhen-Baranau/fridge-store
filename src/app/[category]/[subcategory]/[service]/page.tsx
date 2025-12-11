@@ -17,16 +17,16 @@ export interface Service extends Subcategory {
 export default function ServicePag() {
   const params = useParams();
   const serviceId = routeToServiceIdMap.get(`${params.service}` as Routes);
+  const serviceData = allServices.find(service => service.id === serviceId) as Service;
   const relatedServices = useMemo(() => {
-    const rawRelatedServices = serviceId
-      ? (allServices as Array<Service>).filter(service => service.relatedServiceIds.includes(serviceId))
+    const rawRelatedServices = serviceData
+      ? (allServices as Array<Service>).filter(service => serviceData.relatedServiceIds.includes(service.id))
       : [];
     return rawRelatedServices.map(service => ({
       ...service,
       redirectTo: `./${serviceIdToRouteMap.get(service.id)}`
     }));
   }, [serviceId]);
-  const serviceData = allServices.find(service => service.id === serviceId);
   return serviceData && <ServicePageComponent
     service={serviceData}
     subservices={relatedServices}
