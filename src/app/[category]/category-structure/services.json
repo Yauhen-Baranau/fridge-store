@@ -1,8 +1,10 @@
 [
   {
     "id": "1-1-1",
-    "parentSubcategoryId": "1-1",
+    "parentCategoryId": "1-1",
     "label": "Замена компрессора",
-    "startingPrice": 350
+    "description": [],
+    "price": 350,
+    "imagePath": ""
   }
 ]
