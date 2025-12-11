@@ -16,7 +16,7 @@ export default async function Navigation({ customClass }: { customClass?: string
       nestedItemsStyle='popup'
       items={[
         {
-          content: <Link href={Routes.FridgeRepairServices}>УСЛУГИ ПО РЕМОНТУ ХОЛОДИЛЬНИКОВ</Link>,
+          content: <Link href={`/${Routes.FridgeRepairServices}`}>УСЛУГИ ПО РЕМОНТУ ХОЛОДИЛЬНИКОВ</Link>,
           icon: {
             path: '/icons/chevron-down.svg',
             width: 10,

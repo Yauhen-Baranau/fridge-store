@@ -4,8 +4,8 @@
     "parentCategoryId": "1-1",
     "label": "Замена компрессора",
     "description": [],
-    "price": 350,
     "imagePath": "/services/compressor-repairs.webp",
+    "price": 350,
     "relatedServiceIds": []
   }
 ]

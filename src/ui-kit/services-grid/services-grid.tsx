@@ -17,7 +17,7 @@ export default function ServicesGrid({ services }: { services: Array<Service> })
       <div className={styles.service}>
         <Image className={styles['service-image']} src={service.imagePath} width={180} height={180} alt='Изображение услуги' />
         <h4 className={styles['service-label']}>{service.label}</h4>
-        <span className={styles['with-parts']}>С учетом запчастей</span>
+        {service.price && <span className={styles['with-parts']}>С учетом запчастей</span>}
         <div className={styles['service-footer']}>
           {service.price && <span className={styles.price}>от {service.price} руб.</span>}
           <Link className={styles['service-learn-more']} href={service.redirectTo}>
