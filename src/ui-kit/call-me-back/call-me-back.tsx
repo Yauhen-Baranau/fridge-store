@@ -18,12 +18,12 @@ export default function CallMeBack({ customClass }: { customClass?: string }) {
         customClass={styles['call-me-back-button']}
         text='Позвонить'
         icon={{
-          path: '/icons/phone-2.webp',
+          path: '/icons/phone-2.svg',
           width: 24,
           height: 24,
         }}
         hoverIcon={{
-          path: '/icons/phone-3.webp',
+          path: '/icons/phone-3.svg',
           width: 24,
           height: 24,
         }}
