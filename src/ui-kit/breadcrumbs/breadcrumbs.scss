@@ -25,6 +25,11 @@ $icon-color-filter: brightness(0) saturate(100%) invert(60%) sepia(8%) saturate(
     &:first-of-type {
       .breadcrumb-label {
         margin-left: 4px;
+      }
+    }
+
+    &:not(:last-of-type) {
+      .breadcrumb-label {
         color: colors.$color-gray-darker;
       }
     }
