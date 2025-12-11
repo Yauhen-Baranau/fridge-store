@@ -1,16 +1,13 @@
 'use client';
 
-import { useParams } from 'next/navigation';
+import { useParams, usePathname } from 'next/navigation';
 import { Routes } from "@constants/routes";
 import { useMemo } from 'react';
 import categories from './category-structure/categories.json';
 import allSubсategories from './category-structure/subcategories.json';
 import ServicePage from '@ui-kit/service-page/service-page';
 import { Subcategory } from './[subcategory]/page';
-
-const routeToCategoryIdMap: Map<Routes, string> = new Map([
-  [Routes.FridgeRepairServices, '1'],
-]);
+import { routeToCategoryIdMap, subcategoryIdToRouteMap } from './routing-maps';
 
 export interface Category {
   id: string,
@@ -24,9 +21,14 @@ export interface Category {
 
 export default function CategoryPage() {
   const params = useParams();
+  const pathname = usePathname();
   const categoryId = routeToCategoryIdMap.get(`${params.category}` as Routes);
   const subcategories = useMemo(() => {
-    return (allSubсategories as Array<Subcategory>).filter(subcategory => subcategory.parentCategoryId === categoryId);
+    const rawSubcategories = (allSubсategories as Array<Subcategory>).filter(subcategory => subcategory.parentCategoryId === categoryId);
+    return rawSubcategories.map(subcategory => ({
+      ...subcategory,
+      redirectTo: `${pathname}/${subcategoryIdToRouteMap.get(subcategory.id)}`,
+    }));
   }, [categoryId]);
   const categoryData = categories.find(category => category.id === categoryId) as Category;
   return categoryData && <ServicePage service={categoryData} subservices={subcategories} />

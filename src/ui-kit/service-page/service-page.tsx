@@ -22,7 +22,7 @@ export default function ServicePage({
   subservices,
 }: {
   service: Service,
-  subservices: Array<Service>,
+  subservices: Array<Service & { redirectTo: string }>,
 }) {
   const constructCategoryDescription = (serviceData: Service) => {
     return <div className={styles['description-wrapper']}>
@@ -80,7 +80,7 @@ export default function ServicePage({
     }}
   />
   const content = <div className={styles['content-wrapper']}>
-    <ServicesGrid services={subservices.map(subservice => ({ ...subservice, redirectTo: '' }))} />
+    <ServicesGrid services={subservices} />
   </div>
 
   return <div className={styles.service}>
