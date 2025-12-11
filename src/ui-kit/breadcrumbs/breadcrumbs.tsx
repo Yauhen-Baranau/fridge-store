@@ -4,7 +4,6 @@ import './breadcrumbs.scss';
 import React from 'react';
 import { usePathname } from 'next/navigation';
 import composeClassName from '@src/helpers/compose-class-name';
-import { routeToLabelMap } from '@constants/route-to-label-map';
 import { Routes } from '@constants/routes';
 import Image from 'next/image';
 
@@ -12,6 +11,13 @@ interface Breadcrumb {
   label: string,
   redirectTo: string,
 }
+
+const routeToLabelMap = new Map([
+  [Routes.FridgeRepairServices, 'Услуги по ремонту холодильников'],
+  [Routes.CoolingSystemComponentReplacementAndRepairs, 'Замена и ремонт компонентов системы охлаждения'],
+  [Routes.CompressorReplacement, 'Замена компрессора'],
+  [Routes.Prices, 'Цены'],
+]);
 
 export default function Breadcrumbs({ customClass }: { customClass?: string }) {
   const pathname = usePathname();
