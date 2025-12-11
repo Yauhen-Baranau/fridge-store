@@ -6,6 +6,70 @@
     "description": [],
     "imagePath": "/services/compressor-repairs.webp",
     "price": 350,
-    "relatedServiceIds": ["1-1-1"]
+    "relatedServiceIds": []
+  },
+  {
+    "id": "1-1-2",
+    "parentCategoryId": "1-1",
+    "label": "Замена испарителя",
+    "description": [],
+    "imagePath": "/services/compressor-repairs.webp",
+    "price": 250,
+    "relatedServiceIds": []
+  },
+  {
+    "id": "1-1-3",
+    "parentCategoryId": "1-1",
+    "label": "Замена конденсатора",
+    "description": [],
+    "imagePath": "/services/compressor-repairs.webp",
+    "price": 120,
+    "relatedServiceIds": []
+  },
+  {
+    "id": "1-1-4",
+    "parentCategoryId": "1-1",
+    "label": "Замена капиллярной трубы",
+    "description": [],
+    "imagePath": "/services/compressor-repairs.webp",
+    "price": 150,
+    "relatedServiceIds": []
+  },
+  {
+    "id": "1-6-1",
+    "parentCategoryId": "1-6",
+    "label": "Диагностика холодильника",
+    "description": [],
+    "imagePath": "/services/compressor-repairs.webp",
+    "price": 20,
+    "relatedServiceIds": []
+  },
+  {
+    "id": "1-6-2",
+    "parentCategoryId": "1-6",
+    "label": "Прочистка дренажной системы",
+    "description": [],
+    "imagePath": "/services/compressor-repairs.webp",
+    "price": 50,
+    "relatedServiceIds": []
+  },
+  {
+    "id": "1-6-3",
+    "parentCategoryId": "1-6",
+    "label": "Устранение посторонних шумов",
+    "description": [],
+    "imagePath": "/services/compressor-repairs.webp",
+    "price": 35,
+    "relatedServiceIds": []
+  },
+  {
+    "id": "1-6-4",
+    "parentCategoryId": "1-6",
+    "label": "Замена подсветки холодильника",
+    "labelComment": "(лампы/LED-модуля)",
+    "description": [],
+    "imagePath": "/services/compressor-repairs.webp",
+    "price": 50,
+    "relatedServiceIds": []
   }
 ]
