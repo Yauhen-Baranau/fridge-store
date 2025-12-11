@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './services-grid.module.scss';
 import Image from 'next/image';
 import Button from '../button/button';
@@ -11,9 +11,18 @@ interface Service {
   redirectTo: string,
 }
 
-export default function ServicesGrid({ services }: { services: Array<Service> }) {
+export default function ServicesGrid({
+  services,
+  unexpandedServiceLimit = 6
+}: {
+  services: Array<Service>,
+  unexpandedServiceLimit?: number,
+}) {
+  const [allExpanded, setAllExpanded] = useState(services.length <= unexpandedServiceLimit);
+
+  const servicesToDisplay = allExpanded ? services : services.slice(0, 6);
   return <div className={styles['services-grid']}>
-    {services.map((service, index) => <React.Fragment key={index}>
+    {servicesToDisplay.map((service, index) => <React.Fragment key={index}>
       <div className={styles.service}>
         <Image className={styles['service-image']} src={service.imagePath} width={180} height={180} alt='Изображение услуги' />
         <h4 className={styles['service-label']}>{service.label}</h4>
@@ -26,5 +35,11 @@ export default function ServicesGrid({ services }: { services: Array<Service> })
         </div>
       </div>
     </React.Fragment>)}
+    {!allExpanded && <Button
+      customClass={styles['view-all-services-button']}
+      text='Смотреть все услуги'
+      style='text-only'
+      onClick={() => setAllExpanded(true)}
+    />}
   </div>
 }
