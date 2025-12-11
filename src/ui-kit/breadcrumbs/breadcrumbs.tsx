@@ -53,7 +53,8 @@ export default function Breadcrumbs({ customClass }: { customClass?: string }) {
     </Link>
   };
 
-  return <div className={composeClassName('breadcrumbs', customClass)}>
+  const breadcrumbs = getBreadcrumbs();
+  return breadcrumbs.length > 1 && <div className={composeClassName('breadcrumbs', customClass)}>
     {getBreadcrumbs().map((breadcrumb, index, arr) => <React.Fragment key={index}>
       {breadcrumbFactory({
         breadcrumb,
