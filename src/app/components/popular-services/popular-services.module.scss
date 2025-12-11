@@ -7,7 +7,6 @@ $upper-left-snowflake-center-y: 94px; // from the upper border
 $upper-left-snowflake-center-x: 0px; // from the left border
 $lower-right-snowflake-center-y: 222px; // from the lower border
 $lower-right-snowflake-center-x: 33px; // from the right border
-$white-color-filter: brightness(0) saturate(100%) invert(100%) sepia(27%) saturate(200%) hue-rotate(236deg) brightness(107%) contrast(101%);
 
 .popular-services {
   display: flex;
@@ -98,7 +97,7 @@ $white-color-filter: brightness(0) saturate(100%) invert(100%) sepia(27%) satura
 
   .snowflake {
     position: absolute;
-    filter: $white-color-filter;
+    filter: var(--main-white-color-filter);
     opacity: 0.4;
     transform: rotate(-30deg);
     z-index: -1;

@@ -7,8 +7,6 @@ $upper-left-snowflake-center-x: 81px; // from the left border
 $upper-left-snowflake-center-y: 30px; // from the upper border
 $upper-right-snowflake-center-x: 46px; // from the right border
 $upper-right-snowflake-center-y: 30px; // from the upper border
-// TO DO: make global variable for this filter
-$white-color-filter: brightness(0) saturate(100%) invert(100%) sepia(27%) saturate(200%) hue-rotate(236deg) brightness(107%) contrast(101%);
 $accordion-content-snowflake-width: 247px;
 $accordion-content-snowflake-height: 239px;
 $accordion-content-snowflake-center-x: 67px; // from the left border
@@ -150,7 +148,7 @@ $light-gray-color-filter: brightness(0) saturate(100%) invert(95%) sepia(90%) sa
     }
 
     .snowflake {
-      filter: $white-color-filter;
+      filter: var(--main-white-color-filter);
       position: absolute;
       transform: rotate(-30deg);
 
