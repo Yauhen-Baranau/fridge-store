@@ -3,8 +3,8 @@
 import { useParams, usePathname } from 'next/navigation';
 import { Routes } from "@constants/routes";
 import { useMemo } from 'react';
-import subсategories from '../category-structure/subcategories.json';
-import allServices from '../category-structure/services.json';
+import subсategories from '@category-data/subcategories.json';
+import allServices from '@category-data/services.json';
 import ServicePageComponent from '@src/ui-kit/service-page-component/service-page-component';
 import { Category } from '../page';
 import { Service } from './[service]/page';

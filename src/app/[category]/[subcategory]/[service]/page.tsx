@@ -4,7 +4,7 @@ import styles from './page.module.scss';
 import { useParams } from 'next/navigation';
 import { Routes } from "@constants/routes";
 import { useMemo } from 'react';
-import allServices from '../../category-structure/services.json';
+import allServices from '@category-data/services.json';
 import ServicePageComponent from '@src/ui-kit/service-page-component/service-page-component';
 import { Subcategory } from '../page';
 import { routeToServiceIdMap, serviceIdToRouteMap } from '../../routing-maps';

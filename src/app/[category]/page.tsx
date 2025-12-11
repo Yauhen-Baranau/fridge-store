@@ -3,9 +3,9 @@
 import { useParams, usePathname } from 'next/navigation';
 import { Routes } from "@constants/routes";
 import { useMemo } from 'react';
-import categories from './category-structure/categories.json';
-import allSubсategories from './category-structure/subcategories.json';
-import allServices from './category-structure/services.json';
+import categories from '@category-data/categories.json';
+import allSubсategories from '@category-data/subcategories.json';
+import allServices from '@category-data/services.json';
 import ServicePageComponent from '@src/ui-kit/service-page-component/service-page-component';
 import { Subcategory } from './[subcategory]/page';
 import { routeToCategoryIdMap, subcategoryIdToRouteMap } from './routing-maps';
