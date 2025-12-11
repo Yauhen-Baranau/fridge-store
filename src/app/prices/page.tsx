@@ -51,6 +51,7 @@ export default function PricesPage() {
     <div className={styles['prices-block']}>
       <h2 className={styles['prices-block-title']}>Цены</h2>
       <div className={styles['with-parts']}>Цены указаны с учетом новых запчастей</div>
+      {/* TO DO: use List */}
       {subcategories.map(subcategory => <React.Fragment key={subcategory.id}>{getSubcategoryAccordion(subcategory)}</React.Fragment>)}
       {/* didn't use background-image because these snowflakes are rotated */}
       <Image className={composeClassName(styles.snowflake, styles['snowflake-upper-left'])} src='/snowflake.webp' width={247} height={239} alt='Снежинка' />
