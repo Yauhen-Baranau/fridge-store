@@ -3,6 +3,7 @@
 import Form from '@src/ui-kit/form/form';
 import styles from './page.module.scss';
 import services from '@category-data/services.json';
+import CallMeBackForm from '@src/ui-kit/call-me-back-form/call-me-back-form';
 
 export default function PricesPage() {
   const diagnosticsPrice = services.find(service => service.label === 'Диагностика холодильника')?.price;
@@ -22,12 +23,7 @@ export default function PricesPage() {
       <p className={styles['prices-description-text']}>Реле в холодильнике - это пускозащитный механизм, который приводит в действие мотор-компрессор, когда на элемент поступает сигнал от термостата, и прекращает его работу в момент нагрева двигателя. Если деталь неисправна, потребуется ее восстановление или замена. Реле в холодильнике - это пускозащитный механизм, который приводит в действие мотор-компрессор, когда на элемент поступает сигнал от термостата, и прекращает его работу в момент нагрева двигателя. Если деталь неисправна, потребуется ее восстановление или замена. </p>
     </div>
     {/* TO DO: change to ui-kit one */}
-    <Form
-      customClass={styles['call-me-back-form']}
-      config={{ fieldConfigs: [] }}
-      submitButtonText='a'
-      submitCallback={() => {}}
-    />
+    <CallMeBackForm customClass={styles['call-me-back-form']} />
     <div className={styles['prices-block']}></div>
   </main>
 }

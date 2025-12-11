@@ -8,7 +8,7 @@
     "prices prices"
   ;
   grid-template-columns: 570px auto;
-  gap: 130px 150px;
+  gap: 150px 130px;
 
   .title {
     @include fonts.font(40px, 600, 125%);
