@@ -1,6 +1,5 @@
 'use client';
 
-import Breadcrumbs from '@ui-kit/breadcrumbs/breadcrumbs';
 import styles from './layout.module.scss';
 import FrequentFridgeProblems from '@ui-kit/frequent-fridge-problems/frequent-fridge-problems';
 import DiscountBlock from '@ui-kit/discount-block/discount-block';
@@ -13,7 +12,6 @@ export default function CategoryLayout({
   children: React.ReactNode;
 }>) {
   return <>
-    <Breadcrumbs customClass={styles.breadcrumbs} />
     <main>{children}</main>
     <FrequentFridgeProblems customClass={styles['post-children-block']} />
     <DiscountBlock customClass={styles['post-children-block']} />
