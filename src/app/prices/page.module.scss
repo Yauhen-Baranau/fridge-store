@@ -1,0 +1,53 @@
+@use '../../styles/colors.scss';
+@use '../../styles/fonts.scss';
+
+.prices {
+  display: grid;
+  grid-template-areas:
+    "description form"
+    "prices prices"
+  ;
+  grid-template-columns: 570px auto;
+  gap: 130px 150px;
+
+  .title {
+    @include fonts.font(40px, 600, 125%);
+  }
+
+  &-description {
+    grid-area: description;
+
+    .diagnostics-price {
+      padding: 32px;
+      margin: 40px 0;
+      border-radius: 12px;
+      background-color: colors.$color-blue-light;
+
+      &-upper-row, &-lower-row {
+        @include fonts.font(20px, 600, 140%);
+        display: flex;
+        justify-content: space-between;
+      }
+
+      &-upper-row {
+        margin-bottom: 5px;
+      }
+
+      &-lower-row span {
+        color: colors.$color-main-blue;
+      }
+    }
+
+    &-text {
+      @include fonts.font(16px, 400, 160%);
+    }
+  }
+
+  .call-me-back-form {
+    grid-area: form;
+  }
+
+  &-block {
+    grid-area: prices;
+  }
+}

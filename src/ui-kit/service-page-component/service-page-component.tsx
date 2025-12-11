@@ -65,6 +65,7 @@ export default function ServicePageComponent({
   };
 
   const description = service && constructCategoryDescription(service);
+  // TO DO: this form is reused a lot outisde this component, dedicate a component to it
   const form = <Form
     customClass={styles.form}
     preFieldsContent={<>
