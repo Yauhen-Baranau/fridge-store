@@ -14,7 +14,7 @@ export default function CategoryLayout({
 }>) {
   return <>
     <Breadcrumbs customClass={styles.breadcrumbs} />
-    {children}
+    <main>{children}</main>
     <FrequentFridgeProblems customClass={styles['post-children-block']} />
     <DiscountBlock customClass={styles['post-children-block']} />
     <HowToOrderRepairs customClass={styles['post-children-block']} />
