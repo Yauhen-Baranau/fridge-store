@@ -25,7 +25,7 @@ export default async function Navigation({ customClass }: { customClass?: string
           },
           subItems: [
             {
-              content: <Link href='https://google.com'>ЗАМЕНА И РЕМОНТ КОМПОНЕНТОВ СИСТЕМЫ ОХЛАЖДЕНИЯ</Link>,
+              content: <Link href={`/${Routes.FridgeRepairServices}/${Routes.CoolingSystemComponentReplacementAndRepairs}`}>ЗАМЕНА И РЕМОНТ КОМПОНЕНТОВ СИСТЕМЫ ОХЛАЖДЕНИЯ</Link>,
               icon: {
                 path: '/icons/square-small.svg',
                 width: 14,
