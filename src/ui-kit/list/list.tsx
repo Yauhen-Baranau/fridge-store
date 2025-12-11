@@ -61,7 +61,10 @@ export default function List({
         const nestedList = <List items={item.subItems!} />;
         switch (nestedItemsStyle) {
             case 'accordion':
-              itemContent = <Accordion>{nestedList}</Accordion>
+              itemContent = <Accordion
+                toggleAreaContent={itemLabel}
+                content={nestedList}
+              />
               break;
             case 'popup':
               itemContent = <PopupWrapper popupContent={nestedList}>{itemLabel}</PopupWrapper>
