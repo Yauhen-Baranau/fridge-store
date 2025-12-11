@@ -6,6 +6,7 @@ import { useMemo } from 'react';
 import categories from './category-structure/categories.json';
 import allSubсategories from './category-structure/subcategories.json';
 import ServicePage from '@ui-kit/service-page/service-page';
+import { Subcategory } from './[subcategory]/page';
 
 const routeToCategoryIdMap: Map<Routes, string> = new Map([
   [Routes.FridgeRepairServices, '1'],
@@ -19,10 +20,6 @@ export interface Category {
     | { type: 'list', title: string, items: Array<string> }
   >,
   imagePath: string,
-}
-
-export interface Subcategory extends Category {
-  parentCategoryId: string,
 }
 
 export default function CategoryPage() {

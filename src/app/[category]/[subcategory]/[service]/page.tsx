@@ -5,11 +5,15 @@ import { Routes } from "@constants/routes";
 import { useMemo } from 'react';
 import allServices from '../../category-structure/services.json';
 import ServicePage from '@ui-kit/service-page/service-page';
-import { Service } from '../page';
+import { Subcategory } from '../page';
 
 const routeToServiceIdMap: Map<Routes, string> = new Map([
   [Routes.CompressorReplacement, '1-1-1'],
 ]);
+
+export interface Service extends Subcategory {
+  relatedServiceIds: Array<string>
+};
 
 // TO DO: rename
 export default function ServicePag() {
