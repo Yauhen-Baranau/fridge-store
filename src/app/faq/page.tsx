@@ -1,5 +1,37 @@
+import List from '@ui-kit/list/list';
 import styles from './page.module.scss';
+import Image from 'next/image';
+import composeClassName from '@src/helpers/compose-class-name';
 
 export default function FaqPage() {
-  return <></>;
+  const faqListItemFactory = ({ question, answer }: { question: string, answer: string }) => {
+    return { content: <details className={styles['faq-list-item']}>
+      <summary className={styles['faq-list-item-question']}>
+        {question}
+        <Image className={styles['plus-icon']} src='/icons/plus.svg' width={24} height={24} alt='Плюс' />
+      </summary>
+      <p className={styles['faq-list-item-answer']}>{answer}</p>
+    </details> }
+  };
+
+  return <main className={styles.faq}>
+    <h1 className={styles.title}>Популярные вопросы</h1>
+    <List customClass={styles['faq-list']} items={[
+      { question: 'Можно ли заменить верхнюю камеру в холодильнике Электролюкс?', answer: 'text' },
+      { question: 'Может ли не включаться холодильник в холодном помещении?', answer: 'text' },
+      { question: 'Подскажите марки фреона для заправки холодильников?', answer: 'text' },
+      { question: 'Как узнать, сломался ли компрессор в холодильнике Атлант? ', answer: 'text' },
+      { question: 'Как долго занимает ремонт холодильника?', answer: 'Для замены термостата необходимо приобрести термостат, который подходит к модели данного холодильника, при демонтаже неисправного термостата необходимо запомнит, как он был установлен и таким же образом установить новый термостат. Но этот вид работы лучше предоставить специалисту. При неправильном подключении холодильник может работать не корректно.' },
+      { question: 'Как заменить вилку сети холодильника?', answer: 'text' },
+      { question: 'Что делать, если после ремонта проблема повторилась?', answer: 'text' },
+      { question: 'Вы принимаете оплату картой?', answer: 'text' },
+      { question: 'Могу ли я заказать экстренный ремонт?', answer: 'text' },
+      { question: 'Как быстро можно записаться на ремонт?', answer: 'text' },
+      { question: 'Есть ли у вас скидки на услуги?', answer: 'text' },
+    ].map(faqListItemFactory)} />
+    {/* didn't use background-image because these snowflakes are rotated */}
+    {/* TO DO: component for snowflakes */}
+    <Image className={composeClassName(styles.snowflake, styles['snowflake-upper-left'])} src='/snowflake.webp' width={173} height={168} alt='Снежинка' />
+    <Image className={composeClassName(styles.snowflake, styles['snowflake-upper-right'])} src='/snowflake.webp' width={173} height={168} alt='Снежинка' />
+  </main>
 }
