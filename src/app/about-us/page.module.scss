@@ -1,0 +1,42 @@
+@use '../../styles/fonts.scss';
+
+.about-us {
+  display: flex;
+  flex-direction: column;
+  gap: 140px;
+  
+  .description-block {
+    display: grid;
+    grid-template-areas:
+      "title image"
+      "description image"
+    ;
+    grid-template-columns: 570px auto;
+    grid-template-rows: fit-content auto;
+    column-gap: 130px;
+
+    .title {
+      @include fonts.font(40px, 600, 125%);
+      grid-area: title;
+    }
+
+    .description {
+      grid-area: description;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      &-paragraph {
+        @include fonts.font(16px, 400, 160%);
+
+        .bold {
+          font-weight: 600;
+        }
+      }
+    }
+
+    .image {
+      grid-area: image;
+    }
+  }
+}
