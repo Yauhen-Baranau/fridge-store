@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { contactInfo } from '@constants/contact-info';
 import Socials from '@ui-kit/socials/socials';
 import Button from '@ui-kit/button/button';
+import { Routes } from '@constants/routes';
 
 export default function Footer() {
   return <footer className={styles.footer}>
@@ -17,7 +18,7 @@ export default function Footer() {
       { content: <Link href='https://google.com'>Цены</Link> },
       { content: <Link href='https://google.com'>Оплата</Link> },
       { content: <Link href='https://google.com'>Отзывы</Link> },
-      { content: <Link href='https://google.com'>Популярные вопросы</Link> },
+      { content: <Link href={`/${Routes.FAQ}`}>Популярные вопросы</Link> },
       { content: <Link href='https://google.com'>Частые проблемы</Link> },
       { content: <Link href='https://google.com'>Контакты</Link> },
     ]} />

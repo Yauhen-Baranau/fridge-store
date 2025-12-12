@@ -5,4 +5,5 @@ export enum Routes {
 
   Prices = 'prices',
   Payment = 'payment',
+  FAQ = 'faq',
 }

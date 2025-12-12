@@ -18,6 +18,7 @@ const routeToLabelMap = new Map([
   [Routes.CompressorReplacement, 'Замена компрессора'],
   [Routes.Prices, 'Цены'],
   [Routes.Payment, 'Оплата'],
+  [Routes.FAQ, 'Популярные вопросы'],
 ]);
 
 export default function Breadcrumbs({ customClass }: { customClass?: string }) {
