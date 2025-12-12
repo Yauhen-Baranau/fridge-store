@@ -127,7 +127,7 @@ export default async function Navigation({ customClass }: { customClass?: string
           content: <Link href='https://google.com'>ОТЗЫВЫ</Link>,
         },
         {
-          content: <Link href='https://google.com'>О КОМПАНИИ</Link>,
+          content: <Link href={`/${Routes.AboutUs}`}>О КОМПАНИИ</Link>,
         },
         {
           content: <Link href='https://google.com'>КОНТАКТЫ</Link>,

@@ -14,10 +14,11 @@ interface Breadcrumb {
 
 const routeToLabelMap = new Map([
   [Routes.FridgeRepairServices, 'Услуги по ремонту холодильников'],
-  [Routes.CoolingSystemComponentReplacementAndRepairs, 'Замена и ремонт компонентов системы охлаждения'],
-  [Routes.CompressorReplacement, 'Замена компрессора'],
   [Routes.Prices, 'Цены'],
   [Routes.Payment, 'Оплата'],
+  [Routes.AboutUs, 'О компании'],
+  [Routes.CoolingSystemComponentReplacementAndRepairs, 'Замена и ремонт компонентов системы охлаждения'],
+  [Routes.CompressorReplacement, 'Замена компрессора'],
   [Routes.FAQ, 'Популярные вопросы'],
 ]);
 
