@@ -5,6 +5,7 @@ import styles from './page.module.scss';
 import List from '@ui-kit/list/list';
 import Image from 'next/image';
 import composeClassName from '@src/helpers/compose-class-name';
+import BackgroundSnowflake from '@src/ui-kit/background-snowflake/background-snowflake';
 
 export default function PaymentPage() {
   const listItemContentFactory = ({ title, text, index }: { title: string, text: string, index: number }) => {
@@ -43,8 +44,7 @@ export default function PaymentPage() {
       ].map((params, index) => ({ content: listItemContentFactory({ ...params, index }) }))} />
     </div>
     <CallMeBackForm customClass={styles['call-me-back-form']} />
-    {/* didn't use background-image because these snowflakes are rotated */}
-    <Image className={composeClassName(styles.snowflake, styles['snowflake-large'])} src='/snowflake.webp' width={613} height={595} alt='Снежинка' />
-    <Image className={composeClassName(styles.snowflake, styles['snowflake-small'])} src='/snowflake.webp' width={341} height={331} alt='Снежинка' />
+    <BackgroundSnowflake width={613} height={595} right={40} bottom={785} rotation={-30} color='light-blue' />
+    <BackgroundSnowflake width={341} height={331} right={40} bottom={785} rotation={-30} color='light-blue' />
   </main>
 }

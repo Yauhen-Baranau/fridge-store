@@ -8,7 +8,7 @@ import { Subcategory } from '../[category]/[subcategory]/page';
 import Accordion from '@src/ui-kit/accordion/accordion';
 import React from 'react';
 import Image from 'next/image';
-import composeClassName from '@src/helpers/compose-class-name';
+import BackgroundSnowflake from '@src/ui-kit/background-snowflake/background-snowflake';
 
 export default function PricesPage() {
   const diagnosticsPrice = services.find(service => service.label === 'Диагностика холодильника')?.price;
@@ -27,7 +27,7 @@ export default function PricesPage() {
             <span className={styles['subcategory-service-price']}>от {service.price} руб.</span>
           </div>)}
         </div>
-        <Image className={(styles['accordion-content-snowflake'])} src='/snowflake.webp' width={247} height={239} alt='Снежинка' />
+        <BackgroundSnowflake width={247} height={239} left={67} bottom={84} rotation={-30} color='light-gray' />
       </>}
     />
   };
@@ -53,9 +53,8 @@ export default function PricesPage() {
       <div className={styles['with-parts']}>Цены указаны с учетом новых запчастей</div>
       {/* TO DO: use List */}
       {subcategories.map(subcategory => <React.Fragment key={subcategory.id}>{getSubcategoryAccordion(subcategory)}</React.Fragment>)}
-      {/* didn't use background-image because these snowflakes are rotated */}
-      <Image className={composeClassName(styles.snowflake, styles['snowflake-upper-left'])} src='/snowflake.webp' width={247} height={239} alt='Снежинка' />
-      <Image className={composeClassName(styles.snowflake, styles['snowflake-upper-right'])} src='/snowflake.webp' width={247} height={239} alt='Снежинка' />
+      <BackgroundSnowflake width={247} height={239} left={81} top={30} rotation={-30} color='main-white' />
+      <BackgroundSnowflake width={247} height={239} right={46} top={30} rotation={-30} color='main-white' />
     </div>
   </main>
 }

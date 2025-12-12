@@ -1,18 +1,6 @@
 @use '../../styles/colors.scss';
 @use '../../styles/fonts.scss';
 
-$snowflake-width: 247px;
-$snowflake-height: 239px;
-$upper-left-snowflake-center-x: 81px; // from the left border
-$upper-left-snowflake-center-y: 30px; // from the upper border
-$upper-right-snowflake-center-x: 46px; // from the right border
-$upper-right-snowflake-center-y: 30px; // from the upper border
-$accordion-content-snowflake-width: 247px;
-$accordion-content-snowflake-height: 239px;
-$accordion-content-snowflake-center-x: 67px; // from the left border
-$accordion-content-snowflake-center-y: 84px; // from the bottom border
-$light-gray-color-filter: brightness(0) saturate(100%) invert(95%) sepia(90%) saturate(71%) hue-rotate(267deg) brightness(116%) contrast(94%);
-
 .prices {
   display: grid;
   grid-template-areas:
@@ -135,31 +123,6 @@ $light-gray-color-filter: brightness(0) saturate(100%) invert(95%) sepia(90%) sa
             @include fonts.font(20px, 600, 140%);
           }
         }
-      }
-
-      .accordion-content-snowflake {
-        position: absolute;
-        left: calc($accordion-content-snowflake-center-x - $accordion-content-snowflake-width / 2);
-        bottom: calc($accordion-content-snowflake-center-y - $accordion-content-snowflake-height / 2);
-        filter: $light-gray-color-filter;
-        transform: rotate(-30deg);
-        z-index: 0;
-      }
-    }
-
-    .snowflake {
-      filter: var(--main-white-color-filter);
-      position: absolute;
-      transform: rotate(-30deg);
-
-      &-upper-left {
-        top: calc($upper-left-snowflake-center-y - $snowflake-height / 2);
-        left: calc($upper-left-snowflake-center-x - $snowflake-width / 2);
-      }
-
-      &-upper-right {
-        top: calc($upper-right-snowflake-center-y - $snowflake-height / 2);
-        right: calc($upper-right-snowflake-center-x - $snowflake-width / 2);
       }
     }
   }

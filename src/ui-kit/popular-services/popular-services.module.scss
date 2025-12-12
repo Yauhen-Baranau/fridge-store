@@ -1,13 +1,6 @@
 @use '../../styles/colors.scss';
 @use '../../styles/fonts.scss';
 
-$snowflake-width: 658px;
-$snowflake-height: 638px;
-$upper-left-snowflake-center-y: 94px; // from the upper border
-$upper-left-snowflake-center-x: 0px; // from the left border
-$lower-right-snowflake-center-y: 222px; // from the lower border
-$lower-right-snowflake-center-x: 33px; // from the right border
-
 .popular-services {
   display: flex;
   flex-direction: column;
@@ -92,24 +85,6 @@ $lower-right-snowflake-center-x: 33px; // from the right border
           }
         }
       }
-    }
-  }
-
-  .snowflake {
-    position: absolute;
-    filter: var(--main-white-color-filter);
-    opacity: 0.4;
-    transform: rotate(-30deg);
-    z-index: -1;
-
-    &-upper-left {
-      top: calc($upper-left-snowflake-center-y - $snowflake-height / 2);
-      left: calc($upper-left-snowflake-center-x - $snowflake-width / 2);
-    }
-
-    &-lower-right {
-      bottom: calc($lower-right-snowflake-center-y - $snowflake-height / 2);
-      right: calc($lower-right-snowflake-center-x - $snowflake-width / 2);
     }
   }
 }

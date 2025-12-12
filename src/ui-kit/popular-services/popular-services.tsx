@@ -6,6 +6,7 @@ import composeClassName from '@src/helpers/compose-class-name';
 import Button from '@ui-kit/button/button';
 import Link from 'next/link';
 import Image from 'next/image';
+import BackgroundSnowflake from '../background-snowflake/background-snowflake';
 
 export default async function PopularServices() {
   const serviceFactory = ({
@@ -130,8 +131,7 @@ export default async function PopularServices() {
     <Link href='https://google.com'>
       <Button text='Смотреть все услуги' style='text-only' />
     </Link>
-    {/* didn't use background-image because these snowflakes are rotated */}
-    <Image className={composeClassName(styles.snowflake, styles['snowflake-upper-left'])} src='/snowflake.webp' width={658} height={638} alt='Снежинка' />
-    <Image className={composeClassName(styles.snowflake, styles['snowflake-lower-right'])} src='/snowflake.webp' width={658} height={638} alt='Снежинка' />
+    <BackgroundSnowflake width={658} height={638} left={0} top={94} rotation={-30} color='main-white' opacity={0.4} zIndex={-1} />
+    <BackgroundSnowflake width={658} height={638} right={33} bottom={222} rotation={-30} color='main-white' opacity={0.4} zIndex={-1} />
   </section>
 } 

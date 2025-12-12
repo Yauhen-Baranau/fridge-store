@@ -1,13 +1,6 @@
 @use '../../styles/colors.scss';
 @use '../../styles/fonts.scss';
 
-$snowflake-width: 118px;
-$snowflake-height: 114px;
-$upper-left-snowflake-center-x: 22px; // from the left border
-$upper-left-snowflake-center-y: 20px; // from the upper border
-$lower-left-snowflake-center-x: 22px; // from the left border
-$lower-left-snowflake-center-y: 23px; // from the lower border
-
 .call-me-back {
   display: flex;
   gap: 130px;
@@ -78,22 +71,6 @@ $lower-left-snowflake-center-y: 23px; // from the lower border
       @include fonts.font(16px, 600, 140%);
       width: 100%;
       height: 60px;
-    }
-  }
-
-  .snowflake {
-    position: absolute;
-    opacity: 0.15;
-    transform: rotate(-120deg);
-
-    &-upper-left {
-      top: calc($upper-left-snowflake-center-y - $snowflake-height / 2);
-      left: calc($upper-left-snowflake-center-x - $snowflake-width / 2);
-    }
-
-    &-lower-left {
-      bottom: calc($lower-left-snowflake-center-y - $snowflake-height / 2);
-      left: calc($lower-left-snowflake-center-x - $snowflake-width / 2);
     }
   }
 }

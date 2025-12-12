@@ -5,6 +5,7 @@ import styles from './main-advantages.module.scss';
 import composeClassName from '@src/helpers/compose-class-name';
 import React from 'react';
 import Image from 'next/image';
+import BackgroundSnowflake from '../background-snowflake/background-snowflake';
 
 export default async function MainAdvantages() {
   const advantageFactory = ({
@@ -183,8 +184,7 @@ export default async function MainAdvantages() {
         },
       ].map((params, index) => <React.Fragment key={index}>{advantageFactory(params)}</React.Fragment>)}
     </div>
-    {/* didn't use background-image because these snowflakes are rotated */}
-    <Image className={composeClassName(styles['snowflake'], styles['snowflake-upper-left'])} src='/snowflake.webp' width={131} height={127} alt='Снежинка' />
-    <Image className={composeClassName(styles['snowflake'], styles['snowflake-upper-right'])} src='/snowflake.webp' width={131} height={127} alt='Снежинка' />
+    <BackgroundSnowflake width={131} height={127} left={40} top={48} rotation={-30} />
+    <BackgroundSnowflake width={131} height={127} right={40} top={48} rotation={-30} />
   </section>
 }

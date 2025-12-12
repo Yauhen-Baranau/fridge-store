@@ -2,6 +2,7 @@ import composeClassName from '@src/helpers/compose-class-name';
 import styles from './how-to-order-repairs.module.scss';
 import Image from 'next/image';
 import React from 'react';
+import BackgroundSnowflake from '../background-snowflake/background-snowflake';
 
 export default function HowToOrderRepairs({ customClass }: { customClass?: string }) {
   const stepFactory = ({
@@ -38,8 +39,7 @@ export default function HowToOrderRepairs({ customClass }: { customClass?: strin
         hasRightArrow: index < arr.length - 1
       })}</React.Fragment>)}
     </div>
-    {/* didn't use background-image because these snowflakes are rotated */}
-    <Image className={composeClassName(styles['snowflake'], styles['snowflake-upper-left'])} src='/snowflake.webp' width={153} height={148} alt='Снежинка' />
-    <Image className={composeClassName(styles['snowflake'], styles['snowflake-upper-right'])} src='/snowflake.webp' width={153} height={148} alt='Снежинка' />
+    <BackgroundSnowflake width={153} height={148} left={22} top={20} rotation={-30} color='main-white' />
+    <BackgroundSnowflake width={153} height={148} right={22} top={20} rotation={-30} color='main-white' />
   </section>
 }

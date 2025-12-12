@@ -6,6 +6,7 @@ import React from 'react';
 import composeClassName from '@src/helpers/compose-class-name';
 import Link from 'next/link';
 import Image from 'next/image';
+import BackgroundSnowflake from '../background-snowflake/background-snowflake';
 
 export default function FridgeManufacturers({ customClass }: { customClass?: string }) {
   const fridgeManufacturerFactory = ({ name, imagePath }: { name: string, imagePath: string }) => {
@@ -34,8 +35,7 @@ export default function FridgeManufacturers({ customClass }: { customClass?: str
       ].map((params, index) => <React.Fragment key={index}>{fridgeManufacturerFactory(params)}</React.Fragment>)}
     </div>
     <Button text='Смотреть все модели' style='text-only' />
-    {/* didn't use background-image because these snowflakes are rotated */}
-    <Image className={composeClassName(styles['snowflake'], styles['snowflake-upper-left'])} src='/snowflake.webp' width={131} height={127} alt='Снежинка' />
-    <Image className={composeClassName(styles['snowflake'], styles['snowflake-upper-right'])} src='/snowflake.webp' width={131} height={127} alt='Снежинка' />
+    <BackgroundSnowflake width={131} height={127} left={40} top={48} rotation={-30} />
+    <BackgroundSnowflake width={131} height={127} right={40} top={48} rotation={-30} />
   </section>
 }

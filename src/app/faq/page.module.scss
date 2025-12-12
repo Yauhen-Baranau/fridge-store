@@ -1,13 +1,6 @@
 @use '../../styles/colors.scss';
 @use '../../styles/fonts.scss';
 
-// TO DO: mixin for snowflakes
-$snowflake-width: 173px;
-$snowflake-height: 168px;
-$upper-left-snowflake-center-x: 41px; // from the left border
-$upper-left-snowflake-center-y: 57px; // from the upper border
-$upper-right-snowflake-center-x: 41px; // from the right border
-$upper-right-snowflake-center-y: 57px; // from the upper border
 $dark-gray-color-filter: brightness(0) saturate(100%) invert(40%) sepia(4%) saturate(0%) hue-rotate(174deg) brightness(95%) contrast(86%);
 
 .faq {
@@ -55,21 +48,6 @@ $dark-gray-color-filter: brightness(0) saturate(100%) invert(40%) sepia(4%) satu
         filter: $dark-gray-color-filter;
         transform: rotate(135deg);
       }
-    }
-  }
-
-  .snowflake {
-    position: absolute;
-    transform: rotate(-30deg);
-
-    &-upper-left {
-      top: calc($upper-left-snowflake-center-y - $snowflake-height / 2);
-      left: calc($upper-left-snowflake-center-x - $snowflake-width / 2);
-    }
-
-    &-upper-right {
-      top: calc($upper-right-snowflake-center-y - $snowflake-height / 2);
-      right: calc($upper-right-snowflake-center-x - $snowflake-width / 2);
     }
   }
 }

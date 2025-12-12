@@ -1,13 +1,5 @@
 @use '../../styles/fonts.scss';
 
-$large-snowflake-width: 613px;
-$large-snowflake-height: 595px;
-$small-snowflake-width: 341px;
-$small-snowflake-height: 331px;
-$snowflakes-center-x: 40px; // from the right border of the page (without body side padding)
-$snowflakes-center-y: 785px; // from the lower border of the page (where payment-related text ends)
-$light-blue-color-filter: brightness(0) saturate(100%) invert(90%) sepia(19%) saturate(207%) hue-rotate(191deg) brightness(105%) contrast(99%);
-
 .payment {
   display: flex;
   justify-content: space-between;
@@ -48,21 +40,5 @@ $light-blue-color-filter: brightness(0) saturate(100%) invert(90%) sepia(19%) sa
 
   .call-me-back-form {
     width: 460px;
-  }
-
-  .snowflake {
-    filter: $light-blue-color-filter;
-    position: absolute;
-    transform: rotate(-30deg);
-
-    &-large {
-      right: calc($snowflakes-center-x - $large-snowflake-width / 2);
-      bottom: calc($snowflakes-center-y - $large-snowflake-height / 2);
-    }
-
-    &-small {
-      right: calc($snowflakes-center-x - $small-snowflake-width / 2);
-      bottom: calc($snowflakes-center-y - $small-snowflake-height / 2);
-    }
   }
 }

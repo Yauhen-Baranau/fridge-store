@@ -6,6 +6,7 @@ import Form from '@ui-kit/form/form';
 import composeClassName from '@src/helpers/compose-class-name';
 import { contactInfo } from '@constants/contact-info';
 import Image from 'next/image';
+import BackgroundSnowflake from '../background-snowflake/background-snowflake';
 
 export default function CallMeBack({ customClass }: { customClass?: string }) {
   return <section className={composeClassName(styles['call-me-back'], customClass)}>
@@ -52,8 +53,7 @@ export default function CallMeBack({ customClass }: { customClass?: string }) {
         ],
       }}
     />
-    {/* didn't use background-image because these snowflakes are rotated */}
-    <Image className={composeClassName(styles['snowflake'], styles['snowflake-upper-left'])} src='/snowflake.webp' width={118} height={114} alt='Снежинка' />
-    <Image className={composeClassName(styles['snowflake'], styles['snowflake-lower-left'])} src='/snowflake.webp' width={118} height={114} alt='Снежинка' />
+    <BackgroundSnowflake width={118} height={114} left={22} top={20} rotation={-30} opacity={0.15} />
+    <BackgroundSnowflake width={118} height={114} left={22} bottom={23} rotation={-30} opacity={0.15} />
   </section>
 }

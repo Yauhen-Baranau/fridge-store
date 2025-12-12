@@ -1,7 +1,7 @@
 import List from '@ui-kit/list/list';
 import styles from './page.module.scss';
 import Image from 'next/image';
-import composeClassName from '@src/helpers/compose-class-name';
+import BackgroundSnowflake from '@src/ui-kit/background-snowflake/background-snowflake';
 
 export default function FaqPage() {
   const faqListItemFactory = ({ question, answer }: { question: string, answer: string }) => {
@@ -29,9 +29,7 @@ export default function FaqPage() {
       { question: 'Как быстро можно записаться на ремонт?', answer: 'text' },
       { question: 'Есть ли у вас скидки на услуги?', answer: 'text' },
     ].map(faqListItemFactory)} />
-    {/* didn't use background-image because these snowflakes are rotated */}
-    {/* TO DO: component for snowflakes */}
-    <Image className={composeClassName(styles.snowflake, styles['snowflake-upper-left'])} src='/snowflake.webp' width={173} height={168} alt='Снежинка' />
-    <Image className={composeClassName(styles.snowflake, styles['snowflake-upper-right'])} src='/snowflake.webp' width={173} height={168} alt='Снежинка' />
+    <BackgroundSnowflake width={173} height={168} left={41} top={57} rotation={-30} />
+    <BackgroundSnowflake width={173} height={168} right={41} top={57} rotation={-30} />
   </main>
 }

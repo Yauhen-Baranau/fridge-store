@@ -1,13 +1,6 @@
 @use '../../styles/colors.scss';
 @use '../../styles/fonts.scss';
 
-$snowflake-width: 153px;
-$snowflake-height: 148px;
-$upper-left-snowflake-center-x: 22px; // from the left border
-$upper-left-snowflake-center-y: 20px; // from the upper border
-$upper-right-snowflake-center-x: 22px; // from the right border
-$upper-right-snowflake-center-y: 23px; // from the upper border
-
 .how-to-order-repairs {
   display: flex;
   flex-direction: column;
@@ -47,22 +40,6 @@ $upper-right-snowflake-center-y: 23px; // from the upper border
         @include fonts.font(16px, 400, 140%);
         text-align: center;
       }
-    }
-  }
-
-  .snowflake {
-    position: absolute;
-    filter: var(--main-white-color-filter);
-    transform: rotate(-120deg);
-
-    &-upper-left {
-      top: calc($upper-left-snowflake-center-y - $snowflake-height / 2);
-      left: calc($upper-left-snowflake-center-x - $snowflake-width / 2);
-    }
-
-    &-upper-right {
-      top: calc($upper-right-snowflake-center-y - $snowflake-height / 2);
-      right: calc($upper-right-snowflake-center-x - $snowflake-width / 2);
     }
   }
 }
