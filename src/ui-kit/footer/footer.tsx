@@ -28,6 +28,7 @@ export default function Footer() {
       { content: <Link href='https://google.com'>Ремонт холодильников по модели</Link> },
       { content: <Link href='https://google.com'>Ремонт холодильников по городам</Link> },
     ]} />
+    {/* TO DO: <address> */}
     <List customClass={styles['footer-column-content']} items={[
       {
         content: <Link href={`tel:${contactInfo.phoneNumber

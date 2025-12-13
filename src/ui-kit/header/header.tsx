@@ -10,6 +10,7 @@ import Image from 'next/image';
 
 export default async function Header({ customClass }: { customClass?: string }) {
   return <header className={composeClassName(styles.header, customClass)}>
+    {/* TO DO: <address> */}
     <Link href='/'>
       <Image className={styles.logo} src='/logo.webp' alt='Логотип' width={227} height={40} />
     </Link>
