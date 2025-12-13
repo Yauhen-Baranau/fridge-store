@@ -1,0 +1,31 @@
+@use '../../styles/fonts.scss';
+
+.contacts {
+  display: flex;
+  gap: 134px;
+
+  .left-content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    .title {
+      @include fonts.font(40px, 600, 125%);
+    }
+
+    .contact-info {
+      gap: 16px;
+
+      li {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-style: normal;
+      }
+    }
+
+    .map {
+      border-radius: 8px;
+    }
+  }
+}
