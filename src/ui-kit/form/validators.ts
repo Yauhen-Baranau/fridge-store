@@ -7,7 +7,7 @@ const validatorFactory = <T>(
   validatorFunction: (v: T) => boolean,
   errorMessage: string
 ): Validator<T> => {
-  return (v: T) => validatorFunction(v) ? '' : errorMessage;
+  return (v: T) => !!v && validatorFunction(v) ? '' : errorMessage;
 }
 
 export const Validators = {

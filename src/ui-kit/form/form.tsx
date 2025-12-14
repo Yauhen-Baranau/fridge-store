@@ -56,7 +56,7 @@ export default function Form({
     return validationErrors[0];
   };
   const validateField = (fieldConfig: FormFieldConfig) => !getValidationError(fieldConfig);
-  const validateForm = () => (config.fieldConfigs.every(fieldConfig => validateField(fieldConfig)));
+  const validateForm = () => config.fieldConfigs.every(fieldConfig => validateField(fieldConfig));
 
   return <form
     ref={formRef}
