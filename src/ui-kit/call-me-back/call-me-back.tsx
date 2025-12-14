@@ -49,7 +49,7 @@ export default function CallMeBack({ customClass }: { customClass?: string }) {
       config={{
         fieldConfigs: [
           { type: 'text', name: 'name', placeholder: 'Имя' },
-          { type: 'text', name: 'phone', placeholder: 'Телефон' },
+          { type: 'tel', name: 'phone', placeholder: 'Телефон' },
         ],
       }}
     />

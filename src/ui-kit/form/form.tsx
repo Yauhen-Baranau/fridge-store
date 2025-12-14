@@ -7,9 +7,10 @@ import Button from '../button/button';
 import useClickOutsideListener from '@src/hooks/use-click-outside-listener';
 
 interface FormFieldConfig {
-  type: 'text' | 'textarea';
+  type: 'text' | 'tel' | 'textarea';
   name: string,
   placeholder?: string,
+  maxLength?: number,
   validatorRegExp?: RegExp;
   validationErrorText?: string;
 }
