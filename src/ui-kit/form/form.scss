@@ -62,6 +62,7 @@ $input-upper-padding: 22px;
       .error-message {
         @include fonts.font(14px, 400, 140%);
         color: colors.$color-error;
+        white-space: nowrap; // TO DO: seems fishy
         position: absolute;
         bottom: -1.5em;
       }

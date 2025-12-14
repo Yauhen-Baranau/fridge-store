@@ -7,6 +7,7 @@ import composeClassName from '@src/helpers/compose-class-name';
 import { contactInfo } from '@constants/contact-info';
 import Image from 'next/image';
 import BackgroundSnowflake from '../background-snowflake/background-snowflake';
+import { Validators } from '../form/validators';
 
 export default function CallMeBack({ customClass }: { customClass?: string }) {
   return <section className={composeClassName(styles['call-me-back'], customClass)}>
@@ -48,8 +49,18 @@ export default function CallMeBack({ customClass }: { customClass?: string }) {
       }
       config={{
         fieldConfigs: [
-          { type: 'text', name: 'name', placeholder: 'Имя' },
-          { type: 'tel', name: 'phone', placeholder: 'Телефон' },
+          {
+            type: 'text',
+            name: 'name',
+            placeholder: 'Имя',
+            validators: [Validators.required, Validators.minLength(3), Validators.pattern(/^[а-яА-Я]+$/)],
+          },
+          {
+            type: 'tel',
+            name: 'phone',
+            placeholder: 'Телефон',
+            validators: [Validators.required, Validators.pattern(/^\+375\s?\(?\d{2,4}\)?\s?\d{3}\-?\d{2}\-?\d{2}$/)],
+          },
         ],
       }}
     />
