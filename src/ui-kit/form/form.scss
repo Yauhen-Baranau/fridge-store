@@ -4,21 +4,25 @@
 $input-upper-padding: 22px;
 
 .form {
-  .input-wrapper {
-    margin-bottom: 10px;
-    border-bottom: solid colors.$color-gray-lighter 1px;
+  .field-wrapper {
+    margin-bottom: 20px;
     position: relative;
     transition-duration: var(--global-transition-duration);
 
-    .input, .placeholder {
+    .input-wrapper .input,
+    .placeholder {
       @include fonts.font(16px, 400, 140%);
     }
 
-    .input {
-      width: 100%;
-      padding: $input-upper-padding 0 14px 0;
-      outline: none;
-      border: none;
+    .input-wrapper {
+      border-bottom: solid colors.$color-gray-lighter 1px;
+
+      .input {
+        width: 100%;
+        padding: $input-upper-padding 0 14px 0;
+        outline: none;
+        border: none;
+      }
     }
 
     .placeholder {
@@ -28,7 +32,8 @@ $input-upper-padding: 22px;
       transition-duration: var(--global-transition-duration);
     }
 
-    &:hover, &.active-input {
+    &:hover,
+    &.active-field {
       border-bottom: solid colors.$color-main-blue 1px;
 
       .placeholder {
@@ -36,11 +41,29 @@ $input-upper-padding: 22px;
       }
     }
 
-    &.active-input, &.non-empty-input {
+    &.active-field,
+    &.non-empty-field {
       .placeholder {
         top: 0;
         transform-origin: 0 0;
         transform: scale(0.8);
+      }
+    }
+
+    &.invalid-field {
+      .input-wrapper {
+        border-bottom: solid colors.$color-error 1px;
+      }
+
+      .placeholder {
+        color: colors.$color-error;
+      }
+
+      .error-message {
+        @include fonts.font(14px, 400, 140%);
+        color: colors.$color-error;
+        position: absolute;
+        bottom: -1.5em;
       }
     }
   }
