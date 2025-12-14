@@ -36,7 +36,7 @@ $input-upper-padding: 22px;
       }
     }
 
-    &.active-input {
+    &.active-input, &.non-empty-input {
       .placeholder {
         top: 0;
         transform-origin: 0 0;

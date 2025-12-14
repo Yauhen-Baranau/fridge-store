@@ -37,7 +37,6 @@ export default function Form({
   preSubmitButtonContent?: React.ReactNode,
   customClass?: string
 }) {
-  // TO DO: placeholder overlaps input value
   const [activeInputName, setActiveInputName] = useState('');
   const resetActiveInput = () => setActiveInputName('');
 
@@ -56,7 +55,11 @@ export default function Form({
     {config.fieldConfigs.map((fieldConfig, index) => {
       return <div
         key={index}
-        className={composeClassName('input-wrapper', activeInputName === fieldConfig.name && 'active-input')}
+        className={composeClassName(
+          'input-wrapper',
+          activeInputName === fieldConfig.name && 'active-input',
+          !!formValue[fieldConfig.name] && 'non-empty-input'
+        )}
         onClick={e => {
           e.stopPropagation();
           setActiveInputName(fieldConfig.name);
