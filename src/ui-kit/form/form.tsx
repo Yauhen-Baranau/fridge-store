@@ -2,8 +2,9 @@
 
 import composeClassName from '@src/helpers/compose-class-name';
 import './form.scss';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import Button from '../button/button';
+import useClickOutsideListener from '@src/hooks/use-click-outside-listener';
 
 interface FormFieldConfig {
   type: 'text' | 'textarea';
@@ -36,7 +37,6 @@ export default function Form({
   preSubmitButtonContent?: React.ReactNode,
   customClass?: string
 }) {
-  // TO DO: incorporate click-outside hook to defocus inputs on click outside form
   // TO DO: placeholder overlaps input value
   const [activeInputName, setActiveInputName] = useState('');
   const resetActiveInput = () => setActiveInputName('');
@@ -44,7 +44,11 @@ export default function Form({
   const [formValue, setFormValue] = useState<FormValue>(Object.fromEntries(config.fieldConfigs.map(fieldConfig => [fieldConfig.name, null])));
   const setFormValueField = (name: string, newValue: unknown) => setFormValue({ ...formValue, [name]: newValue });
 
+  const formRef = useRef<HTMLFormElement>(null);
+  useClickOutsideListener(formRef, resetActiveInput);
+
   return <form
+    ref={formRef}
     className={composeClassName('form', customClass)}
     onClick={resetActiveInput}
   >
