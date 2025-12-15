@@ -124,7 +124,7 @@ export default async function Navigation({ customClass }: { customClass?: string
           content: <Link href={`/${Routes.Payment}`}>ОПЛАТА</Link>,
         },
         {
-          content: <Link href='https://google.com'>ОТЗЫВЫ</Link>,
+          content: <Link href={`/${Routes.Reviews}`}>ОТЗЫВЫ</Link>,
         },
         {
           content: <Link href={`/${Routes.AboutUs}`}>О КОМПАНИИ</Link>,

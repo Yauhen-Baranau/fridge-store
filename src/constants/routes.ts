@@ -5,6 +5,7 @@ export enum Routes {
   AboutUs = 'about-us',
   Contacts = 'contacts',
   CommonFridgeProblems = 'common-fridge-problems',
+  Reviews = 'reviews',
 
   CoolingSystemComponentReplacementAndRepairs = 'cooling-system-component-replacement-and-repairs',
   ElectricComponentRepairsAndReplacement = 'electric-component-repairs-and-replacement',
