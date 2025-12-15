@@ -4,6 +4,7 @@ export enum Routes {
   Payment = 'payment',
   AboutUs = 'about-us',
   Contacts = 'contacts',
+  CommonFridgeProblems = 'common-fridge-problems',
 
   CoolingSystemComponentReplacementAndRepairs = 'cooling-system-component-replacement-and-repairs',
   ElectricComponentRepairsAndReplacement = 'electric-component-repairs-and-replacement',

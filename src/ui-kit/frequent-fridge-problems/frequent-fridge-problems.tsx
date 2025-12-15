@@ -8,6 +8,7 @@ import Link from 'next/link';
 import { useContext } from 'react';
 import { DialogContext } from '@contexts/dialog-context';
 import DialogForm from '@ui-kit/dialog-form/dialog-form';
+import { Routes } from '@constants/routes';
 
 export default function FrequentFridgeProblems({ customClass }: { customClass?: string }) {
   const { showDialog } = useContext(DialogContext);
@@ -46,7 +47,7 @@ export default function FrequentFridgeProblems({ customClass }: { customClass?: 
           />
         </Link>
       </div>)}
-      <Link href='https://google.com'>
+      <Link href={`/${Routes.CommonFridgeProblems}`}>
         <Button
           customClass={styles['view-all-problems-button']}
           text='Смотреть все проблемы'

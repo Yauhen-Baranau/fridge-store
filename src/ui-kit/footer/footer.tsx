@@ -19,7 +19,7 @@ export default function Footer() {
       { content: <Link href={`/${Routes.Payment}`}>Оплата</Link> },
       { content: <Link href='https://google.com'>Отзывы</Link> },
       { content: <Link href={`/${Routes.FAQ}`}>Популярные вопросы</Link> },
-      { content: <Link href='https://google.com'>Частые проблемы</Link> },
+      { content: <Link href={`/${Routes.CommonFridgeProblems}`}>Частые проблемы</Link> },
       { content: <Link href={`/${Routes.Contacts}`}>Контакты</Link> },
     ]} />
     <List customClass={styles['footer-column-content']} items={[
