@@ -1,0 +1,5 @@
+.stars {
+  .star:not(:last-of-type) {
+    margin-right: 2px;
+  }
+}
