@@ -87,6 +87,7 @@ export default function Form({
         }}
       >
         <div className='input-wrapper'>
+          {/* TO DO: fix textarea input */}
           <input
             className='input'
             type={fieldConfig.type}
