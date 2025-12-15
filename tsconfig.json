@@ -19,11 +19,13 @@
       }
     ],
     "paths": {
-      "@src/*": ["./src/*"],
       "@ui-kit/*": ["./src/ui-kit/*"],
       "@helpers/*": ["./src/helpers/*"],
       "@constants/*": ["./src/constants/*"],
       "@category-data/*": ["./src/category-data/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@contexts/*": ["./src/contexts/*"],
+      "@src/*": ["./src/*"],
     }
   },
   "include": [
