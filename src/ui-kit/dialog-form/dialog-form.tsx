@@ -16,7 +16,7 @@ export default function DialogForm({
         type: 'text',
         name: 'name',
         placeholder: 'Имя',
-        validators: [Validators.required, Validators.minLength(3), Validators.pattern(/^[а-яА-Я]+&/)]
+        validators: [Validators.required, Validators.minLength(3), Validators.pattern(/^[а-яА-Я]+$/)]
       },
     ];
 
