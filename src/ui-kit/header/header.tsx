@@ -1,4 +1,4 @@
-'use server';
+'use client';
 
 import Button from '@ui-kit/button/button';
 import styles from './header.module.scss';
@@ -7,8 +7,13 @@ import Socials from '@ui-kit/socials/socials';
 import { contactInfo } from '@constants/contact-info';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useContext } from 'react';
+import DialogForm from '../dialog-form/dialog-form';
+import { DialogContext } from '@contexts/dialog-context';
 
-export default async function Header({ customClass }: { customClass?: string }) {
+export default function Header({ customClass }: { customClass?: string }) {
+  const { showDialog } = useContext(DialogContext);
+
   return <header className={composeClassName(styles.header, customClass)}>
     {/* TO DO: <address> */}
     <Link href='/'>
@@ -40,6 +45,10 @@ export default async function Header({ customClass }: { customClass?: string }) 
       </div>
     </div>
     <Socials />
-    <Button customClass={styles['call-me-back']} text='Заказать звонок' />
+    <Button
+      customClass={styles['call-me-back']}
+      text='Заказать звонок'
+      onClick={() => showDialog(<DialogForm />)}
+    />
   </header>
 }

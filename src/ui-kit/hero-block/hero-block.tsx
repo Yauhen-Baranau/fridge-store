@@ -1,11 +1,16 @@
-'use server';
+'use client';
 
 import List from '@ui-kit/list/list';
 import styles from './hero-block.module.scss';
 import Button from '@ui-kit/button/button';
 import Image from 'next/image';
+import { useContext } from 'react';
+import { DialogContext } from '@contexts/dialog-context';
+import DialogForm from '@ui-kit/dialog-form/dialog-form';
 
-export default async function HeroBlock() {
+export default function HeroBlock() {
+  const { showDialog } = useContext(DialogContext);
+
   return <section className={styles['hero-block']}>
     <div className={styles['hero-block-left']}>
       <h1 className={styles.title}>
@@ -38,7 +43,11 @@ export default async function HeroBlock() {
           }
         },
       ]} />
-      <Button customClass={styles['discount-button']} text='Получить скидку 10%' />
+      <Button
+        customClass={styles['discount-button']}
+        text='Получить скидку 10%'
+        onClick={() => showDialog(<DialogForm />)}
+      />
       <p className={styles.note}>
         * &nbsp;Запишись сейчас на диагностику холодильника<br />
         <span className={styles['aligner']}>* &nbsp;</span>и получи скидку 10% на ремонт
