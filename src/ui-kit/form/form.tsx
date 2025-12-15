@@ -40,11 +40,19 @@ export default function Form({
   const [activeInputName, setActiveInputName] = useState('');
   const resetActiveInput = () => setActiveInputName('');
 
-  const [formValue, setFormValue] = useState<FormValue>(Object.fromEntries(config.fieldConfigs.map(fieldConfig => [fieldConfig.name, null])));
-  const setFormValueField = (name: string, newValue: unknown) => setFormValue({ ...formValue, [name]: newValue });
-
   const formRef = useRef<HTMLFormElement>(null);
   useClickOutsideListener(formRef, resetActiveInput);
+
+  const getInitialFormValue = (fieldConfigs: Array<FormFieldConfig>): FormValue => {
+    const initialFormValue: FormValue = {};
+    fieldConfigs.forEach(fieldConfig => {
+      const autofilledValue = (formRef?.current?.querySelector(`[name="${fieldConfig.name}"]`) as HTMLInputElement)?.value;
+      initialFormValue[fieldConfig.name] = autofilledValue || null;
+    });
+    return initialFormValue;
+  };
+  const [formValue, setFormValue] = useState<FormValue>(getInitialFormValue(config.fieldConfigs));
+  const setFormValueField = (name: string, newValue: unknown) => setFormValue({ ...formValue, [name]: newValue });
 
   const [submitAttempted, setSubmitAttempted] = useState(false);
 
