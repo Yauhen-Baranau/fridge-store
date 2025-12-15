@@ -1,0 +1,44 @@
+@use '../../styles/colors.scss';
+@use '../../styles/fonts.scss';
+
+.wrapper {
+  display: grid;
+  grid-template-areas:
+    "title image"
+    "form image"
+  ;
+  grid-template-columns: 400px 470px;
+  column-gap: 130px;
+
+  .title {
+    @include fonts.font(30px, 600, 125%);
+    grid-area: title;
+  }
+
+  .image {
+    grid-area: image;
+  }
+
+  .form {
+    grid-area: form;
+
+    .pre-field-text {
+      @include fonts.font(16px, 400, 140%);
+      margin: 20px 0 24px 0;
+    }
+
+    .pre-submit-text {
+      @include fonts.font(14px, 400, 140%);
+      margin-bottom: 32px;
+
+      .blue {
+        color: colors.$color-main-blue;
+      }
+    }
+
+    button {
+      width: 100%;
+      height: 60px;
+    }
+  }
+}
