@@ -4,12 +4,17 @@ import Image from 'next/image';
 import Form, { FormFieldConfig } from '../form/form';
 import styles from './dialog-form.module.scss';
 import { Validators } from '../form/validators';
+import { useContext } from 'react';
+import { DialogContext } from '@src/contexts/dialog-context';
+import WeWillCallYouBack from '@ui-kit/we-will-call-you-back/we-will-call-you-back';
 
 export default function DialogForm({
   type = 'call-me-back'
 }: {
   type?: 'call-me-back' | 'i-have-a-question'
 }) {
+  const { setDialogContent } = useContext(DialogContext);
+
   const getFieldConfigs = (type: string) => {
     const fieldConfigs: Array<FormFieldConfig> = [
       {
@@ -60,7 +65,10 @@ export default function DialogForm({
       preFieldsContent={<p className={styles['pre-field-text']}>Оставьте контактный телефон и в ближайшее время с вами свяжется наш специалист</p>}
       preSubmitButtonContent={<p className={styles['pre-submit-text']}>Нажимая на кнопку «Жду звонка» Вы даете согласие на <span className={styles.blue}>обработку данных</span></p>}
       submitButtonText='Жду звонка'
-      submitCallback={console.log}
+      submitCallback={formValue => {
+        console.log(formValue);
+        setDialogContent(<WeWillCallYouBack />);
+      }}
       config={{ fieldConfigs: getFieldConfigs(type) }}
     />
   </div>
