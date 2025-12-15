@@ -1,0 +1,37 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background-color: black;
+  position: relative;
+
+  .preview-image-wrapper {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition-duration: var(--global-transition-duration);
+
+    .image-preview {
+      border-radius: 8px;
+    }
+  }
+
+  .expand-icon {
+    opacity: 0;
+    z-index: 1;
+    transition-duration: var(--global-transition-duration);
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    .preview-image-wrapper {
+      opacity: 0.7;
+    }
+    
+    .expand-icon {
+      opacity: 1;
+    }
+  }
+}
