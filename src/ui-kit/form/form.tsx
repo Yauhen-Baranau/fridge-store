@@ -7,8 +7,8 @@ import Button from '../button/button';
 import useClickOutsideListener from '@src/hooks/use-click-outside-listener';
 import { Validator } from './validators';
 
-interface FormFieldConfig<T = string> {
-  type: 'text' | 'tel' | 'textarea';
+export interface FormFieldConfig<T = string> {
+  type: 'text' | 'tel' | 'email' | 'textarea';
   name: string,
   placeholder?: string,
   validators?: Array<Validator<T>>,
