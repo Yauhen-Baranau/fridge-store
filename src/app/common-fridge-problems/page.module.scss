@@ -1,0 +1,81 @@
+@use '../../styles/fonts.scss';
+@use '../../styles/colors.scss';
+
+.common-fridge-problems {
+  display: grid;
+  grid-template-areas:
+    "title form"
+    "image form"
+    "problems problems"
+  ;
+  grid-template-columns: 570px 470px;
+  gap: 40px 140px;
+
+  .title {
+    @include fonts.font(40px, 600, 125%);
+    grid-area: title;
+  }
+
+  .image {
+    grid-area: image;
+  }
+
+  .call-me-back-form {
+    grid-area: form;
+  }
+
+  .problems-list {
+    grid-area: problems;
+    gap: 16px;
+
+    li {
+      border: solid colors.$color-gray-dark 1px;
+      border-radius: 12px;
+
+      .problem-category-toggle-area {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 24px;
+
+        .problem-category-title {
+          @include fonts.font(20px, 600, 140%);
+        }
+      }
+
+      .problem-category-content-wrapper {
+        table {
+          border-collapse: collapse;
+
+          tr {
+            td {
+              padding: 24px;
+              vertical-align: top;
+
+              .problem-title, .problem-title-comment {
+                @include fonts.font(20px, 600, 120%);
+              }
+
+              .problem-title-comment {
+                color: colors.$color-gray-darker;
+              }
+
+              .problem-small-heading {
+                @include fonts.font(16px, 600, 140%);
+              }
+
+              .problem-plaintext {
+                @include fonts.font(16px, 400, 140%);
+              }
+            }
+
+            &:nth-child(2n-1) {
+              background-color: colors.$color-gray-light;
+            }
+          }
+        }
+      }
+    }
+  }
+}

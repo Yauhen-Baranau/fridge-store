@@ -8,13 +8,21 @@ import { useContext } from 'react';
 import { DialogContext } from '@contexts/dialog-context';
 import WeWillCallYouBack from '@ui-kit/we-will-call-you-back/we-will-call-you-back';
 
-export default function CallMeBackForm({ customClass }: { customClass?: string }) {
+export default function CallMeBackForm({
+  title = 'Оформить заказ',
+  submitButtonText = 'Получить консультацию',
+  customClass
+}: {
+  title?: string,
+  submitButtonText?: string,
+  customClass?: string
+}) {
   const { showDialog } = useContext(DialogContext);
 
   return <Form
     customClass={composeClassName(styles.form, customClass)}
     preFieldsContent={<>
-      <h3 className={styles['form-title']}>Оформить заказ</h3>
+      <h3 className={styles['form-title']}>{title}</h3>
       <p className={styles['form-subtitle']}>Оставьте заявку на оформление заказа и&nbsp;мы Вам перезвоним в ближайшее время</p>
     </>}
     preSubmitButtonContent={
@@ -38,7 +46,7 @@ export default function CallMeBackForm({ customClass }: { customClass?: string }
           },
         ],
     }}
-    submitButtonText='Получить консультацию'
+    submitButtonText={submitButtonText}
     submitCallback={formValue => {
       console.log(formValue);
       showDialog(<WeWillCallYouBack />)
