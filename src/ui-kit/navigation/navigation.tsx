@@ -33,7 +33,7 @@ export default async function Navigation({ customClass }: { customClass?: string
               },
             },
             {
-              content: <Link href='https://google.com'>РЕМОНТА И ЗАМЕНА ЭЛЕКТРИЧЕСКИХ КОМПОНЕНТОВ</Link>,
+              content: <Link href={`/${Routes.FridgeRepairServices}/${Routes.ElectricComponentRepairsAndReplacement}`}>РЕМОНТА И ЗАМЕНА ЭЛЕКТРИЧЕСКИХ КОМПОНЕНТОВ</Link>,
               icon: {
                 path: '/icons/square-small.svg',
                 width: 14,
@@ -41,7 +41,7 @@ export default async function Navigation({ customClass }: { customClass?: string
               },
             },
             {
-              content: <Link href='https://google.com'>ЗАМЕНА ЭЛЕМЕНТОВ СИСТЕМЫ NO FROST</Link>,
+              content: <Link href={`/${Routes.FridgeRepairServices}/${Routes.NofrostSystemElementReplacement}`}>ЗАМЕНА ЭЛЕМЕНТОВ СИСТЕМЫ NO FROST</Link>,
               icon: {
                 path: '/icons/square-small.svg',
                 width: 14,
@@ -49,7 +49,7 @@ export default async function Navigation({ customClass }: { customClass?: string
               },
             },
             {
-              content: <Link href='https://google.com'>ЗАМЕНА И РЕМОНТ МЕХАНИЧЕСКИХ УЗЛОВ</Link>,
+              content: <Link href={`/${Routes.FridgeRepairServices}/${Routes.MechanicalNodesReplacementAndRepairs}`}>ЗАМЕНА И РЕМОНТ МЕХАНИЧЕСКИХ УЗЛОВ</Link>,
               icon: {
                 path: '/icons/square-small.svg',
                 width: 14,
@@ -57,7 +57,7 @@ export default async function Navigation({ customClass }: { customClass?: string
               },
             },
             {
-              content: <Link href='https://google.com'>РЕМОНТ ДВЕРЕЙ И КОРПУСА</Link>,
+              content: <Link href={`/${Routes.FridgeRepairServices}/${Routes.DoorAndHullRepairs}`}>РЕМОНТ ДВЕРЕЙ И КОРПУСА</Link>,
               icon: {
                 path: '/icons/square-small.svg',
                 width: 14,
@@ -65,7 +65,7 @@ export default async function Navigation({ customClass }: { customClass?: string
               },
             },
             {
-              content: <Link href='https://google.com'>ПРОЧИЕ УСЛУГИ</Link>,
+              content: <Link href={`/${Routes.FridgeRepairServices}/${Routes.OtherServices}`}>ПРОЧИЕ УСЛУГИ</Link>,
               icon: {
                 path: '/icons/square-small.svg',
                 width: 14,

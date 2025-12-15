@@ -4,6 +4,7 @@ import Button from '@ui-kit/button/button';
 import styles from './about-us.module.scss';
 import Link from 'next/link';
 import Image from 'next/image';
+import { Routes } from '@constants/routes';
 
 export default async function AboutUs() {
   return <section className={styles['about-us']}>
@@ -19,7 +20,10 @@ export default async function AboutUs() {
         и всегда объясняем клиенту суть проблемы простыми словами.<br /><br />
         <span className={styles.bold}>Наша цель</span> — не просто отремонтировать технику, а сделать так, чтобы вы больше не волновались о её работе.
       </p>
-      <Link className={styles['about-us-link']} href='https://google.com'>
+      <Link
+        className={styles['about-us-link']}
+        href={`/${Routes.AboutUs}`}
+      >
         <Button text='Подробнее' style='text-only' />
       </Link>
     </div>

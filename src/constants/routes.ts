@@ -6,6 +6,12 @@ export enum Routes {
   Contacts = 'contacts',
 
   CoolingSystemComponentReplacementAndRepairs = 'cooling-system-component-replacement-and-repairs',
+  ElectricComponentRepairsAndReplacement = 'electric-component-repairs-and-replacement',
+  NofrostSystemElementReplacement = 'nofrost-system-element-replacement',
+  MechanicalNodesReplacementAndRepairs = 'mechanical-nodes-repairs-and-replacement',
+  DoorAndHullRepairs = 'door-and-hull-repairs',
+  OtherServices = 'other-services',
+
   CompressorReplacement = 'compressor-replacement',
 
   FAQ = 'faq',

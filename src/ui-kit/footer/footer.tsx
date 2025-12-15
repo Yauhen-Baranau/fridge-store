@@ -14,16 +14,16 @@ export default function Footer() {
     <h3 className={styles['footer-column-title']}>УСЛУГИ</h3>
     <h3 className={styles['footer-column-title']}>КОНТАКТЫ</h3>
     <List customClass={styles['footer-column-content']} items={[
-      { content: <Link href='https://google.com'>О компании</Link> },
-      { content: <Link href='https://google.com'>Цены</Link> },
-      { content: <Link href='https://google.com'>Оплата</Link> },
+      { content: <Link href={`/${Routes.AboutUs}`}>О компании</Link> },
+      { content: <Link href={`/${Routes.Prices}`}>Цены</Link> },
+      { content: <Link href={`/${Routes.Payment}`}>Оплата</Link> },
       { content: <Link href='https://google.com'>Отзывы</Link> },
       { content: <Link href={`/${Routes.FAQ}`}>Популярные вопросы</Link> },
       { content: <Link href='https://google.com'>Частые проблемы</Link> },
-      { content: <Link href='https://google.com'>Контакты</Link> },
+      { content: <Link href={`/${Routes.Contacts}`}>Контакты</Link> },
     ]} />
     <List customClass={styles['footer-column-content']} items={[
-      { content: <Link href='https://google.com'>Услуги по ремонту холодильников</Link> },
+      { content: <Link href={`/${Routes.FridgeRepairServices}`}>Услуги по ремонту холодильников</Link> },
       { content: <Link href='https://google.com'>Ремонт холодильников по виду</Link> },
       { content: <Link href='https://google.com'>Ремонт холодильников по модели</Link> },
       { content: <Link href='https://google.com'>Ремонт холодильников по городам</Link> },

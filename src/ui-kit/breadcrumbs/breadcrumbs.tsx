@@ -19,6 +19,11 @@ const routeToLabelMap = new Map([
   [Routes.AboutUs, 'О компании'],
   [Routes.Contacts, 'Контакты'],
   [Routes.CoolingSystemComponentReplacementAndRepairs, 'Замена и ремонт компонентов системы охлаждения'],
+  [Routes.ElectricComponentRepairsAndReplacement, 'Ремонт и замена электрических компонентов'],
+  [Routes.NofrostSystemElementReplacement, 'Замена элементов системы No Frost'],
+  [Routes.MechanicalNodesReplacementAndRepairs, 'Замена и ремонт механических узлов'],
+  [Routes.DoorAndHullRepairs, 'Ремонт дверей и корпуса'],
+  [Routes.OtherServices, 'Прочие услуги'],
   [Routes.CompressorReplacement, 'Замена компрессора'],
   [Routes.FAQ, 'Популярные вопросы'],
 ]);
