@@ -8,6 +8,7 @@ import Image from 'next/image';
 import BackgroundSnowflake from '../background-snowflake/background-snowflake';
 
 export default async function PopularServices() {
+  // TO DO: use actual services
   const serviceFactory = ({
     imagePath,
     title,
