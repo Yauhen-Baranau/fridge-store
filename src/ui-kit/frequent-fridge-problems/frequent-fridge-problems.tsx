@@ -5,8 +5,13 @@ import styles from './frequent-fridge-problems.module.scss';
 import Button from '../button/button';
 import composeClassName from '@src/helpers/compose-class-name';
 import Link from 'next/link';
+import { useContext } from 'react';
+import { DialogContext } from '@contexts/dialog-context';
+import DialogForm from '@ui-kit/dialog-form/dialog-form';
 
 export default function FrequentFridgeProblems({ customClass }: { customClass?: string }) {
+  const { showDialog } = useContext(DialogContext);
+
   return <section className={composeClassName(styles['frequent-fridge-problems'], customClass)}>
     <h1 className={styles.title}>Частые проблемы с холодильником</h1>
     <div className={styles['left-content']}>
@@ -15,7 +20,7 @@ export default function FrequentFridgeProblems({ customClass }: { customClass?: 
       <Button
         customClass={styles['call-me-back-button']}
         text='Вызвать мастера'
-        onClick={console.log}
+        onClick={() => showDialog(<DialogForm type='i-have-a-question' />)}
       />
     </div>
     <div className={styles['right-content']}>
