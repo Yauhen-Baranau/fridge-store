@@ -5,11 +5,15 @@ import styles from './call-me-back.module.scss';
 import Form from '@ui-kit/form/form';
 import composeClassName from '@src/helpers/compose-class-name';
 import { contactInfo } from '@constants/contact-info';
-import Image from 'next/image';
 import BackgroundSnowflake from '../background-snowflake/background-snowflake';
 import { Validators } from '../form/validators';
+import { useContext } from 'react';
+import { DialogContext } from '@contexts/dialog-context';
+import WeWillCallYouBack from '@ui-kit/we-will-call-you-back/we-will-call-you-back';
 
 export default function CallMeBack({ customClass }: { customClass?: string }) {
+  const { showDialog } = useContext(DialogContext);
+
   return <section className={composeClassName(styles['call-me-back'], customClass)}>
     <div className={styles['call-me-back-left-block']}>
       <h1 className={styles['call-me-back-title']}>Остались вопросы?</h1>
@@ -35,13 +39,12 @@ export default function CallMeBack({ customClass }: { customClass?: string }) {
           .split('-').join('')
           .split('(').join('')
           .split(')').join('')
-        }`)}
+          }`)}
       />
     </div>
     <Form
       customClass={styles['call-me-back-form']}
       submitButtonText='Получить консультацию'
-      submitCallback={console.log}
       preSubmitButtonContent={
         <p className={styles['privacy-policy-notice']}>
           Оставляя заявку Вы соглашаетесь на обработку <span className={styles.blue}>персональных данных</span>
@@ -62,6 +65,10 @@ export default function CallMeBack({ customClass }: { customClass?: string }) {
             validators: [Validators.required, Validators.pattern(/^\+375\s?\(?\d{2,4}\)?\s?\d{3}\-?\d{2}\-?\d{2}$/)],
           },
         ],
+      }}
+      submitCallback={formValue => {
+        console.log(formValue);
+        showDialog(<WeWillCallYouBack />)
       }}
     />
     <BackgroundSnowflake width={118} height={114} left={22} top={20} rotation={-30} opacity={0.15} />
