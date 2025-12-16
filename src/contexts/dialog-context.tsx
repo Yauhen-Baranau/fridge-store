@@ -40,6 +40,4 @@ export const DialogContextProvider = ({
   </DialogContext.Provider>
 }
 
-export const useDialog = () => {
-  return useContext(DialogContext);
-}
+export const useDialog = () => useContext(DialogContext);

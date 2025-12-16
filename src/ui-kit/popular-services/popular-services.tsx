@@ -6,11 +6,12 @@ import Button from '@ui-kit/button/button';
 import Link from 'next/link';
 import Image from 'next/image';
 import BackgroundSnowflake from '../background-snowflake/background-snowflake';
-import services from '@category-data/services.json';
 import { useHrefHelper } from '@contexts/href-context';
 import { Routes } from '@constants/routes';
+import { useCategoryData } from '@contexts/category-data-context';
 
 export default function PopularServices() {
+  const { getServiceById } = useCategoryData();
   const { getPageHref, getServiceHref } = useHrefHelper();
 
   const serviceFactory = ({
@@ -68,7 +69,7 @@ export default function PopularServices() {
     <h1 className={styles['popular-services-title']}>Популярные услуги</h1>
     <div className={styles['services-list']}>
       {popularServiceIds.map((id, index) => {
-        const serviceData = services.find(service => service.id === id);
+        const serviceData = getServiceById(id);
         return serviceData && <React.Fragment key={index}>
           {serviceFactory({
             ...serviceData,

@@ -1,21 +1,17 @@
 'use client';
 
 import styles from './page.module.scss';
-import subcategories from '@category-data/subcategories.json';
-import services from '@category-data/services.json';
 import CallMeBackForm from '@src/ui-kit/call-me-back-form/call-me-back-form';
-import { Subcategory } from '../[category]/[subcategory]/page';
 import Accordion from '@src/ui-kit/accordion/accordion';
-import React from 'react';
+import React, { useMemo } from 'react';
 import Image from 'next/image';
 import BackgroundSnowflake from '@src/ui-kit/background-snowflake/background-snowflake';
+import { Subcategory, useCategoryData } from '@contexts/category-data-context';
 
 export default function PricesPage() {
-  const diagnosticsServiceId = '1-6-1';
-  const diagnosticsPrice = services.find(service => service.id === diagnosticsServiceId)?.price;
-
+  const { getAllSubcategories, getSubcategoryServices, getDiagnosticsService } = useCategoryData();
+  const diagnosticsPrice = useMemo(() => getDiagnosticsService()?.price ?? 0, [getDiagnosticsService]);
   const getSubcategoryAccordion = (subcategory: Subcategory) => {
-    const subcategoryServices = services.filter(service => service.parentCategoryId === subcategory.id);
     return <Accordion
       toggleAreaCustomClass={styles['subcategory-price-accordion-toggle-area']}
       toggleAreaContent={<h3 className={styles['subcategory-price-accordion-toggle-area-label']}>{subcategory.label}</h3>}
@@ -23,7 +19,7 @@ export default function PricesPage() {
       content={<>
         <Image className={styles['subcategory-image']} src={subcategory.imagePath} width={246} height={160} alt='Изображение подкатегории услуг' />
         <div className={styles['subcategory-service-list']}>
-          {subcategoryServices.map(service => <div key={service.id} className={styles['subcategory-service']}>
+          {getSubcategoryServices(subcategory.id)?.map(service => <div key={service.id} className={styles['subcategory-service']}>
             <span className={styles['subcategory-service-label']}>{service.label}</span>
             <span className={styles['subcategory-service-price']}>от {service.price} руб.</span>
           </div>)}
@@ -53,7 +49,7 @@ export default function PricesPage() {
       <h2 className={styles['prices-block-title']}>Цены</h2>
       <div className={styles['with-parts']}>Цены указаны с учетом новых запчастей</div>
       {/* TO DO: use List */}
-      {subcategories.map(subcategory => <React.Fragment key={subcategory.id}>{getSubcategoryAccordion(subcategory)}</React.Fragment>)}
+      {getAllSubcategories().map(subcategory => <React.Fragment key={subcategory.id}>{getSubcategoryAccordion(subcategory)}</React.Fragment>)}
       <BackgroundSnowflake width={247} height={239} left={81} top={30} rotation={-30} color='main-white' />
       <BackgroundSnowflake width={247} height={239} right={46} top={30} rotation={-30} color='main-white' />
     </div>

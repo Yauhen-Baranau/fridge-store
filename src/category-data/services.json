@@ -8,7 +8,7 @@
     "price": 350,
     "requiredTime": "1,5-3 часа",
     "guarantee": "6 месяцев",
-    "relatedServiceIds": []
+    "relatedServiceIds": ["1-1-2", "1-1-3"]
   },
   {
     "id": "1-1-2",

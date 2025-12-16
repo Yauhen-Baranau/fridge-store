@@ -2,9 +2,8 @@
 
 import { Routes } from "@constants/routes";
 import { categoryIdToRouteMap, serviceIdToRouteMap, subcategoryIdToRouteMap } from "@src/app/[category]/routing-maps";
-import { createContext, useContext } from "react";
-import subcategories from '@category-data/subcategories.json';
-import services from '@category-data/services.json';
+import { createContext, useContext, useMemo } from "react";
+import { useCategoryData } from "./category-data-context";
 
 interface HrefContextProps {
   getPageHref: (route: Routes) => string,
@@ -30,6 +29,9 @@ export const HrefContextProvider = ({
 }: {
   children: React.ReactNode
 }) => {
+  const { getAllSubcategories, getAllServices } = useCategoryData();
+  const [subcategories, services] = useMemo(() => [getAllSubcategories(), getAllServices()], [getAllSubcategories, getAllServices]);
+
   const findEntryById = (id: string, list: Array<Entry>): Entry | null => {
     return list.find(entry => entry.id === id) ?? null;
   }
@@ -55,6 +57,4 @@ export const HrefContextProvider = ({
   </HrefContext.Provider>
 }
 
-export const useHrefHelper = () => {
-  return useContext(HrefContext);
-}
+export const useHrefHelper = () => useContext(HrefContext);
