@@ -8,9 +8,10 @@ import Image from 'next/image';
 import BackgroundSnowflake from '../background-snowflake/background-snowflake';
 import services from '@category-data/services.json';
 import { useHrefHelper } from '@contexts/href-context';
+import { Routes } from '@constants/routes';
 
 export default function PopularServices() {
-  const { getServiceHref } = useHrefHelper();
+  const { getPageHref, getServiceHref } = useHrefHelper();
 
   const serviceFactory = ({
     id,
@@ -77,7 +78,7 @@ export default function PopularServices() {
         </React.Fragment>;
       })}
     </div>
-    <Link href='https://google.com'>
+    <Link href={getPageHref(Routes.Prices)}>
       <Button text='Смотреть все услуги' style='text-only' />
     </Link>
     <BackgroundSnowflake width={658} height={638} left={0} top={94} rotation={-30} color='main-white' opacity={0.4} zIndex={-1} />
