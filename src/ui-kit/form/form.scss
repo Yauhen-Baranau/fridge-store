@@ -15,13 +15,18 @@ $input-upper-padding: 22px;
     }
 
     .input-wrapper {
+      padding: $input-upper-padding 0 14px 0;
       border-bottom: solid colors.$color-gray-lighter 1px;
 
       .input {
         width: 100%;
-        padding: $input-upper-padding 0 14px 0;
         outline: none;
         border: none;
+
+        &.textarea {
+          field-sizing: content;
+          resize: none;
+        }
       }
     }
 
@@ -62,7 +67,7 @@ $input-upper-padding: 22px;
       .error-message {
         @include fonts.font(14px, 400, 140%);
         color: colors.$color-error;
-        white-space: nowrap; // TO DO: seems fishy
+        white-space: nowrap;
         position: absolute;
         bottom: -1.5em;
       }

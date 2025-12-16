@@ -28,7 +28,9 @@
       }
     }
 
-    &:nth-of-type(3) {
+    .contacts & {
+      font-style: normal;
+      
       li {
         display: flex;
         align-items: center;

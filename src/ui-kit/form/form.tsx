@@ -43,7 +43,6 @@ export default function Form({
   const formRef = useRef<HTMLFormElement>(null);
   useClickOutsideListener(formRef, resetActiveInput);
 
-  // TO DO: figure something out with autofill
   const [formValue, setFormValue] = useState<FormValue>(Object.fromEntries(config.fieldConfigs.map(fieldConfig => [fieldConfig.name, null])));
   const setFormValueField = (name: string, newValue: unknown) => setFormValue({ ...formValue, [name]: newValue });
 
@@ -80,13 +79,20 @@ export default function Form({
         }}
       >
         <div className='input-wrapper'>
-          {/* TO DO: fix textarea input */}
-          <input
-            className='input'
-            type={fieldConfig.type}
-            name={fieldConfig.name}
-            onInput={e => setFormValueField(fieldConfig.name, (e.target as HTMLInputElement).value)}
-          />
+          {
+            fieldConfig.type === 'textarea'
+              ? <textarea
+                className='input textarea'
+                name={fieldConfig.name}
+                onInput={e => setFormValueField(fieldConfig.name, (e.target as HTMLInputElement).value)}
+              />
+              : <input
+                className='input'
+                type={fieldConfig.type}
+                name={fieldConfig.name}
+                onInput={e => setFormValueField(fieldConfig.name, (e.target as HTMLInputElement).value)}
+              />
+          }
         </div>
         {fieldConfig.placeholder && <span className='placeholder'>{fieldConfig.placeholder}</span>}
         {(() => {

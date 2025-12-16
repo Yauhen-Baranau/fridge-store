@@ -8,8 +8,7 @@ import { routeToServiceIdMap } from '../../routing-maps';
 import { useCategoryData } from '@contexts/category-data-context';
 import { useHrefHelper } from '@contexts/href-context';
 
-// TO DO: rename
-export default function ServicePag() {
+export default function ServicePage() {
   const params = useParams();
   const { getServiceById, getRelatedServices } = useCategoryData();
   const { getServiceHref } = useHrefHelper();

@@ -28,47 +28,48 @@ export default function Footer() {
       { content: <Link href='https://google.com'>Ремонт холодильников по модели</Link> },
       { content: <Link href='https://google.com'>Ремонт холодильников по городам</Link> },
     ]} />
-    {/* TO DO: <address> */}
-    <List customClass={styles['footer-column-content']} items={[
-      {
-        content: <Link href={`tel:${contactInfo.phoneNumber
-          .split(' ').join('')
-          .split('-').join('')
-          .split('(').join('')
-          .split(')').join('')
-        }`}>{contactInfo.phoneNumber}</Link>,
-        icon: {
-          path: '/icons/phone-4.svg',
-          width: 24,
-          height: 24,
-        }
-      },
-      {
-        content: <Link href={`mailto:${contactInfo.email}`}>{contactInfo.email}</Link>,
-        icon: {
-          path: '/icons/envelope-2.svg',
-          width: 24,
-          height: 24,
-        }
-      },
-      {
-        content: <Link href='https://yandex.by/maps/157/minsk/house/Zk4YcgJkTEMEQFtpfXVwcH9gZw==/?ll=27.454669%2C53.911263&z=19.8'>{contactInfo.address}</Link>,
-        icon: {
-          path: '/icons/location-2.svg',
-          width: 24,
-          height: 24,
-        }
-      },
-      {
-        content: contactInfo.openHours,
-        icon: {
-          path: '/icons/clock-2.svg',
-          width: 24,
-          height: 24,
-        }
-      },
-      { content: <Socials customClass={styles.socials} /> }
-    ]} />
+    <address className={styles.contacts}>
+      <List customClass={styles['footer-column-content']} items={[
+        {
+          content: <Link href={`tel:${contactInfo.phoneNumber
+            .split(' ').join('')
+            .split('-').join('')
+            .split('(').join('')
+            .split(')').join('')
+            }`}>{contactInfo.phoneNumber}</Link>,
+          icon: {
+            path: '/icons/phone-4.svg',
+            width: 24,
+            height: 24,
+          }
+        },
+        {
+          content: <Link href={`mailto:${contactInfo.email}`}>{contactInfo.email}</Link>,
+          icon: {
+            path: '/icons/envelope-2.svg',
+            width: 24,
+            height: 24,
+          }
+        },
+        {
+          content: <Link href='https://yandex.by/maps/157/minsk/house/Zk4YcgJkTEMEQFtpfXVwcH9gZw==/?ll=27.454669%2C53.911263&z=19.8'>{contactInfo.address}</Link>,
+          icon: {
+            path: '/icons/location-2.svg',
+            width: 24,
+            height: 24,
+          }
+        },
+        {
+          content: contactInfo.openHours,
+          icon: {
+            path: '/icons/clock-2.svg',
+            width: 24,
+            height: 24,
+          }
+        },
+        { content: <Socials customClass={styles.socials} /> }
+      ]} />
+    </address>
     <div className={styles['footer-column-footer']}>&copy; Copyright</div>
     <div className={styles['footer-column-footer']}>
       <Link href='https://google.com'>Политика конфиденциальности</Link>

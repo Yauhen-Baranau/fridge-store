@@ -3,10 +3,11 @@
 import styles from './page.module.scss';
 import CallMeBackForm from '@src/ui-kit/call-me-back-form/call-me-back-form';
 import Accordion from '@src/ui-kit/accordion/accordion';
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import Image from 'next/image';
 import BackgroundSnowflake from '@src/ui-kit/background-snowflake/background-snowflake';
 import { Subcategory, useCategoryData } from '@contexts/category-data-context';
+import List from '@ui-kit/list/list';
 
 export default function PricesPage() {
   const { getAllSubcategories, getSubcategoryServices, getDiagnosticsService } = useCategoryData();
@@ -48,8 +49,10 @@ export default function PricesPage() {
     <div className={styles['prices-block']}>
       <h2 className={styles['prices-block-title']}>Цены</h2>
       <div className={styles['with-parts']}>Цены указаны с учетом новых запчастей</div>
-      {/* TO DO: use List */}
-      {getAllSubcategories().map(subcategory => <React.Fragment key={subcategory.id}>{getSubcategoryAccordion(subcategory)}</React.Fragment>)}
+      <List
+        customClass={styles['accordion-list']}
+        items={getAllSubcategories().map(subcategory => ({ content: getSubcategoryAccordion(subcategory) }))}
+      />
       <BackgroundSnowflake width={247} height={239} left={81} top={30} rotation={-30} color='main-white' />
       <BackgroundSnowflake width={247} height={239} right={46} top={30} rotation={-30} color='main-white' />
     </div>
