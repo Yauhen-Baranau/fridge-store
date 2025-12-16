@@ -27,7 +27,9 @@ export const DialogContextProvider = ({
 
   return <DialogContext.Provider value={{
     showDialog: (content?: React.ReactNode) => {
-      content && setDialogContent(content);
+      if (content) {
+        setDialogContent(content);
+      }
       dialogRef?.current?.showModal();
     },
     setDialogContent,

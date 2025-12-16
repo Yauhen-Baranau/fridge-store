@@ -4,7 +4,6 @@ import React from 'react';
 import List from '../list/list';
 import styles from './service-page-component.module.scss';
 import Image from 'next/image';
-import Form from '../form/form';
 import ServicesGrid from '../services-grid/services-grid';
 import CallMeBackForm from '../call-me-back-form/call-me-back-form';
 

@@ -25,7 +25,7 @@ export default function SubcategoryPage() {
       ...service,
       redirectTo: getServiceHref(service.id),
     }));
-  }, [subcategoryId]);
+  }, [subcategoryId, getServiceHref]);
   const subcategoryData = subсategories.find(subcategory => subcategory.id === subcategoryId);
   return subcategoryData && <ServicePageComponent service={subcategoryData} subservices={services} />
 }

@@ -26,7 +26,7 @@ export default function ServicePag() {
       ...service,
       redirectTo: `./${serviceIdToRouteMap.get(service.id)}`
     }));
-  }, [serviceId]);
+  }, [serviceData]);
   return serviceData && <ServicePageComponent
     service={serviceData}
     subservices={relatedServices}

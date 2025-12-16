@@ -2,7 +2,7 @@
 
 import { useParams } from 'next/navigation';
 import { Routes } from "@constants/routes";
-import { useContext, useMemo } from 'react';
+import { useMemo } from 'react';
 import categories from '@category-data/categories.json';
 import allSubсategories from '@category-data/subcategories.json';
 import allServices from '@category-data/services.json';
@@ -39,7 +39,7 @@ export default function CategoryPage() {
       redirectTo: getSubcategoryHref(subcategory.id),
       price: getSubcategoryStartingPrice(subcategory.id),
     }));
-  }, [categoryId]);
+  }, [categoryId, getSubcategoryHref]);
   const categoryData = categories.find(category => category.id === categoryId) as Category;
   return categoryData && <ServicePageComponent service={categoryData} subservices={subcategories} />
 }

@@ -14,7 +14,7 @@ export default function ReviewsPage() {
     rating,
     comment,
     images = [],
-    reviewTimestamp = Date.now(),
+    reviewTimestamp = 0,
   }: {
     reviewerName: string,
     rating: number,

@@ -4,7 +4,6 @@ import CallMeBackForm from '@src/ui-kit/call-me-back-form/call-me-back-form';
 import styles from './page.module.scss';
 import List from '@ui-kit/list/list';
 import Image from 'next/image';
-import composeClassName from '@src/helpers/compose-class-name';
 import BackgroundSnowflake from '@src/ui-kit/background-snowflake/background-snowflake';
 
 export default function PaymentPage() {

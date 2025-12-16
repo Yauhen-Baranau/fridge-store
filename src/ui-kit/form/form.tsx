@@ -43,15 +43,8 @@ export default function Form({
   const formRef = useRef<HTMLFormElement>(null);
   useClickOutsideListener(formRef, resetActiveInput);
 
-  const getInitialFormValue = (fieldConfigs: Array<FormFieldConfig>): FormValue => {
-    const initialFormValue: FormValue = {};
-    fieldConfigs.forEach(fieldConfig => {
-      const autofilledValue = (formRef?.current?.querySelector(`[name="${fieldConfig.name}"]`) as HTMLInputElement)?.value;
-      initialFormValue[fieldConfig.name] = autofilledValue || null;
-    });
-    return initialFormValue;
-  };
-  const [formValue, setFormValue] = useState<FormValue>(getInitialFormValue(config.fieldConfigs));
+  // TO DO: figure something out with autofill
+  const [formValue, setFormValue] = useState<FormValue>(Object.fromEntries(config.fieldConfigs.map(fieldConfig => [fieldConfig.name, null])));
   const setFormValueField = (name: string, newValue: unknown) => setFormValue({ ...formValue, [name]: newValue });
 
   const [submitAttempted, setSubmitAttempted] = useState(false);
@@ -108,7 +101,9 @@ export default function Form({
     {preSubmitButtonContent}
     <Button text={submitButtonText} onClick={() => {
       setSubmitAttempted(true);
-      validateForm() && submitCallback(formValue);
+      if (validateForm()) {
+        submitCallback(formValue);
+      }
     }} />
   </form>;
 }

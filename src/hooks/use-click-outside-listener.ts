@@ -9,5 +9,5 @@ export default function useClickOutsideListener(ref: RefObject<HTMLElement | nul
     }
     window.addEventListener('click', listener);
     return () => window.removeEventListener('click', listener);
-  }, []);
+  }, [ref, handler]);
 }
