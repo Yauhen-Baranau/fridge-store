@@ -4,7 +4,7 @@ export default function useResponsive() {
   const desktopToIpadBreakpoint = 1170;
   const ipadToMobileBreakpoint = 834;
 
-  const [windowWidth, setWindowWidth] = useState(0);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   useEffect(() => {
     const listener = () => setWindowWidth(window.innerWidth);
     window.addEventListener('resize', listener);
