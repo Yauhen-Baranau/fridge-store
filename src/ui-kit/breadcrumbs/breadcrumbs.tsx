@@ -1,4 +1,5 @@
 'use client';
+
 import Link from 'next/link';
 import './breadcrumbs.scss';
 import React from 'react';
@@ -6,6 +7,8 @@ import { usePathname } from 'next/navigation';
 import composeClassName from '@src/helpers/compose-class-name';
 import { Routes } from '@constants/routes';
 import Image from 'next/image';
+import { useHrefHelper } from '@contexts/href-context';
+import { useCategoryData } from '@contexts/category-data-context';
 
 interface Breadcrumb {
   label: string,
@@ -24,15 +27,30 @@ const routeToLabelMap = new Map([
 
 export default function Breadcrumbs({ customClass }: { customClass?: string }) {
   const pathname = usePathname();
+  const { getCategoryHref, getSubcategoryHref, getServiceHref } = useHrefHelper();
+  const { getCategoryById, getSubcategoryById, getServiceById } = useCategoryData();
 
   const getBreadcrumbs = (): Array<Breadcrumb> => {
-    const pathFragments = pathname.split('/').filter(Boolean);
     const breadcrumbs = [{ label: 'Главная', redirectTo: '/' }];
-    let currPath = '';
-    pathFragments.forEach(fragment => {
-      currPath += `/${fragment}`;
-      breadcrumbs.push({ label: routeToLabelMap.get(fragment as Routes) || '', redirectTo: currPath })
-    });
+
+    const addBreadcrumbIfIdInPath = (
+      getEntityById: (id: string) => { label: string } | null,
+      getHrefById: (id: string) => string,
+      id?: string,
+    ) => {
+      if (!id) {
+        return;
+      }
+      const entity = getEntityById(id);
+      if (entity) {
+        breadcrumbs.push({ label: entity.label, redirectTo: getHrefById(id) });
+      }
+    }
+    const [categoryId, subcategoryId, serviceId] = pathname.split('/').filter(Boolean);
+    addBreadcrumbIfIdInPath(getCategoryById, getCategoryHref, categoryId);
+    addBreadcrumbIfIdInPath(getSubcategoryById, getSubcategoryHref, subcategoryId);
+    addBreadcrumbIfIdInPath(getServiceById, getServiceHref, serviceId);
+
     return breadcrumbs;
   }
 
