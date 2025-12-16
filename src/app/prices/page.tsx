@@ -11,7 +11,8 @@ import Image from 'next/image';
 import BackgroundSnowflake from '@src/ui-kit/background-snowflake/background-snowflake';
 
 export default function PricesPage() {
-  const diagnosticsPrice = services.find(service => service.label === 'Диагностика холодильника')?.price;
+  const diagnosticsServiceId = '1-6-1';
+  const diagnosticsPrice = services.find(service => service.id === diagnosticsServiceId)?.price;
 
   const getSubcategoryAccordion = (subcategory: Subcategory) => {
     const subcategoryServices = services.filter(service => service.parentCategoryId === subcategory.id);
