@@ -1,11 +1,11 @@
-$desktop-content-width: 1170px;
+@use '../styles/breakpoints.scss';
 
 .body {
-  padding: 29px calc((100% - $desktop-content-width) / 2) 0;
+  padding: 29px calc((100% - breakpoints.$desktop-to-ipad-breakpoint) / 2) 0;
   overflow-x: hidden; // for some snowflakes that overflow over window borders
 
   > * {
-    width: $desktop-content-width;
+    width: breakpoints.$desktop-to-ipad-breakpoint;
   }
 
   .breadcrumbs {
@@ -14,5 +14,15 @@ $desktop-content-width: 1170px;
 
   .call-me-back {
     margin-top: 140px;
+  }
+}
+
+@media (max-width: breakpoints.$desktop-to-ipad-breakpoint) {
+  .body {
+    padding: 16px 20px 0;
+
+    > * {
+      width: 100%;
+    }
   }
 }

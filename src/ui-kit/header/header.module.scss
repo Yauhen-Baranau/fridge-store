@@ -1,4 +1,6 @@
 @use '../../styles/fonts.scss';
+@use '../../styles/colors.scss';
+@use '../../styles/breakpoints.scss';
 
 .header {
   display: flex;
@@ -33,5 +35,37 @@
     width: 187px;
     height: 48px;
     margin-left: auto;
+  }
+}
+
+@media (max-width: breakpoints.$desktop-to-ipad-breakpoint) {
+  .header {
+    justify-content: space-between;
+    padding-bottom: 14px;
+    border-bottom: solid colors.$color-gray-lighter 1px;
+
+    .logo {
+      margin-right: 10px;
+    }
+
+    .contacts {
+      column-gap: 32px;
+
+      .icon-text-pair {
+        @include fonts.font(12px, 400, 140%);
+      }
+    }
+
+    .icons {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+
+      .nav-popup {
+        :nth-child(2) {
+          background-color: red;
+        }
+      }
+    }
   }
 }

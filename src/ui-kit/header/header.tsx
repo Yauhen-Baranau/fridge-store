@@ -9,9 +9,20 @@ import Link from 'next/link';
 import Image from 'next/image';
 import DialogForm from '../dialog-form/dialog-form';
 import { useDialog } from '@contexts/dialog-context';
+import useResponsive from '@hooks/use-responsive';
+import { useMemo } from 'react';
+import PopupWrapper from '@ui-kit/popup/popup';
 
 export default function Header({ customClass }: { customClass?: string }) {
   const { showDialog } = useDialog();
+  const { isDesktop, isIpad, isMobile } = useResponsive();
+  const cleanPhoneNumber = useMemo(() => {
+    return contactInfo.phoneNumber
+      .split(' ').join('')
+      .split('-').join('')
+      .split('(').join('')
+      .split(')').join('')
+  }, []);
 
   return <header className={composeClassName(styles.header, customClass)}>
     <Link href='/'>
@@ -26,25 +37,32 @@ export default function Header({ customClass }: { customClass?: string }) {
         <Image src='/icons/clock.svg' alt='Часы' width={20} height={20} />
         <span>{contactInfo.openHours}</span>
       </div>
-      <div className={styles['icon-text-pair']}>
-        <Image src='/icons/phone.svg' alt='Телефон' width={20} height={20} />
-        <Link href={`tel:${contactInfo.phoneNumber
-          .split(' ').join('')
-          .split('-').join('')
-          .split('(').join('')
-          .split(')').join('')
-          }`}>{contactInfo.phoneNumber}</Link>
-      </div>
-      <div className={styles['icon-text-pair']}>
-        <Image src='/icons/envelope.svg' alt='Конверт' width={20} height={20} />
-        <Link href={`mailto:${contactInfo.email}`}>{contactInfo.email}</Link>
-      </div>
+      {isDesktop && <>
+        <div className={styles['icon-text-pair']}>
+          <Image src='/icons/phone.svg' alt='Телефон' width={20} height={20} />
+          <Link href={`tel:${cleanPhoneNumber}`}>{contactInfo.phoneNumber}</Link>
+        </div>
+        <div className={styles['icon-text-pair']}>
+          <Image src='/icons/envelope.svg' alt='Конверт' width={20} height={20} />
+          <Link href={`mailto:${contactInfo.email}`}>{contactInfo.email}</Link>
+        </div>
+      </>}
       <Socials customClass={styles.socials} />
     </address>
-    <Button
+    {isDesktop && <Button
       customClass={styles['call-me-back']}
       text='Заказать звонок'
       onClick={() => showDialog(<DialogForm />)}
-    />
+    />}
+    {(isIpad || isMobile) && <div className={styles.icons}>
+      <Link href={`mailto:${contactInfo.email}`}><Image src='/icons/envelope.svg' alt='Конверт' width={30} height={30} /></Link>
+      <Link href={`tel:${cleanPhoneNumber}`}><Image src='/icons/phone.svg' alt='Телефон' width={30} height={30} /></Link>
+      <PopupWrapper
+        customClass={styles['nav-popup']}
+        popupContent={<>hi</>}
+      >
+        <Button style='text-only' icon={{ path: '/icons/menu.svg', width: 25, height: 25 }} />
+      </PopupWrapper>
+    </div>}
   </header>
 }
