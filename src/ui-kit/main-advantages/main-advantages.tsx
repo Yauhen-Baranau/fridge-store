@@ -1,5 +1,3 @@
-'use server';
-
 import List, { ListItem } from '@ui-kit/list/list';
 import styles from './main-advantages.module.scss';
 import React from 'react';

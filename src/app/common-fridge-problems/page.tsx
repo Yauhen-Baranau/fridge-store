@@ -1,5 +1,3 @@
-'use server';
-
 import Image from 'next/image';
 import styles from './page.module.scss';
 import CallMeBackForm from '@ui-kit/call-me-back-form/call-me-back-form';

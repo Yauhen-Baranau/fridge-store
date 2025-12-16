@@ -1,21 +1,23 @@
-'use client';
-
-import { useParams } from 'next/navigation';
 import { Routes } from "@constants/routes";
-import ServicePageComponent from '@src/ui-kit/service-page-component/service-page-component';
-import { routeToSubcategoryIdMap } from '../routing-maps';
-import { useHrefHelper } from '@contexts/href-context';
-import { useCategoryData } from '@contexts/category-data-context';
+import SubcategoryPageClientComponent from '@ui-kit/service-page-component/subcategory/subcategory-page-client-component';
+import { routeToSubcategoryIdMap } from "../routing-maps";
 
-export default function SubcategoryPage() {
-  const { getSubcategoryById, getSubcategoryServices } = useCategoryData();
-  const { getServiceHref } = useHrefHelper();
-  const params = useParams();
-  const subcategoryId = routeToSubcategoryIdMap.get(`${params.subcategory}` as Routes) ?? '';
-  const subcategoryData = getSubcategoryById(subcategoryId);
-  const services = getSubcategoryServices(subcategoryId);
-  return subcategoryData && <ServicePageComponent
-    service={subcategoryData}
-    subservices={services!.map(service => ({ ...service, redirectTo: getServiceHref(service.id) }))}
-  />
+export default async function SubcategoryPage({
+  params
+}: {
+  params: Promise<{ subcategory: Routes }>
+}) {
+  const subcategory = (await params).subcategory;
+  return <SubcategoryPageClientComponent subcategoryId={routeToSubcategoryIdMap.get(subcategory) ?? ''} />
+}
+
+export async function generateStaticParams() {
+  return [
+    { category: Routes.FridgeRepairServices, subcategory: Routes.CoolingSystemComponentReplacementAndRepairs },
+    { category: Routes.FridgeRepairServices, subcategory: Routes.ElectricComponentRepairsAndReplacement },
+    { category: Routes.FridgeRepairServices, subcategory: Routes.NofrostSystemElementReplacement },
+    { category: Routes.FridgeRepairServices, subcategory: Routes.MechanicalNodesReplacementAndRepairs },
+    { category: Routes.FridgeRepairServices, subcategory: Routes.DoorAndHullRepairs },
+    { category: Routes.FridgeRepairServices, subcategory: Routes.OtherServices },
+  ];
 }

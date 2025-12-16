@@ -1,5 +1,3 @@
-'use server';
-
 import Button from '@ui-kit/button/button';
 import styles from './about-us.module.scss';
 import Link from 'next/link';

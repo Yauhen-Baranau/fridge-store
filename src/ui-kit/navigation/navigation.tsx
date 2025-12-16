@@ -1,5 +1,3 @@
-'use server';
-
 // not using css modules because this component has a lot of
 // nested components that need custom styling
 import composeClassName from '@src/helpers/compose-class-name';

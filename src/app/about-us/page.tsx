@@ -1,5 +1,3 @@
-'use server';
-
 import Image from 'next/image';
 import styles from './page.module.scss';
 import MainAdvantages from '@src/ui-kit/main-advantages/main-advantages';
