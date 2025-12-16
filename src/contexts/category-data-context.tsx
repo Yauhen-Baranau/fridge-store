@@ -95,6 +95,9 @@ export const CategoryDataContextProvider = ({
         return null;
       }
       const subcategoryServices = getChildEntries(subcategoryId, services);
+      if (subcategoryServices.length === 0) {
+        return null;
+      }
       return Math.min(...subcategoryServices.map(service => service.price));
     },
     getDiagnosticsService: () => getServiceById(diagnosticsServiceId),

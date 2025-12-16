@@ -14,7 +14,7 @@ export default function CategoryPageClientComponent({ categoryId }: { categoryId
     subservices={subcategories!.map(subcategory => ({
       ...subcategory,
       redirectTo: getSubcategoryHref(subcategory.id),
-      price: getSubcategoryStartingPrice(subcategory.id) || 0,
+      price: getSubcategoryStartingPrice(subcategory.id) || undefined,
     }))}
   />
 }

@@ -11,34 +11,34 @@
     "parentCategoryId": "1",
     "label": "Ремонт и замена электрических компонентов",
     "description": [],
-    "imagePath": "/subcategories/electric-components-repairs.webp"
+    "imagePath": "/subcategories/cooling-system-component-repairs.webp"
   },
   {
     "id": "3",
     "parentCategoryId": "1",
     "label": "Замена элементов системы No Frost",
     "description": [],
-    "imagePath": "/subcategories/nofrost-system-element-replacement.webp"
+    "imagePath": "/subcategories/cooling-system-component-repairs.webp"
   },
   {
     "id": "4",
     "parentCategoryId": "1",
     "label": "Замена и ремонт механических узлов",
     "description": [],
-    "imagePath": "/subcategories/mechanical-nodes-repairs.webp"
+    "imagePath": "/subcategories/cooling-system-component-repairs.webp"
   },
   {
     "id": "5",
     "parentCategoryId": "1",
     "label": "Ремонт дверей и корпуса",
     "description": [],
-    "imagePath": "/subcategories/hull-and-door-repairs.webp"
+    "imagePath": "/subcategories/cooling-system-component-repairs.webp"
   },
   {
     "id": "6",
     "parentCategoryId": "1",
     "label": "Прочие услуги",
     "description": [],
-    "imagePath": "/subcategories/other-services.webp"
+    "imagePath": "/subcategories/cooling-system-component-repairs.webp"
   }
 ]
