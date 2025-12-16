@@ -7,23 +7,26 @@ import { contactInfo } from '@constants/contact-info';
 import Socials from '@ui-kit/socials/socials';
 import Button from '@ui-kit/button/button';
 import { Routes } from '@constants/routes';
+import { useHrefHelper } from '@contexts/href-context';
 
 export default function Footer() {
+  const { getPageHref, getCategoryHref } = useHrefHelper();
+
   return <footer className={styles.footer}>
     <h3 className={styles['footer-column-title']}>ИНФОРМАЦИЯ</h3>
     <h3 className={styles['footer-column-title']}>УСЛУГИ</h3>
     <h3 className={styles['footer-column-title']}>КОНТАКТЫ</h3>
     <List customClass={styles['footer-column-content']} items={[
-      { content: <Link href={`/${Routes.AboutUs}`}>О компании</Link> },
-      { content: <Link href={`/${Routes.Prices}`}>Цены</Link> },
-      { content: <Link href={`/${Routes.Payment}`}>Оплата</Link> },
-      { content: <Link href={`/${Routes.Reviews}`}>Отзывы</Link> },
-      { content: <Link href={`/${Routes.FAQ}`}>Популярные вопросы</Link> },
-      { content: <Link href={`/${Routes.CommonFridgeProblems}`}>Частые проблемы</Link> },
-      { content: <Link href={`/${Routes.Contacts}`}>Контакты</Link> },
+      { content: <Link href={getPageHref(Routes.AboutUs)}>О компании</Link> },
+      { content: <Link href={getPageHref(Routes.Prices)}>Цены</Link> },
+      { content: <Link href={getPageHref(Routes.Payment)}>Оплата</Link> },
+      { content: <Link href={getPageHref(Routes.Reviews)}>Отзывы</Link> },
+      { content: <Link href={getPageHref(Routes.FAQ)}>Популярные вопросы</Link> },
+      { content: <Link href={getPageHref(Routes.CommonFridgeProblems)}>Частые проблемы</Link> },
+      { content: <Link href={getPageHref(Routes.Contacts)}>Контакты</Link> },
     ]} />
     <List customClass={styles['footer-column-content']} items={[
-      { content: <Link href={`/${Routes.FridgeRepairServices}`}>Услуги по ремонту холодильников</Link> },
+      { content: <Link href={getCategoryHref('1')}>Услуги по ремонту холодильников</Link> },
       { content: <Link href='https://google.com'>Ремонт холодильников по виду</Link> },
       { content: <Link href='https://google.com'>Ремонт холодильников по модели</Link> },
       { content: <Link href='https://google.com'>Ремонт холодильников по городам</Link> },

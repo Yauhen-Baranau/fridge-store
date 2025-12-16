@@ -1,18 +1,18 @@
 [
   {
-    "id": "1-1-1",
-    "parentCategoryId": "1-1",
+    "id": "1",
+    "parentCategoryId": "1",
     "label": "Замена и ремонт компрессора",
     "description": [],
     "imagePath": "/services/compressor-repairs.webp",
     "price": 350,
     "requiredTime": "1,5-3 часа",
     "guarantee": "6 месяцев",
-    "relatedServiceIds": ["1-1-2", "1-1-3"]
+    "relatedServiceIds": ["2", "3"]
   },
   {
-    "id": "1-1-2",
-    "parentCategoryId": "1-1",
+    "id": "2",
+    "parentCategoryId": "1",
     "label": "Замена испарителя",
     "description": [],
     "imagePath": "/services/compressor-repairs.webp",
@@ -22,8 +22,8 @@
     "relatedServiceIds": []
   },
   {
-    "id": "1-1-3",
-    "parentCategoryId": "1-1",
+    "id": "3",
+    "parentCategoryId": "1",
     "label": "Замена конденсатора",
     "description": [],
     "imagePath": "/services/compressor-repairs.webp",
@@ -33,8 +33,8 @@
     "relatedServiceIds": []
   },
   {
-    "id": "1-1-4",
-    "parentCategoryId": "1-1",
+    "id": "4",
+    "parentCategoryId": "1",
     "label": "Замена капиллярной трубы",
     "description": [],
     "imagePath": "/services/compressor-repairs.webp",
@@ -44,8 +44,8 @@
     "relatedServiceIds": []
   },
   {
-    "id": "1-1-5",
-    "parentCategoryId": "1-1",
+    "id": "5",
+    "parentCategoryId": "1",
     "label": "Заправка хладагентом (фреоном)",
     "description": [],
     "imagePath": "/services/refrigerant-topup.webp",
@@ -55,8 +55,8 @@
     "relatedServiceIds": []
   },
   {
-    "id": "1-1-6",
-    "parentCategoryId": "1-1",
+    "id": "6",
+    "parentCategoryId": "1",
     "label": "Ремонт или замена термостата",
     "description": [],
     "imagePath": "/services/thermostat-repairs.webp",
@@ -67,8 +67,8 @@
   },
 
   {
-    "id": "1-2-1",
-    "parentCategoryId": "1-2",
+    "id": "7",
+    "parentCategoryId": "2",
     "label": "Ремонт модуля управления",
     "description": [],
     "imagePath": "/services/control-module-repairs.webp",
@@ -79,8 +79,8 @@
   },
 
   {
-    "id": "1-3-1",
-    "parentCategoryId": "1-3",
+    "id": "8",
+    "parentCategoryId": "3",
     "label": "Ремонт системы No Frost",
     "description": [],
     "imagePath": "/services/nofrost-repairs.webp",
@@ -91,8 +91,8 @@
   },
 
   {
-    "id": "1-4-1",
-    "parentCategoryId": "1-4",
+    "id": "9",
+    "parentCategoryId": "4",
     "label": "Замена уплотнителя дверцы",
     "description": [],
     "imagePath": "/services/sealant-replacement.webp",
@@ -102,8 +102,8 @@
     "relatedServiceIds": []
   },
   {
-    "id": "1-4-2",
-    "parentCategoryId": "1-4",
+    "id": "10",
+    "parentCategoryId": "4",
     "label": "Замена вентилятора охлаждения",
     "description": [],
     "imagePath": "/services/cooling-ventilator-replacement.webp",
@@ -114,8 +114,8 @@
   },
 
   {
-    "id": "1-6-1",
-    "parentCategoryId": "1-6",
+    "id": "11",
+    "parentCategoryId": "6",
     "label": "Диагностика неисправности",
     "description": [],
     "imagePath": "/services/diagnostics.webp",
@@ -125,8 +125,8 @@
     "relatedServiceIds": []
   },
   {
-    "id": "1-6-2",
-    "parentCategoryId": "1-6",
+    "id": "12",
+    "parentCategoryId": "6",
     "label": "Прочистка дренажной системы",
     "description": [],
     "imagePath": "/services/drainage-cleaning.webp",
@@ -136,8 +136,8 @@
     "relatedServiceIds": []
   },
   {
-    "id": "1-6-3",
-    "parentCategoryId": "1-6",
+    "id": "13",
+    "parentCategoryId": "6",
     "label": "Устранение посторонних шумов",
     "description": [],
     "imagePath": "/services/compressor-repairs.webp",
@@ -147,8 +147,8 @@
     "relatedServiceIds": []
   },
   {
-    "id": "1-6-4",
-    "parentCategoryId": "1-6",
+    "id": "14",
+    "parentCategoryId": "6",
     "label": "Замена подсветки холодильника",
     "labelComment": "(лампы/LED-модуля)",
     "description": [],

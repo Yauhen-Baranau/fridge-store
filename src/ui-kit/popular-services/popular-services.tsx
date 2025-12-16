@@ -62,9 +62,9 @@ export default function PopularServices() {
     </Link>
   };
 
-  const freeWithRepairsServiceIds = ['1-6-1'];
-  const withIncludingPartsCommentServiceIds = ['1-1-1'];
-  const popularServiceIds = ['1-6-1', '1-1-1', '1-1-5', '1-1-6', '1-6-2', '1-3-1', '1-4-1', '1-2-1', '1-4-2'];
+  const freeWithRepairsServiceIds = ['11'];
+  const withIncludingPartsCommentServiceIds = ['1'];
+  const popularServiceIds = ['11', '1', '5', '6', '12', '8', '9', '7', '10'];
   return <section className={styles['popular-services']}>
     <h1 className={styles['popular-services-title']}>Популярные услуги</h1>
     <div className={styles['services-list']}>

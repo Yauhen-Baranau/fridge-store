@@ -1,7 +1,6 @@
 'use client';
 
 import { Routes } from "@constants/routes";
-import { categoryIdToRouteMap, serviceIdToRouteMap, subcategoryIdToRouteMap } from "@src/app/[category]/routing-maps";
 import { createContext, useContext, useMemo } from "react";
 import { useCategoryData } from "./category-data-context";
 
@@ -37,14 +36,14 @@ export const HrefContextProvider = ({
   }
 
   const getPageHref = (route: string) => `/${route}`;
-  const getCategoryHref = (id: string) => getPageHref(categoryIdToRouteMap.get(id) ?? '');
+  const getCategoryHref = (id: string) => getPageHref(id);
   const getSubcategoryHref = (id: string) => {
     const subcategory = findEntryById(id, subcategories);
-    return `${getCategoryHref(subcategory?.parentCategoryId ?? '')}/${subcategoryIdToRouteMap.get(id)}`;
+    return `${getCategoryHref(subcategory?.parentCategoryId ?? '')}/${id}`;
   };
   const getServiceHref = (id: string) => {
     const service = findEntryById(id, services);
-    return `${getSubcategoryHref(service?.parentCategoryId ?? '')}/${serviceIdToRouteMap.get(id)}`;
+    return `${getSubcategoryHref(service?.parentCategoryId ?? '')}/${id}`;
   }
 
   return <HrefContext.Provider value={{

@@ -1,3 +1,5 @@
+'use client';
+
 // not using css modules because this component has a lot of
 // nested components that need custom styling
 import composeClassName from '@src/helpers/compose-class-name';
@@ -5,8 +7,11 @@ import './navigation.scss';
 import List from '@ui-kit/list/list';
 import Link from 'next/link';
 import { Routes } from '@src/constants/routes';
+import { useHrefHelper } from '@contexts/href-context';
 
-export default async function Navigation({ customClass }: { customClass?: string }) {
+export default function Navigation({ customClass }: { customClass?: string }) {
+  const { getCategoryHref, getSubcategoryHref } = useHrefHelper();
+
   return <nav className={composeClassName('nav', customClass)}>
     <List
       customClass='nav-list'
@@ -14,7 +19,7 @@ export default async function Navigation({ customClass }: { customClass?: string
       nestedItemsStyle='popup'
       items={[
         {
-          content: <Link href={`/${Routes.FridgeRepairServices}`}>УСЛУГИ ПО РЕМОНТУ ХОЛОДИЛЬНИКОВ</Link>,
+          content: <Link href={getCategoryHref('1')}>УСЛУГИ ПО РЕМОНТУ ХОЛОДИЛЬНИКОВ</Link>,
           icon: {
             path: '/icons/chevron-down.svg',
             width: 10,
@@ -23,7 +28,7 @@ export default async function Navigation({ customClass }: { customClass?: string
           },
           subItems: [
             {
-              content: <Link href={`/${Routes.FridgeRepairServices}/${Routes.CoolingSystemComponentReplacementAndRepairs}`}>ЗАМЕНА И РЕМОНТ КОМПОНЕНТОВ СИСТЕМЫ ОХЛАЖДЕНИЯ</Link>,
+              content: <Link href={getSubcategoryHref('1')}>ЗАМЕНА И РЕМОНТ КОМПОНЕНТОВ СИСТЕМЫ ОХЛАЖДЕНИЯ</Link>,
               icon: {
                 path: '/icons/square-small.svg',
                 width: 14,
@@ -31,7 +36,7 @@ export default async function Navigation({ customClass }: { customClass?: string
               },
             },
             {
-              content: <Link href={`/${Routes.FridgeRepairServices}/${Routes.ElectricComponentRepairsAndReplacement}`}>РЕМОНТА И ЗАМЕНА ЭЛЕКТРИЧЕСКИХ КОМПОНЕНТОВ</Link>,
+              content: <Link href={getSubcategoryHref('2')}>РЕМОНТА И ЗАМЕНА ЭЛЕКТРИЧЕСКИХ КОМПОНЕНТОВ</Link>,
               icon: {
                 path: '/icons/square-small.svg',
                 width: 14,
@@ -39,7 +44,7 @@ export default async function Navigation({ customClass }: { customClass?: string
               },
             },
             {
-              content: <Link href={`/${Routes.FridgeRepairServices}/${Routes.NofrostSystemElementReplacement}`}>ЗАМЕНА ЭЛЕМЕНТОВ СИСТЕМЫ NO FROST</Link>,
+              content: <Link href={getSubcategoryHref('3')}>ЗАМЕНА ЭЛЕМЕНТОВ СИСТЕМЫ NO FROST</Link>,
               icon: {
                 path: '/icons/square-small.svg',
                 width: 14,
@@ -47,7 +52,7 @@ export default async function Navigation({ customClass }: { customClass?: string
               },
             },
             {
-              content: <Link href={`/${Routes.FridgeRepairServices}/${Routes.MechanicalNodesReplacementAndRepairs}`}>ЗАМЕНА И РЕМОНТ МЕХАНИЧЕСКИХ УЗЛОВ</Link>,
+              content: <Link href={getSubcategoryHref('4')}>ЗАМЕНА И РЕМОНТ МЕХАНИЧЕСКИХ УЗЛОВ</Link>,
               icon: {
                 path: '/icons/square-small.svg',
                 width: 14,
@@ -55,7 +60,7 @@ export default async function Navigation({ customClass }: { customClass?: string
               },
             },
             {
-              content: <Link href={`/${Routes.FridgeRepairServices}/${Routes.DoorAndHullRepairs}`}>РЕМОНТ ДВЕРЕЙ И КОРПУСА</Link>,
+              content: <Link href={getSubcategoryHref('5')}>РЕМОНТ ДВЕРЕЙ И КОРПУСА</Link>,
               icon: {
                 path: '/icons/square-small.svg',
                 width: 14,
@@ -63,7 +68,7 @@ export default async function Navigation({ customClass }: { customClass?: string
               },
             },
             {
-              content: <Link href={`/${Routes.FridgeRepairServices}/${Routes.OtherServices}`}>ПРОЧИЕ УСЛУГИ</Link>,
+              content: <Link href={getSubcategoryHref('6')}>ПРОЧИЕ УСЛУГИ</Link>,
               icon: {
                 path: '/icons/square-small.svg',
                 width: 14,
