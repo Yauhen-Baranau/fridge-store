@@ -10,6 +10,7 @@ import { Validator } from './validators';
 export interface FormFieldConfig<T = string> {
   type: 'text' | 'tel' | 'email' | 'textarea';
   name: string,
+  defaultValue?: T,
   placeholder?: string,
   validators?: Array<Validator<T>>,
 }
@@ -43,7 +44,9 @@ export default function Form({
   const formRef = useRef<HTMLFormElement>(null);
   useClickOutsideListener(formRef, resetActiveInput);
 
-  const [formValue, setFormValue] = useState<FormValue>(Object.fromEntries(config.fieldConfigs.map(fieldConfig => [fieldConfig.name, null])));
+  const [formValue, setFormValue] = useState<FormValue>(Object.fromEntries(
+    config.fieldConfigs.map(fieldConfig => [fieldConfig.name, fieldConfig.defaultValue ?? null])
+  ));
   const setFormValueField = (name: string, newValue: unknown) => setFormValue({ ...formValue, [name]: newValue });
 
   const [submitAttempted, setSubmitAttempted] = useState(false);

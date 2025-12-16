@@ -44,6 +44,7 @@ export default function DialogForm({
           {
             type: 'textarea',
             name: 'question',
+            defaultValue: '',
             placeholder: 'Ваш вопрос',
             validators: [Validators.maxLength(500)],
           },
