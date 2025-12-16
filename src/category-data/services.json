@@ -2,10 +2,12 @@
   {
     "id": "1-1-1",
     "parentCategoryId": "1-1",
-    "label": "Замена компрессора",
+    "label": "Замена и ремонт компрессора",
     "description": [],
     "imagePath": "/services/compressor-repairs.webp",
     "price": 350,
+    "requiredTime": "1,5-3 часа",
+    "guarantee": "6 месяцев",
     "relatedServiceIds": []
   },
   {
@@ -15,6 +17,8 @@
     "description": [],
     "imagePath": "/services/compressor-repairs.webp",
     "price": 250,
+    "requiredTime": "",
+    "guarantee": "",
     "relatedServiceIds": []
   },
   {
@@ -24,6 +28,8 @@
     "description": [],
     "imagePath": "/services/compressor-repairs.webp",
     "price": 120,
+    "requiredTime": "",
+    "guarantee": "",
     "relatedServiceIds": []
   },
   {
@@ -33,15 +39,89 @@
     "description": [],
     "imagePath": "/services/compressor-repairs.webp",
     "price": 150,
+    "requiredTime": "",
+    "guarantee": "",
     "relatedServiceIds": []
   },
   {
+    "id": "1-1-5",
+    "parentCategoryId": "1-1",
+    "label": "Заправка хладагентом (фреоном)",
+    "description": [],
+    "imagePath": "/services/refrigerant-topup.webp",
+    "price": 130,
+    "requiredTime": "1-2 часа",
+    "guarantee": "3 месяца",
+    "relatedServiceIds": []
+  },
+  {
+    "id": "1-1-6",
+    "parentCategoryId": "1-1",
+    "label": "Ремонт или замена термостата",
+    "description": [],
+    "imagePath": "/services/thermostat-repairs.webp",
+    "price": 125,
+    "requiredTime": "40-90 минут",
+    "guarantee": "6 месяцев",
+    "relatedServiceIds": []
+  },
+
+  {
+    "id": "1-2-1",
+    "parentCategoryId": "1-2",
+    "label": "Ремонт модуля управления",
+    "description": [],
+    "imagePath": "/services/control-module-repairs.webp",
+    "price": 165,
+    "requiredTime": "1-3 часа",
+    "guarantee": "6 месяцев",
+    "relatedServiceIds": []
+  },
+
+  {
+    "id": "1-3-1",
+    "parentCategoryId": "1-3",
+    "label": "Ремонт системы No Frost",
+    "description": [],
+    "imagePath": "/services/nofrost-repairs.webp",
+    "price": 125,
+    "requiredTime": "1,5-3 часа",
+    "guarantee": "6 месяцев",
+    "relatedServiceIds": []
+  },
+
+  {
+    "id": "1-4-1",
+    "parentCategoryId": "1-4",
+    "label": "Замена уплотнителя дверцы",
+    "description": [],
+    "imagePath": "/services/sealant-replacement.webp",
+    "price": 85,
+    "requiredTime": "40-90 минут",
+    "guarantee": "6 месяцев",
+    "relatedServiceIds": []
+  },
+  {
+    "id": "1-4-2",
+    "parentCategoryId": "1-4",
+    "label": "Замена вентилятора охлаждения",
+    "description": [],
+    "imagePath": "/services/cooling-ventilator-replacement.webp",
+    "price": 135,
+    "requiredTime": "1-2 часа",
+    "guarantee": "6 месяцев",
+    "relatedServiceIds": []
+  },
+
+  {
     "id": "1-6-1",
     "parentCategoryId": "1-6",
-    "label": "Диагностика холодильника",
+    "label": "Диагностика неисправности",
     "description": [],
-    "imagePath": "/services/compressor-repairs.webp",
+    "imagePath": "/services/diagnostics.webp",
     "price": 20,
+    "requiredTime": "30-60 минут",
+    "guarantee": "",
     "relatedServiceIds": []
   },
   {
@@ -49,8 +129,10 @@
     "parentCategoryId": "1-6",
     "label": "Прочистка дренажной системы",
     "description": [],
-    "imagePath": "/services/compressor-repairs.webp",
+    "imagePath": "/services/drainage-cleaning.webp",
     "price": 50,
+    "requiredTime": "30-60 минут",
+    "guarantee": "3 месяца",
     "relatedServiceIds": []
   },
   {
@@ -60,6 +142,8 @@
     "description": [],
     "imagePath": "/services/compressor-repairs.webp",
     "price": 35,
+    "requiredTime": "",
+    "guarantee": "",
     "relatedServiceIds": []
   },
   {
@@ -70,6 +154,8 @@
     "description": [],
     "imagePath": "/services/compressor-repairs.webp",
     "price": 50,
+    "requiredTime": "",
+    "guarantee": "",
     "relatedServiceIds": []
   }
 ]

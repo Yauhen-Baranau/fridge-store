@@ -6,12 +6,13 @@ import Button from '@ui-kit/button/button';
 import Link from 'next/link';
 import Image from 'next/image';
 import BackgroundSnowflake from '../background-snowflake/background-snowflake';
+import services from '@category-data/services.json';
 
 export default async function PopularServices() {
-  // TO DO: use actual services
   const serviceFactory = ({
+    id,
     imagePath,
-    title,
+    label,
     price,
     dynamicPrice = true,
     priceComment,
@@ -19,19 +20,21 @@ export default async function PopularServices() {
     requiredTime,
     guarantee,
   }: {
+    id: string,
     imagePath: string,
-    title: string,
+    label: string,
     price: number,
     dynamicPrice?: boolean,
     priceComment?: string,
     freeWithRepairs?: boolean,
-    requiredTime: string,
+    requiredTime?: string,
     guarantee?: string,
   }) => {
+    // TO DO: use routing context
     return <Link href='https://google.com'>
       <div className={styles.service}>
         <Image className={styles['service-image']} src={imagePath} width={263} height={173} alt='Изображение услуги' />
-        <h3 className={styles['service-title']}>{title}</h3>
+        <h3 className={styles['service-title']}>{label}</h3>
         <p className={styles['price-block']}>
           {dynamicPrice && <span className={styles['dynamic-price-text']}>от </span>}
           <span className={styles.price}>{price} руб.</span>
@@ -55,78 +58,22 @@ export default async function PopularServices() {
     </Link>
   };
 
+  const freeWithRepairsServiceIds = ['1-6-1'];
+  const withIncludingPartsCommentServiceIds = ['1-1-1'];
+  const popularServiceIds = ['1-6-1', '1-1-1', '1-1-5', '1-1-6', '1-6-2', '1-3-1', '1-4-1', '1-2-1', '1-4-2'];
   return <section className={styles['popular-services']}>
     <h1 className={styles['popular-services-title']}>Популярные услуги</h1>
     <div className={styles['services-list']}>
-      {[
-        {
-          imagePath: '/services/diagnostics.webp',
-          title: 'Диагностика неисправности',
-          price: 20,
-          freeWithRepairs: true,
-          dynamicPrice: false,
-          requiredTime: '30-60 минут',
-        },
-        {
-          imagePath: '/services/compressor-repairs.webp',
-          title: 'Замена и ремонт компрессора',
-          price: 350,
-          priceComment: 'включая запчасти',
-          requiredTime: '1,5-3 часа',
-          guarantee: '6 месяцев',
-        },
-        {
-          imagePath: '/services/refrigerant-topup.webp',
-          title: 'Заправка хладагентом (фреоном)',
-          price: 130,
-          requiredTime: '1-2 часа',
-          guarantee: '3 месяца',
-        },
-        {
-          imagePath: '/services/thermostat-repairs.webp',
-          title: 'Ремонт или замена термостата',
-          price: 125,
-          requiredTime: '40-90 минут',
-          guarantee: '6 месяцев',
-        },
-        {
-          imagePath: '/services/drainage-cleaning.webp',
-          title: 'Чистка и прочистка дренажной системы',
-          price: 50,
-          requiredTime: '30-60 минут',
-          guarantee: '3 месяца',
-        },
-        {
-          imagePath: '/services/nofrost-repairs.webp',
-          title: 'Ремонт системы No Frost',
-          price: 125,
-          requiredTime: '1.5-3 часа',
-          guarantee: '6 месяцев',
-        },
-        {
-          imagePath: '/services/sealant-replacement.webp',
-          title: 'Замена уплотнителя дверцы',
-          price: 85,
-          requiredTime: '40-90 минут',
-          guarantee: '6 месяцев',
-        },
-        {
-          imagePath: '/services/control-module-repairs.webp',
-          title: 'Ремонт модуля управления',
-          price: 165,
-          requiredTime: '1-3 часа',
-          guarantee: '6 месяцев',
-        },
-        {
-          imagePath: '/services/cooling-ventilator-replacement.webp',
-          title: 'Замена вентилятора охлаждения',
-          price: 135,
-          requiredTime: '1-2 часа',
-          guarantee: '6 месяцев',
-        },
-      ].map((params, index) => <React.Fragment key={index}>
-        {serviceFactory(params)}
-      </React.Fragment>)}
+      {popularServiceIds.map((id, index) => {
+        const serviceData = services.find(service => service.id === id);
+        return serviceData && <React.Fragment key={index}>
+          {serviceFactory({
+            ...serviceData,
+            freeWithRepairs: freeWithRepairsServiceIds.includes(id),
+            priceComment: withIncludingPartsCommentServiceIds.includes(id) ? 'включая запчасти' : '',
+          })}
+        </React.Fragment>;
+      })}
     </div>
     <Link href='https://google.com'>
       <Button text='Смотреть все услуги' style='text-only' />
