@@ -1,0 +1,71 @@
+@use '../../styles/fonts.scss';
+@use '../../styles/colors.scss';
+
+.reviews {
+  display: grid;
+  grid-template-areas: 
+    "title write-review-button"
+    "reviews write-review-button"
+    "view-all-reviews-button view-all-reviews-button"
+  ;
+  grid-template-columns: 670px 240px;
+  gap: 40px 257px;
+  position: relative;
+
+  .title {
+    @include fonts.font(40px, 600, 125%);
+    grid-area: title;
+  }
+
+  .write-review-button {
+    grid-area: write-review-button;
+  }
+
+  .view-all-reviews-button {
+    grid-area: view-all-reviews-button;
+  }
+
+  .reviews-list {
+    grid-area: reviews;
+    gap: 16px;
+
+    .review {
+      padding: 32px;
+      border-radius: 12px;
+      background-color: colors.$color-gray-light;
+
+      .reviewer-name {
+        @include fonts.font(16px, 600, 140%);
+        margin-bottom: 6px;
+      }
+
+      &-stars {
+        display: inline-block;
+      }
+
+      &-number-rating {
+        @include fonts.font(16px, 400, 140%);
+        margin-bottom: 24px;
+        color: colors.$color-gray-dark;
+        position: relative;
+        bottom: 2px;
+      }
+
+      &-comment {
+        @include fonts.font(16px, 400, 140%);
+        margin-bottom: 24px;
+      }
+
+      &-images {
+        display: flex;
+        gap: 16px;
+        margin-bottom: 24px;
+      }
+
+      &-timestamp {
+        @include fonts.font(14px, 400, 140%);
+        color: colors.$color-gray-dark;
+      }
+    }
+  }
+}
