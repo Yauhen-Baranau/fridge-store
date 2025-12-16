@@ -7,12 +7,11 @@ import Socials from '@ui-kit/socials/socials';
 import { contactInfo } from '@constants/contact-info';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useContext } from 'react';
 import DialogForm from '../dialog-form/dialog-form';
-import { DialogContext } from '@contexts/dialog-context';
+import { useDialog } from '@contexts/dialog-context';
 
 export default function Header({ customClass }: { customClass?: string }) {
-  const { showDialog } = useContext(DialogContext);
+  const { showDialog } = useDialog();
 
   return <header className={composeClassName(styles.header, customClass)}>
     {/* TO DO: <address> */}

@@ -3,12 +3,11 @@
 import Button from '@ui-kit/button/button';
 import styles from './discount-block.module.scss';
 import composeClassName from '@helpers/compose-class-name';
-import { useContext } from 'react';
-import { DialogContext } from '@contexts/dialog-context';
+import { useDialog } from '@contexts/dialog-context';
 import DialogForm from '@ui-kit/dialog-form/dialog-form';
 
 export default function DiscountBlock({ customClass }: { customClass?: string }) {
-  const { showDialog } = useContext(DialogContext);
+  const { showDialog } = useDialog();
 
   return <section className={composeClassName(styles['discount-block'], customClass)}>
     <h1 className={styles['discount-block-title']}>

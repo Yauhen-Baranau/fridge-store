@@ -4,8 +4,7 @@ import composeClassName from '@src/helpers/compose-class-name';
 import Form from '../form/form';
 import styles from './call-me-back-form.module.scss';
 import { Validators } from '../form/validators';
-import { useContext } from 'react';
-import { DialogContext } from '@contexts/dialog-context';
+import { useDialog } from '@contexts/dialog-context';
 import WeWillCallYouBack from '@ui-kit/we-will-call-you-back/we-will-call-you-back';
 
 export default function CallMeBackForm({
@@ -17,7 +16,7 @@ export default function CallMeBackForm({
   submitButtonText?: string,
   customClass?: string
 }) {
-  const { showDialog } = useContext(DialogContext);
+  const { showDialog } = useDialog();
 
   return <Form
     customClass={composeClassName(styles.form, customClass)}

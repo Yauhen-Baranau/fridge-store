@@ -4,12 +4,11 @@ import List from '@ui-kit/list/list';
 import styles from './hero-block.module.scss';
 import Button from '@ui-kit/button/button';
 import Image from 'next/image';
-import { useContext } from 'react';
-import { DialogContext } from '@contexts/dialog-context';
+import { useDialog } from '@contexts/dialog-context';
 import DialogForm from '@ui-kit/dialog-form/dialog-form';
 
 export default function HeroBlock() {
-  const { showDialog } = useContext(DialogContext);
+  const { showDialog } = useDialog();
 
   return <section className={styles['hero-block']}>
     <div className={styles['hero-block-left']}>

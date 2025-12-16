@@ -5,13 +5,12 @@ import styles from './frequent-fridge-problems.module.scss';
 import Button from '../button/button';
 import composeClassName from '@src/helpers/compose-class-name';
 import Link from 'next/link';
-import { useContext } from 'react';
-import { DialogContext } from '@contexts/dialog-context';
+import { useDialog } from '@contexts/dialog-context';
 import DialogForm from '@ui-kit/dialog-form/dialog-form';
 import { Routes } from '@constants/routes';
 
 export default function FrequentFridgeProblems({ customClass }: { customClass?: string }) {
-  const { showDialog } = useContext(DialogContext);
+  const { showDialog } = useDialog();
 
   return <section className={composeClassName(styles['frequent-fridge-problems'], customClass)}>
     <h1 className={styles.title}>Частые проблемы с холодильником</h1>

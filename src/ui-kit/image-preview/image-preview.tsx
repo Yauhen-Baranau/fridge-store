@@ -1,8 +1,7 @@
 'use client';
 
-import { useContext } from 'react';
 import styles from './image-preview.module.scss';
-import { DialogContext } from '@contexts/dialog-context';
+import { useDialog } from '@contexts/dialog-context';
 import Image from 'next/image';
 
 export default function ImagePreview({
@@ -18,7 +17,7 @@ export default function ImagePreview({
   fullWidth: number,
   fullHeight: number,
 }) {
-  const { showDialog } = useContext(DialogContext);
+  const { showDialog } = useDialog();
 
   return <div
     className={styles.wrapper}

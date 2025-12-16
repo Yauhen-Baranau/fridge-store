@@ -7,12 +7,11 @@ import composeClassName from '@src/helpers/compose-class-name';
 import { contactInfo } from '@constants/contact-info';
 import BackgroundSnowflake from '../background-snowflake/background-snowflake';
 import { Validators } from '../form/validators';
-import { useContext } from 'react';
-import { DialogContext } from '@contexts/dialog-context';
+import { useDialog } from '@contexts/dialog-context';
 import WeWillCallYouBack from '@ui-kit/we-will-call-you-back/we-will-call-you-back';
 
 export default function CallMeBack({ customClass }: { customClass?: string }) {
-  const { showDialog } = useContext(DialogContext);
+  const { showDialog } = useDialog();
 
   return <section className={composeClassName(styles['call-me-back'], customClass)}>
     <div className={styles['call-me-back-left-block']}>

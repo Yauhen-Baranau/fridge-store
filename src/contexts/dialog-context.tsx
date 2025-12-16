@@ -1,7 +1,7 @@
 'use client';
 
 import Dialog from "@ui-kit/dialog/dialog";
-import { createContext, useRef, useState } from "react";
+import { createContext, useContext, useRef, useState } from "react";
 
 // TO DO: useDialog hook
 
@@ -36,4 +36,8 @@ export const DialogContextProvider = ({
     {children}
     <Dialog dialogRef={dialogRef}>{dialogContent}</Dialog>
   </DialogContext.Provider>
+}
+
+export const useDialog = () => {
+  return useContext(DialogContext);
 }

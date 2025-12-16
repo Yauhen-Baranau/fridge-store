@@ -4,8 +4,7 @@ import Image from 'next/image';
 import Form, { FormFieldConfig } from '../form/form';
 import styles from './dialog-form.module.scss';
 import { Validators } from '../form/validators';
-import { useContext } from 'react';
-import { DialogContext } from '@src/contexts/dialog-context';
+import { useDialog } from '@src/contexts/dialog-context';
 import WeWillCallYouBack from '@ui-kit/we-will-call-you-back/we-will-call-you-back';
 
 export default function DialogForm({
@@ -13,7 +12,7 @@ export default function DialogForm({
 }: {
   type?: 'call-me-back' | 'i-have-a-question'
 }) {
-  const { setDialogContent } = useContext(DialogContext);
+  const { setDialogContent } = useDialog();
 
   const getFieldConfigs = (type: string) => {
     const fieldConfigs: Array<FormFieldConfig> = [
