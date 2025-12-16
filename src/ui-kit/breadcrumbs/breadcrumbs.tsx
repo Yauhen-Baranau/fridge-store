@@ -27,29 +27,35 @@ const routeToLabelMap = new Map([
 
 export default function Breadcrumbs({ customClass }: { customClass?: string }) {
   const pathname = usePathname();
-  const { getCategoryHref, getSubcategoryHref, getServiceHref } = useHrefHelper();
+  const { getCategoryHref, getSubcategoryHref, getServiceHref, getPageHref } = useHrefHelper();
   const { getCategoryById, getSubcategoryById, getServiceById } = useCategoryData();
 
   const getBreadcrumbs = (): Array<Breadcrumb> => {
     const breadcrumbs = [{ label: 'Главная', redirectTo: '/' }];
 
-    const addBreadcrumbIfIdInPath = (
-      getEntityById: (id: string) => { label: string } | null,
-      getHrefById: (id: string) => string,
-      id?: string,
-    ) => {
-      if (!id) {
-        return;
-      }
-      const entity = getEntityById(id);
-      if (entity) {
-        breadcrumbs.push({ label: entity.label, redirectTo: getHrefById(id) });
-      }
+    const [categoryIdOrPage, subcategoryId, serviceId] = pathname.split('/').filter(Boolean);
+    const nonCategoryBreadcrumbLabel = routeToLabelMap.get(categoryIdOrPage as Routes);
+    if (nonCategoryBreadcrumbLabel) {
+      breadcrumbs.push({ label: nonCategoryBreadcrumbLabel, redirectTo: getPageHref(categoryIdOrPage as Routes) });
     }
-    const [categoryId, subcategoryId, serviceId] = pathname.split('/').filter(Boolean);
-    addBreadcrumbIfIdInPath(getCategoryById, getCategoryHref, categoryId);
-    addBreadcrumbIfIdInPath(getSubcategoryById, getSubcategoryHref, subcategoryId);
-    addBreadcrumbIfIdInPath(getServiceById, getServiceHref, serviceId);
+    else {
+      const addBreadcrumbIfIdInPath = (
+        getEntityById: (id: string) => { label: string } | null,
+        getHrefById: (id: string) => string,
+        id?: string,
+      ) => {
+        if (!id) {
+          return;
+        }
+        const entity = getEntityById(id);
+        if (entity) {
+          breadcrumbs.push({ label: entity.label, redirectTo: getHrefById(id) });
+        }
+      }
+      addBreadcrumbIfIdInPath(getCategoryById, getCategoryHref, categoryIdOrPage);
+      addBreadcrumbIfIdInPath(getSubcategoryById, getSubcategoryHref, subcategoryId);
+      addBreadcrumbIfIdInPath(getServiceById, getServiceHref, serviceId);
+    }
 
     return breadcrumbs;
   }
