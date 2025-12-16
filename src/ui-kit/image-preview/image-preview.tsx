@@ -29,7 +29,14 @@ export default function ImagePreview({
       className={styles['preview-image-wrapper']}
       style={{ width: `${previewWidth}px`, height: `${previewHeight}px` }}
     >
-      <Image className={styles['image-preview']} src={path} alt='Превью картинки' fill={true} objectFit='cover' />
+      <Image
+        className={styles['image-preview']}
+        src={path}
+        alt='Превью картинки'
+        fill={true}
+        objectFit='cover'
+        sizes="100vw"
+      />
     </div>
     <Image className={styles['expand-icon']} src='/icons/expand.svg' width={44} height={44} alt='Раскрыть' />
   </div>
