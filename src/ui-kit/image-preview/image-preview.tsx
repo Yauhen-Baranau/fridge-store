@@ -33,7 +33,6 @@ export default function ImagePreview({
         src={path}
         alt='Превью картинки'
         fill={true}
-        objectFit='cover'
         sizes="100vw"
       />
     </div>

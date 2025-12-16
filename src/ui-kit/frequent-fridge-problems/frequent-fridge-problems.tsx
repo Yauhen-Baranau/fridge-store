@@ -18,7 +18,7 @@ export default function FrequentFridgeProblems({ customClass }: { customClass?: 
     <h1 className={styles.title}>Частые проблемы с холодильником</h1>
     <div className={styles['left-content']}>
       <div className={styles['image-container']}>
-        <Image className={styles.image} src='/water-bottles.webp' alt='Бутылки с водой' fill={true} objectFit='cover' />
+        <Image className={styles.image} src='/water-bottles.webp' alt='Бутылки с водой' fill={true} />
       </div>
       <span className={styles['call-me-back-text']}>Не нашли решение своей проблемы?</span>
       <Button
