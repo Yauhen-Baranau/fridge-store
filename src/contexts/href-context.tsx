@@ -13,7 +13,7 @@ interface HrefContextProps {
   getServiceHref: (id: string) => string,
 };
 
-export const HrefContext = createContext<HrefContextProps>({
+const HrefContext = createContext<HrefContextProps>({
   getPageHref: () => '',
   getCategoryHref: () => '',
   getSubcategoryHref: () => '',

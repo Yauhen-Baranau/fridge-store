@@ -11,7 +11,7 @@ interface DialogContextProps {
   closeDialog: () => void,
 }
 
-export const DialogContext = createContext<DialogContextProps>({
+const DialogContext = createContext<DialogContextProps>({
   showDialog: () => {},
   setDialogContent: () => {},
   closeDialog: () => {},
