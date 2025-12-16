@@ -1,14 +1,17 @@
-'use server';
+'use client';
 
-import React from 'react';
+import React, { useContext } from 'react';
 import styles from './popular-services.module.scss';
 import Button from '@ui-kit/button/button';
 import Link from 'next/link';
 import Image from 'next/image';
 import BackgroundSnowflake from '../background-snowflake/background-snowflake';
 import services from '@category-data/services.json';
+import { HrefContext } from '@contexts/href-context';
 
-export default async function PopularServices() {
+export default function PopularServices() {
+  const { getServiceHref } = useContext(HrefContext);
+
   const serviceFactory = ({
     id,
     imagePath,
@@ -30,8 +33,7 @@ export default async function PopularServices() {
     requiredTime?: string,
     guarantee?: string,
   }) => {
-    // TO DO: use routing context
-    return <Link href='https://google.com'>
+    return <Link href={getServiceHref(id)}>
       <div className={styles.service}>
         <Image className={styles['service-image']} src={imagePath} width={263} height={173} alt='Изображение услуги' />
         <h3 className={styles['service-title']}>{label}</h3>
