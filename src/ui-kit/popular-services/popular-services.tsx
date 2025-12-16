@@ -1,16 +1,16 @@
 'use client';
 
-import React, { useContext } from 'react';
+import React from 'react';
 import styles from './popular-services.module.scss';
 import Button from '@ui-kit/button/button';
 import Link from 'next/link';
 import Image from 'next/image';
 import BackgroundSnowflake from '../background-snowflake/background-snowflake';
 import services from '@category-data/services.json';
-import { HrefContext } from '@contexts/href-context';
+import { useHrefHelper } from '@contexts/href-context';
 
 export default function PopularServices() {
-  const { getServiceHref } = useContext(HrefContext);
+  const { getServiceHref } = useHrefHelper();
 
   const serviceFactory = ({
     id,

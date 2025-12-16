@@ -2,7 +2,7 @@
 
 import { Routes } from "@constants/routes";
 import { categoryIdToRouteMap, serviceIdToRouteMap, subcategoryIdToRouteMap } from "@src/app/[category]/routing-maps";
-import { createContext } from "react";
+import { createContext, useContext } from "react";
 import subcategories from '@category-data/subcategories.json';
 import services from '@category-data/services.json';
 
@@ -53,4 +53,8 @@ export const HrefContextProvider = ({
   }}>
     {children}
   </HrefContext.Provider>
+}
+
+export const useHrefHelper = () => {
+  return useContext(HrefContext);
 }

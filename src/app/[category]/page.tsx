@@ -8,8 +8,8 @@ import allSubсategories from '@category-data/subcategories.json';
 import allServices from '@category-data/services.json';
 import ServicePageComponent from '@src/ui-kit/service-page-component/service-page-component';
 import { Subcategory } from './[subcategory]/page';
-import { routeToCategoryIdMap, subcategoryIdToRouteMap } from './routing-maps';
-import { HrefContext } from '@contexts/href-context';
+import { routeToCategoryIdMap } from './routing-maps';
+import { useHrefHelper } from '@contexts/href-context';
 
 export interface Category {
   id: string,
@@ -23,7 +23,7 @@ export interface Category {
 
 export default function CategoryPage() {
   const params = useParams();
-  const { getSubcategoryHref } = useContext(HrefContext);
+  const { getSubcategoryHref } = useHrefHelper();
   const categoryId = routeToCategoryIdMap.get(`${params.category}` as Routes);
   // this is unoptimized, but the website will be static anyway
   const getSubcategoryStartingPrice = (subcategoryId: string) => {
