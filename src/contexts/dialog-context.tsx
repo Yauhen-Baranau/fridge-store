@@ -3,8 +3,6 @@
 import Dialog from "@ui-kit/dialog/dialog";
 import { createContext, useContext, useRef, useState } from "react";
 
-// TO DO: useDialog hook
-
 interface DialogContextProps {
   showDialog: (content?: React.ReactNode) => void,
   setDialogContent: (content: React.ReactNode) => void,
