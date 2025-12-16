@@ -19,6 +19,16 @@
     display: flex;
     flex-direction: column;
 
+    .image-container {
+      width: 470px;
+      height: 470px;
+      position: relative;
+
+      .image {
+        border-radius: 12px;
+      }
+    }
+
     .call-me-back-text {
       margin: 56px 0 32px 0;
     }

@@ -17,7 +17,9 @@ export default function FrequentFridgeProblems({ customClass }: { customClass?: 
   return <section className={composeClassName(styles['frequent-fridge-problems'], customClass)}>
     <h1 className={styles.title}>Частые проблемы с холодильником</h1>
     <div className={styles['left-content']}>
-      <Image className={styles.image} src='/water-bottles.webp' width={470} height={470} alt='Бутылки с водой' />
+      <div className={styles['image-container']}>
+        <Image className={styles.image} src='/water-bottles.webp' alt='Бутылки с водой' fill={true} objectFit='cover' />
+      </div>
       <span className={styles['call-me-back-text']}>Не нашли решение своей проблемы?</span>
       <Button
         customClass={styles['call-me-back-button']}
