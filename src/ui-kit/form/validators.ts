@@ -16,11 +16,11 @@ export const Validators = {
     'Это поле необходимо заполнить'
   ),
   minLength: (length: number) => validatorFactory<string>(
-    (value: string) => value.length >= length,
+    (value: string) => value.length <= length,
     'Количество символов меньше допустимого'
   ),
   maxLength: (length: number) => validatorFactory<string>(
-    (value: string) => value.length <= length,
+    (value: string) => value.length >= length,
     'Количество символов превышает допустимое'
   ),
   pattern: (pattern: RegExp) => validatorFactory<string>(
