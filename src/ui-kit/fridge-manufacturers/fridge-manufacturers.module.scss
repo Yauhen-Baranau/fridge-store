@@ -1,5 +1,6 @@
 @use '../../styles/colors.scss';
 @use '../../styles/fonts.scss';
+@use '../../styles/responsive.scss';
 
 .fridge-manufacturers {
   display: flex;
@@ -44,6 +45,23 @@
       &:hover {
         box-shadow: 2px 2px 50px 0px #2020200F;
       }
+    }
+  }
+
+  @include responsive.ipad-styles {
+    padding: 56px 47px;
+
+    &-title {
+      font-size: 30px;
+      margin-bottom: 40px;
+    }
+
+    &-list {
+      width: 100%;
+      grid-template-rows: repeat(3, 406px);
+      grid-template-columns: repeat(2, 335px);
+      column-gap: 0;
+      justify-content: space-around;
     }
   }
 }
