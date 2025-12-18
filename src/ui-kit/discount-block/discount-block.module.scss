@@ -1,5 +1,6 @@
 @use '../../styles/colors.scss';
 @use '../../styles/fonts.scss';
+@use '../../styles/responsive.scss';
 
 .discount-block {
   display: flex;
@@ -37,5 +38,25 @@
     @include fonts.font(16px, 600, 140%);
     width: 370px;
     height: 60px;
+  }
+
+  @include responsive.ipad-styles {
+    padding: 56px 47px;
+    background-size: 300px 270px;
+    background-position: -20px 70px, 560px -28px;
+
+    &-title {
+      font-size: 30px;
+    }
+
+    &-text {
+      font-size: 16px;
+    }
+
+    .discount-button {
+      width: 243px;
+      height: 54px;
+      font-size: 14px;
+    }
   }
 }
