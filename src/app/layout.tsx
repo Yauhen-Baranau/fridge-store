@@ -1,3 +1,4 @@
+'use client';
 export const dynamic = 'force-static';
 
 import { Montserrat } from "next/font/google";
@@ -12,16 +13,19 @@ import Breadcrumbs from "@src/ui-kit/breadcrumbs/breadcrumbs";
 import { DialogContextProvider } from "@src/contexts/dialog-context";
 import { HrefContextProvider } from "@contexts/href-context";
 import { CategoryDataContextProvider } from "@contexts/category-data-context";
+import useResponsive from "@hooks/use-responsive";
 
 const montserrat = Montserrat({
   subsets: ["cyrillic", "latin"],
 });
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const { isDesktop } = useResponsive();
+
   return (
     <html lang='ru'>
       <body className={composeClassName(montserrat.className, styles.body)}>
@@ -29,7 +33,7 @@ export default async function RootLayout({
           <HrefContextProvider>
             <DialogContextProvider>
               <Header />
-              <Navigation />
+              {isDesktop && <Navigation />}
               <Breadcrumbs customClass={styles.breadcrumbs} />
               {children}
               <CallMeBack customClass={styles['call-me-back']} />

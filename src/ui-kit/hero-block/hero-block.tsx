@@ -53,7 +53,12 @@ export default function HeroBlock() {
       </p>
     </div>
     <div className={styles['hero-block-right']}>
-      <Image src='/hero-block-photo.webp' width={570} height={500} alt='Специалист по ремонту холодильников' />
+      <Image
+        className={styles.image}
+        src='/hero-block-photo.webp'
+        fill
+        alt='Специалист по ремонту холодильников'
+      />
     </div>
   </section>
 }

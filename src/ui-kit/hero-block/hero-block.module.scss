@@ -1,5 +1,6 @@
 @use '../../styles/fonts.scss';
 @use '../../styles/colors.scss';
+@use '../../styles/breakpoints.scss';
 
 .hero-block {
   display: flex;
@@ -8,6 +9,7 @@
   .hero-block-left {
     display: flex;
     flex-direction: column;
+    flex-basis: 470px;
 
     .title {
       @include fonts.font(40px, 600, 140%);
@@ -35,6 +37,7 @@
         display: flex;
         align-items: center;
         gap: 12px;
+        letter-spacing: -0.5px; // overflows otherwise
       }
     }
 
@@ -52,6 +55,58 @@
       .aligner {
         visibility: hidden;
       }
+    }
+  }
+
+  .hero-block-right {
+    width: 570px;
+    height: 500px;
+    position: relative;
+  }
+}
+
+@media (max-width: breakpoints.$desktop-to-ipad-breakpoint) and (min-width: breakpoints.$ipad-to-mobile-breakpoint) {
+  .hero-block {
+    gap: 0px;
+    justify-content: space-between;
+
+    .hero-block-left {
+      flex-basis: 356px;
+
+      .title {
+        @include fonts.font(30px, 600, 140%);
+
+        .in-minsk {
+          @include fonts.font(18px, 400, 140%);
+          padding: 8px 32px;
+          border-radius: 8px;
+        }
+      }
+
+      .guarantees {
+        gap: 8px;
+        padding: 24px;
+        margin-bottom: 24px;
+
+        li {
+          @include fonts.font(14px, 400, 140%);
+        }
+      }
+
+      .discount-button {
+        @include fonts.font(14px, 600, 140%);
+        width: 243px;
+        height: 54px;
+      }
+
+      .note {
+        @include fonts.font(12px, 400, 140%);
+      }
+    }
+
+    .hero-block-right {
+      width: 382px;
+      height: 363px;
     }
   }
 }
