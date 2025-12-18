@@ -1,6 +1,13 @@
+@use '../styles/responsive.scss';
+
 .main {
   display: flex;
   flex-direction: column;
   gap: 140px;
   margin-top: 82px;
+
+  @include responsive.ipad-styles {
+    gap: 100px;
+    margin-top: 56px;
+  }
 }
