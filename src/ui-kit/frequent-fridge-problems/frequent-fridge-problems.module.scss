@@ -1,5 +1,6 @@
 @use '../../styles/colors.scss';
 @use '../../styles/fonts.scss';
+@use '../../styles/responsive.scss';
 
 .frequent-fridge-problems {
   display: grid;
@@ -76,6 +77,48 @@
       @include fonts.font(16px, 600, 140%);
       align-self: flex-start;
       margin-top: auto;
+    }
+  }
+
+  @include responsive.ipad-styles {
+    grid-template-columns: 277px 1fr;
+    gap: 40px;
+
+    .title {
+      font-size: 30px;
+    }
+
+    .left-content {
+      .image-container {
+        width: 277px;
+        height: 220px;
+      }
+
+      .call-me-back-text {
+        margin: 40px 0 24px 0;
+      }
+
+      .call-me-back-button {
+        width: 243px;
+        height: 54px;
+        font-size: 14px;
+      }
+    }
+
+    .right-content {
+      gap: 8px;
+
+      .frequent-problem {
+        padding: 16px;
+
+        .frequent-problem-label {
+          font-size: 16px;
+        }
+      }
+
+      .view-all-problems-button {
+        font-size: 14px;
+      }
     }
   }
 }
