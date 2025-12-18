@@ -1,5 +1,6 @@
 @use '../../styles/fonts.scss';
 @use '../../styles/colors.scss';
+@use '../../styles/breakpoints.scss';
 
 .main-advantages {
   display: flex;
@@ -31,7 +32,7 @@
         display: flex;
         align-items: center;
         gap: 20px;
-        padding-bottom: 30px;
+        padding-bottom: 20px;
         border-bottom: solid colors.$color-gray-lighter 1px;
 
         .advantage-title {
@@ -55,6 +56,47 @@
           img {
             position: relative;
             top: 5px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: breakpoints.$desktop-to-ipad-breakpoint) and (min-width: breakpoints.$ipad-to-mobile-breakpoint) {
+  .main-advantages {
+    padding: 56px 105px;
+
+    .title {
+      @include fonts.font(30px, 600, 125%);
+    }
+
+    .advantages-block {
+      grid-template-rows: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 260px);
+      justify-content: space-around;
+
+      .advantage {
+        gap: 16px;
+        
+        .advantage-header {
+          gap: 16px;
+          padding-bottom: 16px;
+
+          .advantage-title {
+            font-size: 16px;
+
+            .advantage-subtitle {
+              white-space: nowrap;
+            }
+          }
+
+          .advantage-content {
+            gap: 12px;
+
+            li {
+              @include fonts.font(14px, 400, 140%);
+            }
           }
         }
       }
