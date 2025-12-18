@@ -32,7 +32,7 @@ export default function ImagePreview({
         className={styles['image-preview']}
         src={path}
         alt='Превью картинки'
-        fill={true}
+        fill
         sizes="100vw"
       />
     </div>

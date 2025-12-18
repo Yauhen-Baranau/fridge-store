@@ -25,6 +25,13 @@ export default async function AboutUs() {
         <Button text='Подробнее' style='text-only' />
       </Link>
     </div>
-    <Image className={styles['about-us-image']} src='/about-us-photo.webp' width={470} height={522} alt='Специалист по ремонту холодильников' />
+    <div className={styles['about-us-image-wrapper']}>
+      <Image
+        className={styles['about-us-image']}
+        src='/about-us-photo.webp'
+        fill
+        alt='Специалист по ремонту холодильников'
+      />
+    </div>
   </section>
 }

@@ -1,5 +1,6 @@
 @use '../../styles/colors.scss';
 @use '../../styles/fonts.scss';
+@use '../../styles/responsive.scss';
 
 .about-us {
   display: grid;
@@ -32,7 +33,35 @@
     }
   }
 
-  .about-us-image {
+  .about-us-image-wrapper {
     grid-area: image;
+    width: 470px;
+    height: 522px;
+    position: relative;
+
+    .about-us-image {
+      border-radius: 12px;
+      object-fit: cover;
+    }
+  }
+
+  @include responsive.ipad-styles {
+    gap: 40px 30px;
+
+    .about-us-title {
+      font-size: 30px;
+    }
+
+    .about-us-content {
+      .about-us-text {
+        width: auto;
+        font-size: 14px;
+      }
+    }
+
+    .about-us-image-wrapper {
+      width: 382px;
+      height: 512px;
+    }
   }
 }
