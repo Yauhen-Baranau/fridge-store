@@ -1,5 +1,6 @@
 @use '../../styles/colors.scss';
 @use '../../styles/fonts.scss';
+@use '../../styles/responsive.scss';
 
 .call-me-back {
   display: flex;
@@ -12,7 +13,7 @@
 
   &-left-block {
     width: 470px;
-    
+
     .call-me-back-title {
       @include fonts.font(40px, 600, 125%);
       margin-bottom: 24px;
@@ -71,6 +72,55 @@
       @include fonts.font(16px, 600, 140%);
       width: 100%;
       height: 60px;
+    }
+  }
+
+  @include responsive.ipad-styles {
+    justify-content: space-between;
+    gap: 30px;
+    padding: 56px 48px;
+
+    &-left-block {
+      width: 380px;
+
+      .call-me-back-title {
+        font-size: 30px;
+      }
+
+      .call-me-back-text {
+        font-size: 16px;
+
+        &:first-of-type {
+          margin-bottom: 56px;
+        }
+      }
+
+      .call-me-back-button {
+        font-size: 14px;
+      }
+    }
+  }
+
+  &-form {
+    width: 290px;
+    padding: 24px;
+    font-size: 14px;
+
+    *:not(button span) { // not proud of this
+      font-size: 14px !important;
+    }
+
+    .privacy-policy-notice,
+    .privacy-policy-notice span {
+      font-size: 12px !important;
+    }
+
+    button {
+      height: 54px;
+
+      span {
+        font-size: 12px !important;
+      }
     }
   }
 }
