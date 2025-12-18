@@ -106,21 +106,12 @@
     padding: 24px;
     font-size: 14px;
 
-    *:not(button span) { // not proud of this
-      font-size: 14px !important;
-    }
-
-    .privacy-policy-notice,
-    .privacy-policy-notice span {
-      font-size: 12px !important;
+    .privacy-policy-notice {
+      font-size: 12px;
     }
 
     button {
       height: 54px;
-
-      span {
-        font-size: 12px !important;
-      }
     }
   }
 }

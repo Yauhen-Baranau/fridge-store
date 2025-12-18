@@ -1,5 +1,6 @@
 @use '../../styles/colors.scss';
 @use '../../styles/fonts.scss';
+@use '../../styles/responsive.scss';
 
 $input-upper-padding: 22px;
 
@@ -71,6 +72,25 @@ $input-upper-padding: 22px;
         position: absolute;
         bottom: -1.5em;
       }
+    }
+  }
+
+  @include responsive.ipad-styles {
+    .field-wrapper {
+      .input-wrapper .input,
+      .placeholder {
+        font-size: 14px;
+      }
+
+      &.invalid-field {
+        .error-message {
+          font-size: 12px;
+        }
+      }
+    }
+
+    .submit-button {
+      font-size: 12px;
     }
   }
 }

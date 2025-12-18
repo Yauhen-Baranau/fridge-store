@@ -108,11 +108,14 @@ export default function Form({
       </div>
     })}
     {preSubmitButtonContent}
-    <Button text={submitButtonText} onClick={() => {
-      setSubmitAttempted(true);
-      if (validateForm()) {
-        submitCallback(formValue);
-      }
-    }} />
+    <Button
+      customClass={'submit-button'}
+      text={submitButtonText}
+      onClick={() => {
+        setSubmitAttempted(true);
+        if (validateForm()) {
+          submitCallback(formValue);
+        }
+      }} />
   </form>;
 }
