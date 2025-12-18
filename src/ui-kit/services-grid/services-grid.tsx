@@ -24,7 +24,14 @@ export default function ServicesGrid({
   return <div className={styles['services-grid']}>
     {servicesToDisplay.map((service, index) => <React.Fragment key={index}>
       <div className={styles.service}>
-        <Image className={styles['service-image']} src={service.imagePath} width={180} height={180} alt='Изображение услуги' />
+        <div className={styles['service-image-wrapper']}>
+          <Image
+            className={styles['service-image']}
+            src={service.imagePath}
+            fill
+            alt='Изображение услуги'
+          />
+        </div>
         <h4 className={styles['service-label']}>{service.label}</h4>
         {service.price && <span className={styles['with-parts']}>С учетом запчастей</span>}
         <div className={styles['service-footer']}>
