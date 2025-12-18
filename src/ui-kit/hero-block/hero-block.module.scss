@@ -1,6 +1,6 @@
 @use '../../styles/fonts.scss';
 @use '../../styles/colors.scss';
-@use '../../styles/breakpoints.scss';
+@use '../../styles/responsive.scss';
 
 .hero-block {
   display: flex;
@@ -63,10 +63,8 @@
     height: 500px;
     position: relative;
   }
-}
 
-@media (max-width: breakpoints.$desktop-to-ipad-breakpoint) and (min-width: breakpoints.$ipad-to-mobile-breakpoint) {
-  .hero-block {
+  @include responsive.ipad-styles {
     gap: 0px;
     justify-content: space-between;
 

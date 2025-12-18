@@ -1,6 +1,6 @@
 @use '../../styles/colors.scss';
 @use '../../styles/fonts.scss';
-@use '../../styles/breakpoints.scss';
+@use '../../styles/responsive.scss';
 
 .popular-services {
   display: flex;
@@ -96,10 +96,8 @@
       }
     }
   }
-}
 
-@media (max-width: breakpoints.$desktop-to-ipad-breakpoint) and (min-width: breakpoints.$ipad-to-mobile-breakpoint) {
-  .popular-services {
+  @include responsive.ipad-styles {
     padding: 56px 47px;
 
     .popular-services-title {

@@ -1,6 +1,6 @@
 @use '../../styles/fonts.scss';
 @use '../../styles/colors.scss';
-@use '../../styles/breakpoints.scss';
+@use '../../styles/responsive.scss';
 
 .main-advantages {
   display: flex;
@@ -47,7 +47,7 @@
 
       .advantage-content {
         gap: 16px;
-        
+
         li {
           display: flex;
           align-items: flex-start;
@@ -61,10 +61,8 @@
       }
     }
   }
-}
 
-@media (max-width: breakpoints.$desktop-to-ipad-breakpoint) and (min-width: breakpoints.$ipad-to-mobile-breakpoint) {
-  .main-advantages {
+  @include responsive.ipad-styles {
     padding: 56px 105px;
 
     .title {
@@ -78,7 +76,7 @@
 
       .advantage {
         gap: 16px;
-        
+
         .advantage-header {
           gap: 16px;
           padding-bottom: 16px;

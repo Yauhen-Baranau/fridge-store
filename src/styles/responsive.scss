@@ -1,0 +1,8 @@
+$desktop-to-ipad-breakpoint: 1170px;
+$ipad-to-mobile-breakpoint: 834px;
+
+@mixin ipad-styles {
+  @media (max-width: $desktop-to-ipad-breakpoint) and (min-width: $ipad-to-mobile-breakpoint) {
+    @content;
+  }
+}
