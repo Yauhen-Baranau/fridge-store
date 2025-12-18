@@ -1,5 +1,6 @@
 @use '../../styles/colors.scss';
 @use '../../styles/fonts.scss';
+@use '../../styles/responsive.scss';
 
 .how-to-order-repairs {
   display: flex;
@@ -14,7 +15,7 @@
   .title {
     @include fonts.font(40px, 600, 125%);
   }
-  
+
   .steps {
     display: flex;
     align-items: center;
@@ -26,7 +27,7 @@
       align-items: center;
       gap: 20px;
       width: 270px;
-      height: 278px;
+      height: 285px;
       padding: 30px;
       border-radius: 8px;
       background-color: colors.$color-main-white;
@@ -36,10 +37,60 @@
         color: colors.$color-gray-dark;
       }
 
+      &-icon-wrapper {
+        width: 46px;
+        height: 46px;
+        position: relative;
+
+        .step-icon {
+          object-fit: cover
+        }
+      }
+
       &-description {
         @include fonts.font(16px, 400, 140%);
         text-align: center;
       }
+    }
+  }
+
+  @include responsive.ipad-styles {
+    gap: 40px;
+    padding: 56px 48px;
+
+    .title {
+      font-size: 30px;
+    }
+
+    .steps {
+      flex-direction: column;
+      gap: 16px;
+
+      .step {
+        flex-direction: row;
+        width: 100%;
+        height: auto;
+
+        &-title {
+          flex-shrink: 0;
+          font-size: 14px;
+        }
+
+        &-icon-wrapper {
+          flex-shrink: 0;
+          width: 54px;
+          height: 54px;
+        }
+
+        &-description {
+          font-size: 14px;
+          text-align: left;
+        }
+      }
+    }
+
+    .arrow-right-icon {
+      transform: rotate(90deg);
     }
   }
 }

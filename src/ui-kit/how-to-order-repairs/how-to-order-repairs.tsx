@@ -19,7 +19,14 @@ export default function HowToOrderRepairs({ customClass }: { customClass?: strin
     return <>
       <div className={styles.step}>
         <h6 className={styles['step-title']}>{stepNumber} шаг</h6>
-        <Image className={styles['step-icon']} src={iconPath} width={46} height={46} alt='Иконка' />
+        <div className={styles['step-icon-wrapper']}>
+          <Image
+            className={styles['step-icon']}
+            src={iconPath}
+            fill
+            alt='Иконка'
+          />
+        </div>
         <p className={styles['step-description']}>{description}</p>
       </div>
       {hasRightArrow && <Image className={styles['arrow-right-icon']} src='/icons/arrow-right.svg' width={44} height={44} alt='Стрелка вправо' />}
