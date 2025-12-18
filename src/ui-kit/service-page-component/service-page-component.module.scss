@@ -1,5 +1,6 @@
 @use '../../styles/colors.scss';
 @use '../../styles/fonts.scss';
+@use '../../styles/responsive.scss';
 
 .service {
   display: grid;
@@ -66,8 +67,16 @@
         }
       }
 
-      .description-image {
+      .description-image-wrapper {
+        width: 570px;
+        height: 350px;
         margin-top: 40px;
+        position: relative;
+
+        .description-image {
+          border-radius: 12px;
+          object-fit: cover;
+        }
       }
     }
   }
@@ -78,5 +87,50 @@
 
   .content-wrapper {
     grid-area: content;
+  }
+
+  @include responsive.ipad-styles {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 90px;
+
+    .description-wrapper {
+      .description-title {
+        font-size: 30px;
+      }
+
+      .description-price-block {
+        gap: 6px;
+        padding: 16px;
+
+        .description-price {
+          font-size: 16px;
+        }
+
+        .with-parts {
+          font-size: 14px;
+        }
+      }
+
+      .description {
+        .description-text {
+          font-size: 14px;
+        }
+
+        .description-list-title {
+          font-size: 20px;
+        }
+
+        .description-list {
+          li {
+            font-size: 14px;
+          }
+        }
+
+        .description-image-wrapper {
+          width: 382px;
+          height: 250px;
+        }
+      }
+    }
   }
 }

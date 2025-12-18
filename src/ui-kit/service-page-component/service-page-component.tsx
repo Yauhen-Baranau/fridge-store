@@ -59,7 +59,14 @@ export default function ServicePageComponent({
           }
           return <React.Fragment key={index}>{descriptionItemContent}</React.Fragment>
         })}
-        <Image className={styles['description-image']} src={serviceData.imagePath} width={570} height={350} alt='Изображение категории или услуги' />
+        <div className={styles['description-image-wrapper']}>
+          <Image
+            className={styles['description-image']}
+            src={serviceData.imagePath}
+            fill
+            alt='Изображение категории или услуги'
+          />
+        </div>
       </div>
     </div>;
   };
