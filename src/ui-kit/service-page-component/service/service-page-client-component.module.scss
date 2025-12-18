@@ -1,6 +1,12 @@
 @use '../../../styles/fonts.scss';
+@use '../../../styles/responsive.scss';
 
 .related-services-title {
   @include fonts.font(40px, 600, 125%);
   margin: 84px 0 56px;
+
+  @include responsive.ipad-styles {
+    font-size: 30px;
+    margin: 70px 0 40px;
+  }
 }
