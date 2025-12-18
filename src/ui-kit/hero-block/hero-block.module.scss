@@ -62,6 +62,11 @@
     width: 570px;
     height: 500px;
     position: relative;
+
+    .image {
+      border-radius: 12px;
+      object-fit: cover;
+    }
   }
 
   @include responsive.ipad-styles {
