@@ -1,5 +1,6 @@
 @use '../../styles/colors.scss';
 @use '../../styles/fonts.scss';
+@use '../../styles/breakpoints.scss';
 
 .popular-services {
   display: flex;
@@ -41,14 +42,21 @@
         background-color: colors.$color-main-white;
       }
 
-      .service-image {
-        border-radius: 3px;
+      .service-image-wrapper {
+        width: 263px;
+        height: 173px;
+        position: relative;
+
+        .service-image {
+          border-radius: 3px;
+          object-fit: cover;
+        }
       }
 
       .service-title {
         @include fonts.font(20px, 600, 120%);
       }
-      
+
       .price-block {
         @include fonts.font(16px, 600, 140%);
         white-space: nowrap;
@@ -57,7 +65,8 @@
           color: colors.$color-gray-dark;
         }
 
-        .price, .free-with-repairs-text {
+        .price,
+        .free-with-repairs-text {
           color: colors.$color-main-blue;
         }
 
@@ -83,6 +92,43 @@
           &:first-child {
             margin-right: auto;
           }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: breakpoints.$desktop-to-ipad-breakpoint) and (min-width: breakpoints.$ipad-to-mobile-breakpoint) {
+  .popular-services {
+    padding: 56px 47px;
+
+    .popular-services-title {
+      @include fonts.font(30px, 600, 125%);
+      margin-bottom: 40px;
+    }
+
+    .services-list {
+      grid-template-rows: repeat(3, auto);
+      grid-template-columns: repeat(2, 335px);
+
+      .service {
+        padding: 16px;
+
+        .service-image-wrapper {
+          width: 303px;
+          height: 180px;
+        }
+
+        .service-title {
+          font-size: 16px;
+        }
+
+        .price-block {
+          font-size: 14px;
+        }
+
+        .service-footer {
+          font-size: 14px;
         }
       }
     }

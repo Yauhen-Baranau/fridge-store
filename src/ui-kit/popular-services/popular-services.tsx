@@ -9,10 +9,12 @@ import BackgroundSnowflake from '../background-snowflake/background-snowflake';
 import { useHrefHelper } from '@contexts/href-context';
 import { Routes } from '@constants/routes';
 import { useCategoryData } from '@contexts/category-data-context';
+import useResponsive from '@hooks/use-responsive';
 
 export default function PopularServices() {
   const { getServiceById } = useCategoryData();
   const { getPageHref, getServiceHref } = useHrefHelper();
+  const { isDesktop } = useResponsive();
 
   const serviceFactory = ({
     id,
@@ -37,7 +39,14 @@ export default function PopularServices() {
   }) => {
     return <Link href={getServiceHref(id)}>
       <div className={styles.service}>
-        <Image className={styles['service-image']} src={imagePath} width={263} height={173} alt='Изображение услуги' />
+        <div className={styles['service-image-wrapper']}>
+          <Image
+            className={styles['service-image']}
+            src={imagePath}
+            fill
+            alt='Изображение услуги'
+          />
+        </div>
         <h3 className={styles['service-title']}>{label}</h3>
         <p className={styles['price-block']}>
           {dynamicPrice && <span className={styles['dynamic-price-text']}>от </span>}
@@ -68,16 +77,18 @@ export default function PopularServices() {
   return <section className={styles['popular-services']}>
     <h1 className={styles['popular-services-title']}>Популярные услуги</h1>
     <div className={styles['services-list']}>
-      {popularServiceIds.map((id, index) => {
-        const serviceData = getServiceById(id);
-        return serviceData && <React.Fragment key={index}>
-          {serviceFactory({
-            ...serviceData,
-            freeWithRepairs: freeWithRepairsServiceIds.includes(id),
-            priceComment: withIncludingPartsCommentServiceIds.includes(id) ? 'включая запчасти' : '',
-          })}
-        </React.Fragment>;
-      })}
+      {popularServiceIds
+        .slice(0, isDesktop ? 9 : 6)
+        .map((id, index) => {
+          const serviceData = getServiceById(id);
+          return serviceData && <React.Fragment key={index}>
+            {serviceFactory({
+              ...serviceData,
+              freeWithRepairs: freeWithRepairsServiceIds.includes(id),
+              priceComment: withIncludingPartsCommentServiceIds.includes(id) ? 'включая запчасти' : '',
+            })}
+          </React.Fragment>;
+        })}
     </div>
     <Link href={getPageHref(Routes.Prices)}>
       <Button text='Смотреть все услуги' style='text-only' />
