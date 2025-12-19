@@ -1,5 +1,6 @@
 @use '../../styles/fonts.scss';
 @use '../../styles/colors.scss';
+@use '../../styles/responsive.scss';
 
 $icon-color-filter: brightness(0) saturate(100%) invert(60%) sepia(8%) saturate(16%) hue-rotate(316deg) brightness(94%) contrast(88%);
 
@@ -36,6 +37,15 @@ $icon-color-filter: brightness(0) saturate(100%) invert(60%) sepia(8%) saturate(
 
     &.disabled {
       pointer-events: none;
+    }
+  }
+
+  @include responsive.ipad-styles {
+    .breadcrumb {
+      &-label {
+        font-size: 12px;
+        margin-right: 10px;
+      }
     }
   }
 }
