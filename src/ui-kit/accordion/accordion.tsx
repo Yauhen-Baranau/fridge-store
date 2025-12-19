@@ -14,7 +14,7 @@ export default function Accordion({
 }: {
   toggleAreaContent: React.ReactNode,
   content: React.ReactNode,
-  buttonStyle?: 'arrow' | 'plus',
+  buttonStyle?: 'arrow' | 'none',
   toggleAreaCustomClass?: string,
   contentWrapperCustomClass?: string,
 }) {
@@ -28,8 +28,6 @@ export default function Accordion({
           customClass={'accordion-toggle-arrow-button'}
           icon={{ path: '/icons/thick-arrow-up.svg', width: 24, height: 24 }}
         />;
-      case 'plus':
-        return <></>;
       default:
         return <></>;
     }
