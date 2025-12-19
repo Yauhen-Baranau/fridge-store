@@ -11,7 +11,7 @@ import DialogForm from '../dialog-form/dialog-form';
 import { useDialog } from '@contexts/dialog-context';
 import useResponsive from '@hooks/use-responsive';
 import { useMemo } from 'react';
-import PopupWrapper from '@ui-kit/popup/popup';
+import Navigation from '@ui-kit/navigation/navigation';
 
 export default function Header({ customClass }: { customClass?: string }) {
   const { showDialog } = useDialog();
@@ -57,12 +57,19 @@ export default function Header({ customClass }: { customClass?: string }) {
     {(isIpad || isMobile) && <div className={styles.icons}>
       <Link href={`mailto:${contactInfo.email}`}><Image src='/icons/envelope.svg' alt='Конверт' width={30} height={30} /></Link>
       <Link href={`tel:${cleanPhoneNumber}`}><Image src='/icons/phone.svg' alt='Телефон' width={30} height={30} /></Link>
-      <PopupWrapper
-        customClass={styles['nav-popup']}
-        popupContent={<>hi</>}
-      >
-        <Button style='text-only' icon={{ path: '/icons/menu.svg', width: 25, height: 25 }} />
-      </PopupWrapper>
+      <Button
+        style='text-only'
+        icon={{ path: '/icons/menu.svg', width: 25, height: 25 }}
+        onClick={() => showDialog(
+          <Navigation customClass={styles['popup-navigation']} />,
+          {
+            withCloseButton: false,
+            withBackdropShadow: true,
+            transparentBackdrop: true,
+            withBackdropClose: true
+          }
+        )}
+      />
     </div>}
   </header>
 }
