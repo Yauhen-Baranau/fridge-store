@@ -1,5 +1,6 @@
 @use '../../styles/fonts.scss';
 @use '../../styles/colors.scss';
+@use '../../styles/responsive.scss';
 
 $navbar-horizontal-padding: 15px;
 $navbar-item-horizontal-padding: 10px;
@@ -15,15 +16,18 @@ $navbar-item-horizontal-padding: 10px;
     border-radius: 12px;
     background-color: colors.$color-gray-light;
 
-    .list-item, .list-item-icon, .popup-trigger-wrapper {
+    .list-item,
+    .list-item-icon,
+    .popup-trigger-wrapper {
       transition-duration: var(--global-transition-duration);
     }
 
-    > .list-item {
+    >.list-item {
       height: 100%;
       display: flex;
       align-items: center;
       padding: 0 $navbar-item-horizontal-padding;
+      text-transform: uppercase;
 
       &:hover {
         color: colors.$color-main-blue;
@@ -31,8 +35,9 @@ $navbar-item-horizontal-padding: 10px;
 
       .popup-trigger-wrapper {
         gap: 8px;
+        text-transform: uppercase;
 
-        > .list-item-icon {
+        >.list-item-icon {
           position: relative;
           bottom: 1px;
         }
@@ -40,7 +45,7 @@ $navbar-item-horizontal-padding: 10px;
         &:hover {
           color: colors.$color-main-blue;
 
-          > .list-item-icon {
+          >.list-item-icon {
             filter: var(--main-blue-color-filter);
             transform: rotate(-180deg);
           }
@@ -48,6 +53,8 @@ $navbar-item-horizontal-padding: 10px;
       }
 
       &.nested-list-item {
+        text-transform: uppercase;
+
         .popup-outer-wrapper {
           height: 100%;
 
@@ -76,9 +83,75 @@ $navbar-item-horizontal-padding: 10px;
                 align-items: flex-start;
                 gap: 13px;
 
-                > .list-item-icon {
+                >.list-item-icon {
                   position: relative;
                   top: 2px;
+                }
+
+                &:hover {
+                  color: colors.$color-main-blue;
+
+                  > .list-item-icon {
+                    filter: var(--main-blue-color-filter);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include responsive.ipad-styles {
+    .nav-list {
+      align-items: flex-start;
+      height: fit-content;
+      gap: 24px;
+      padding: 32px;
+      font-size: 14px;
+
+      >.list-item {
+        padding: 0;
+
+        &.nested-list-item {
+          text-transform: none;
+
+          .accordion-toggle-area {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-transform: uppercase;
+
+            > .list-item-icon {
+              position: relative;
+              bottom: 1px;
+            }
+
+            &.revealed {
+              color: colors.$color-main-blue;
+
+              > .list-item-icon {
+                filter: var(--main-blue-color-filter);
+                transform: rotate(-180deg);
+              }
+            }
+          }
+
+          .content-wrapper {
+            > .list {
+              gap: 12px;
+              margin-top: 24px;
+
+              .list-item {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                font-weight: 600;
+
+                > .list-item-icon {
+                  position: relative;
+                  bottom: 2px;
                 }
 
                 &:hover {
