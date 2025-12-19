@@ -6,8 +6,17 @@ import Link from 'next/link';
 import CallMeBackForm from '@ui-kit/call-me-back-form/call-me-back-form';
 import Image from 'next/image';
 import { contactInfo } from '@src/constants/contact-info';
+import useResponsive from '@hooks/use-responsive';
+import { useMemo } from 'react';
 
 export default function ContactsPage() {
+  const { isDesktop } = useResponsive();
+  const mapImageDimensions = useMemo(() => {
+    return isDesktop
+      ? { width: 570, height: 283 }
+      : { width: 360, height: 227 };
+  }, [isDesktop]);
+
   return <main className={styles.contacts}>
     <div className={styles['left-content']}>
       <h1 className={styles.title}>Контакты</h1>
@@ -53,14 +62,14 @@ export default function ContactsPage() {
         ]} />
       </address>
       <Link
+        className={styles['map-wrapper']}
         href="https://yandex.ru/maps/?um=constructor%3A6eb3d94e38002a26f66989cd354380fc22994b47206e36ed20eb07ff6d5d20d7&amp;source=constructorStatic"
         target="_blank"
       >
         <Image
           className={styles.map}
-          src="https://api-maps.yandex.ru/services/constructor/1.0/static/?um=constructor%3A6eb3d94e38002a26f66989cd354380fc22994b47206e36ed20eb07ff6d5d20d7&amp;width=570&amp;height=283&amp;lang=ru_RU"
-          width={570}
-          height={283}
+          src={`https://api-maps.yandex.ru/services/constructor/1.0/static/?um=constructor%3A6eb3d94e38002a26f66989cd354380fc22994b47206e36ed20eb07ff6d5d20d7&amp;width=${mapImageDimensions.width}&amp;height=${mapImageDimensions.height}&amp;lang=ru_RU`}
+          fill
           alt=""
         />
       </Link>

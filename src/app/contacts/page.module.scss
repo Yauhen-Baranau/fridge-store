@@ -1,4 +1,5 @@
 @use '../../styles/fonts.scss';
+@use '../../styles/responsive.scss';
 
 .contacts {
   display: flex;
@@ -24,8 +25,36 @@
       }
     }
 
-    .map {
-      border-radius: 8px;
+    .map-wrapper {
+      width: 570px;
+      height: 283px;
+      position: relative;
+
+      .map {
+        border-radius: 8px;
+        object-fit: cover;
+      }
+    }
+  }
+
+  @include responsive.ipad-styles {
+    gap: 110px;
+
+    .left-content {
+      .title {
+        font-size: 30px;
+      }
+
+      .contact-info {
+        li {
+          font-size: 14px;
+        }
+      }
+
+      .map-wrapper {
+        width: 360px;
+        height: 227px;
+      }
     }
   }
 }
