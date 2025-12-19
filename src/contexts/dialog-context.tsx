@@ -3,8 +3,15 @@
 import Dialog from "@ui-kit/dialog/dialog";
 import { createContext, useContext, useRef, useState } from "react";
 
+interface ShowDialogParams {
+  withCloseButton?: boolean,
+  withBackdropClose?: boolean,
+  withBackdropShadow?: boolean,
+  transparentBackdrop?: boolean,
+}
+
 interface DialogContextProps {
-  showDialog: (content?: React.ReactNode) => void,
+  showDialog: (content?: React.ReactNode, params?: ShowDialogParams) => void,
   setDialogContent: (content: React.ReactNode) => void,
   closeDialog: () => void,
 }
@@ -21,12 +28,21 @@ export const DialogContextProvider = ({
   children: React.ReactNode
 }) => {
   const [dialogContent, setDialogContent] = useState<React.ReactNode>(<></>);
+  const [dialogParams, setDialogParams] = useState<ShowDialogParams>({
+    withCloseButton: true,
+    withBackdropClose: false,
+    withBackdropShadow: false,
+    transparentBackdrop: false,
+  });
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   return <DialogContext.Provider value={{
-    showDialog: (content?: React.ReactNode) => {
+    showDialog: (content?: React.ReactNode, params?: ShowDialogParams) => {
       if (content) {
         setDialogContent(content);
+      }
+      if (params) {
+        setDialogParams(params);
       }
       dialogRef?.current?.showModal();
     },
@@ -34,7 +50,7 @@ export const DialogContextProvider = ({
     closeDialog: () => dialogRef?.current?.close(),
   }}>
     {children}
-    <Dialog dialogRef={dialogRef}>{dialogContent}</Dialog>
+    <Dialog dialogRef={dialogRef} {...dialogParams}>{dialogContent}</Dialog>
   </DialogContext.Provider>
 }
 
