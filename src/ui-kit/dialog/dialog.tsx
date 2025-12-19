@@ -1,4 +1,4 @@
-import { RefObject, useRef } from 'react';
+import { RefObject } from 'react';
 import Button from '../button/button';
 import styles from './dialog.module.scss';
 import composeClassName from '@helpers/compose-class-name';
@@ -18,8 +18,6 @@ export default function Dialog({
   withBackdropShadow?: boolean,
   transparentBackdrop?: boolean,
 }) {
-  const dialogContentWrapperRef = useRef<HTMLDivElement>(null);
-
   return <dialog
     ref={dialogRef}
     className={composeClassName(
@@ -30,11 +28,7 @@ export default function Dialog({
     )}
     onClick={() => withBackdropClose && dialogRef?.current?.close()}
   >
-    <div
-      ref={dialogContentWrapperRef}
-      className={styles['dialog-content-wrapper']}
-      onClick={e => e.stopPropagation()}
-    >
+    <div className={styles['dialog-content-wrapper']} onClick={e => e.stopPropagation()}>
       {withCloseButton && <Button
         customClass={styles['close-button']}
         icon={{ path: '/icons/cross.svg', width: 32, height: 32 }}
