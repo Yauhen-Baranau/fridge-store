@@ -64,6 +64,7 @@ export default function List({
               itemContent = <Accordion
                 toggleAreaContent={itemLabel}
                 content={nestedList}
+                buttonStyle='none'
               />
               break;
             case 'popup':
