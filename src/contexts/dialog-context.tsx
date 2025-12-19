@@ -1,7 +1,8 @@
 'use client';
 
 import Dialog from "@ui-kit/dialog/dialog";
-import { createContext, useContext, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
+import { createContext, useContext, useEffect, useRef, useState } from "react";
 
 interface ShowDialogParams {
   withCloseButton?: boolean,
@@ -35,6 +36,9 @@ export const DialogContextProvider = ({
     transparentBackdrop: false,
   });
   const dialogRef = useRef<HTMLDialogElement>(null);
+
+  const pathname = usePathname();
+  useEffect(() => dialogRef?.current?.close(), [pathname]);
 
   return <DialogContext.Provider value={{
     showDialog: (content?: React.ReactNode, params?: ShowDialogParams) => {
