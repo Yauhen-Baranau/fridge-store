@@ -1,11 +1,15 @@
 @use '../../styles/colors.scss';
 
 .dialog {
-  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
   padding: 32px;
-  margin: auto;
   border: none;
   border-radius: 12px;
+  background-color: transparent;
   
   &::backdrop {
     background-color: rgba(0, 0, 0, 0.5);
