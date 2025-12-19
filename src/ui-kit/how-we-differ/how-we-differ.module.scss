@@ -1,5 +1,6 @@
 @use '../../styles/colors.scss';
 @use '../../styles/fonts.scss';
+@use '../../styles/responsive.scss';
 
 .how-we-differ {
   display: grid;
@@ -20,9 +21,17 @@
     text-align: center;
   }
 
-  .image {
+  .image-wrapper {
     grid-area: image;
+    width: 278px;
+    height: 434px;
     margin-right: 26px;
+    position: relative;
+
+    .image {
+      border-radius: 8px;
+      object-fit: cover;
+    }
   }
 
   .difference {
@@ -37,6 +46,31 @@
     &-text {
       @include fonts.font(20px, 600, 120%);
       text-align: center;
+    }
+  }
+
+  @include responsive.ipad-styles {
+    padding: 56px 48px;
+    .title {
+      font-size: 30px;
+    }
+
+    .image-wrapper {
+      width: 231px;
+      margin-right: 10px;
+
+      .image {
+        width: 50%;
+        height: 50%;
+      }
+    }
+
+    .difference {
+      padding: 32px 20px;
+
+      &-text {
+        font-size: 16px;
+      }
     }
   }
 }

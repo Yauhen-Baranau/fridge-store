@@ -15,7 +15,9 @@ export default async function AboutUsPage() {
         <p className={styles['description-paragraph']}>Мы ценим ваше время, поэтому выезжаем точно по договоренности, <b className={styles.bold}>диагностируем быстро</b> и устраняем неполадки уже <b className={styles.bold}>в день обращения</b>. Мы используем <b className={styles.bold}>только оригинальные запчасти</b>, предоставляем гарантию на все виды работ и всегда объясняем клиенту суть проблемы простыми словами. </p>
         <p className={styles['description-paragraph']}><b className={styles.bold}>Наша цель</b> — не просто отремонтировать технику, а сделать так, чтобы вы больше не волновались о её работе.</p>
       </div>
-      <Image className={styles.image} src={'/about-us-photo.webp'} width={470} height={512} alt='Специалист по ремонту холодильников' />
+      <div className={styles['image-wrapper']}>
+        <Image className={styles.image} src={'/about-us-photo.webp'} fill alt='Специалист по ремонту холодильников' />
+      </div>
     </section>
     <MainAdvantages />
     <HowWeDiffer />
