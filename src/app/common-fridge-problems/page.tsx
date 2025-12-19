@@ -48,7 +48,9 @@ export default async function CommonFridgeProblemsPage() {
 
   return <main className={styles['common-fridge-problems']}>
     <h1 className={styles.title}>Частые проблемы с&nbsp;холодильником</h1>
-    <Image className={styles.image} src='/water-bottles.webp' width={570} height={382} alt='Бутылки с водой' />
+    <div className={styles['image-wrapper']}>
+      <Image className={styles.image} src='/water-bottles.webp' fill alt='Бутылки с водой' />
+    </div>
     <CallMeBackForm
       title='Не нашли решение своей проблемы?'
       submitButtonText='Вызвать мастера'

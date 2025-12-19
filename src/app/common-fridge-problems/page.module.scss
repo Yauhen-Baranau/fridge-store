@@ -1,5 +1,6 @@
 @use '../../styles/fonts.scss';
 @use '../../styles/colors.scss';
+@use '../../styles/responsive.scss';
 
 .common-fridge-problems {
   display: grid;
@@ -16,8 +17,16 @@
     grid-area: title;
   }
 
-  .image {
+  .image-wrapper {
     grid-area: image;
+    width: 570px;
+    height: 382px;
+    position: relative;
+
+    .image {
+      border-radius: 12px;
+      object-fit: cover;
+    }
   }
 
   .call-me-back-form {
@@ -53,7 +62,8 @@
               padding: 24px;
               vertical-align: top;
 
-              .problem-title, .problem-title-comment {
+              .problem-title,
+              .problem-title-comment {
                 @include fonts.font(20px, 600, 120%);
               }
 
@@ -72,6 +82,53 @@
 
             &:nth-child(2n-1) {
               background-color: colors.$color-gray-light;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include responsive.ipad-styles {
+    grid-template-columns: 380px auto;
+    grid-template-rows: 70px auto auto;
+    gap: 32px 90px;
+
+    .title {
+      font-size: 30px;
+    }
+
+    .image-wrapper {
+      width: 382px;
+      height: 220px;
+    }
+
+    .problems-list {
+      li {
+        .problem-category-toggle-area {
+          padding: 16px;
+
+          .problem-category-title {
+            font-size: 16px;
+          }
+        }
+
+        .problem-category-content-wrapper {
+          table {
+            tr {
+              td {
+                padding: 16px;
+
+                .problem-title,
+                .problem-title-comment {
+                  font-size: 16px;
+                }
+
+                .problem-small-heading,
+                .problem-plaintext {
+                  font-size: 14px;
+                }
+              }
             }
           }
         }
