@@ -8,8 +8,7 @@
   border-radius: 12px;
   
   &::backdrop {
-    background-color: colors.$color-main-black;
-    opacity: 0.5;
+    background-color: rgba(0, 0, 0, 0.5);
   }
 
   &-content-wrapper {
@@ -30,6 +29,28 @@
 
     .dialog-content {
       padding: 0 58px 48px 58px;
+    }
+  }
+
+  &.no-close-button {
+    padding: 0;
+
+    .dialog-content-wrapper {
+      .dialog-content {
+        padding: 0;
+      }
+    }
+  }
+
+  &.transparent-backdrop {
+    &::backdrop {
+      background-color: rgba(0, 0, 0, 0);
+    }
+  }
+
+  &.with-backdrop-shadow {
+    &::backdrop {
+      backdrop-filter: blur(6px);
     }
   }
 }
