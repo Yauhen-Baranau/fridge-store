@@ -1,5 +1,6 @@
 @use '../../styles/colors.scss';
 @use '../../styles/fonts.scss';
+@use '../../styles/responsive.scss';
 
 .prices {
   display: grid;
@@ -34,8 +35,14 @@
         margin-bottom: 5px;
       }
 
-      &-lower-row span {
-        color: colors.$color-main-blue;
+      &-lower-row {
+        span {
+          color: colors.$color-main-blue;
+        }
+
+        .free {
+          text-transform: uppercase;
+        }
       }
     }
 
@@ -119,12 +126,79 @@
             justify-content: space-between;
             width: 100%;
 
-            &-label {
+            &-label,
+            &-price {
               @include fonts.font(20px, 400, 140%);
             }
 
             &-price {
               @include fonts.font(20px, 600, 140%);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include responsive.ipad-styles {
+    grid-template-columns: minmax(380px, 1fr) 1fr;
+    gap: 100px 90px;
+
+    .title {
+      font-size: 30px;
+    }
+
+    &-description {
+      .diagnostics-price {
+        padding: 24px 16px;
+
+        &-upper-row,
+        &-lower-row {
+          font-size: 16px;
+        }
+
+        &-lower-row .free {
+          text-transform: none;
+        }
+      }
+
+      &-text {
+        font-size: 14px;
+      }
+    }
+
+    &-block {
+      padding: 56px 48px;
+
+      &-title {
+        font-size: 30px;
+      }
+
+      .with-parts {
+        padding: 16px;
+        font-size: 16px;
+      }
+
+      .accordion-list {
+        .subcategory-price-accordion-toggle-area {
+          padding: 16px;
+
+          &-label {
+            font-size: 16px;
+          }
+        }
+
+        .subcategory-price-accordion-content-wrapper {
+          gap: 65px;
+          padding: 16px;
+
+          .subcategory-service-list {
+            .subcategory-service {
+
+              &-label,
+              &-price {
+                font-size: 16px;
+              }
             }
           }
         }
