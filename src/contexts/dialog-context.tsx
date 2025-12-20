@@ -10,6 +10,7 @@ interface ShowDialogParams {
   withBackdropShadow?: boolean,
   transparentBackdrop?: boolean,
   customPosition?: { top?: number, right?: number, bottom?: number, left?: number },
+  onClose?: () => void,
 }
 
 interface DialogContextProps {
@@ -38,13 +39,16 @@ export const DialogContextProvider = ({
     withBackdropClose: false,
     withBackdropShadow: false,
     transparentBackdrop: false,
+    onClose: () => {},
   });
 
   const dialogRef = useRef<HTMLDialogElement>(null);
   const closeDialog = useCallback(() => {
     dialogRef?.current?.close();
+    dialogParams.onClose?.();
+    setDialogParams({ ...dialogParams, onClose: () => {} });
     setIsOpen(false);
-  }, [dialogRef]);
+  }, [dialogRef, dialogParams.onClose]);
 
   const pathname = usePathname();
   useEffect(() => closeDialog(), [pathname]);
