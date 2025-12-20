@@ -7,6 +7,7 @@ $input-upper-padding: 22px;
 .form {
   .field-wrapper {
     margin-bottom: 20px;
+    border-bottom: solid colors.$color-gray-lighter 1px;
     position: relative;
     transition-duration: var(--global-transition-duration);
 
@@ -17,7 +18,6 @@ $input-upper-padding: 22px;
 
     .input-wrapper {
       padding: $input-upper-padding 0 14px 0;
-      border-bottom: solid colors.$color-gray-lighter 1px;
 
       .input {
         width: 100%;
