@@ -10,7 +10,13 @@ import { Routes } from '@src/constants/routes';
 import { useHrefHelper } from '@contexts/href-context';
 import useResponsive from '@hooks/use-responsive';
 
-export default function Navigation({ customClass }: { customClass?: string }) {
+export default function Navigation({
+  customClass,
+  withContacts = true,
+}: {
+  customClass?: string,
+  withContacts?: boolean,
+}) {
   const { getCategoryHref, getSubcategoryHref } = useHrefHelper();
   const { isDesktop } = useResponsive();
 
@@ -84,9 +90,9 @@ export default function Navigation({ customClass }: { customClass?: string }) {
         {
           content: <Link href={`/${Routes.AboutUs}`}>О компании</Link>,
         },
-        {
+        ...(!withContacts ? [] : [{
           content: <Link href={`/${Routes.Contacts}`}>Контакты</Link>,
-        },
+        }])
       ]} />
   </nav>
 }
