@@ -2,7 +2,7 @@
 
 import Dialog from "@ui-kit/dialog/dialog";
 import { usePathname } from "next/navigation";
-import { createContext, useContext, useEffect, useRef, useState } from "react";
+import { createContext, useCallback, useContext, useEffect, useRef, useState } from "react";
 
 interface ShowDialogParams {
   withCloseButton?: boolean,
@@ -15,12 +15,14 @@ interface DialogContextProps {
   showDialog: (content?: React.ReactNode, params?: ShowDialogParams) => void,
   setDialogContent: (content: React.ReactNode) => void,
   closeDialog: () => void,
+  isOpen: boolean,
 }
 
 const DialogContext = createContext<DialogContextProps>({
   showDialog: () => {},
   setDialogContent: () => {},
   closeDialog: () => {},
+  isOpen: false,
 });
 
 export const DialogContextProvider = ({
@@ -28,6 +30,7 @@ export const DialogContextProvider = ({
 }: {
   children: React.ReactNode
 }) => {
+  const [isOpen, setIsOpen] = useState(false);
   const [dialogContent, setDialogContent] = useState<React.ReactNode>(<></>);
   const [dialogParams, setDialogParams] = useState<ShowDialogParams>({
     withCloseButton: true,
@@ -35,10 +38,15 @@ export const DialogContextProvider = ({
     withBackdropShadow: false,
     transparentBackdrop: false,
   });
+
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const closeDialog = useCallback(() => {
+    dialogRef?.current?.close();
+    setIsOpen(false);
+  }, [dialogRef]);
 
   const pathname = usePathname();
-  useEffect(() => dialogRef?.current?.close(), [pathname]);
+  useEffect(() => closeDialog(), [pathname]);
 
   return <DialogContext.Provider value={{
     showDialog: (content?: React.ReactNode, params?: ShowDialogParams) => {
@@ -49,9 +57,11 @@ export const DialogContextProvider = ({
         setDialogParams(params);
       }
       dialogRef?.current?.showModal();
+      setIsOpen(true);
     },
     setDialogContent,
-    closeDialog: () => dialogRef?.current?.close(),
+    closeDialog,
+    isOpen,
   }}>
     {children}
     <Dialog dialogRef={dialogRef} {...dialogParams}>{dialogContent}</Dialog>
