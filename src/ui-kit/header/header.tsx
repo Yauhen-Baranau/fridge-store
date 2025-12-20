@@ -71,7 +71,17 @@ export default function Header({ customClass }: { customClass?: string }) {
         }}
         onClick={() => {
           showDialog(
-            <Navigation customClass={styles['dialog-navigation']} />,
+            <div className={styles['dialog-content']}>
+              <Navigation />
+              <Button
+                customClass={styles['call-me-back-dialog-button']}
+                text='Заказать звонок'
+                onClick={() => {
+                  showDialog(<DialogForm />);
+                  setNavigationDialogOpen(false);
+                }}
+              />
+            </div>,
             {
               withCloseButton: false,
               transparentBackdrop: true,

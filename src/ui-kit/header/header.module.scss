@@ -37,6 +37,12 @@ $main-black-color-filter: brightness(0) saturate(100%) invert(0%) sepia(3%) satu
     width: 187px;
     height: 48px;
     margin-left: auto;
+
+    &-dialog {
+      width: 243px;
+      height: 54px;
+      margin-left: 0;
+    }
   }
 
   @include responsive.ipad-styles {
@@ -72,6 +78,14 @@ $main-black-color-filter: brightness(0) saturate(100%) invert(0%) sepia(3%) satu
   }
 }
 
-.dialog-navigation {
+.dialog-content {
   width: 390px;
+  padding: 32px;
+  background-color: colors.$color-gray-light;
+
+  .call-me-back-dialog-button {
+    width: 243px;
+    height: 54px;
+    margin-top: 32px;
+  }
 }
