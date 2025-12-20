@@ -61,7 +61,7 @@ export default function Header({ customClass }: { customClass?: string }) {
         style='text-only'
         icon={{ path: '/icons/menu.svg', width: 25, height: 25 }}
         onClick={() => showDialog(
-          <Navigation customClass={styles['popup-navigation']} />,
+          <Navigation customClass={styles['dialog-navigation']} />,
           {
             withCloseButton: false,
             transparentBackdrop: true,
