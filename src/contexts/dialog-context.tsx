@@ -9,6 +9,7 @@ interface ShowDialogParams {
   withBackdropClose?: boolean,
   withBackdropShadow?: boolean,
   transparentBackdrop?: boolean,
+  customPosition?: { top?: number, right?: number, bottom?: number, left?: number },
 }
 
 interface DialogContextProps {
