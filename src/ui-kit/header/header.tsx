@@ -65,7 +65,8 @@ export default function Header({ customClass }: { customClass?: string }) {
           {
             withCloseButton: false,
             transparentBackdrop: true,
-            withBackdropClose: true
+            withBackdropClose: true,
+            customPosition: { right: 20, top: 80 }
           }
         )}
       />
