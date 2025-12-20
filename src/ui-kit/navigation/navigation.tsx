@@ -21,7 +21,7 @@ export default function Navigation({ customClass }: { customClass?: string }) {
       nestedItemsStyle={isDesktop ? 'popup' : 'accordion'}
       items={[
         {
-          content: <Link href={getCategoryHref('1')}>Услуги по ремонту холодильников</Link>,
+          content: <Link href={getCategoryHref('1')} onClick={e => e.stopPropagation()}>Услуги по ремонту холодильников</Link>,
           icon: { path: '/icons/chevron-down.svg', width: 10, height: 7, position: 'after' },
           subItems: [
             {
@@ -51,7 +51,7 @@ export default function Navigation({ customClass }: { customClass?: string }) {
           ],
         },
         {
-          content: <Link href='https://google.com'>Виды холодильников</Link>,
+          content: <Link href='https://google.com' onClick={e => e.stopPropagation()}>Виды холодильников</Link>,
           icon: { path: '/icons/chevron-down.svg', width: 10, height: 7, position: 'after' },
           subItems: [
             {
