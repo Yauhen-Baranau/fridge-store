@@ -78,4 +78,11 @@
       padding: 24px;
     }
   }
+
+  @include responsive.mobile-styles {
+    &-content-wrapper {
+      max-width: unset;
+      max-height: unset;
+    }
+  }
 }

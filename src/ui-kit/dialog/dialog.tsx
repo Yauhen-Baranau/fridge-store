@@ -26,7 +26,7 @@ export default function Dialog({
   const { closeDialog } = useDialog();
   const contentWrapperRef = useRef<HTMLDivElement>(null);
   const contentWrapperStyles: CSSProperties = useMemo(() => {
-    if (!contentWrapperRef?.current || !customPosition) {
+    if (!customPosition) {
       return {};
     }
     return {
