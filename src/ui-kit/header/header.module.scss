@@ -9,8 +9,11 @@ $main-black-color-filter: brightness(0) saturate(100%) invert(0%) sepia(3%) satu
   align-items: center;
   margin-bottom: 24px;
 
-  .logo {
+  .logo-wrapper {
+    width: 227px;
+    height: 40px;
     margin-right: 50px;
+    position: relative;
   }
 
   .contacts {
@@ -50,7 +53,7 @@ $main-black-color-filter: brightness(0) saturate(100%) invert(0%) sepia(3%) satu
     padding-bottom: 14px;
     border-bottom: solid colors.$color-gray-lighter 1px;
 
-    .logo {
+    .logo-wrapper {
       margin-right: 10px;
     }
 
@@ -76,6 +79,24 @@ $main-black-color-filter: brightness(0) saturate(100%) invert(0%) sepia(3%) satu
       }
     }
   }
+
+  @include responsive.mobile-styles {
+    padding: 14px;
+    border-bottom: none;
+    background-color: colors.$color-gray-light;
+
+    .logo-wrapper {
+      width: 173px;
+      height: 33px;
+      margin: 0;
+    }
+
+    .icons {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
 }
 
 .dialog-content {
@@ -84,9 +105,46 @@ $main-black-color-filter: brightness(0) saturate(100%) invert(0%) sepia(3%) satu
   border-radius: 10px;
   background-color: colors.$color-gray-light;
 
+  .dialog-address {
+    padding-top: 32px;
+    margin-top: 32px;
+    border-top: solid colors.$color-gray-lighter 1px;
+    font-style: normal;
+
+    &-title {
+      @include fonts.font(16px, 600, 140%);
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+
+    .contact-info {
+      @include fonts.font(14px, 400, 140%);
+      gap: 16px;
+      margin-bottom: 16px;
+
+      li {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+    }
+  }
+
+  .dialog-socials {
+    width: fit-content;
+  }
+
   .call-me-back-dialog-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
     width: 243px;
     height: 54px;
     margin-top: 32px;
+
+    img {
+      filter: var(--main-white-color-filter);
+    }
   }
 }

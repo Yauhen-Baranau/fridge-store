@@ -12,6 +12,7 @@ import { useDialog } from '@contexts/dialog-context';
 import useResponsive from '@hooks/use-responsive';
 import { useMemo, useState } from 'react';
 import Navigation from '@ui-kit/navigation/navigation';
+import List from '@ui-kit/list/list';
 
 export default function Header({ customClass }: { customClass?: string }) {
   const { showDialog } = useDialog();
@@ -26,10 +27,10 @@ export default function Header({ customClass }: { customClass?: string }) {
   }, []);
 
   return <header className={composeClassName(styles.header, customClass)}>
-    <Link href='/'>
-      <Image className={styles.logo} src='/logo.webp' alt='Логотип' width={227} height={40} />
+    <Link className={styles['logo-wrapper']} href='/'>
+      <Image className={styles.logo} src='/logo.webp' fill alt='Логотип' />
     </Link>
-    <address className={styles.contacts}>
+    {!isMobile && <address className={styles.contacts}>
       <div className={styles['icon-text-pair']}>
         <Image src='/icons/location.svg' alt='Маркер на карте' width={20} height={20} />
         <Link href='https://yandex.by/maps/157/minsk/house/Zk4YcgJkTEMEQFtpfXVwcH9gZw==/?ll=27.454669%2C53.911263&z=19.8'>{contactInfo.address}</Link>
@@ -49,15 +50,32 @@ export default function Header({ customClass }: { customClass?: string }) {
         </div>
       </>}
       <Socials customClass={styles.socials} />
-    </address>
+    </address>}
     {isDesktop && <Button
       customClass={styles['call-me-back']}
       text='Заказать звонок'
       onClick={() => showDialog(<DialogForm />)}
     />}
     {(isIpad || isMobile) && <div className={styles.icons}>
-      <Link href={`mailto:${contactInfo.email}`}><Image src='/icons/envelope.svg' alt='Конверт' width={30} height={30} /></Link>
-      <Link href={`tel:${cleanPhoneNumber}`}><Image src='/icons/phone.svg' alt='Телефон' width={30} height={30} /></Link>
+      {isMobile && <Link href='https://yandex.by/maps/157/minsk/house/Zk4YcgJkTEMEQFtpfXVwcH9gZw==/?ll=27.454669%2C53.911263&z=19.8'>
+        <Image src='/icons/location.svg' alt='Маркер на карте' width={20} height={20} />
+      </Link>}
+      <Link href={`mailto:${contactInfo.email}`}>
+        <Image
+          src='/icons/envelope.svg'
+          alt='Конверт'
+          width={isMobile ? 20 : 30}
+          height={isMobile ? 20 : 30}
+        />
+      </Link>
+      <Link href={`tel:${cleanPhoneNumber}`}>
+        <Image
+          src='/icons/phone.svg'
+          alt='Телефон'
+          width={isMobile ? 20 : 30}
+          height={isMobile ? 20 : 30}
+        />
+      </Link>
       <Button
         customClass={composeClassName(
           styles['navigation-dialog-toggle-button'],
@@ -66,16 +84,45 @@ export default function Header({ customClass }: { customClass?: string }) {
         style='text-only'
         icon={{
           path: navigationDialogOpen ? '/icons/cross.svg' : '/icons/menu.svg',
-          width: 25,
-          height: 25
+          width: isMobile ? 20 : 25,
+          height: isMobile ? 20 : 25
         }}
         onClick={() => {
           showDialog(
             <div className={styles['dialog-content']}>
-              <Navigation />
+              <Navigation withContacts={!isMobile} />
+              {isMobile && <>
+                <address className={styles['dialog-address']}>
+                  <h3 className={styles['dialog-address-title']}>Контакты</h3>
+                  <List customClass={styles['contact-info']} items={[
+                    {
+                      content: <Link href={`tel:${cleanPhoneNumber}`}>{contactInfo.phoneNumber}</Link>,
+                      icon: { path: '/icons/phone.svg', width: 24, height: 24 }
+                    },
+                    {
+                      content: <Link href={`mailto:${contactInfo.email}`}>{contactInfo.email}</Link>,
+                      icon: { path: '/icons/envelope.svg', width: 24, height: 24 }
+                    },
+                    {
+                      content: <Link href='https://yandex.by/maps/157/minsk/house/Zk4YcgJkTEMEQFtpfXVwcH9gZw==/?ll=27.454669%2C53.911263&z=19.8'>{contactInfo.address}</Link>,
+                      icon: { path: '/icons/location.svg', width: 24, height: 24 }
+                    },
+                    {
+                      content: contactInfo.openHours,
+                      icon: { path: '/icons/clock.svg', width: 24, height: 24 }
+                    },
+                  ]} />
+                </address>
+                <Socials customClass={styles['dialog-socials']} />
+              </>}
               <Button
                 customClass={styles['call-me-back-dialog-button']}
                 text='Заказать звонок'
+                icon={!isMobile ? undefined : {
+                  path: '/icons/phone-4.svg',
+                  width: 24,
+                  height: 24,
+                }}
                 onClick={() => {
                   showDialog(<DialogForm />);
                   setNavigationDialogOpen(false);
@@ -86,7 +133,7 @@ export default function Header({ customClass }: { customClass?: string }) {
               withCloseButton: false,
               transparentBackdrop: true,
               withBackdropClose: true,
-              customPosition: { right: 20, top: 80 },
+              customPosition: { right: isMobile ? 0 : 20, top: 80 },
               onClose: () => setNavigationDialogOpen(false),
             }
           );
