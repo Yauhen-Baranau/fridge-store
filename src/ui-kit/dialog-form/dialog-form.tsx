@@ -59,7 +59,9 @@ export default function DialogForm({
 
   return <div className={styles.wrapper}>
     <h1 className={styles.title}>Закажите бесплатный звонок сейчас</h1>
-    <Image className={styles.image} src='/dialog-form-photo.webp' width={470} height={454} alt='Специалист по ремонту холодильников' />
+    <div className={styles['image-wrapper']}>
+      <Image className={styles.image} src='/dialog-form-photo.webp' fill alt='Специалист по ремонту холодильников' />
+    </div>
     <Form
       customClass={styles.form}
       preFieldsContent={<p className={styles['pre-field-text']}>Оставьте контактный телефон и в ближайшее время с вами свяжется наш специалист</p>}
