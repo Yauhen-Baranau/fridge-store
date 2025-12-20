@@ -29,4 +29,16 @@
       }
     }
   }
+
+  @include responsive.mobile-styles {
+    padding: 0;
+
+    > * {
+      width: 100%;
+
+      &:not(header) {
+        padding: 0 15px;
+      }
+    }
+  }
 }
