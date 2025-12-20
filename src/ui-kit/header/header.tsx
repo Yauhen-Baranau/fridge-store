@@ -64,7 +64,6 @@ export default function Header({ customClass }: { customClass?: string }) {
           <Navigation customClass={styles['popup-navigation']} />,
           {
             withCloseButton: false,
-            withBackdropShadow: true,
             transparentBackdrop: true,
             withBackdropClose: true
           }

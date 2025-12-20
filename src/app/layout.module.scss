@@ -4,7 +4,7 @@
   padding: 29px calc((100% - responsive.$desktop-to-ipad-breakpoint) / 2) 0;
   overflow-x: hidden; // for some snowflakes that overflow over window borders
 
-  >* {
+  > * {
     width: responsive.$desktop-to-ipad-breakpoint;
   }
 
@@ -19,8 +19,14 @@
   @include responsive.ipad-styles {
     padding: 16px 20px 0;
 
-    >* {
+    > * {
       width: 100%;
+    }
+
+    &.dialog-open {
+      > *:not(header):not(dialog) {
+        filter: blur(6px);
+      }
     }
   }
 }
