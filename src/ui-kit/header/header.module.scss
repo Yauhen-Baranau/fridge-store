@@ -81,6 +81,7 @@ $main-black-color-filter: brightness(0) saturate(100%) invert(0%) sepia(3%) satu
 .dialog-content {
   width: 390px;
   padding: 32px;
+  border-radius: 10px;
   background-color: colors.$color-gray-light;
 
   .call-me-back-dialog-button {
