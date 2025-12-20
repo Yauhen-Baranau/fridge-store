@@ -10,12 +10,13 @@ import Image from 'next/image';
 import DialogForm from '../dialog-form/dialog-form';
 import { useDialog } from '@contexts/dialog-context';
 import useResponsive from '@hooks/use-responsive';
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import Navigation from '@ui-kit/navigation/navigation';
 
 export default function Header({ customClass }: { customClass?: string }) {
   const { showDialog } = useDialog();
   const { isDesktop, isIpad, isMobile } = useResponsive();
+  const [navigationDialogOpen, setNavigationDialogOpen] = useState(false);
   const cleanPhoneNumber = useMemo(() => {
     return contactInfo.phoneNumber
       .split(' ').join('')
@@ -58,17 +59,29 @@ export default function Header({ customClass }: { customClass?: string }) {
       <Link href={`mailto:${contactInfo.email}`}><Image src='/icons/envelope.svg' alt='Конверт' width={30} height={30} /></Link>
       <Link href={`tel:${cleanPhoneNumber}`}><Image src='/icons/phone.svg' alt='Телефон' width={30} height={30} /></Link>
       <Button
-        style='text-only'
-        icon={{ path: '/icons/menu.svg', width: 25, height: 25 }}
-        onClick={() => showDialog(
-          <Navigation customClass={styles['dialog-navigation']} />,
-          {
-            withCloseButton: false,
-            transparentBackdrop: true,
-            withBackdropClose: true,
-            customPosition: { right: 20, top: 80 }
-          }
+        customClass={composeClassName(
+          styles['navigation-dialog-toggle-button'],
+          navigationDialogOpen && styles.toggled,
         )}
+        style='text-only'
+        icon={{
+          path: navigationDialogOpen ? '/icons/cross.svg' : '/icons/menu.svg',
+          width: 25,
+          height: 25
+        }}
+        onClick={() => {
+          showDialog(
+            <Navigation customClass={styles['dialog-navigation']} />,
+            {
+              withCloseButton: false,
+              transparentBackdrop: true,
+              withBackdropClose: true,
+              customPosition: { right: 20, top: 80 },
+              onClose: () => setNavigationDialogOpen(false),
+            }
+          );
+          setNavigationDialogOpen(true);
+        }}
       />
     </div>}
   </header>

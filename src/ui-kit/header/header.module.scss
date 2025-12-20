@@ -2,6 +2,8 @@
 @use '../../styles/colors.scss';
 @use '../../styles/responsive.scss';
 
+$main-black-color-filter: brightness(0) saturate(100%) invert(0%) sepia(3%) saturate(3890%) hue-rotate(358deg) brightness(84%) contrast(75%);
+
 .header {
   display: flex;
   align-items: center;
@@ -58,6 +60,14 @@
       display: flex;
       align-items: center;
       gap: 30px;
+
+      .navigation-dialog-toggle-button {
+        &.toggled {
+          img {
+            filter: $main-black-color-filter
+          }
+        }
+      }
     }
   }
 }

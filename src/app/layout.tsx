@@ -28,8 +28,6 @@ function RootLayoutBody({
   const { isDesktop } = useResponsive();
   const { isOpen } = useDialog();
 
-  useEffect(() => { console.log(isOpen) }, [isOpen])
-
   return <body className={composeClassName(
     montserrat.className,
     styles.body,
