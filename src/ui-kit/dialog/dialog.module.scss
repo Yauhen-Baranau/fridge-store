@@ -1,4 +1,5 @@
 @use '../../styles/colors.scss';
+@use '../../styles/responsive.scss';
 
 .dialog {
   display: flex;
@@ -6,13 +7,14 @@
   align-items: center;
   width: 100vw;
   height: 100vh;
-  padding: 32px;
+  max-width: unset;
+  max-height: unset;
   border: none;
-  border-radius: 12px;
-  background-color: colors.$color-main-white;
+  background-color: unset;
+  position: fixed;
 
   &:not([open]) {
-    display: none; // this is the default behaviour, seo will be ok with it
+    display: none; // this is the default browser behaviour, seo will be fine with it
   }
   
   &::backdrop {
@@ -24,6 +26,12 @@
     flex-direction: column;
     gap: 16px;
     width: fit-content;
+    height: fit-content;
+    max-width: calc(100% - 2em - 6px); // default user agent stylesheet value
+    max-height: calc(100% - 2em - 6px); // default user agent stylesheet value
+    padding: 32px;
+    border-radius: 12px;
+    background-color: colors.$color-main-white;
 
     .close-button {
       padding: 0;
@@ -45,6 +53,8 @@
     background-color: transparent;
 
     .dialog-content-wrapper {
+      padding: 0;
+      
       .dialog-content {
         padding: 0;
       }
@@ -60,6 +70,12 @@
   &.with-backdrop-shadow {
     &::backdrop {
       backdrop-filter: blur(6px);
+    }
+  }
+
+  @include responsive.ipad-styles {
+    &-content-wrapper {
+      padding: 24px;
     }
   }
 }
