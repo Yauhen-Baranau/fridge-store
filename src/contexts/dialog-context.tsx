@@ -46,7 +46,7 @@ export const DialogContextProvider = ({
   const closeDialog = useCallback(() => {
     dialogRef?.current?.close();
     dialogParams.onClose?.();
-    setDialogParams({ ...dialogParams, onClose: () => {} });
+    setDialogParams({});
     setIsOpen(false);
   }, [dialogRef, dialogParams.onClose]);
 

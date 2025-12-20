@@ -9,7 +9,7 @@
   padding: 32px;
   border: none;
   border-radius: 12px;
-  background-color: transparent;
+  background-color: colors.$color-main-white;
 
   &:not([open]) {
     display: none; // this is the default behaviour, seo will be ok with it
@@ -42,6 +42,7 @@
 
   &.no-close-button {
     padding: 0;
+    background-color: transparent;
 
     .dialog-content-wrapper {
       .dialog-content {
