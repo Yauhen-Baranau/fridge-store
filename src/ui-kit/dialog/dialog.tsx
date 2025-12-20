@@ -11,6 +11,7 @@ export default function Dialog({
   withBackdropClose = false,
   withBackdropShadow = false,
   transparentBackdrop = false,
+  customPosition
 }: {
   children: React.ReactNode,
   dialogRef: RefObject<HTMLDialogElement | null>,
@@ -18,6 +19,7 @@ export default function Dialog({
   withBackdropClose?: boolean,
   withBackdropShadow?: boolean,
   transparentBackdrop?: boolean,
+  customPosition?: { top?: number, right?: number, bottom?: number, left?: number }
 }) {
   // because dialog context's inner state needs to be updated
   // when closing the dialog
@@ -31,6 +33,14 @@ export default function Dialog({
       withBackdropShadow && styles['with-backdrop-shadow'],
       transparentBackdrop && styles['transparent-backdrop'],
     )}
+    style={{
+      top: (customPosition?.top !== undefined) ? `${customPosition.top}px` : 'unset',
+      right: (customPosition?.right !== undefined) ? `${customPosition.right}px` : 'unset',
+      bottom: (customPosition?.bottom !== undefined) ? `${customPosition.bottom}px` : 'unset',
+      left: (customPosition?.left !== undefined) ? `${customPosition.left}px` : 'unset',
+      width: customPosition ? 'fit-content' : 'revert',
+      height: customPosition ? 'fit-content' : 'revert',
+    }}
     onClick={() => withBackdropClose && closeDialog()}
   >
     <div className={styles['dialog-content-wrapper']} onClick={e => e.stopPropagation()}>
