@@ -16,6 +16,21 @@
       }
     }
 
+    .accordion-toggle-chevron-button {
+      width: fit-content;
+      height: fit-content;
+      padding: 0;
+      background: none;
+
+      &:hover {
+        background: none;
+      }
+
+      img {
+        transition-duration: var(--global-transition-duration);
+      }
+    }
+
     &.revealed {
       .accordion-toggle-arrow-button {
         background-color: colors.$color-gray-light;
@@ -23,6 +38,12 @@
         img {
           filter: var(--main-blue-color-filter);
           transform: rotate(-45deg);
+        }
+      }
+
+      .accordion-toggle-chevron-button {
+        img {
+          transform: rotate(180deg);
         }
       }
     }

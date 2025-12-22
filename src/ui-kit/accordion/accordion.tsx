@@ -9,12 +9,14 @@ export default function Accordion({
   toggleAreaContent,
   content,
   buttonStyle = 'arrow',
+  customClass,
   toggleAreaCustomClass,
   contentWrapperCustomClass,
 }: {
   toggleAreaContent: React.ReactNode,
   content: React.ReactNode,
-  buttonStyle?: 'arrow' | 'none',
+  buttonStyle?: 'arrow' | 'chevron' | 'none',
+  customClass?: string,
   toggleAreaCustomClass?: string,
   contentWrapperCustomClass?: string,
 }) {
@@ -28,12 +30,17 @@ export default function Accordion({
           customClass={'accordion-toggle-arrow-button'}
           icon={{ path: '/icons/thick-arrow-up.svg', width: 24, height: 24 }}
         />;
+      case 'chevron':
+        return <Button
+          customClass={'accordion-toggle-chevron-button'}
+          icon={{ path: '/icons/open-chevron-down.svg', width: 20, height: 10 }}
+        />
       default:
         return <></>;
     }
   }
 
-  return <div className={'outer-accordion-wrapper'}>
+  return <div className={composeClassName('outer-accordion-wrapper', customClass)}>
     <div
       className={composeClassName(
         'accordion-toggle-area',
@@ -45,6 +52,6 @@ export default function Accordion({
       {toggleAreaContent}
       {getToggleButton(buttonStyle)}
     </div>
-    {isRevealed && <div className={composeClassName( 'content-wrapper', contentWrapperCustomClass,)}>{content}</div>}
+    {isRevealed && <div className={composeClassName('content-wrapper', contentWrapperCustomClass)}>{content}</div>}
   </div>
 }
