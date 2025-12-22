@@ -17,6 +17,7 @@
   }
 
   .left-content {
+    grid-area: left;
     display: flex;
     flex-direction: column;
 
@@ -43,6 +44,7 @@
   }
 
   .right-content {
+    grid-area: right;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -118,6 +120,42 @@
 
       .view-all-problems-button {
         font-size: 14px;
+      }
+    }
+  }
+
+  @include responsive.mobile-styles {
+    grid-template-areas: 
+      "title"
+      "right"
+      "left";
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 0 15px;
+
+    .left-content {
+      margin-top: 16px;
+      
+      .image-container {
+        width: 100%;
+      }
+
+      .call-me-back-text {
+        margin: 24px 0;
+      }
+
+      .call-me-back-button {
+        width: 80%;
+      }
+    }
+
+    .right-content {
+      .frequent-problem {
+        gap: 20px;
+      }
+
+      .view-all-problems-button {
+        margin-top: 20px;
       }
     }
   }
