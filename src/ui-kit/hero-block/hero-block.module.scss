@@ -144,6 +144,14 @@
         width: 90%;
         margin-bottom: 16px;
       }
+
+      .note {
+        text-align: center;
+
+        .aligner {
+          position: absolute; // to avoid display: none
+        }
+      }
     }
 
     .hero-block-right {
