@@ -112,4 +112,35 @@
       height: 363px;
     }
   }
+
+  @include responsive.mobile-styles {
+    flex-direction: column;
+    gap: 32px;
+
+    .hero-block-left {
+      align-items: center;
+      flex-basis: auto;
+      width: 100%;
+
+      .title {
+        align-self: flex-start;
+        margin-bottom: 32px;
+      }
+
+      .guarantees {
+        width: 100%;
+        margin-bottom: 24px;
+      }
+
+      .discount-button {
+        width: 90%;
+        margin-bottom: 16px;
+      }
+    }
+
+    .hero-block-right {
+      flex-basis: auto;
+      width: 100%;
+    }
+  }
 }
