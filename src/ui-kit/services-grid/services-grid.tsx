@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+'use client';
+
+import React, { useEffect, useMemo, useState } from 'react';
 import styles from './services-grid.module.scss';
 import Image from 'next/image';
 import Button from '../button/button';
 import Link from 'next/link';
+import useResponsive from '@hooks/use-responsive';
 
 interface Service {
   imagePath: string,
@@ -13,14 +16,39 @@ interface Service {
 
 export default function ServicesGrid({
   services,
-  unexpandedServiceLimit = 6
+  unexpandedServiceLimit = 6,
+  unexpandedServiceLimitMobile = 3,
 }: {
   services: Array<Service>,
   unexpandedServiceLimit?: number,
+  unexpandedServiceLimitMobile?: number,
 }) {
-  const [allExpanded, setAllExpanded] = useState(services.length <= unexpandedServiceLimit);
+  const { isMobile } = useResponsive();
 
-  const servicesToDisplay = allExpanded ? services : services.slice(0, 6);
+  const [allExpanded, setAllExpanded] = useState(false);
+
+  useEffect(() => {
+    if (allExpanded) {
+      return;
+    }
+    if (services.length <= (isMobile ? unexpandedServiceLimitMobile : unexpandedServiceLimit)) {
+      setAllExpanded(true);
+    }
+    setAllExpanded(false);
+  }, [allExpanded, isMobile]);
+
+  const servicesToDisplay = useMemo(() => {
+    if (allExpanded) {
+      return services.slice();
+    }
+
+    if (isMobile) {
+      return services.slice(0, unexpandedServiceLimitMobile);
+    }
+
+    return services.slice(0, unexpandedServiceLimit);
+  }, [allExpanded, isMobile]);
+
   return <div className={styles['services-grid']}>
     {servicesToDisplay.map((service, index) => <React.Fragment key={index}>
       <div className={styles.service}>
