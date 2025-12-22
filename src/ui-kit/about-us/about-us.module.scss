@@ -64,4 +64,20 @@
       height: 512px;
     }
   }
+
+  @include responsive.mobile-styles {
+    grid-template-areas:
+      "title"
+      "image"
+      "text";
+    gap: 24px;
+
+    .about-us-content {
+      gap: 24px;
+    }
+
+    .about-us-image-wrapper {
+      width: 100%;
+    }
+  }
 }
