@@ -1,13 +1,15 @@
 @use '../../styles/responsive.scss';
 
-.post-children-block {
-  margin-top: 140px;
+.category-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 140px;
 
   @include responsive.ipad-styles {
-    margin-top: 100px;
+    gap: 100px;
   }
 
   @include responsive.mobile-styles {
-    margin-top: 72px;
+    gap: 72px;
   }
 }

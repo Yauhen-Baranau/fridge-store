@@ -37,10 +37,6 @@
   @include responsive.mobile-styles {
     padding: 0;
 
-    > * {
-      width: 100%;
-    }
-
     .call-me-back {
       margin-top: 72px;
     }

@@ -11,11 +11,11 @@ export default function CategoryLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <>
-    <main>{children}</main>
-    <FrequentFridgeProblems customClass={styles['post-children-block']} />
-    <DiscountBlock customClass={styles['post-children-block']} />
-    <HowToOrderRepairs customClass={styles['post-children-block']} />
-    <FridgeManufacturers customClass={styles['post-children-block']} />
-  </>
+  return <main className={styles['category-layout']}>
+    {children}
+    <FrequentFridgeProblems />
+    <DiscountBlock />
+    <HowToOrderRepairs />
+    <FridgeManufacturers />
+  </main>
 }
