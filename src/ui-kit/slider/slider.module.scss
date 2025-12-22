@@ -1,10 +1,14 @@
+@use '../../styles/colors.scss';
+
 .slider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  
   .active-slide-view {
-    width: 100%;
-    height: 100%;
     position: relative;
-    // overflow: hidden;
-    outline: solid red 1px;
+    overflow: hidden;
 
     .slides-container {
       display: flex;
@@ -12,10 +16,51 @@
       position: absolute;
       top: 0;
       left: 0;
-      outline: solid blue 1px;
-      
+      transition-duration: var(--global-transition-duration);
+
       .slide {
-        outline: solid green 1px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+
+  .slider-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+
+    .slide-button {
+      flex-basis: content;
+
+      &.slide-left-button {
+        position: relative;
+        top: 2px;
+        transform: rotate(180deg);
+      }
+    }
+
+    .navigation-dashes {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      flex-basis: 100%;
+      position: relative;
+      top: 1px;
+
+      .dash {
+        border: solid colors.$color-gray-lighter 1px;
+        width: 10%;
+        transition-duration: var(--global-transition-duration);
+
+        &.active {
+          border-color: colors.$color-main-blue;
+          width: 20%;
+        }
       }
     }
   }

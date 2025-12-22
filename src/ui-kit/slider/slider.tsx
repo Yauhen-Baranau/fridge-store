@@ -72,8 +72,33 @@ export default function Slider({
       </div>
     </div>
     <div className={styles['slider-navigation']}>
-      <Button onClick={slideLeft}/>
-      <Button onClick={slideRight}/>
+      <Button
+        customClass={composeClassName(styles['slide-button'], styles['slide-left-button'])}
+        style='text-only'
+        icon={{ path: '/icons/arrow-right.svg', width: 44, height: 44 }}
+        onClick={slideLeft}
+      />
+      <div className={styles['navigation-dashes']}>
+        {/* not all that great but the design didn't specify the animation so */}
+        <div className={composeClassName(
+          styles.dash,
+          activeSlideIndex === 0 && styles.active,
+        )}></div>
+        <div className={composeClassName(
+          styles.dash,
+          activeSlideIndex > 0 && activeSlideIndex < slides.length - 1 && styles.active,
+        )}></div>
+        <div className={composeClassName(
+          styles.dash,
+          activeSlideIndex === slides.length - 1 && styles.active,
+        )}></div>
+      </div>
+      <Button
+        customClass={styles['slide-button']}
+        style='text-only'
+        icon={{ path: '/icons/arrow-right.svg', width: 44, height: 44 }}
+        onClick={slideRight}
+      />
     </div>
   </div>;
 }
