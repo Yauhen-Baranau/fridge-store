@@ -100,4 +100,41 @@
       }
     }
   }
+
+  @include responsive.mobile-styles {
+    padding: 56px 16px;
+
+    .title {
+      font-size: 24px;
+    }
+
+    .advantages-block {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      .advantage {
+        gap: 0;
+        padding-bottom: 16px;
+        border-bottom: solid colors.$color-gray-lighter 1px;
+
+        .advantage-toggle-area {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          .advantage-header {
+            width: fit-content;
+            padding: 0;
+            border: none;
+          }
+        }
+
+        .advantage-content-wrapper {
+          padding: 16px 52px 0 52px;
+          font-size: 14px;
+        }
+      }
+    }
+  }
 }

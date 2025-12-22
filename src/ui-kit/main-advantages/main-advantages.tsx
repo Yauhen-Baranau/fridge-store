@@ -1,10 +1,16 @@
+'use client';
+
 import List, { ListItem } from '@ui-kit/list/list';
 import styles from './main-advantages.module.scss';
 import React from 'react';
 import Image from 'next/image';
 import BackgroundSnowflake from '../background-snowflake/background-snowflake';
+import useResponsive from '@hooks/use-responsive';
+import Accordion from '@ui-kit/accordion/accordion';
 
-export default async function MainAdvantages() {
+export default function MainAdvantages() {
+  const { isMobile } = useResponsive();
+
   const advantageFactory = ({
     imagePath,
     title,
@@ -16,19 +22,30 @@ export default async function MainAdvantages() {
     subtitle?: string,
     items: Array<ListItem>
   }) => {
-    return <div className={styles.advantage}>
-      <div className={styles['advantage-header']}>
-        <Image src={imagePath} width={46} height={46} alt='Иконка' />
-        <h2 className={styles['advantage-title']}>
-          {title}
-          {subtitle && <>
-            <br />
-            <span className={styles['advantage-subtitle']}>{subtitle}</span>
-          </>}
-        </h2>
-      </div>
-      <List customClass={styles['advantage-content']} items={items} />
+    const advantageHeader = <div className={styles['advantage-header']}>
+      <Image src={imagePath} width={46} height={46} alt='Иконка' />
+      <h2 className={styles['advantage-title']}>
+        {title}
+        {subtitle && <>
+          <br />
+          <span className={styles['advantage-subtitle']}>{subtitle}</span>
+        </>}
+      </h2>
     </div>
+    const advantageContent = <List customClass={styles['advantage-content']} items={items} />;
+    return !isMobile
+      ? <div className={styles.advantage}>
+        {advantageHeader}
+        {advantageContent}
+      </div>
+      : <Accordion
+        customClass={styles.advantage}
+        toggleAreaContent={advantageHeader}
+        content={advantageContent}
+        toggleAreaCustomClass={styles['advantage-toggle-area']}
+        contentWrapperCustomClass={styles['advantage-content-wrapper']}
+        buttonStyle='chevron'
+      />;
   };
 
   return <section className={styles['main-advantages']}>
@@ -181,7 +198,19 @@ export default async function MainAdvantages() {
         },
       ].map((params, index) => <React.Fragment key={index}>{advantageFactory(params)}</React.Fragment>)}
     </div>
-    <BackgroundSnowflake width={131} height={127} left={40} top={48} rotation={-30} />
-    <BackgroundSnowflake width={131} height={127} right={40} top={48} rotation={-30} />
+    <BackgroundSnowflake
+      width={isMobile ? 69 : 131}
+      height={isMobile ? 64 : 127}
+      left={isMobile ? 20 : 40}
+      top={isMobile ? 20 : 48}
+      rotation={-30}
+    />
+    <BackgroundSnowflake
+      width={isMobile ? 69 : 131}
+      height={isMobile ? 64 : 127}
+      right={isMobile ? 20 : 40}
+      top={isMobile ? 20 : 48}
+      rotation={-30}
+    />
   </section>
 }
