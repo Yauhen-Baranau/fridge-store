@@ -101,7 +101,26 @@ export default function PopularServices() {
     <Link href={getPageHref(Routes.Prices)}>
       <Button text='Смотреть все услуги' style='text-only' />
     </Link>
-    <BackgroundSnowflake width={658} height={638} left={0} top={94} rotation={-30} color='main-white' opacity={0.4} zIndex={-1} />
-    <BackgroundSnowflake width={658} height={638} right={33} bottom={222} rotation={-30} color='main-white' opacity={0.4} zIndex={-1} />
+    <BackgroundSnowflake
+      width={isMobile ? 69 : 658}
+      height={isMobile ? 64 : 638}
+      left={isMobile ? 25 : 0}
+      top={isMobile ? undefined : 94}
+      bottom={isMobile ? 25 : undefined}
+      rotation={-30}
+      color='main-white'
+      opacity={isMobile ? 1 : 0.4}
+      zIndex={-1}
+    />
+    <BackgroundSnowflake
+      width={isMobile ? 69 : 658}
+      height={isMobile ? 64 : 638}
+      right={isMobile ? 25 : 33}
+      bottom={isMobile ? 25 : 222}
+      rotation={-30}
+      color='main-white'
+      opacity={isMobile ? 1 : 0.4}
+      zIndex={-1}
+    />
   </section>
 } 
