@@ -6,6 +6,10 @@ import styles from './service-page-component.module.scss';
 import Image from 'next/image';
 import ServicesGrid from '../services-grid/services-grid';
 import CallMeBackForm from '../call-me-back-form/call-me-back-form';
+import Button from '@ui-kit/button/button';
+import { useDialog } from '@contexts/dialog-context';
+import DialogForm from '@ui-kit/dialog-form/dialog-form';
+import useResponsive from '@hooks/use-responsive';
 
 interface Service {
   label: string,
@@ -26,6 +30,9 @@ export default function ServicePageComponent({
   subservices: Array<Service & { redirectTo: string }>,
   preServiceGridContent?: React.ReactNode,
 }) {
+  const { showDialog } = useDialog();
+  const { isMobile } = useResponsive();
+
   const constructCategoryDescription = (serviceData: Service) => {
     return <div className={styles['description-wrapper']}>
       <h1 className={styles['description-title']}>{serviceData.label}</h1>
@@ -59,6 +66,11 @@ export default function ServicePageComponent({
           }
           return <React.Fragment key={index}>{descriptionItemContent}</React.Fragment>
         })}
+        {isMobile && <Button
+          customClass={styles['call-me-back-button']}
+          text='Получить консультацию'
+          onClick={() => showDialog(<DialogForm />)}
+        />}
         <div className={styles['description-image-wrapper']}>
           <Image
             className={styles['description-image']}
@@ -80,7 +92,7 @@ export default function ServicePageComponent({
 
   return <div className={styles.service}>
     {description}
-    {form}
+    {!isMobile && form}
     {content}
   </div>
 }

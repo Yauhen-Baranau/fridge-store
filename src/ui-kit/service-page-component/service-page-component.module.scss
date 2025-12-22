@@ -133,4 +133,33 @@
       }
     }
   }
+
+  @include responsive.mobile-styles {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding: 0 15px;
+
+    .description-wrapper {
+      .description-title {
+        font-size: 24px;
+      }
+
+      .description {
+        .description-list-title {
+          font-size: 16px;
+        }
+
+        .description-image-wrapper {
+          width: 100%;
+          margin: 0;
+        }
+
+        .call-me-back-button {
+          width: 80%;
+          height: 54px;
+        }
+      }
+    }
+  }
 }
