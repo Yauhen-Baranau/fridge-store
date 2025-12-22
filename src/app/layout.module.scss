@@ -23,6 +23,10 @@
       width: 100%;
     }
 
+    .call-me-back {
+      margin-top: 100px;
+    }
+
     &.dialog-open {
       > *:not(header):not(dialog) {
         filter: blur(6px);
@@ -35,6 +39,10 @@
 
     > * {
       width: 100%;
+    }
+
+    .call-me-back {
+      margin-top: 72px;
     }
   }
 }

@@ -1,3 +1,13 @@
+@use '../../styles/responsive.scss';
+
 .post-children-block {
   margin-top: 140px;
+
+  @include responsive.ipad-styles {
+    margin-top: 100px;
+  }
+
+  @include responsive.mobile-styles {
+    margin-top: 72px;
+  }
 }
