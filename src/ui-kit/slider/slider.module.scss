@@ -1,0 +1,22 @@
+.slider {
+  .active-slide-view {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    // overflow: hidden;
+    outline: solid red 1px;
+
+    .slides-container {
+      display: flex;
+      width: fit-content;
+      position: absolute;
+      top: 0;
+      left: 0;
+      outline: solid blue 1px;
+      
+      .slide {
+        outline: solid green 1px;
+      }
+    }
+  }
+}
