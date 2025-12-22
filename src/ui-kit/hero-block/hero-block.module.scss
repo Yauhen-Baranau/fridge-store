@@ -116,6 +116,7 @@
   @include responsive.mobile-styles {
     flex-direction: column;
     gap: 32px;
+    padding: 0 15px;
 
     .open-hours {
       @include fonts.font(14px, 400, 100%);

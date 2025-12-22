@@ -68,6 +68,8 @@
   }
 
   @include responsive.mobile-styles {
+    padding: 56px 16px;
+    margin: 0 15px;
 
     &-title {
       font-size: 24px;
