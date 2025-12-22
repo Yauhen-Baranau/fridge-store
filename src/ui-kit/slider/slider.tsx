@@ -9,10 +9,12 @@ export default function Slider({
   slides,
   customClass,
   dimensions = 'auto',
+  slidesGap = 0,
 }: {
   slides: Array<React.ReactNode>,
   customClass?: string,
   dimensions?: 'auto' | { width: number, height: number },
+  slidesGap?: number,
 }) {
   const [activeSlideViewDimensions, setActiveSlideViewDimensions] = useState({ width: 0, height: 0 });
   const slidesContainerRef = useRef<HTMLDivElement>(null);
@@ -58,7 +60,8 @@ export default function Slider({
         ref={slidesContainerRef}
         className={styles['slides-container']}
         style={{
-          left: -1 * activeSlideViewDimensions.width * activeSlideIndex,
+          left: -1 * (activeSlideViewDimensions.width + slidesGap) * activeSlideIndex,
+          gap: `${slidesGap}px`,
         }}
       >
         {slides.map((slide, index) => <div

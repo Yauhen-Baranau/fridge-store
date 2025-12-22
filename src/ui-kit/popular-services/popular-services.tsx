@@ -94,6 +94,7 @@ export default function PopularServices() {
       ? <Slider
         customClass={composeClassName(styles['services-slider'])}
         slides={services}
+        slidesGap={30}
       />
       : <div className={styles['services-list']}>{services}</div>
     }
