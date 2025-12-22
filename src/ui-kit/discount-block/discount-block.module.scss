@@ -43,7 +43,7 @@
   @include responsive.ipad-styles {
     padding: 56px 47px;
     background-size: 300px 270px;
-    background-position: -20px 70px, 560px -28px;
+    background-position: -20px calc(100% + 5px), calc(100% + 5px) -30%;
 
     &-title {
       font-size: 30px;
@@ -57,6 +57,25 @@
       width: 243px;
       height: 54px;
       font-size: 14px;
+    }
+  }
+
+  @include responsive.mobile-styles {
+    padding: 48px 43px;
+    background-size: 88px 80px;
+    background-position: -20px 60%, calc(100% + 15px) 20%;
+    
+    &-title {
+      font-size: 24px;
+      text-align: center;
+    }
+
+    &-text {
+      font-size: 14px;
+    }
+
+    .discount-button {
+      width: 90%;
     }
   }
 }
