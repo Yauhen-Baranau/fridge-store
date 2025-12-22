@@ -121,4 +121,45 @@
       }
     }
   }
+
+  @include responsive.mobile-styles {
+    flex-direction: column;
+    gap: 0;
+    padding: 48px 16px;
+
+    .footer-column {
+      padding: 20px 0;
+      border: solid colors.$color-gray-dark;
+      border-width: 1px 0;
+
+      .contacts .list li {
+        padding: 0;
+        border: none;
+      }
+    }
+
+    .footer-accordion-toggle-area {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      border-top: solid colors.$color-gray-dark 1px;
+    }
+
+    .footer-accordion-content-wrapper {
+      padding-bottom: 20px;
+    }
+
+    .mobile-footer-lower-block {
+      @include fonts.font(12px, 400, 140%);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+      
+      * {
+        color: colors.$color-gray-darker;
+      }
+    }
+  }
 }
