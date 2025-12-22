@@ -30,10 +30,10 @@ export default function BackgroundSnowflake({
     height={height}
     alt='Снежинка'
     style={{
-      top: (top !== undefined && !isNaN(top)) ? `${top - height / 2}px` : 'none',
-      right: (right !== undefined && !isNaN(right)) ? `${right - height / 2}px` : 'none',
-      bottom: (bottom !== undefined && !isNaN(bottom)) ? `${bottom - height / 2}px` : 'none',
-      left: (left !== undefined && !isNaN(left)) ? `${left - height / 2}px` : 'none',
+      top: (top !== undefined && !isNaN(top)) ? `${top - height / 2}px` : 'unset',
+      right: (right !== undefined && !isNaN(right)) ? `${right - width / 2}px` : 'unset',
+      bottom: (bottom !== undefined && !isNaN(bottom)) ? `${bottom - height / 2}px` : 'unset',
+      left: (left !== undefined && !isNaN(left)) ? `${left - width / 2}px` : 'unset',
       transform: rotation ? `rotate(${rotation}deg)` : undefined,
       filter: color && colorToCssFilterMap.get(color),
       opacity,
