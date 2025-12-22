@@ -3,8 +3,11 @@ import styles from './how-to-order-repairs.module.scss';
 import Image from 'next/image';
 import React from 'react';
 import BackgroundSnowflake from '../background-snowflake/background-snowflake';
+import useResponsive from '@hooks/use-responsive';
 
 export default function HowToOrderRepairs({ customClass }: { customClass?: string }) {
+  const { isMobile } = useResponsive();
+
   const stepFactory = ({
     stepNumber,
     iconPath,
@@ -46,7 +49,17 @@ export default function HowToOrderRepairs({ customClass }: { customClass?: strin
         hasRightArrow: index < arr.length - 1
       })}</React.Fragment>)}
     </div>
-    <BackgroundSnowflake width={153} height={148} left={22} top={20} rotation={-30} color='main-white' />
-    <BackgroundSnowflake width={153} height={148} right={22} top={20} rotation={-30} color='main-white' />
+    {!isMobile
+      ? <>
+        <BackgroundSnowflake width={153} height={148} left={22} top={20} rotation={-30} color='main-white' />
+        <BackgroundSnowflake width={153} height={148} right={22} top={20} rotation={-30} color='main-white' />
+      </>
+      : <>
+        <BackgroundSnowflake width={60} height={58} left={15} top={25} rotation={-30} color='main-white' />
+        <BackgroundSnowflake width={60} height={58} right={0} rotation={-30} color='main-white' customClass={styles['background-snowflake-2']} />
+        <BackgroundSnowflake width={60} height={58} left={10} rotation={-30} color='main-white' customClass={styles['background-snowflake-3']} />
+        <BackgroundSnowflake width={60} height={58} right={15} bottom={25} rotation={-30} color='main-white' />
+      </>
+    }
   </section>
 }

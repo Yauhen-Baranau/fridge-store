@@ -93,4 +93,36 @@
       transform: rotate(90deg);
     }
   }
+
+  @include responsive.mobile-styles {
+    gap: 24px;
+    margin: 0 15px;
+
+    .title {
+      font-size: 24px;
+      text-align: center;
+    }
+
+    .steps {
+      gap: 14px;
+
+      .step {
+        flex-direction: column;
+
+        &-description {
+          text-align: center;
+        }
+      }
+    }
+
+    .background-snowflake {
+      &-2 {
+        top: 36% !important;
+      }
+
+      &-3 {
+        top: 66% !important;
+      }
+    }
+  }
 }
