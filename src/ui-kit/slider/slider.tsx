@@ -34,21 +34,17 @@ export default function Slider({
       height = Math.max(height, (child as HTMLElement).offsetHeight ?? 0);
     });
     setActiveSlideViewDimensions({ width, height });
-    slideTo(0);
+    setActiveSlideIndex(0);
   }, [slidesContainerRef.current]);
 
   const [activeSlideIndex, setActiveSlideIndex] = useState(1);
 
-  const slideTo = (slideIndex: number) => {
-    setActiveSlideIndex(slideIndex);
-  };
-
   const slideLeft = () => {
-    slideTo(Math.max(activeSlideIndex - 1, 0));
+    setActiveSlideIndex(Math.max(activeSlideIndex - 1, 0));
   };
 
   const slideRight = () => {
-    slideTo(Math.min(activeSlideIndex + 1, slides.length - 1));
+    setActiveSlideIndex(Math.min(activeSlideIndex + 1, slides.length - 1));
   }
 
   return <div className={composeClassName(styles.slider, customClass)}>
