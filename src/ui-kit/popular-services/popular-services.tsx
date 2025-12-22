@@ -10,11 +10,13 @@ import { useHrefHelper } from '@contexts/href-context';
 import { Routes } from '@constants/routes';
 import { useCategoryData } from '@contexts/category-data-context';
 import useResponsive from '@hooks/use-responsive';
+import Slider from '@ui-kit/slider/slider';
+import composeClassName from '@helpers/compose-class-name';
 
 export default function PopularServices() {
   const { getServiceById } = useCategoryData();
   const { getPageHref, getServiceHref } = useHrefHelper();
-  const { isDesktop } = useResponsive();
+  const { isDesktop, isMobile } = useResponsive();
 
   const serviceFactory = ({
     id,
@@ -37,7 +39,7 @@ export default function PopularServices() {
     requiredTime?: string,
     guarantee?: string,
   }) => {
-    return <Link href={getServiceHref(id)}>
+    return <Link className={styles['service-link']} href={getServiceHref(id)}>
       <div className={styles.service}>
         <div className={styles['service-image-wrapper']}>
           <Image
@@ -74,22 +76,27 @@ export default function PopularServices() {
   const freeWithRepairsServiceIds = ['11'];
   const withIncludingPartsCommentServiceIds = ['1'];
   const popularServiceIds = ['11', '1', '5', '6', '12', '8', '9', '7', '10'];
+  const services = popularServiceIds
+    .slice(0, isDesktop ? 9 : 6)
+    .map((id, index) => {
+      const serviceData = getServiceById(id);
+      return serviceData && <React.Fragment key={index}>
+        {serviceFactory({
+          ...serviceData,
+          freeWithRepairs: freeWithRepairsServiceIds.includes(id),
+          priceComment: withIncludingPartsCommentServiceIds.includes(id) ? 'включая запчасти' : '',
+        })}
+      </React.Fragment>;
+    });
   return <section className={styles['popular-services']}>
     <h1 className={styles['popular-services-title']}>Популярные услуги</h1>
-    <div className={styles['services-list']}>
-      {popularServiceIds
-        .slice(0, isDesktop ? 9 : 6)
-        .map((id, index) => {
-          const serviceData = getServiceById(id);
-          return serviceData && <React.Fragment key={index}>
-            {serviceFactory({
-              ...serviceData,
-              freeWithRepairs: freeWithRepairsServiceIds.includes(id),
-              priceComment: withIncludingPartsCommentServiceIds.includes(id) ? 'включая запчасти' : '',
-            })}
-          </React.Fragment>;
-        })}
-    </div>
+    {isMobile
+      ? <Slider
+        customClass={composeClassName(styles['services-slider'])}
+        slides={services}
+      />
+      : <div className={styles['services-list']}>{services}</div>
+    }
     <Link href={getPageHref(Routes.Prices)}>
       <Button text='Смотреть все услуги' style='text-only' />
     </Link>
