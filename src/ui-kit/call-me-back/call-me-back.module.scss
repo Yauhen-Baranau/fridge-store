@@ -114,4 +114,38 @@
       height: 54px;
     }
   }
+  
+  @include responsive.mobile-styles {
+    flex-direction: column;
+    align-items: center;
+    padding: 56px 15px;
+
+    &-left-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      text-align: center;
+
+      .call-me-back-title {
+        font-size: 24px;
+      }
+
+      .call-me-back-text {
+        font-size: 14px;
+
+        &:first-of-type {
+          margin-bottom: 32px;
+        }
+      }
+
+      .call-me-back-phone {
+        font-size: 24px;
+      }
+    }
+  }
+
+  &-form {
+    width: 100%;
+  }
 }
