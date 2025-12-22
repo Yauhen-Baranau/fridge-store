@@ -6,11 +6,18 @@ import Button from '@ui-kit/button/button';
 import Image from 'next/image';
 import { useDialog } from '@contexts/dialog-context';
 import DialogForm from '@ui-kit/dialog-form/dialog-form';
+import useResponsive from '@hooks/use-responsive';
+import { contactInfo } from '@constants/contact-info';
 
 export default function HeroBlock() {
   const { showDialog } = useDialog();
+  const { isMobile } = useResponsive();
 
   return <section className={styles['hero-block']}>
+    {isMobile && <div className={styles['open-hours']}>
+      <Image src='/icons/clock.svg' width={24} height={24} alt='Часы' />
+      {contactInfo.openHours}
+    </div>}
     <div className={styles['hero-block-left']}>
       <h1 className={styles.title}>
         РЕМОНТ &nbsp;&nbsp;<span className={styles['in-minsk']}>в Минске</span><br />

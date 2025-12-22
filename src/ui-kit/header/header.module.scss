@@ -82,6 +82,7 @@ $main-black-color-filter: brightness(0) saturate(100%) invert(0%) sepia(3%) satu
 
   @include responsive.mobile-styles {
     padding: 14px;
+    margin: 0;
     border-bottom: none;
     background-color: colors.$color-gray-light;
 

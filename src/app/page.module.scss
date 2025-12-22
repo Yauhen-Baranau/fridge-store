@@ -10,4 +10,9 @@
     gap: 100px;
     margin-top: 56px;
   }
+
+  @include responsive.mobile-styles {
+    gap: 72px;
+    margin-top: 0;
+  }
 }
