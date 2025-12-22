@@ -45,35 +45,53 @@ export default function FridgeManufacturers({ customClass }: { customClass?: str
       />
     }
     <Button text='Смотреть все модели' style='text-only' />
-    <BackgroundSnowflake
-      width={isMobile ? 70 : 131}
-      height={isMobile ? 68 : 127}
-      left={isMobile ? 20 : 40}
-      top={isMobile ? 20 : 48}
-      rotation={-30}
-    />
-    <BackgroundSnowflake
-      width={isMobile ? 70 : 131}
-      height={isMobile ? 68 : 127}
-      right={isMobile ? 20 : 40}
-      top={isMobile ? 20 : 48}
-      rotation={-30}
-    />
-    {isMobile && <>
-      <BackgroundSnowflake
-        width={70}
-        height={68}
-        left={20}
-        bottom={40}
-        rotation={-30}
-      />
-      <BackgroundSnowflake
-        width={70}
-        height={68}
-        right={20}
-        bottom={40}
-        rotation={-30}
-      />
-    </>}
+    {!isMobile
+      ? <>
+        <BackgroundSnowflake
+          width={131}
+          height={127}
+          left={40}
+          top={48}
+          rotation={-30}
+        />
+        <BackgroundSnowflake
+          width={131}
+          height={127}
+          right={40}
+          top={48}
+          rotation={-30}
+        />
+      </>
+      : <>
+        <BackgroundSnowflake
+          width={70}
+          height={68}
+          left={20}
+          top={20}
+          rotation={-30}
+        />
+        <BackgroundSnowflake
+          width={70}
+          height={68}
+          right={20}
+          top={20}
+          rotation={-30}
+        />
+        <BackgroundSnowflake
+          width={70}
+          height={68}
+          left={20}
+          bottom={40}
+          rotation={-30}
+        />
+        <BackgroundSnowflake
+          width={70}
+          height={68}
+          right={20}
+          bottom={40}
+          rotation={-30}
+        />
+      </>
+    }
   </section>
 }

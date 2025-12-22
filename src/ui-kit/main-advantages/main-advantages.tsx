@@ -198,19 +198,39 @@ export default function MainAdvantages() {
         },
       ].map((params, index) => <React.Fragment key={index}>{advantageFactory(params)}</React.Fragment>)}
     </div>
-    <BackgroundSnowflake
-      width={isMobile ? 69 : 131}
-      height={isMobile ? 64 : 127}
-      left={isMobile ? 20 : 40}
-      top={isMobile ? 20 : 48}
-      rotation={-30}
-    />
-    <BackgroundSnowflake
-      width={isMobile ? 69 : 131}
-      height={isMobile ? 64 : 127}
-      right={isMobile ? 20 : 40}
-      top={isMobile ? 20 : 48}
-      rotation={-30}
-    />
+    {!isMobile
+      ? <>
+        <BackgroundSnowflake
+          width={131}
+          height={127}
+          left={40}
+          top={48}
+          rotation={-30}
+        />
+        <BackgroundSnowflake
+          width={131}
+          height={127}
+          right={40}
+          top={48}
+          rotation={-30}
+        />
+      </>
+      : <>
+        <BackgroundSnowflake
+          width={69}
+          height={64}
+          left={20}
+          top={20}
+          rotation={-30}
+        />
+        <BackgroundSnowflake
+          width={69}
+          height={64}
+          right={20}
+          top={20}
+          rotation={-30}
+        />
+      </>
+    }
   </section>
 }
