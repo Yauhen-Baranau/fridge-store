@@ -24,27 +24,29 @@
     grid-template-columns: repeat(3, 303px);
     gap: 30px;
     margin-bottom: 24px;
+  }
 
-    .fridge-manufacturer {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 60px 0 30px 0;
-      border-radius: 8px;
-      transition-duration: var(--global-transition-duration);
+  // not nested inside .fridge-manufacturer-list
+  // because these styles are also required by the slider for mobile
+  .fridge-manufacturer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 0 30px 0;
+    border-radius: 8px;
+    transition-duration: var(--global-transition-duration);
 
-      &-name {
-        @include fonts.font(20px, 600, 140%);
-        margin: 50px 0 24px 0;
-      }
+    &-name {
+      @include fonts.font(20px, 600, 140%);
+      margin: 50px 0 24px 0;
+    }
 
-      &-button {
-        @include fonts.font(16px, 600, 140%);
-      }
+    &-button {
+      @include fonts.font(16px, 600, 140%);
+    }
 
-      &:hover {
-        box-shadow: 2px 2px 50px 0px #2020200F;
-      }
+    &:hover {
+      box-shadow: 2px 2px 50px 0px #2020200F;
     }
   }
 
@@ -62,6 +64,31 @@
       grid-template-columns: repeat(2, 335px);
       column-gap: 0;
       justify-content: space-around;
+    }
+  }
+
+  @include responsive.mobile-styles {
+
+    &-title {
+      font-size: 24px;
+    }
+    
+    .fridge-manufacturers-slider {
+      .fridge-manufacturer {
+        width: 300px;
+        height: 370px;
+        padding: 30px 20px;
+
+        &-name {
+          font-size: 16px;
+        }
+
+        &-button {
+          width: 90%;
+          height: 54px;
+          font-size: 14px;
+        }
+      }
     }
   }
 }
