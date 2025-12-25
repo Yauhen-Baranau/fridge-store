@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/image';
 import styles from './page.module.scss';
 import MainAdvantages from '@src/ui-kit/main-advantages/main-advantages';
@@ -6,7 +8,7 @@ import FridgeManufacturers from '@src/ui-kit/fridge-manufacturers/fridge-manufac
 import HowToOrderRepairs from '@src/ui-kit/how-to-order-repairs/how-to-order-repairs';
 import HowWeDiffer from '@src/ui-kit/how-we-differ/how-we-differ';
 
-export default async function AboutUsPage() {
+export default function AboutUsPage() {
   return <main className={styles['about-us']}>
     <section className={styles['description-block']}>
       <h1 className={styles.title}>О компании</h1>
