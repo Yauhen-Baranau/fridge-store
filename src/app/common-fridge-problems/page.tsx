@@ -1,10 +1,20 @@
+'use client';
+
 import Image from 'next/image';
 import styles from './page.module.scss';
 import CallMeBackForm from '@ui-kit/call-me-back-form/call-me-back-form';
 import List from '@ui-kit/list/list';
 import Accordion from '@ui-kit/accordion/accordion';
+import useResponsive from '@hooks/use-responsive';
+import { useDialog } from '@contexts/dialog-context';
+import Button from '@ui-kit/button/button';
+import DialogForm from '@ui-kit/dialog-form/dialog-form';
+import React from 'react';
 
-export default async function CommonFridgeProblemsPage() {
+export default function CommonFridgeProblemsPage() {
+  const { isMobile } = useResponsive();
+  const { showDialog } = useDialog();
+
   const problemsListItemFactory = ({
     title,
     items,
@@ -24,22 +34,33 @@ export default async function CommonFridgeProblemsPage() {
         contentWrapperCustomClass={styles['problem-category-content-wrapper']}
         content={<table>
           <tbody>
-            {items.map((item, index) => <tr key={index}>
-              <td>
+            {items.map((item, index) => {
+              const titleContent = <>
                 <p className={styles['problem-title']}>{item.title}</p>
                 {item.titleComment && <p className={styles['problem-title-comment']}>{item.titleComment}</p>}
-              </td>
-              <td>
+              </>;
+              const tellContent = <>
                 <span className={styles['problem-small-heading']}>Признак:</span>
                 <br /><br />
                 <span className={styles['problem-plaintext']}>{item.tell}</span>
-              </td>
-              <td>
+              </>;
+              const causeContent = <>
                 <span className={styles['problem-small-heading']}>Возможные причины:</span>
                 <br /><br />
                 <span className={styles['problem-plaintext']}>{item.cause}</span>
-              </td>
-            </tr>)}
+              </>;
+              return !isMobile
+                ? <tr key={index}>
+                  <td>{titleContent}</td>
+                  <td>{tellContent}</td>
+                  <td>{causeContent}</td>
+                </tr>
+                : <React.Fragment key={index}>
+                  <tr><td>{titleContent}</td></tr>
+                  <tr><td>{tellContent}</td></tr>
+                  <tr><td>{causeContent}</td></tr>
+                </React.Fragment>
+            })}
           </tbody>
         </table>}
       />
@@ -51,11 +72,21 @@ export default async function CommonFridgeProblemsPage() {
     <div className={styles['image-wrapper']}>
       <Image className={styles.image} src='/water-bottles.webp' fill alt='Бутылки с водой' />
     </div>
-    <CallMeBackForm
-      title='Не нашли решение своей проблемы?'
-      submitButtonText='Вызвать мастера'
-      customClass={styles['call-me-back-form']}
-    />
+    {!isMobile
+      ? <CallMeBackForm
+        title='Не нашли решение своей проблемы?'
+        submitButtonText='Вызвать мастера'
+        customClass={styles['call-me-back-form']}
+      />
+      : <div className={styles['call-me-back-block']}>
+        <span className={styles['call-me-back-text']}>Не нашли решение своей проблемы?</span>
+        <Button
+          customClass={styles['call-me-back-button']}
+          text='Вызвать мастера'
+          onClick={() => showDialog(<DialogForm type='i-have-a-question' />)}
+        />
+      </div>}
+
     <List customClass={styles['problems-list']} items={[
       {
         title: 'ПРОБЛЕМЫ С ОХЛАЖДЕНИЕМ',

@@ -135,4 +135,61 @@
       }
     }
   }
+
+  @include responsive.mobile-styles {
+    grid-template-areas:
+      "title"
+      "image"
+      "call-me-back"
+      "problems";
+    grid-template-columns: 1fr;
+    grid-template-rows: unset;
+    gap: 24px;
+    padding: 0 15px;
+
+    .title {
+      font-size: 24px;
+    }
+
+    .image-wrapper {
+      width: 100%;
+    }
+
+    .call-me-back-block {
+      grid-area: call-me-back;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+
+      .call-me-back-text {
+        @include fonts.font(16px, 400, 140%);
+      }
+
+      .call-me-back-button {
+        width: 80%;
+        height: 54px;
+        font-size: 14px;
+      }
+    }
+
+    .problems-list {
+      li {
+        .problem-category-content-wrapper {
+          table {
+            tr {
+              &:nth-child(2n-1) {
+                background-color: unset;
+              }
+
+              &:nth-child(6n+1),
+              &:nth-child(6n+2),
+              &:nth-child(6n+3) {
+                background-color: colors.$color-gray-light;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
