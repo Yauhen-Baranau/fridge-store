@@ -194,10 +194,106 @@
 
           .subcategory-service-list {
             .subcategory-service {
-
               &-label,
               &-price {
                 font-size: 16px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include responsive.mobile-styles {
+    grid-template-areas:
+      "description"
+      "prices";
+    grid-template-columns: 1fr;
+    gap: 72px;
+    padding: 0 15px;
+
+    .title {
+      font-size: 24px;
+    }
+
+    &-description {
+      .diagnostics-price {
+        padding: 16px;
+        margin: 24px 0;
+      }
+
+      .mobile-expand-description {
+        font-weight: 600;
+        color: colors.$color-main-blue;
+      }
+
+      .call-me-back-button {
+        width: 80%;
+        height: 54px;
+        margin-top: 24px;
+        font-size: 14px;
+      }
+    }
+
+    &-block {
+      padding: 56px 16px;
+
+      &-title {
+        margin-bottom: 24px;
+        font-size: 24px;
+      }
+
+      .with-parts {
+        padding: 16px 0;
+        font-size: 14px;
+        white-space: nowrap;
+      }
+
+      .accordion-list {
+        gap: 8px;
+
+        .subcategory-price-accordion-toggle-area {
+          &-label {
+            font-size: 14px;
+          }
+
+          button {
+            width: 40px;
+            height: 40px;
+            padding: 8px;
+          }
+        }
+
+        .subcategory-price-accordion-content-wrapper {
+          padding: 28px 16px;
+
+          .subcategory-service-list {
+            .subcategory-service {
+              display: grid;
+              grid-template-areas:
+                "label price"
+                "diagnostics-note-label diagnostics-note-free";
+
+              &-label {
+                grid-area: label;
+
+                &.diagnostics-note-label {
+                  grid-area: diagnostics-note-label;
+                  font-weight: 600;
+                  color: colors.$color-main-blue;
+                }
+              }
+
+              &-price {
+                grid-area: price;
+                justify-self: end;
+
+                &.diagnostics-note-free {
+                  grid-area: diagnostics-note-free;
+                  font-weight: 600;
+                  color: colors.$color-main-blue;
+                }
               }
             }
           }

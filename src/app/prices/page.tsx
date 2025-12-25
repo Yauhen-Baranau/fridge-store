@@ -3,14 +3,24 @@
 import styles from './page.module.scss';
 import CallMeBackForm from '@src/ui-kit/call-me-back-form/call-me-back-form';
 import Accordion from '@src/ui-kit/accordion/accordion';
-import { useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import Image from 'next/image';
 import BackgroundSnowflake from '@src/ui-kit/background-snowflake/background-snowflake';
 import { Subcategory, useCategoryData } from '@contexts/category-data-context';
 import List from '@ui-kit/list/list';
+import useResponsive from '@hooks/use-responsive';
+import Button from '@ui-kit/button/button';
+import DialogForm from '@ui-kit/dialog-form/dialog-form';
+import { useDialog } from '@contexts/dialog-context';
+import composeClassName from '@helpers/compose-class-name';
 
 export default function PricesPage() {
-  const { getAllSubcategories, getSubcategoryServices, getDiagnosticsService } = useCategoryData();
+  const { isMobile } = useResponsive();
+  const { showDialog } = useDialog();
+  const [descriptionExpanded, setDescriptionExpanded] = useState(false);
+  useEffect(() => setDescriptionExpanded(!isMobile), [isMobile]);
+
+  const { getAllSubcategories, getSubcategoryServices, getDiagnosticsService, getDiagnosticsServiceId } = useCategoryData();
   const diagnosticsPrice = useMemo(() => getDiagnosticsService()?.price ?? 0, [getDiagnosticsService]);
   const getSubcategoryAccordion = (subcategory: Subcategory) => {
     return <Accordion
@@ -18,14 +28,18 @@ export default function PricesPage() {
       toggleAreaContent={<h3 className={styles['subcategory-price-accordion-toggle-area-label']}>{subcategory.label}</h3>}
       contentWrapperCustomClass={styles['subcategory-price-accordion-content-wrapper']}
       content={<>
-        <Image className={styles['subcategory-image']} src={subcategory.imagePath} width={246} height={160} alt='Изображение подкатегории услуг' />
+        {!isMobile && <Image className={styles['subcategory-image']} src={subcategory.imagePath} width={246} height={160} alt='Изображение подкатегории услуг' />}
         <div className={styles['subcategory-service-list']}>
           {getSubcategoryServices(subcategory.id)?.map(service => <div key={service.id} className={styles['subcategory-service']}>
             <span className={styles['subcategory-service-label']}>{service.label}</span>
             <span className={styles['subcategory-service-price']}>от {service.price} руб.</span>
+            {service.id === getDiagnosticsServiceId() && <>
+              <span className={composeClassName(styles['subcategory-service-label'], styles['diagnostics-note-label'])}>При выполнении ремонта</span>
+              <span className={composeClassName(styles['subcategory-service-price'], styles['diagnostics-note-free'])}>Бесплатно</span>
+            </>}
           </div>)}
         </div>
-        <BackgroundSnowflake width={247} height={239} left={67} bottom={84} rotation={-30} color='light-gray' />
+        {!isMobile && <BackgroundSnowflake width={247} height={239} left={67} bottom={84} rotation={-30} color='light-gray' />}
       </>}
     />
   };
@@ -43,9 +57,18 @@ export default function PricesPage() {
           <span className={styles.free}>Бесплатно</span>
         </p>
       </div>}
-      <p className={styles['prices-description-text']}>Реле в холодильнике - это пускозащитный механизм, который приводит в действие мотор-компрессор, когда на элемент поступает сигнал от термостата, и прекращает его работу в момент нагрева двигателя. Если деталь неисправна, потребуется ее восстановление или замена. Реле в холодильнике - это пускозащитный механизм, который приводит в действие мотор-компрессор, когда на элемент поступает сигнал от термостата, и прекращает его работу в момент нагрева двигателя. Если деталь неисправна, потребуется ее восстановление или замена. </p>
+      <p className={styles['prices-description-text']}>
+        Реле в холодильнике - это пускозащитный механизм, который приводит в действие мотор-компрессор, когда на элемент поступает сигнал от термостата, и прекращает его работу в момент нагрева двигателя. Если деталь неисправна, потребуется ее восстановление или замена.
+        {isMobile && !descriptionExpanded && <span className={styles['mobile-expand-description']} onClick={() => setDescriptionExpanded(true)}> Подробнее</span>}
+        {!isMobile || descriptionExpanded && <span> Реле в холодильнике - это пускозащитный механизм, который приводит в действие мотор-компрессор, когда на элемент поступает сигнал от термостата, и прекращает его работу в момент нагрева двигателя. Если деталь неисправна, потребуется ее восстановление или замена.</span>}
+      </p>
+      {isMobile && <Button
+        customClass={styles['call-me-back-button']}
+        text='Получить консультацию'
+        onClick={() => showDialog(<DialogForm />)}
+      />}
     </div>
-    <CallMeBackForm customClass={styles['call-me-back-form']} />
+    {!isMobile && <CallMeBackForm customClass={styles['call-me-back-form']} />}
     <div className={styles['prices-block']}>
       <h2 className={styles['prices-block-title']}>Цены</h2>
       <div className={styles['with-parts']}>Цены указаны с учетом новых запчастей</div>
@@ -53,8 +76,15 @@ export default function PricesPage() {
         customClass={styles['accordion-list']}
         items={getAllSubcategories().map(subcategory => ({ content: getSubcategoryAccordion(subcategory) }))}
       />
-      <BackgroundSnowflake width={247} height={239} left={81} top={30} rotation={-30} color='main-white' />
-      <BackgroundSnowflake width={247} height={239} right={46} top={30} rotation={-30} color='main-white' />
+      {!isMobile
+        ? <>
+          <BackgroundSnowflake width={247} height={239} left={81} top={30} rotation={-30} color='main-white' />
+          <BackgroundSnowflake width={247} height={239} right={46} top={30} rotation={-30} color='main-white' />
+        </>
+        : <>
+          
+        </>
+      }
     </div>
   </main>
 }

@@ -38,6 +38,7 @@ interface CategoryDataContextProps {
   getRelatedServices: (serviceId: string) => Array<Service> | null,
   getSubcategoryStartingPrice: (subcategoryId: string) => number | null,
   getDiagnosticsService: () => Service | null,
+  getDiagnosticsServiceId: () => string,
 }
 
 const CategoryDataContext = createContext<CategoryDataContextProps>({
@@ -52,6 +53,7 @@ const CategoryDataContext = createContext<CategoryDataContextProps>({
   getRelatedServices: () => null,
   getSubcategoryStartingPrice: () => null,
   getDiagnosticsService: () => null,
+  getDiagnosticsServiceId: () => '',
 });
 
 export const CategoryDataContextProvider = ({
@@ -101,6 +103,7 @@ export const CategoryDataContextProvider = ({
       return Math.min(...subcategoryServices.map(service => service.price));
     },
     getDiagnosticsService: () => getServiceById(diagnosticsServiceId),
+    getDiagnosticsServiceId: () => diagnosticsServiceId,
   }}>
     {children}
   </CategoryDataContext.Provider>
