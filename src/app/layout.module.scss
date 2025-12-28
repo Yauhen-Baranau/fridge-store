@@ -37,6 +37,10 @@
   @include responsive.mobile-styles {
     padding: 0;
 
+    .breadcrumbs {
+      margin: 15px 15px 40px 15px;
+    }
+
     .call-me-back {
       margin-top: 72px;
     }
