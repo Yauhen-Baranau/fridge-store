@@ -77,4 +77,24 @@
       width: 40%;
     }
   }
+
+  @include responsive.mobile-styles {
+    flex-direction: column;
+    padding: 0 15px;
+
+    .text {
+      width: 100%;
+      
+      .title {
+        font-size: 24px;
+      }
+    }
+
+    .call-me-back-button {
+      width: 80%;
+      height: 54px;
+      margin-top: 24px;
+      font-size: 14px;
+    }
+  }
 }

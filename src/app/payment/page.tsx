@@ -5,8 +5,15 @@ import styles from './page.module.scss';
 import List from '@ui-kit/list/list';
 import Image from 'next/image';
 import BackgroundSnowflake from '@src/ui-kit/background-snowflake/background-snowflake';
+import useResponsive from '@hooks/use-responsive';
+import Button from '@ui-kit/button/button';
+import { useDialog } from '@contexts/dialog-context';
+import DialogForm from '@ui-kit/dialog-form/dialog-form';
 
 export default function PaymentPage() {
+  const { isMobile } = useResponsive();
+  const { showDialog } = useDialog();
+
   const listItemContentFactory = ({ title, text, index }: { title: string, text: string, index: number }) => {
     return <>
       <div className={styles['list-item-upper-row']}>
@@ -42,8 +49,16 @@ export default function PaymentPage() {
         { title: 'Оформление по правилам', text: 'Сумма ремонта фиксируется при оформлении заявки, а расчёт происходит только по факту выполненных работ.' },
       ].map((params, index) => ({ content: listItemContentFactory({ ...params, index }) }))} />
     </div>
-    <CallMeBackForm customClass={styles['call-me-back-form']} />
-    <BackgroundSnowflake width={613} height={595} right={40} bottom={785} rotation={-30} color='light-blue' />
-    <BackgroundSnowflake width={341} height={331} right={40} bottom={785} rotation={-30} color='light-blue' />
+    {!isMobile
+      ? <CallMeBackForm customClass={styles['call-me-back-form']} />
+      : <Button
+        customClass={styles['call-me-back-button']}
+        text='Получить консультацию'
+        onClick={() => showDialog(<DialogForm />)}
+      />}
+    {!isMobile && <>
+      <BackgroundSnowflake width={613} height={595} right={40} bottom={785} rotation={-30} color='light-blue' />
+      <BackgroundSnowflake width={341} height={331} right={40} bottom={785} rotation={-30} color='light-blue' />
+    </>}
   </main>
 }
