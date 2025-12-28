@@ -34,23 +34,32 @@
     }
   }
 
-  .difference {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    padding: 32px;
-    border-radius: 8px;
-    background-color: colors.$color-main-white;
+  .differences {
+    grid-area: differences;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 30px;
 
-    &-text {
-      @include fonts.font(20px, 600, 120%);
-      text-align: center;
+    .difference {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      padding: 32px;
+      border-radius: 8px;
+      background-color: colors.$color-main-white;
+
+      &-text {
+        @include fonts.font(20px, 600, 120%);
+        text-align: center;
+      }
     }
   }
 
   @include responsive.ipad-styles {
     padding: 56px 48px;
+
     .title {
       font-size: 30px;
     }
@@ -65,12 +74,45 @@
       }
     }
 
-    .difference {
-      padding: 32px 20px;
+    .differences {
+      .difference {
+        padding: 32px 20px;
 
-      &-text {
-        font-size: 16px;
+        &-text {
+          font-size: 16px;
+        }
       }
+    }
+  }
+
+  @include responsive.mobile-styles {
+    grid-template-areas:
+      "title"
+      "differences"
+      "image";
+    grid-template-columns: 1fr;
+    gap: 24px;
+    width: auto;
+    padding: 56px 48px;
+    margin: 0 15px;
+
+    .title {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .image-wrapper {
+      width: 100%;
+      height: 100vw;
+
+      .image {
+        object-position: top center;
+      }
+    }
+
+    .differences {
+      grid-template-columns: 1fr;
+      gap: 16px;
     }
   }
 }
