@@ -8,9 +8,10 @@ import Image from 'next/image';
 import { contactInfo } from '@src/constants/contact-info';
 import useResponsive from '@hooks/use-responsive';
 import { useMemo } from 'react';
+import BackgroundSnowflake from '@ui-kit/background-snowflake/background-snowflake';
 
 export default function ContactsPage() {
-  const { isDesktop } = useResponsive();
+  const { isDesktop, isMobile } = useResponsive();
   const mapImageDimensions = useMemo(() => {
     return isDesktop
       ? { width: 570, height: 283 }
@@ -73,6 +74,7 @@ export default function ContactsPage() {
           alt=""
         />
       </Link>
+      {isMobile && <BackgroundSnowflake width={105} height={101} right={40} top={30} rotation={-30} />}
     </div>
     <CallMeBackForm />
   </main>
