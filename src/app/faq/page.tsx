@@ -1,17 +1,24 @@
+'use client';
+
 import List from '@ui-kit/list/list';
 import styles from './page.module.scss';
 import Image from 'next/image';
 import BackgroundSnowflake from '@src/ui-kit/background-snowflake/background-snowflake';
+import useResponsive from '@hooks/use-responsive';
 
 export default function FaqPage() {
+  const { isMobile } = useResponsive();
+
   const faqListItemFactory = ({ question, answer }: { question: string, answer: string }) => {
-    return { content: <details className={styles['faq-list-item']}>
-      <summary className={styles['faq-list-item-question']}>
-        {question}
-        <Image className={styles['plus-icon']} src='/icons/plus.svg' width={24} height={24} alt='Плюс' />
-      </summary>
-      <p className={styles['faq-list-item-answer']}>{answer}</p>
-    </details> }
+    return {
+      content: <details className={styles['faq-list-item']}>
+        <summary className={styles['faq-list-item-question']}>
+          {question}
+          <Image className={styles['plus-icon']} src='/icons/plus.svg' width={24} height={24} alt='Плюс' />
+        </summary>
+        <p className={styles['faq-list-item-answer']}>{answer}</p>
+      </details>
+    }
   };
 
   return <main className={styles.faq}>
@@ -29,7 +36,14 @@ export default function FaqPage() {
       { question: 'Как быстро можно записаться на ремонт?', answer: 'text' },
       { question: 'Есть ли у вас скидки на услуги?', answer: 'text' },
     ].map(faqListItemFactory)} />
-    <BackgroundSnowflake width={173} height={168} left={41} top={57} rotation={-30} />
-    <BackgroundSnowflake width={173} height={168} right={41} top={57} rotation={-30} />
+    {!isMobile
+      ? <>
+        <BackgroundSnowflake width={173} height={168} left={41} top={57} rotation={-30} />
+        <BackgroundSnowflake width={173} height={168} right={41} top={57} rotation={-30} />
+      </>
+      : <>
+        <BackgroundSnowflake width={69} height={64} left={20} bottom={20} rotation={-30} />
+        <BackgroundSnowflake width={69} height={64} right={20} bottom={20} rotation={-30} />
+      </>}
   </main>
 }
