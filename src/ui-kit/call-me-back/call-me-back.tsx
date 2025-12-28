@@ -9,9 +9,11 @@ import BackgroundSnowflake from '../background-snowflake/background-snowflake';
 import { Validators } from '../form/validators';
 import { useDialog } from '@contexts/dialog-context';
 import WeWillCallYouBack from '@ui-kit/we-will-call-you-back/we-will-call-you-back';
+import useResponsive from '@hooks/use-responsive';
 
 export default function CallMeBack({ customClass }: { customClass?: string }) {
   const { showDialog } = useDialog();
+  const { isMobile } = useResponsive();
 
   return <section className={composeClassName(styles['call-me-back'], customClass)}>
     <div className={styles['call-me-back-left-block']}>
@@ -70,7 +72,14 @@ export default function CallMeBack({ customClass }: { customClass?: string }) {
         showDialog(<WeWillCallYouBack />)
       }}
     />
-    <BackgroundSnowflake width={118} height={114} left={22} top={20} rotation={-30} opacity={0.15} />
-    <BackgroundSnowflake width={118} height={114} left={22} bottom={23} rotation={-30} opacity={0.15} />
+    {!isMobile
+      ? <>
+        <BackgroundSnowflake width={118} height={114} left={22} top={20} rotation={-30} opacity={0.15} />
+        <BackgroundSnowflake width={118} height={114} left={22} bottom={23} rotation={-30} opacity={0.15} />
+      </>
+      : <>
+        <BackgroundSnowflake width={58} height={57} left={22} top={20} rotation={-30} opacity={0.15} />
+        <BackgroundSnowflake width={58} height={57} right={22} top={20} rotation={-30} opacity={0.15} />
+      </>}
   </section>
 }
