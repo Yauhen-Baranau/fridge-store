@@ -81,8 +81,15 @@
 
   @include responsive.mobile-styles {
     &-content-wrapper {
+      gap: 0;
       max-width: unset;
       max-height: unset;
+      width: calc(100vw - 30px);
+      height: fit-content;
+
+      .dialog-content {
+        padding: 0 40px 40px 40px;
+      }
     }
   }
 }
