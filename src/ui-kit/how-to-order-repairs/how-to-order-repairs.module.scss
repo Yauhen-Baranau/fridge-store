@@ -63,13 +63,18 @@
     }
 
     .steps {
-      flex-direction: column;
+      display: grid;
+      grid-template-areas:
+        "first second"
+        "third third";
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
       gap: 16px;
 
       .step {
-        flex-direction: row;
+        flex-direction: column;
         width: 100%;
-        height: auto;
+        height: 100%;
 
         &-title {
           flex-shrink: 0;
@@ -84,7 +89,22 @@
 
         &-description {
           font-size: 14px;
-          text-align: left;
+          text-align: center;
+        }
+
+        &:nth-of-type(1) {
+          grid-area: first;
+        }
+
+        &:nth-of-type(2) {
+          grid-area: second;
+        }
+
+        &:nth-of-type(3) {
+          grid-area: third;
+          grid-column: span 2;
+          width: 50%;
+          justify-self: center;
         }
       }
     }
@@ -104,10 +124,13 @@
     }
 
     .steps {
+      display: flex;
+      flex-direction: column;
       gap: 14px;
 
       .step {
         flex-direction: column;
+        width: 100% !important;
 
         &-description {
           text-align: center;

@@ -6,7 +6,7 @@ import BackgroundSnowflake from '../background-snowflake/background-snowflake';
 import useResponsive from '@hooks/use-responsive';
 
 export default function HowToOrderRepairs({ customClass }: { customClass?: string }) {
-  const { isMobile } = useResponsive();
+  const { isIpad, isMobile } = useResponsive();
 
   const stepFactory = ({
     stepNumber,
@@ -32,7 +32,7 @@ export default function HowToOrderRepairs({ customClass }: { customClass?: strin
         </div>
         <p className={styles['step-description']}>{description}</p>
       </div>
-      {hasRightArrow && <Image className={styles['arrow-right-icon']} src='/icons/arrow-right.svg' width={44} height={44} alt='Стрелка вправо' />}
+      {!isIpad && hasRightArrow && <Image className={styles['arrow-right-icon']} src='/icons/arrow-right.svg' width={44} height={44} alt='Стрелка вправо' />}
     </>
   };
 
