@@ -7,8 +7,11 @@ import ImagePreview from '@ui-kit/image-preview/image-preview';
 import Stars from '@ui-kit/stars/stars';
 import getTimelapseText from '@helpers/get-timelapse-text';
 import BackgroundSnowflake from '@ui-kit/background-snowflake/background-snowflake';
+import useResponsive from '@hooks/use-responsive';
 
 export default function ReviewsPage() {
+  const { isMobile } = useResponsive();
+
   const reviewListItemFactory = ({
     reviewerName,
     rating,
@@ -31,8 +34,8 @@ export default function ReviewsPage() {
           {images.map(({ path, width, height }, index) => <ImagePreview
             key={index}
             path={path}
-            previewWidth={140}
-            previewHeight={140}
+            previewWidth={isMobile ? 70 : 140}
+            previewHeight={isMobile ? 70 : 140}
             fullWidth={width}
             fullHeight={height}
           />)}
@@ -82,7 +85,9 @@ export default function ReviewsPage() {
         reviewTimestamp: 1668546000000,
       },
     ].map(reviewListItemFactory)} />
-    <BackgroundSnowflake width={613} height={595} right={43} top={909} rotation={-30} color='light-blue' />
-    <BackgroundSnowflake width={341} height={331} right={43} top={909} rotation={-30} color='light-blue' />
+    {!isMobile && <>
+      <BackgroundSnowflake width={613} height={595} right={43} top={909} rotation={-30} color='light-blue' />
+      <BackgroundSnowflake width={341} height={331} right={43} top={909} rotation={-30} color='light-blue' />
+    </>}
   </main>
 }

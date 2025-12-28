@@ -94,4 +94,30 @@
       }
     }
   }
+
+  @include responsive.mobile-styles {
+    grid-template-areas: 
+      "title"
+      "write-review-button"
+      "reviews"
+      "view-all-reviews-button";
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 0 15px;
+
+    .reviews-list {
+      .review {
+        padding: 16px;
+
+        &-number-rating {
+          margin-bottom: 16px;
+          font-size: 14px;
+        }
+
+        &-images {
+          gap: 8px;
+        }
+      }
+    }
+  }
 }
