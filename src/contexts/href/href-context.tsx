@@ -3,6 +3,7 @@
 import { createContext, useContext, useMemo } from "react";
 import { useCategoryData } from "../category-data/category-data-context";
 import { HrefContextProps } from "./href-context-props";
+import { idToCategoryRouteMap, idToServiceRouteMap, idToSubcategoryRouteMap } from "@constants/route-id-maps";
 
 const HrefContext = createContext<HrefContextProps>({
   getPageHref: () => '',
@@ -29,14 +30,14 @@ export const HrefContextProvider = ({
   }
 
   const getPageHref = (route: string) => `/${route}`;
-  const getCategoryHref = (id: string) => getPageHref(id);
+  const getCategoryHref = (id: string) => getPageHref(idToCategoryRouteMap.get(id) ?? '');
   const getSubcategoryHref = (id: string) => {
     const subcategory = findEntryById(id, subcategories);
-    return `${getCategoryHref(subcategory?.parentCategoryId ?? '')}/${id}`;
+    return `${getCategoryHref(subcategory?.parentCategoryId ?? '')}/${idToSubcategoryRouteMap.get(id) ?? ''}`;
   };
   const getServiceHref = (id: string) => {
     const service = findEntryById(id, services);
-    return `${getSubcategoryHref(service?.parentCategoryId ?? '')}/${id}`;
+    return `${getSubcategoryHref(service?.parentCategoryId ?? '')}/${idToServiceRouteMap.get(id) ?? ''}`;
   }
 
   return <HrefContext.Provider value={{
