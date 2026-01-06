@@ -10,41 +10,11 @@ import { Routes } from '@constants/routes';
 import { useHrefHelper } from '@contexts/href/href-context';
 import useResponsive from '@hooks/use-responsive';
 import React, { useMemo } from 'react';
-import Accordion from '@ui-kit/accordion/accordion';
+import { footerSectionFactory } from './helpers/footer-section-factory';
 
 export default function Footer() {
   const { getPageHref, getCategoryHref } = useHrefHelper();
   const { isMobile } = useResponsive();
-
-  const footerSectionFactory = ({
-    title,
-    content,
-    footerContent,
-    isContacts = false,
-  }: {
-    title: string,
-    content: React.ReactNode,
-    footerContent: React.ReactNode,
-    isContacts?: boolean,
-  }) => {
-    const titleJsx = <h3 className={styles['footer-column-title']}>{title}</h3>;
-    const contentJsx = <div className={styles['footer-column-content']}>{content}</div>;
-    const footerContentJsx = <div className={styles['footer-column-footer']}>{footerContent}</div>;
-
-    return (!isMobile || isContacts)
-      ? <div className={styles['footer-column']}>
-        {titleJsx}
-        {contentJsx}
-        {footerContentJsx}
-      </div>
-      : <Accordion
-        toggleAreaContent={titleJsx}
-        content={<>{contentJsx}{footerContentJsx}</>}
-        toggleAreaCustomClass={styles['footer-accordion-toggle-area']}
-        contentWrapperCustomClass={styles['footer-accordion-content-wrapper']}
-        buttonStyle='chevron'
-      />;
-  };
 
   const privacyPolicyLink = useMemo(() => <Link href='https://google.com'>Политика конфиденциальности</Link>, []);
   const designedByLink = useMemo(() => <Link className={styles['designed-by-link']} href='https://www.instagram.com/kutsenko_olga1990?igsh=ZDlsY3JoNG0zeTh1'>Design by Volha Kutsenka</Link>, []);
@@ -132,7 +102,7 @@ export default function Footer() {
         </>,
         isContacts: true,
       }
-    ].map((params, index) => <React.Fragment key={index}>{footerSectionFactory(params)}</React.Fragment>)}
+    ].map((params, index) => <React.Fragment key={index}>{footerSectionFactory({ ...params, isMobile, styles })}</React.Fragment>)}
     {isMobile && <div className={styles['mobile-footer-lower-block']}>
       <p>&copy; Copyright</p>
       {designedByLink}

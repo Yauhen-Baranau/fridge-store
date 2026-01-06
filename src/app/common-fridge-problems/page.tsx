@@ -4,68 +4,15 @@ import Image from 'next/image';
 import styles from './page.module.scss';
 import CallMeBackForm from '@ui-kit/call-me-back-form/call-me-back-form';
 import List from '@ui-kit/list/list';
-import Accordion from '@ui-kit/accordion/accordion';
 import useResponsive from '@hooks/use-responsive';
 import { useDialog } from '@contexts/dialog/dialog-context';
 import Button from '@ui-kit/button/button';
 import DialogForm from '@ui-kit/dialog-form/dialog-form';
-import React from 'react';
+import { problemsListItemFactory } from './helpers/problems-list-item-factory';
 
 export default function CommonFridgeProblemsPage() {
   const { isMobile } = useResponsive();
   const { showDialog } = useDialog();
-
-  const problemsListItemFactory = ({
-    title,
-    items,
-  }: {
-    title: string,
-    items: Array<{
-      title: string,
-      titleComment?: string,
-      tell: string,
-      cause: string
-    }>,
-  }) => {
-    return {
-      content: <Accordion
-        toggleAreaCustomClass={styles['problem-category-toggle-area']}
-        toggleAreaContent={<span className={styles['problem-category-title']}>{title}</span>}
-        contentWrapperCustomClass={styles['problem-category-content-wrapper']}
-        content={<table>
-          <tbody>
-            {items.map((item, index) => {
-              const titleContent = <>
-                <p className={styles['problem-title']}>{item.title}</p>
-                {item.titleComment && <p className={styles['problem-title-comment']}>{item.titleComment}</p>}
-              </>;
-              const tellContent = <>
-                <span className={styles['problem-small-heading']}>Признак:</span>
-                <br /><br />
-                <span className={styles['problem-plaintext']}>{item.tell}</span>
-              </>;
-              const causeContent = <>
-                <span className={styles['problem-small-heading']}>Возможные причины:</span>
-                <br /><br />
-                <span className={styles['problem-plaintext']}>{item.cause}</span>
-              </>;
-              return !isMobile
-                ? <tr key={index}>
-                  <td>{titleContent}</td>
-                  <td>{tellContent}</td>
-                  <td>{causeContent}</td>
-                </tr>
-                : <React.Fragment key={index}>
-                  <tr><td>{titleContent}</td></tr>
-                  <tr><td>{tellContent}</td></tr>
-                  <tr><td>{causeContent}</td></tr>
-                </React.Fragment>
-            })}
-          </tbody>
-        </table>}
-      />
-    }
-  };
 
   return <main className={styles['common-fridge-problems']}>
     <h1 className={styles.title}>Частые проблемы с&nbsp;холодильником</h1>
@@ -149,6 +96,6 @@ export default function CommonFridgeProblemsPage() {
         title: 'ПРОБЛЕМЫ С КОМПЛЕКТУЮЩИМИ',
         items: [],
       },
-    ].map(problemsListItemFactory)} />
+    ].map(params => problemsListItemFactory({ ...params, isMobile, styles }))} />
   </main>
 }

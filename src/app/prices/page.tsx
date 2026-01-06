@@ -2,9 +2,7 @@
 
 import styles from './page.module.scss';
 import CallMeBackForm from '@src/ui-kit/call-me-back-form/call-me-back-form';
-import Accordion from '@src/ui-kit/accordion/accordion';
 import { useEffect, useMemo, useState } from 'react';
-import Image from 'next/image';
 import BackgroundSnowflake from '@src/ui-kit/background-snowflake/background-snowflake';
 import { useCategoryData } from '@contexts/category-data/category-data-context';
 import List from '@ui-kit/list/list';
@@ -12,8 +10,7 @@ import useResponsive from '@hooks/use-responsive';
 import Button from '@ui-kit/button/button';
 import DialogForm from '@ui-kit/dialog-form/dialog-form';
 import { useDialog } from '@contexts/dialog/dialog-context';
-import composeClassName from '@helpers/compose-class-name';
-import { Subcategory } from '@contexts/category-data/interfaces';
+import { getSubcategoryAccordion } from './helpers/get-subcategory-accordion';
 
 export default function PricesPage() {
   const { isMobile } = useResponsive();
@@ -23,27 +20,6 @@ export default function PricesPage() {
 
   const { getAllSubcategories, getSubcategoryServices, getDiagnosticsService, getDiagnosticsServiceId } = useCategoryData();
   const diagnosticsPrice = useMemo(() => getDiagnosticsService()?.price ?? 0, [getDiagnosticsService]);
-  const getSubcategoryAccordion = (subcategory: Subcategory) => {
-    return <Accordion
-      toggleAreaCustomClass={styles['subcategory-price-accordion-toggle-area']}
-      toggleAreaContent={<h3 className={styles['subcategory-price-accordion-toggle-area-label']}>{subcategory.label}</h3>}
-      contentWrapperCustomClass={styles['subcategory-price-accordion-content-wrapper']}
-      content={<>
-        {!isMobile && <Image className={styles['subcategory-image']} src={subcategory.imagePath} width={246} height={160} alt='Изображение подкатегории услуг' />}
-        <div className={styles['subcategory-service-list']}>
-          {getSubcategoryServices(subcategory.id)?.map(service => <div key={service.id} className={styles['subcategory-service']}>
-            <span className={styles['subcategory-service-label']}>{service.label}</span>
-            <span className={styles['subcategory-service-price']}>от {service.price} руб.</span>
-            {service.id === getDiagnosticsServiceId() && <>
-              <span className={composeClassName(styles['subcategory-service-label'], styles['diagnostics-note-label'])}>При выполнении ремонта</span>
-              <span className={composeClassName(styles['subcategory-service-price'], styles['diagnostics-note-free'])}>Бесплатно</span>
-            </>}
-          </div>)}
-        </div>
-        {!isMobile && <BackgroundSnowflake width={247} height={239} left={67} bottom={84} rotation={-30} color='light-gray' />}
-      </>}
-    />
-  };
 
   return <main className={styles.prices}>
     <div className={styles['prices-description']}>
@@ -75,17 +51,18 @@ export default function PricesPage() {
       <div className={styles['with-parts']}>Цены указаны с учетом новых запчастей</div>
       <List
         customClass={styles['accordion-list']}
-        items={getAllSubcategories().map(subcategory => ({ content: getSubcategoryAccordion(subcategory) }))}
+        items={getAllSubcategories().map(subcategory => ({ content: getSubcategoryAccordion({
+          subcategory,
+          subcategoryServices: getSubcategoryServices(subcategory.id),
+          diagnosticsServiceId: getDiagnosticsServiceId(),
+          isMobile,
+          styles,
+        }) }))}
       />
-      {!isMobile
-        ? <>
-          <BackgroundSnowflake width={247} height={239} left={81} top={30} rotation={-30} color='main-white' />
-          <BackgroundSnowflake width={247} height={239} right={46} top={30} rotation={-30} color='main-white' />
-        </>
-        : <>
-          
-        </>
-      }
+      {!isMobile && <>
+        <BackgroundSnowflake width={247} height={239} left={81} top={30} rotation={-30} color='main-white' />
+        <BackgroundSnowflake width={247} height={239} right={46} top={30} rotation={-30} color='main-white' />
+      </>}
     </div>
   </main>
 }

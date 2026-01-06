@@ -1,12 +1,12 @@
 'use client';
 
 import Image from 'next/image';
-import Form, { FormFieldConfig } from '../form/form';
+import Form from '../form/form';
 import styles from './dialog-form.module.scss';
-import { Validators } from '../form/validators';
 import { useDialog } from '@contexts/dialog/dialog-context';
 import WeWillCallYouBack from '@ui-kit/we-will-call-you-back/we-will-call-you-back';
 import useResponsive from '@hooks/use-responsive';
+import { getFieldConfigs } from './helpers/get-field-configs';
 
 export default function DialogForm({
   type = 'call-me-back'
@@ -15,49 +15,6 @@ export default function DialogForm({
 }) {
   const { setDialogContent } = useDialog();
   const { isMobile } = useResponsive();
-
-  const getFieldConfigs = (type: string) => {
-    const fieldConfigs: Array<FormFieldConfig> = [
-      {
-        type: 'text',
-        name: 'name',
-        placeholder: 'Имя',
-        validators: [Validators.required, Validators.minLength(3), Validators.pattern(/^[а-яА-Я]+$/)]
-      },
-    ];
-
-    switch (type) {
-      case 'call-me-back':
-        fieldConfigs.push({
-          type: 'tel',
-          name: 'phone',
-          placeholder: 'Телефон',
-          validators: [Validators.required, Validators.pattern(/^\+375\s?\(?\d{2,4}\)?\s?\d{3}\-?\d{2}\-?\d{2}$/)],
-        });
-        break;
-      case 'i-have-a-question':
-        fieldConfigs.push(
-          {
-            type: 'email',
-            name: 'email',
-            placeholder: 'E-mail',
-            validators: [Validators.required, Validators.pattern(/^\w+([\.\-]\w+)*@[a-zA-Z]+.[a-zA-Z]{2,3}$/)],
-          },
-          {
-            type: 'textarea',
-            name: 'question',
-            defaultValue: '',
-            placeholder: 'Ваш вопрос',
-            validators: [Validators.maxLength(500)],
-          },
-        );
-        break;
-      default:
-        break;
-    }
-
-    return fieldConfigs;
-  }
 
   return <div className={styles.wrapper}>
     <h1 className={styles.title}>Закажите бесплатный звонок сейчас</h1>

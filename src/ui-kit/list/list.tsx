@@ -5,18 +5,7 @@ import Accordion from '@ui-kit/accordion/accordion';
 import PopupWrapper from '@ui-kit/popup/popup';
 import composeClassName from '@src/helpers/compose-class-name';
 import Image from 'next/image';
-
-export interface ListItem {
-  content: string | React.ReactNode;
-  icon?: {
-    path: string,
-    width: number,
-    height: number,
-    position?: 'before' | 'after',
-  },
-  redirectTo?: string;
-  subItems?: Array<ListItem>;
-}
+import { ListItem } from './list-item-interface';
 
 export default function List({
   items,

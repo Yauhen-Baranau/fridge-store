@@ -9,20 +9,11 @@ import useResponsive from '@hooks/use-responsive';
 import Button from '@ui-kit/button/button';
 import { useDialog } from '@contexts/dialog/dialog-context';
 import DialogForm from '@ui-kit/dialog-form/dialog-form';
+import { listItemContentFactory } from './helpers/payment-page-list-item-content-factory';
 
 export default function PaymentPage() {
   const { isMobile } = useResponsive();
   const { showDialog } = useDialog();
-
-  const listItemContentFactory = ({ title, text, index }: { title: string, text: string, index: number }) => {
-    return <>
-      <div className={styles['list-item-upper-row']}>
-        <Image src={`/icons/number-${index + 1}.svg`} width={24} height={24} alt={`${index}`} />
-        <h3 className={styles['list-item-title']}>{title}</h3>
-      </div>
-      <p className={styles.plaintext}>{text}</p>
-    </>;
-  }
 
   return <main className={styles.payment}>
     <div className={styles.text}>
@@ -34,7 +25,7 @@ export default function PaymentPage() {
         { title: 'Банковские карты и мобильные сервисы', text: 'Мы принимаем к оплате карты Visa, Mastercard, Белкарт, а также Apple Pay и Samsung Pay. Расплатиться можно онлайн или при встрече — у мастера всегда с собой терминал.' },
         { title: 'Безналичная оплата для юрлиц', text: 'Для компаний мы предоставляем полный пакет документов и возможность оплаты по безналичному расчету. После подтверждения заказа вы получите счёт и все необходимые бумаги.' },
         { title: 'Платеж через ЕРИП', text: 'Оплата доступна через систему «Расчет» (ЕРИП) — вы можете оплатить услугу через интернет-банк, терминал или мобильное приложение. Подробная инструкция будет отправлена вам после оформления заявки.' },
-      ].map((params, index) => ({ content: listItemContentFactory({ ...params, index }) }))} />
+      ].map((params, index) => ({ content: listItemContentFactory({ ...params, index, styles }) }))} />
       <h2 className={styles.subtitle}>Гарантии и честная оплата</h2>
       <p className={styles.plaintext}>Мы оказываем услуги по ремонту холодильников официально и прозрачно. Стоимость работ фиксируется ещё на этапе оформления заявки, и после выполнения вы получаете кассовый чек или необходимые документы для бухгалтерии — если вы представляете организацию.</p>
       <br />
@@ -47,7 +38,7 @@ export default function PaymentPage() {
         { title: 'Гарантия на услуги', text: 'Если вдруг возникнут вопросы к качеству работ — мы обязательно всё доработаем или вернём часть суммы. Мы не бросаем клиентов после визита.' },
         { title: 'Работаем с частными лицами и организациями', text: 'Предоставляем все необходимые документы: чеки, счета, акты и договоры — всё официально и по закону.' },
         { title: 'Оформление по правилам', text: 'Сумма ремонта фиксируется при оформлении заявки, а расчёт происходит только по факту выполненных работ.' },
-      ].map((params, index) => ({ content: listItemContentFactory({ ...params, index }) }))} />
+      ].map((params, index) => ({ content: listItemContentFactory({ ...params, index, styles }) }))} />
     </div>
     {!isMobile
       ? <CallMeBackForm customClass={styles['call-me-back-form']} />

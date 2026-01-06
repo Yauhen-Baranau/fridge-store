@@ -5,23 +5,7 @@ import './form.scss';
 import { useRef, useState } from 'react';
 import Button from '../button/button';
 import useClickOutsideListener from '@src/hooks/use-click-outside-listener';
-import { Validator } from './validators';
-
-export interface FormFieldConfig<T = string> {
-  type: 'text' | 'tel' | 'email' | 'textarea';
-  name: string,
-  defaultValue?: T,
-  placeholder?: string,
-  validators?: Array<Validator<T>>,
-}
-
-interface FormConfig {
-  fieldConfigs: Array<FormFieldConfig>;
-}
-
-interface FormValue {
-  [key: string]: unknown;
-}
+import { FormConfig, FormFieldConfig, FormValue } from './interfaces';
 
 export default function Form({
   config,

@@ -1,40 +1,12 @@
 import composeClassName from '@src/helpers/compose-class-name';
 import styles from './how-to-order-repairs.module.scss';
-import Image from 'next/image';
 import React from 'react';
 import BackgroundSnowflake from '../background-snowflake/background-snowflake';
 import useResponsive from '@hooks/use-responsive';
+import { stepFactory } from './helpers/step-factory';
 
 export default function HowToOrderRepairs({ customClass }: { customClass?: string }) {
   const { isIpad, isMobile } = useResponsive();
-
-  const stepFactory = ({
-    stepNumber,
-    iconPath,
-    description,
-    hasRightArrow = true,
-  }: {
-    stepNumber: number,
-    iconPath: string,
-    description: string,
-    hasRightArrow?: boolean,
-  }) => {
-    return <>
-      <div className={styles.step}>
-        <h6 className={styles['step-title']}>{stepNumber} шаг</h6>
-        <div className={styles['step-icon-wrapper']}>
-          <Image
-            className={styles['step-icon']}
-            src={iconPath}
-            fill
-            alt='Иконка'
-          />
-        </div>
-        <p className={styles['step-description']}>{description}</p>
-      </div>
-      {!isIpad && hasRightArrow && <Image className={styles['arrow-right-icon']} src='/icons/arrow-right.svg' width={44} height={44} alt='Стрелка вправо' />}
-    </>
-  };
 
   return <section className={composeClassName(styles['how-to-order-repairs'], customClass)}>
     <h1 className={styles.title}>Как заказать ремонт?</h1>
@@ -46,7 +18,9 @@ export default function HowToOrderRepairs({ customClass }: { customClass?: strin
       ].map((params, index, arr) => <React.Fragment key={index}>{stepFactory({
         ...params,
         stepNumber: index + 1,
-        hasRightArrow: index < arr.length - 1
+        hasRightArrow: index < arr.length - 1,
+        isIpad,
+        styles,
       })}</React.Fragment>)}
     </div>
     {!isMobile

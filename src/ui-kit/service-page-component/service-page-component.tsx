@@ -10,16 +10,7 @@ import Button from '@ui-kit/button/button';
 import { useDialog } from '@contexts/dialog/dialog-context';
 import DialogForm from '@ui-kit/dialog-form/dialog-form';
 import useResponsive from '@hooks/use-responsive';
-
-interface Service {
-  label: string,
-  description: Array<
-    { type: 'paragraph', content: string }
-    | { type: 'list', title: string, items: Array<string> }
-  >,
-  imagePath: string,
-  price?: number,
-}
+import { Service } from './service-interface';
 
 export default function ServicePageComponent({
   service,

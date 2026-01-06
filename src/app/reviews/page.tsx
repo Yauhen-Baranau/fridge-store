@@ -3,47 +3,12 @@
 import Button from '@ui-kit/button/button';
 import styles from './page.module.scss';
 import List from '@ui-kit/list/list';
-import ImagePreview from '@ui-kit/image-preview/image-preview';
-import Stars from '@ui-kit/stars/stars';
-import getTimelapseText from '@helpers/get-timelapse-text';
 import BackgroundSnowflake from '@ui-kit/background-snowflake/background-snowflake';
 import useResponsive from '@hooks/use-responsive';
+import { reviewListItemFactory } from './helpers/review-list-item-factory';
 
 export default function ReviewsPage() {
   const { isMobile } = useResponsive();
-
-  const reviewListItemFactory = ({
-    reviewerName,
-    rating,
-    comment,
-    images = [],
-    reviewTimestamp = 0,
-  }: {
-    reviewerName: string,
-    rating: number,
-    comment: string,
-    images?: Array<{ path: string, width: number, height: number }>,
-    reviewTimestamp?: number,
-  }) => {
-    return {
-      content: <div className={styles.review}>
-        <h3 className={styles['reviewer-name']}>{reviewerName}</h3>
-        <Stars customClass={styles['review-stars']} stars={rating} />&nbsp;&nbsp;<span className={styles['review-number-rating']}>{Math.round(rating)},0</span>
-        <p className={styles['review-comment']}>{comment}</p>
-        <div className={styles['review-images']}>
-          {images.map(({ path, width, height }, index) => <ImagePreview
-            key={index}
-            path={path}
-            previewWidth={isMobile ? 70 : 140}
-            previewHeight={isMobile ? 70 : 140}
-            fullWidth={width}
-            fullHeight={height}
-          />)}
-        </div>
-        <span className={styles['review-timestamp']}>{getTimelapseText(new Date(reviewTimestamp))}</span>
-      </div>
-    }
-  };
 
   return <main className={styles.reviews}>
     <h1 className={styles.title}>Отзывы</h1>
@@ -84,7 +49,7 @@ export default function ReviewsPage() {
         ],
         reviewTimestamp: 1668546000000,
       },
-    ].map(reviewListItemFactory)} />
+    ].map(params => reviewListItemFactory({ ...params, isMobile, styles }))} />
     {!isMobile && <>
       <BackgroundSnowflake width={613} height={595} right={43} top={909} rotation={-30} color='light-blue' />
       <BackgroundSnowflake width={341} height={331} right={43} top={909} rotation={-30} color='light-blue' />
