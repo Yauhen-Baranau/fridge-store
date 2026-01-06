@@ -148,4 +148,8 @@ $main-black-color-filter: brightness(0) saturate(100%) invert(0%) sepia(3%) satu
       filter: var(--main-white-color-filter);
     }
   }
+
+  @include responsive.mobile-styles {
+    width: 100vw;
+  }
 }

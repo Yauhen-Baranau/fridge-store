@@ -133,7 +133,10 @@ export default function Header({ customClass }: { customClass?: string }) {
               withCloseButton: false,
               transparentBackdrop: true,
               withBackdropClose: true,
-              customPosition: { right: isMobile ? 0 : 20, top: 80 },
+              customPosition: {
+                top: 80,
+                right: isMobile ? 30 : 20,
+              },
               onClose: () => setNavigationDialogOpen(false),
             }
           );
