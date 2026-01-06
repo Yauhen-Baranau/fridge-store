@@ -1,4 +1,4 @@
 export interface Breadcrumb {
-  label: string,
-  redirectTo: string,
+  label: string;
+  redirectTo: string;
 }

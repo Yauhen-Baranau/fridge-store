@@ -1,13 +1,12 @@
-@use '../../styles/colors.scss';
-@use '../../styles/fonts.scss';
-@use '../../styles/responsive.scss';
+@use "../../styles/colors.scss";
+@use "../../styles/fonts.scss";
+@use "../../styles/responsive.scss";
 
 .frequent-fridge-problems {
   display: grid;
   grid-template-areas:
     "title title"
-    "left right"
-  ;
+    "left right";
   grid-template-columns: 470px 570px;
   gap: 56px 130px;
 
@@ -125,7 +124,7 @@
   }
 
   @include responsive.mobile-styles {
-    grid-template-areas: 
+    grid-template-areas:
       "title"
       "right"
       "left";
@@ -135,7 +134,7 @@
 
     .left-content {
       margin-top: 16px;
-      
+
       .image-container {
         width: 100%;
       }

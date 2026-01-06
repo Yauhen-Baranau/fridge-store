@@ -4,12 +4,12 @@ import { getIdByRoute } from "./helpers/get-id-by-route";
 import { Routes } from "@constants/routes";
 
 export default async function CategoryPage({
-  params
+  params,
 }: {
-  params: Promise<{ categoryRoute: Routes }>
+  params: Promise<{ categoryRoute: Routes }>;
 }) {
-  const categoryId = getIdByRoute((await params).categoryRoute) ?? '';
-  return <CategoryPageClientComponent categoryId={categoryId} />
+  const categoryId = getIdByRoute((await params).categoryRoute) ?? "";
+  return <CategoryPageClientComponent categoryId={categoryId} />;
 }
 
 export async function generateStaticParams() {

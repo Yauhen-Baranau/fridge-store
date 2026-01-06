@@ -1,14 +1,13 @@
-@use '../../styles/colors.scss';
-@use '../../styles/fonts.scss';
-@use '../../styles/responsive.scss';
+@use "../../styles/colors.scss";
+@use "../../styles/fonts.scss";
+@use "../../styles/responsive.scss";
 
 .how-we-differ {
   display: grid;
   grid-template-areas:
     "title title title"
     "image differences differences"
-    "image differences differences"
-  ;
+    "image differences differences";
   gap: 30px;
   padding: 100px;
   border-radius: 12px;

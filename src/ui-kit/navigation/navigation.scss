@@ -1,6 +1,6 @@
-@use '../../styles/fonts.scss';
-@use '../../styles/colors.scss';
-@use '../../styles/responsive.scss';
+@use "../../styles/fonts.scss";
+@use "../../styles/colors.scss";
+@use "../../styles/responsive.scss";
 
 $navbar-horizontal-padding: 15px;
 $navbar-item-horizontal-padding: 10px;
@@ -22,7 +22,7 @@ $navbar-item-horizontal-padding: 10px;
       transition-duration: var(--global-transition-duration);
     }
 
-    >.list-item {
+    > .list-item {
       height: 100%;
       display: flex;
       align-items: center;
@@ -37,7 +37,7 @@ $navbar-item-horizontal-padding: 10px;
         gap: 8px;
         text-transform: uppercase;
 
-        >.list-item-icon {
+        > .list-item-icon {
           position: relative;
           bottom: 1px;
         }
@@ -45,7 +45,7 @@ $navbar-item-horizontal-padding: 10px;
         &:hover {
           color: colors.$color-main-blue;
 
-          >.list-item-icon {
+          > .list-item-icon {
             filter: var(--main-blue-color-filter);
             transform: rotate(-180deg);
           }
@@ -68,7 +68,9 @@ $navbar-item-horizontal-padding: 10px;
           .popup-content-wrapper {
             width: calc(100% + 100px);
             padding-top: 10px;
-            left: calc(-1 * $navbar-horizontal-padding - $navbar-item-horizontal-padding);
+            left: calc(
+              -1 * $navbar-horizontal-padding - $navbar-item-horizontal-padding
+            );
 
             > .list {
               gap: 30px;
@@ -83,7 +85,7 @@ $navbar-item-horizontal-padding: 10px;
                 align-items: flex-start;
                 gap: 13px;
 
-                >.list-item-icon {
+                > .list-item-icon {
                   position: relative;
                   top: 2px;
                 }
@@ -111,7 +113,7 @@ $navbar-item-horizontal-padding: 10px;
       padding: 0;
       font-size: 14px;
 
-      >.list-item {
+      > .list-item {
         padding: 0;
 
         &.nested-list-item {

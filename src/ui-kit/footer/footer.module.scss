@@ -1,6 +1,6 @@
-@use '../../styles/colors.scss';
-@use '../../styles/fonts.scss';
-@use '../../styles/responsive.scss';
+@use "../../styles/colors.scss";
+@use "../../styles/fonts.scss";
+@use "../../styles/responsive.scss";
 
 .footer {
   display: flex;
@@ -156,7 +156,7 @@
       justify-content: space-between;
       align-items: center;
       margin-top: 20px;
-      
+
       * {
         color: colors.$color-gray-darker;
       }

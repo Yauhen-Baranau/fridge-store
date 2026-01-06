@@ -1,4 +1,4 @@
-@use '../styles/responsive.scss';
+@use "../styles/responsive.scss";
 
 .body {
   padding: 29px calc((100% - responsive.$desktop-to-ipad-breakpoint) / 2) 0;

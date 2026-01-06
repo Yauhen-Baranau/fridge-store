@@ -1,14 +1,13 @@
-@use '../../styles/fonts.scss';
-@use '../../styles/colors.scss';
-@use '../../styles/responsive.scss';
+@use "../../styles/fonts.scss";
+@use "../../styles/colors.scss";
+@use "../../styles/responsive.scss";
 
 .common-fridge-problems {
   display: grid;
   grid-template-areas:
     "title form"
     "image form"
-    "problems problems"
-  ;
+    "problems problems";
   grid-template-columns: 570px 470px;
   gap: 40px 140px;
 
@@ -181,9 +180,9 @@
                 background-color: unset;
               }
 
-              &:nth-child(6n+1),
-              &:nth-child(6n+2),
-              &:nth-child(6n+3) {
+              &:nth-child(6n + 1),
+              &:nth-child(6n + 2),
+              &:nth-child(6n + 3) {
                 background-color: colors.$color-gray-light;
               }
             }

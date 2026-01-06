@@ -1,11 +1,11 @@
-@use '../../styles/colors.scss';
-@use '../../styles/fonts.scss';
-@use '../../styles/responsive.scss';
+@use "../../styles/colors.scss";
+@use "../../styles/fonts.scss";
+@use "../../styles/responsive.scss";
 
 .form {
   height: fit-content;
   padding: 48px;
-  box-shadow: 2px 2px 50px 0px #2020200F;
+  box-shadow: 2px 2px 50px 0px #2020200f;
 
   .form-title {
     @include fonts.font(20px, 600, 120%);

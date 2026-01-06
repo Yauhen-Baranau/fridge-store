@@ -1,89 +1,118 @@
-'use client';
+"use client";
 
-import React from 'react';
-import List from '../list/list';
-import styles from './service-page-component.module.scss';
-import Image from 'next/image';
-import ServicesGrid from '../services-grid/services-grid';
-import CallMeBackForm from '../call-me-back-form/call-me-back-form';
-import Button from '@ui-kit/button/button';
-import { useDialog } from '@contexts/dialog/dialog-context';
-import DialogForm from '@ui-kit/dialog-form/dialog-form';
-import useResponsive from '@hooks/use-responsive';
-import { Service } from './service-interface';
+import React from "react";
+import List from "../list/list";
+import styles from "./service-page-component.module.scss";
+import Image from "next/image";
+import ServicesGrid from "../services-grid/services-grid";
+import CallMeBackForm from "../call-me-back-form/call-me-back-form";
+import Button from "@ui-kit/button/button";
+import { useDialog } from "@contexts/dialog/dialog-context";
+import DialogForm from "@ui-kit/dialog-form/dialog-form";
+import useResponsive from "@hooks/use-responsive";
+import { Service } from "./service-interface";
 
 export default function ServicePageComponent({
   service,
   subservices,
   preServiceGridContent,
 }: {
-  service: Service,
-  subservices: Array<Service & { redirectTo: string }>,
-  preServiceGridContent?: React.ReactNode,
+  service: Service;
+  subservices: Array<Service & { redirectTo: string }>;
+  preServiceGridContent?: React.ReactNode;
 }) {
   const { showDialog } = useDialog();
   const { isMobile } = useResponsive();
 
   const constructCategoryDescription = (serviceData: Service) => {
-    return <div className={styles['description-wrapper']}>
-      <h1 className={styles['description-title']}>{serviceData.label}</h1>
-      {serviceData.price && <div className={styles['description-price-block']}>
-        <p className={styles['description-price']}>от {serviceData.price} руб.</p>
-        <p className={styles['with-parts']}>Цена указана с учетом новых запчастей</p>
-      </div>}
-      <div className={styles.description}>
-        {serviceData.description.map((descriptionItem, index) => {
-          let descriptionItemContent;
-          switch (descriptionItem.type) {
-            case 'paragraph':
-              descriptionItemContent = <p className={styles['description-text']}>{descriptionItem.content}</p>;
-              break;
-            case 'list':
-              descriptionItemContent = <>
-                <h3 className={styles['description-list-title']}>{descriptionItem.title}</h3>
-                <List customClass={styles['description-list']} items={descriptionItem.items.map(item => ({
-                  content: item,
-                  icon: {
-                    path: '/icons/square-small-blue.svg',
-                    width: 10,
-                    height: 10,
-                  }
-                }))} />
-              </>;
-              break;
-            default:
-              descriptionItemContent = <></>;
-              break;
-          }
-          return <React.Fragment key={index}>{descriptionItemContent}</React.Fragment>
-        })}
-        {isMobile && <Button
-          customClass={styles['call-me-back-button']}
-          text='Получить консультацию'
-          onClick={() => showDialog(<DialogForm />)}
-        />}
-        <div className={styles['description-image-wrapper']}>
-          <Image
-            className={styles['description-image']}
-            src={serviceData.imagePath}
-            fill
-            alt='Изображение категории или услуги'
-          />
+    return (
+      <div className={styles["description-wrapper"]}>
+        <h1 className={styles["description-title"]}>{serviceData.label}</h1>
+        {serviceData.price && (
+          <div className={styles["description-price-block"]}>
+            <p className={styles["description-price"]}>
+              от {serviceData.price} руб.
+            </p>
+            <p className={styles["with-parts"]}>
+              Цена указана с учетом новых запчастей
+            </p>
+          </div>
+        )}
+        <div className={styles.description}>
+          {serviceData.description.map((descriptionItem, index) => {
+            let descriptionItemContent;
+            switch (descriptionItem.type) {
+              case "paragraph":
+                descriptionItemContent = (
+                  <p className={styles["description-text"]}>
+                    {descriptionItem.content}
+                  </p>
+                );
+                break;
+              case "list":
+                descriptionItemContent = (
+                  <>
+                    <h3 className={styles["description-list-title"]}>
+                      {descriptionItem.title}
+                    </h3>
+                    <List
+                      customClass={styles["description-list"]}
+                      items={descriptionItem.items.map((item) => ({
+                        content: item,
+                        icon: {
+                          path: "/icons/square-small-blue.svg",
+                          width: 10,
+                          height: 10,
+                        },
+                      }))}
+                    />
+                  </>
+                );
+                break;
+              default:
+                descriptionItemContent = <></>;
+                break;
+            }
+            return (
+              <React.Fragment key={index}>
+                {descriptionItemContent}
+              </React.Fragment>
+            );
+          })}
+          {isMobile && (
+            <Button
+              customClass={styles["call-me-back-button"]}
+              text="Получить консультацию"
+              onClick={() => showDialog(<DialogForm />)}
+            />
+          )}
+          <div className={styles["description-image-wrapper"]}>
+            <Image
+              className={styles["description-image"]}
+              src={serviceData.imagePath}
+              fill
+              alt="Изображение категории или услуги"
+            />
+          </div>
         </div>
       </div>
-    </div>;
+    );
   };
 
   const description = service && constructCategoryDescription(service);
-  const form = <CallMeBackForm customClass={styles['call-me-back-form']} />
-  const content = <div className={styles['content-wrapper']}>
-    {preServiceGridContent}
-    <ServicesGrid services={subservices} />
-  </div>
+  const form = <CallMeBackForm customClass={styles["call-me-back-form"]} />;
+  const content = (
+    <div className={styles["content-wrapper"]}>
+      {preServiceGridContent}
+      <ServicesGrid services={subservices} />
+    </div>
+  );
 
-  return <div className={styles.service}>
-    {description}
-    {!isMobile && form}
-    {content}
-  </div>
+  return (
+    <div className={styles.service}>
+      {description}
+      {!isMobile && form}
+      {content}
+    </div>
+  );
 }

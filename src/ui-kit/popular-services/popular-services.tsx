@@ -1,18 +1,22 @@
-'use client';
+"use client";
 
-import React from 'react';
-import styles from './popular-services.module.scss';
-import Button from '@ui-kit/button/button';
-import Link from 'next/link';
-import BackgroundSnowflake from '../background-snowflake/background-snowflake';
-import { useHrefHelper } from '@contexts/href/href-context';
-import { Routes } from '@constants/routes';
-import { useCategoryData } from '@contexts/category-data/category-data-context';
-import useResponsive from '@hooks/use-responsive';
-import Slider from '@ui-kit/slider/slider';
-import composeClassName from '@helpers/compose-class-name';
-import { serviceFactory } from './helpers/service-factory';
-import { freeWithRepairsServiceIds, popularServiceIds, withIncludingPartsCommentServiceIds } from './constants/special-service-ids';
+import React from "react";
+import styles from "./popular-services.module.scss";
+import Button from "@ui-kit/button/button";
+import Link from "next/link";
+import BackgroundSnowflake from "../background-snowflake/background-snowflake";
+import { useHrefHelper } from "@contexts/href/href-context";
+import { Routes } from "@constants/routes";
+import { useCategoryData } from "@contexts/category-data/category-data-context";
+import useResponsive from "@hooks/use-responsive";
+import Slider from "@ui-kit/slider/slider";
+import composeClassName from "@helpers/compose-class-name";
+import { serviceFactory } from "./helpers/service-factory";
+import {
+  freeWithRepairsServiceIds,
+  popularServiceIds,
+  withIncludingPartsCommentServiceIds,
+} from "./constants/special-service-ids";
 
 export default function PopularServices() {
   const { getServiceById } = useCategoryData();
@@ -23,72 +27,82 @@ export default function PopularServices() {
     .slice(0, isDesktop ? 9 : 6)
     .map((id, index) => {
       const serviceData = getServiceById(id);
-      return serviceData && <React.Fragment key={index}>
-        {serviceFactory({
-          ...serviceData,
-          serviceHref: getServiceHref(serviceData.id),
-          freeWithRepairs: freeWithRepairsServiceIds.includes(id),
-          priceComment: withIncludingPartsCommentServiceIds.includes(id) ? 'включая запчасти' : '',
-          styles,
-        })}
-      </React.Fragment>;
+      return (
+        serviceData && (
+          <React.Fragment key={index}>
+            {serviceFactory({
+              ...serviceData,
+              serviceHref: getServiceHref(serviceData.id),
+              freeWithRepairs: freeWithRepairsServiceIds.includes(id),
+              priceComment: withIncludingPartsCommentServiceIds.includes(id)
+                ? "включая запчасти"
+                : "",
+              styles,
+            })}
+          </React.Fragment>
+        )
+      );
     });
-  return <section className={styles['popular-services']}>
-    <h1 className={styles['popular-services-title']}>Популярные услуги</h1>
-    {isMobile
-      ? <Slider
-        customClass={composeClassName(styles['services-slider'])}
-        slides={services}
-        slidesGap={30}
-      />
-      : <div className={styles['services-list']}>{services}</div>
-    }
-    <Link href={getPageHref(Routes.Prices)}>
-      <Button text='Смотреть все услуги' style='text-only' />
-    </Link>
-    {!isMobile
-      ? <>
-        <BackgroundSnowflake
-          width={658}
-          height={638}
-          left={0}
-          top={94}
-          rotation={-30}
-          color='main-white'
-          opacity={0.4}
-          zIndex={-1}
+  return (
+    <section className={styles["popular-services"]}>
+      <h1 className={styles["popular-services-title"]}>Популярные услуги</h1>
+      {isMobile ? (
+        <Slider
+          customClass={composeClassName(styles["services-slider"])}
+          slides={services}
+          slidesGap={30}
         />
-        <BackgroundSnowflake
-          width={658}
-          height={638}
-          right={33}
-          bottom={222}
-          rotation={-30}
-          color='main-white'
-          opacity={0.4}
-          zIndex={-1}
-        />
-      </>
-      : <>
-        <BackgroundSnowflake
-          width={69}
-          height={64}
-          left={25}
-          bottom={25}
-          rotation={-30}
-          color='main-white'
-          zIndex={-1}
-        />
-        <BackgroundSnowflake
-          width={69}
-          height={64}
-          right={25}
-          bottom={25}
-          rotation={-30}
-          color='main-white'
-          zIndex={-1}
-        />
-      </>
-    }
-  </section>
-} 
+      ) : (
+        <div className={styles["services-list"]}>{services}</div>
+      )}
+      <Link href={getPageHref(Routes.Prices)}>
+        <Button text="Смотреть все услуги" style="text-only" />
+      </Link>
+      {!isMobile ? (
+        <>
+          <BackgroundSnowflake
+            width={658}
+            height={638}
+            left={0}
+            top={94}
+            rotation={-30}
+            color="main-white"
+            opacity={0.4}
+            zIndex={-1}
+          />
+          <BackgroundSnowflake
+            width={658}
+            height={638}
+            right={33}
+            bottom={222}
+            rotation={-30}
+            color="main-white"
+            opacity={0.4}
+            zIndex={-1}
+          />
+        </>
+      ) : (
+        <>
+          <BackgroundSnowflake
+            width={69}
+            height={64}
+            left={25}
+            bottom={25}
+            rotation={-30}
+            color="main-white"
+            zIndex={-1}
+          />
+          <BackgroundSnowflake
+            width={69}
+            height={64}
+            right={25}
+            bottom={25}
+            rotation={-30}
+            color="main-white"
+            zIndex={-1}
+          />
+        </>
+      )}
+    </section>
+  );
+}

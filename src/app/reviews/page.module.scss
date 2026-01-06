@@ -1,14 +1,13 @@
-@use '../../styles/fonts.scss';
-@use '../../styles/colors.scss';
-@use '../../styles/responsive.scss';
+@use "../../styles/fonts.scss";
+@use "../../styles/colors.scss";
+@use "../../styles/responsive.scss";
 
 .reviews {
   display: grid;
-  grid-template-areas: 
+  grid-template-areas:
     "title write-review-button"
     "reviews write-review-button"
-    "view-all-reviews-button view-all-reviews-button"
-  ;
+    "view-all-reviews-button view-all-reviews-button";
   grid-template-columns: 670px 240px;
   gap: 40px 257px;
   position: relative;
@@ -80,7 +79,7 @@
 
     .reviews-list {
       z-index: 1;
-      
+
       .review {
         padding: 24px;
 
@@ -96,7 +95,7 @@
   }
 
   @include responsive.mobile-styles {
-    grid-template-areas: 
+    grid-template-areas:
       "title"
       "write-review-button"
       "reviews"

@@ -1,6 +1,9 @@
 import { Routes } from "@constants/routes";
 
-export const serviceRouteStructure: Record<string, Record<string, Array<string>>> = {
+export const serviceRouteStructure: Record<
+  string,
+  Record<string, Array<string>>
+> = {
   [Routes.RepairsCategory]: {
     [Routes.CoolingSubcategory]: [
       Routes.CompressorService,
@@ -10,12 +13,8 @@ export const serviceRouteStructure: Record<string, Record<string, Array<string>>
       Routes.CoolantService,
       Routes.ThermostatService,
     ],
-    [Routes.ElectricSubcategory]: [
-      Routes.ControlModuleService,
-    ],
-    [Routes.NofrostSystemSubcategory]: [
-      Routes.NofrostSystemService,
-    ],
+    [Routes.ElectricSubcategory]: [Routes.ControlModuleService],
+    [Routes.NofrostSystemSubcategory]: [Routes.NofrostSystemService],
     [Routes.MechanicalSubcategory]: [
       Routes.SealantService,
       Routes.VentilatorService,
@@ -27,5 +26,5 @@ export const serviceRouteStructure: Record<string, Record<string, Array<string>>
       Routes.ExtraneousNoiseService,
       Routes.LightingService,
     ],
-  }
+  },
 };

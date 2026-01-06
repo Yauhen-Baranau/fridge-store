@@ -1,5 +1,5 @@
-@use '../../styles/fonts.scss';
-@use '../../styles/responsive.scss';
+@use "../../styles/fonts.scss";
+@use "../../styles/responsive.scss";
 
 .payment {
   display: flex;
@@ -84,7 +84,7 @@
 
     .text {
       width: 100%;
-      
+
       .title {
         font-size: 24px;
       }

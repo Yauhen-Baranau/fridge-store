@@ -1,11 +1,11 @@
-@use '../../styles/colors.scss';
+@use "../../styles/colors.scss";
 
 .slider {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 24px;
-  
+
   .active-slide-view {
     position: relative;
     // overflow: hidden;

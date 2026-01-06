@@ -1,5 +1,5 @@
-@use '../../styles/colors.scss';
-@use '../../styles/fonts.scss';
+@use "../../styles/colors.scss";
+@use "../../styles/fonts.scss";
 
 .button {
   @include fonts.font(14px, 600, 125%);
@@ -16,7 +16,8 @@
   }
 
   &.with-hover-icon {
-    .icon, .hover-icon {
+    .icon,
+    .hover-icon {
       transition-duration: var(--global-transition-duration);
     }
 

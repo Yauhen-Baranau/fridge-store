@@ -1,6 +1,6 @@
-@use '../../styles/colors.scss';
-@use '../../styles/fonts.scss';
-@use '../../styles/responsive.scss';
+@use "../../styles/colors.scss";
+@use "../../styles/fonts.scss";
+@use "../../styles/responsive.scss";
 
 .popular-services {
   display: flex;
@@ -138,7 +138,7 @@
     .services-slider {
       .service-link {
         height: 100%;
-        
+
         .service {
           padding: 16px;
 

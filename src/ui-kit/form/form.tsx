@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import composeClassName from '@src/helpers/compose-class-name';
-import './form.scss';
-import { useRef, useState } from 'react';
-import Button from '../button/button';
-import useClickOutsideListener from '@src/hooks/use-click-outside-listener';
-import { FormConfig, FormFieldConfig, FormValue } from './interfaces';
+import composeClassName from "@src/helpers/compose-class-name";
+import "./form.scss";
+import { useRef, useState } from "react";
+import Button from "../button/button";
+import useClickOutsideListener from "@src/hooks/use-click-outside-listener";
+import { FormConfig, FormFieldConfig, FormValue } from "./interfaces";
 
 export default function Form({
   config,
@@ -13,93 +13,122 @@ export default function Form({
   submitButtonText,
   submitCallback,
   preSubmitButtonContent,
-  customClass
+  customClass,
 }: {
-  config: FormConfig,
-  preFieldsContent?: React.ReactNode,
-  submitButtonText: string,
-  submitCallback: (formValue: FormValue) => void,
-  preSubmitButtonContent?: React.ReactNode,
-  customClass?: string
+  config: FormConfig;
+  preFieldsContent?: React.ReactNode;
+  submitButtonText: string;
+  submitCallback: (formValue: FormValue) => void;
+  preSubmitButtonContent?: React.ReactNode;
+  customClass?: string;
 }) {
-  const [activeInputName, setActiveInputName] = useState('');
-  const resetActiveInput = () => setActiveInputName('');
+  const [activeInputName, setActiveInputName] = useState("");
+  const resetActiveInput = () => setActiveInputName("");
 
   const formRef = useRef<HTMLFormElement>(null);
   useClickOutsideListener(formRef, resetActiveInput);
 
-  const [formValue, setFormValue] = useState<FormValue>(Object.fromEntries(
-    config.fieldConfigs.map(fieldConfig => [fieldConfig.name, fieldConfig.defaultValue ?? null])
-  ));
-  const setFormValueField = (name: string, newValue: unknown) => setFormValue({ ...formValue, [name]: newValue });
+  const [formValue, setFormValue] = useState<FormValue>(
+    Object.fromEntries(
+      config.fieldConfigs.map((fieldConfig) => [
+        fieldConfig.name,
+        fieldConfig.defaultValue ?? null,
+      ]),
+    ),
+  );
+  const setFormValueField = (name: string, newValue: unknown) =>
+    setFormValue({ ...formValue, [name]: newValue });
 
   const [submitAttempted, setSubmitAttempted] = useState(false);
 
   const getValidationError = <T,>(fieldConfig: FormFieldConfig<T>) => {
     const fieldValue = formValue[fieldConfig.name] as T;
     const validationErrors = (fieldConfig.validators ?? [])
-      .map(validator => validator(fieldValue))
+      .map((validator) => validator(fieldValue))
       .filter(Boolean);
     return validationErrors[0];
   };
-  const validateField = (fieldConfig: FormFieldConfig) => !getValidationError(fieldConfig);
-  const validateForm = () => config.fieldConfigs.every(fieldConfig => validateField(fieldConfig));
+  const validateField = (fieldConfig: FormFieldConfig) =>
+    !getValidationError(fieldConfig);
+  const validateForm = () =>
+    config.fieldConfigs.every((fieldConfig) => validateField(fieldConfig));
 
-  return <form
-    ref={formRef}
-    className={composeClassName('form', customClass)}
-    onClick={resetActiveInput}
-  >
-    {preFieldsContent}
-    {config.fieldConfigs.map((fieldConfig, index) => {
-      return <div
-        key={index}
-        className={composeClassName(
-          'field-wrapper',
-          activeInputName === fieldConfig.name && 'active-field',
-          !!formValue[fieldConfig.name] && 'non-empty-field',
-          submitAttempted && !validateField(fieldConfig) && 'invalid-field'
-        )}
-        onClick={e => {
-          e.stopPropagation();
-          setActiveInputName(fieldConfig.name);
+  return (
+    <form
+      ref={formRef}
+      className={composeClassName("form", customClass)}
+      onClick={resetActiveInput}
+    >
+      {preFieldsContent}
+      {config.fieldConfigs.map((fieldConfig, index) => {
+        return (
+          <div
+            key={index}
+            className={composeClassName(
+              "field-wrapper",
+              activeInputName === fieldConfig.name && "active-field",
+              !!formValue[fieldConfig.name] && "non-empty-field",
+              submitAttempted && !validateField(fieldConfig) && "invalid-field",
+            )}
+            onClick={(e) => {
+              e.stopPropagation();
+              setActiveInputName(fieldConfig.name);
+            }}
+          >
+            <div className="input-wrapper">
+              {fieldConfig.type === "textarea" ? (
+                <textarea
+                  className="input textarea"
+                  name={fieldConfig.name}
+                  onInput={(e) =>
+                    setFormValueField(
+                      fieldConfig.name,
+                      (e.target as HTMLInputElement).value,
+                    )
+                  }
+                />
+              ) : (
+                <input
+                  className="input"
+                  type={fieldConfig.type}
+                  name={fieldConfig.name}
+                  onInput={(e) =>
+                    setFormValueField(
+                      fieldConfig.name,
+                      (e.target as HTMLInputElement).value,
+                    )
+                  }
+                />
+              )}
+            </div>
+            {fieldConfig.placeholder && (
+              <span className="placeholder">{fieldConfig.placeholder}</span>
+            )}
+            {(() => {
+              if (!submitAttempted) {
+                return <></>;
+              }
+              const validationError = getValidationError(fieldConfig);
+              return (
+                validationError && (
+                  <span className={"error-message"}>{validationError}</span>
+                )
+              );
+            })()}
+          </div>
+        );
+      })}
+      {preSubmitButtonContent}
+      <Button
+        customClass={"submit-button"}
+        text={submitButtonText}
+        onClick={() => {
+          setSubmitAttempted(true);
+          if (validateForm()) {
+            submitCallback(formValue);
+          }
         }}
-      >
-        <div className='input-wrapper'>
-          {
-            fieldConfig.type === 'textarea'
-              ? <textarea
-                className='input textarea'
-                name={fieldConfig.name}
-                onInput={e => setFormValueField(fieldConfig.name, (e.target as HTMLInputElement).value)}
-              />
-              : <input
-                className='input'
-                type={fieldConfig.type}
-                name={fieldConfig.name}
-                onInput={e => setFormValueField(fieldConfig.name, (e.target as HTMLInputElement).value)}
-              />
-          }
-        </div>
-        {fieldConfig.placeholder && <span className='placeholder'>{fieldConfig.placeholder}</span>}
-        {(() => {
-          if (!submitAttempted) {
-            return <></>;
-          }
-          const validationError = getValidationError(fieldConfig);
-          return validationError && <span className={'error-message'}>{validationError}</span>
-        })()}
-      </div>
-    })}
-    {preSubmitButtonContent}
-    <Button
-      customClass={'submit-button'}
-      text={submitButtonText}
-      onClick={() => {
-        setSubmitAttempted(true);
-        if (validateForm()) {
-          submitCallback(formValue);
-        }
-      }} />
-  </form>;
+      />
+    </form>
+  );
 }

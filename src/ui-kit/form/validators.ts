@@ -5,26 +5,29 @@ export type Validator<T> = (v: T) => string;
 
 const validatorFactory = <T>(
   validatorFunction: (v: T) => boolean,
-  errorMessage: string
+  errorMessage: string,
 ): Validator<T> => {
-  return (v: T) => validatorFunction(v) ? '' : errorMessage;
-}
+  return (v: T) => (validatorFunction(v) ? "" : errorMessage);
+};
 
 export const Validators = {
   required: validatorFactory<unknown>(
-    v => !!v,
-    'Это поле необходимо заполнить'
+    (v) => !!v,
+    "Это поле необходимо заполнить",
   ),
-  minLength: (length: number) => validatorFactory<string>(
-    (value: string) => value?.length >= length,
-    'Количество символов меньше допустимого'
-  ),
-  maxLength: (length: number) => validatorFactory<string>(
-    (value: string) => value?.length <= length,
-    'Количество символов превышает допустимое'
-  ),
-  pattern: (pattern: RegExp) => validatorFactory<string>(
-    (value: string) => pattern.test(value),
-    'Проверьте корректность внесенных данных'
-  ),
+  minLength: (length: number) =>
+    validatorFactory<string>(
+      (value: string) => value?.length >= length,
+      "Количество символов меньше допустимого",
+    ),
+  maxLength: (length: number) =>
+    validatorFactory<string>(
+      (value: string) => value?.length <= length,
+      "Количество символов превышает допустимое",
+    ),
+  pattern: (pattern: RegExp) =>
+    validatorFactory<string>(
+      (value: string) => pattern.test(value),
+      "Проверьте корректность внесенных данных",
+    ),
 };

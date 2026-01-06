@@ -1,13 +1,12 @@
-@use '../../styles/colors.scss';
-@use '../../styles/fonts.scss';
-@use '../../styles/responsive.scss';
+@use "../../styles/colors.scss";
+@use "../../styles/fonts.scss";
+@use "../../styles/responsive.scss";
 
 .wrapper {
   display: grid;
   grid-template-areas:
     "title image"
-    "form image"
-  ;
+    "form image";
   grid-template-columns: 400px 470px;
   column-gap: 130px;
 
@@ -61,7 +60,7 @@
       height: 100%;
     }
   }
-  
+
   @include responsive.mobile-styles {
     grid-template-areas:
       "title"

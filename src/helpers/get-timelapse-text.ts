@@ -1,75 +1,81 @@
 enum TimeUnit {
-  Second = 'second',
-  Minute = 'minute',
-  Hour = 'hour',
-  Day = 'day',
-  Week = 'week',
-  Month = 'month',
-  Year = 'year',
+  Second = "second",
+  Minute = "minute",
+  Hour = "hour",
+  Day = "day",
+  Week = "week",
+  Month = "month",
+  Year = "year",
 }
 
-const timeUnitForms: Record<TimeUnit, { many: string, several: string, singular: string }> = {
+const timeUnitForms: Record<
+  TimeUnit,
+  { many: string; several: string; singular: string }
+> = {
   [TimeUnit.Second]: {
-    many: 'секунд',
-    several: 'секунды',
-    singular: 'секунду',
+    many: "секунд",
+    several: "секунды",
+    singular: "секунду",
   },
   [TimeUnit.Minute]: {
-    many: 'минут',
-    several: 'минуты',
-    singular: 'минуту',
+    many: "минут",
+    several: "минуты",
+    singular: "минуту",
   },
   [TimeUnit.Hour]: {
-    many: 'часов',
-    several: 'часа',
-    singular: 'час',
+    many: "часов",
+    several: "часа",
+    singular: "час",
   },
   [TimeUnit.Day]: {
-    many: 'дней',
-    several: 'дня',
-    singular: 'день',
+    many: "дней",
+    several: "дня",
+    singular: "день",
   },
   [TimeUnit.Week]: {
-    many: 'недель',
-    several: 'недели',
-    singular: 'неделю',
+    many: "недель",
+    several: "недели",
+    singular: "неделю",
   },
   [TimeUnit.Month]: {
-    many: 'месяцев',
-    several: 'месяца',
-    singular: 'месяц',
+    many: "месяцев",
+    several: "месяца",
+    singular: "месяц",
   },
   [TimeUnit.Year]: {
-    many: 'лет',
-    several: 'года',
-    singular: 'год',
-  }
+    many: "лет",
+    several: "года",
+    singular: "год",
+  },
 };
 
-function getTimeUnitFormKey(quantity: number): 'many' | 'several' | 'singular' {
+function getTimeUnitFormKey(quantity: number): "many" | "several" | "singular" {
   const lastDigit = quantity % 10;
   const lastTwoDigits = quantity % 100;
 
   if (lastTwoDigits >= 11 && lastTwoDigits <= 19) {
-    return 'many';
+    return "many";
   }
 
   if (lastDigit === 1) {
-    return 'singular';
+    return "singular";
   }
 
   if (lastDigit >= 2 && lastDigit <= 4) {
-    return 'several';
+    return "several";
   }
 
-  return 'many';
+  return "many";
 }
 
 function getTimeUnitLapsedText(timeUnit: TimeUnit, quantity: number): string {
   return `${quantity} ${timeUnitForms[timeUnit][getTimeUnitFormKey(quantity)]} назад`;
 }
 
-export default function getTimelapseText(fromDate: Date, toDate: Date = new Date()): string {
+export default function getTimelapseText(
+  fromDate: Date,
+  toDate: Date = new Date(),
+): string {
   const timeUnits = [
     { unit: TimeUnit.Second, nextUnitDivisor: 60 },
     { unit: TimeUnit.Minute, nextUnitDivisor: 60 },
@@ -86,7 +92,7 @@ export default function getTimelapseText(fromDate: Date, toDate: Date = new Date
   for (const { unit, nextUnitDivisor } of timeUnits) {
     if (currUnitLapsed === 0) {
       if (prevUnitLapsed === 0) {
-        return 'только что';
+        return "только что";
       }
 
       return getTimeUnitLapsedText(prevUnit!, prevUnitLapsed);
@@ -96,7 +102,7 @@ export default function getTimelapseText(fromDate: Date, toDate: Date = new Date
     }
     prevUnit = unit;
     prevUnitLapsed = currUnitLapsed;
-    currUnitLapsed = Math.floor(prevUnitLapsed / nextUnitDivisor)
+    currUnitLapsed = Math.floor(prevUnitLapsed / nextUnitDivisor);
   }
-  return '';
+  return "";
 }

@@ -1,6 +1,6 @@
-@use '../../styles/colors.scss';
-@use '../../styles/fonts.scss';
-@use '../../styles/responsive.scss';
+@use "../../styles/colors.scss";
+@use "../../styles/fonts.scss";
+@use "../../styles/responsive.scss";
 
 .services-grid {
   display: grid;
@@ -13,8 +13,7 @@
     grid-template-areas:
       "image upper"
       "image middle"
-      "image lower"
-    ;
+      "image lower";
     grid-template-columns: min-content 1fr;
     grid-template-rows: 1fr repeat(2, min-content);
     column-gap: 30px;

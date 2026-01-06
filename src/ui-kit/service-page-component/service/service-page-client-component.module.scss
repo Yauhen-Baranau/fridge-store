@@ -1,5 +1,5 @@
-@use '../../../styles/fonts.scss';
-@use '../../../styles/responsive.scss';
+@use "../../../styles/fonts.scss";
+@use "../../../styles/responsive.scss";
 
 .related-services-title {
   @include fonts.font(40px, 600, 125%);

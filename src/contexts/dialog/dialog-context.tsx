@@ -1,8 +1,15 @@
-'use client';
+"use client";
 
 import Dialog from "@ui-kit/dialog/dialog";
 import { usePathname } from "next/navigation";
-import { createContext, useCallback, useContext, useEffect, useRef, useState } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { DialogContextProps, ShowDialogParams } from "./interfaces";
 
 const DialogContext = createContext<DialogContextProps>({
@@ -13,9 +20,9 @@ const DialogContext = createContext<DialogContextProps>({
 });
 
 export const DialogContextProvider = ({
-  children
+  children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [dialogContent, setDialogContent] = useState<React.ReactNode>(<></>);
@@ -38,24 +45,30 @@ export const DialogContextProvider = ({
   const pathname = usePathname();
   useEffect(() => closeDialog(), [pathname]);
 
-  return <DialogContext.Provider value={{
-    showDialog: (content?: React.ReactNode, params?: ShowDialogParams) => {
-      if (content) {
-        setDialogContent(content);
-      }
-      if (params) {
-        setDialogParams(params);
-      }
-      dialogRef?.current?.showModal();
-      setIsOpen(true);
-    },
-    setDialogContent,
-    closeDialog,
-    isOpen,
-  }}>
-    {children}
-    <Dialog dialogRef={dialogRef} {...dialogParams}>{dialogContent}</Dialog>
-  </DialogContext.Provider>
-}
+  return (
+    <DialogContext.Provider
+      value={{
+        showDialog: (content?: React.ReactNode, params?: ShowDialogParams) => {
+          if (content) {
+            setDialogContent(content);
+          }
+          if (params) {
+            setDialogParams(params);
+          }
+          dialogRef?.current?.showModal();
+          setIsOpen(true);
+        },
+        setDialogContent,
+        closeDialog,
+        isOpen,
+      }}
+    >
+      {children}
+      <Dialog dialogRef={dialogRef} {...dialogParams}>
+        {dialogContent}
+      </Dialog>
+    </DialogContext.Provider>
+  );
+};
 
 export const useDialog = () => useContext(DialogContext);

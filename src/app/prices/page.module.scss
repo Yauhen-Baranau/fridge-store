@@ -1,13 +1,12 @@
-@use '../../styles/colors.scss';
-@use '../../styles/fonts.scss';
-@use '../../styles/responsive.scss';
+@use "../../styles/colors.scss";
+@use "../../styles/fonts.scss";
+@use "../../styles/responsive.scss";
 
 .prices {
   display: grid;
   grid-template-areas:
     "description form"
-    "prices prices"
-  ;
+    "prices prices";
   grid-template-columns: 570px auto;
   gap: 150px 130px;
 

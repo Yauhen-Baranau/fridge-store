@@ -1,13 +1,12 @@
-@use '../../styles/colors.scss';
-@use '../../styles/fonts.scss';
-@use '../../styles/responsive.scss';
+@use "../../styles/colors.scss";
+@use "../../styles/fonts.scss";
+@use "../../styles/responsive.scss";
 
 .service {
   display: grid;
   grid-template-areas:
     "description form"
-    "content content"
-  ;
+    "content content";
   grid-template-columns: auto 460px;
   gap: 56px 130px;
 

@@ -1,5 +1,5 @@
-@use '../../styles/colors.scss';
-@use '../../styles/responsive.scss';
+@use "../../styles/colors.scss";
+@use "../../styles/responsive.scss";
 
 .dialog {
   display: flex;
@@ -16,7 +16,7 @@
   &:not([open]) {
     display: none; // this is the default browser behaviour, seo will be fine with it
   }
-  
+
   &::backdrop {
     background-color: rgba(0, 0, 0, 0.5);
   }
@@ -54,7 +54,7 @@
 
     .dialog-content-wrapper {
       padding: 0;
-      
+
       .dialog-content {
         padding: 0;
       }

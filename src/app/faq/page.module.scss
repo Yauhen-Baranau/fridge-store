@@ -1,8 +1,9 @@
-@use '../../styles/colors.scss';
-@use '../../styles/fonts.scss';
-@use '../../styles/responsive.scss';
+@use "../../styles/colors.scss";
+@use "../../styles/fonts.scss";
+@use "../../styles/responsive.scss";
 
-$dark-gray-color-filter: brightness(0) saturate(100%) invert(40%) sepia(4%) saturate(0%) hue-rotate(174deg) brightness(95%) contrast(86%);
+$dark-gray-color-filter: brightness(0) saturate(100%) invert(40%) sepia(4%)
+  saturate(0%) hue-rotate(174deg) brightness(95%) contrast(86%);
 
 .faq {
   display: flex;
@@ -71,7 +72,7 @@ $dark-gray-color-filter: brightness(0) saturate(100%) invert(40%) sepia(4%) satu
       }
     }
   }
-  
+
   @include responsive.mobile-styles {
     gap: 24px;
     width: auto;

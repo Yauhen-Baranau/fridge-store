@@ -1,6 +1,6 @@
-@use '../../styles/colors.scss';
-@use '../../styles/fonts.scss';
-@use '../../styles/responsive.scss';
+@use "../../styles/colors.scss";
+@use "../../styles/fonts.scss";
+@use "../../styles/responsive.scss";
 
 .how-to-order-repairs {
   display: flex;
@@ -43,7 +43,7 @@
         position: relative;
 
         .step-icon {
-          object-fit: cover
+          object-fit: cover;
         }
       }
 
