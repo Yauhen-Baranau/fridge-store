@@ -16,7 +16,7 @@ import List from '@ui-kit/list/list';
 
 export default function Header({ customClass }: { customClass?: string }) {
   const { showDialog } = useDialog();
-  const { isDesktop, isIpad, isMobile } = useResponsive();
+  const { isDesktop, isIpad, isMobile, initialResizeSettled } = useResponsive();
   const [navigationDialogOpen, setNavigationDialogOpen] = useState(false);
   const cleanPhoneNumber = useMemo(() => {
     return contactInfo.phoneNumber
@@ -26,7 +26,7 @@ export default function Header({ customClass }: { customClass?: string }) {
       .split(')').join('')
   }, []);
 
-  return <header className={composeClassName(styles.header, customClass)}>
+  return initialResizeSettled && <header className={composeClassName(styles.header, customClass)}>
     <Link className={styles['logo-wrapper']} href='/'>
       <Image className={styles.logo} src='/logo.webp' fill alt='Логотип' />
     </Link>

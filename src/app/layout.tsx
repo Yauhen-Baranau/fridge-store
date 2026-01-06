@@ -14,7 +14,6 @@ import { DialogContextProvider, useDialog } from "@contexts/dialog/dialog-contex
 import { HrefContextProvider } from "@contexts/href/href-context";
 import { CategoryDataContextProvider } from "@contexts/category-data/category-data-context";
 import useResponsive from "@hooks/use-responsive";
-import { useEffect } from "react";
 
 const montserrat = Montserrat({
   subsets: ["cyrillic", "latin"],
@@ -25,7 +24,7 @@ function RootLayoutBody({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const { isDesktop } = useResponsive();
+  const { isDesktop, initialResizeSettled } = useResponsive();
   const { isOpen } = useDialog();
 
   return <body className={composeClassName(
@@ -34,11 +33,13 @@ function RootLayoutBody({
     isOpen && styles['dialog-open'],
   )}>
     <Header />
-    {isDesktop && <Navigation />}
-    <Breadcrumbs customClass={styles.breadcrumbs} />
-    {children}
-    <CallMeBack customClass={styles['call-me-back']} />
-    <Footer />
+    {initialResizeSettled && <>
+      {isDesktop && <Navigation />}
+      <Breadcrumbs customClass={styles.breadcrumbs} />
+      {children}
+      <CallMeBack customClass={styles['call-me-back']} />
+      <Footer />
+    </>}
   </body>
 }
 
