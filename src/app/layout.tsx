@@ -10,9 +10,9 @@ import Footer from "../ui-kit/footer/footer";
 import composeClassName from "@src/helpers/compose-class-name";
 import CallMeBack from "../ui-kit/call-me-back/call-me-back";
 import Breadcrumbs from "@src/ui-kit/breadcrumbs/breadcrumbs";
-import { DialogContextProvider, useDialog } from "@src/contexts/dialog-context";
-import { HrefContextProvider } from "@contexts/href-context";
-import { CategoryDataContextProvider } from "@contexts/category-data-context";
+import { DialogContextProvider, useDialog } from "@contexts/dialog/dialog-context";
+import { HrefContextProvider } from "@contexts/href/href-context";
+import { CategoryDataContextProvider } from "@contexts/category-data/category-data-context";
 import useResponsive from "@hooks/use-responsive";
 import { useEffect } from "react";
 

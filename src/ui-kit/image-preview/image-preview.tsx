@@ -1,7 +1,7 @@
 'use client';
 
 import styles from './image-preview.module.scss';
-import { useDialog } from '@contexts/dialog-context';
+import { useDialog } from '@contexts/dialog/dialog-context';
 import Image from 'next/image';
 
 export default function ImagePreview({

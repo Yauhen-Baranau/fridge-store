@@ -3,7 +3,7 @@
 import Button from '@ui-kit/button/button';
 import styles from './discount-block.module.scss';
 import composeClassName from '@helpers/compose-class-name';
-import { useDialog } from '@contexts/dialog-context';
+import { useDialog } from '@contexts/dialog/dialog-context';
 import DialogForm from '@ui-kit/dialog-form/dialog-form';
 
 export default function DiscountBlock({ customClass }: { customClass?: string }) {

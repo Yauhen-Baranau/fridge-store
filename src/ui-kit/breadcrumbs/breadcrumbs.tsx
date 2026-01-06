@@ -7,8 +7,8 @@ import { usePathname } from 'next/navigation';
 import composeClassName from '@src/helpers/compose-class-name';
 import { Routes } from '@constants/routes';
 import Image from 'next/image';
-import { useHrefHelper } from '@contexts/href-context';
-import { useCategoryData } from '@contexts/category-data-context';
+import { useHrefHelper } from '@contexts/href/href-context';
+import { useCategoryData } from '@contexts/category-data/category-data-context';
 
 interface Breadcrumb {
   label: string,

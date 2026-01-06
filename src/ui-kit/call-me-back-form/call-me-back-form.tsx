@@ -4,7 +4,7 @@ import composeClassName from '@src/helpers/compose-class-name';
 import Form from '../form/form';
 import styles from './call-me-back-form.module.scss';
 import { Validators } from '../form/validators';
-import { useDialog } from '@contexts/dialog-context';
+import { useDialog } from '@contexts/dialog/dialog-context';
 import WeWillCallYouBack from '@ui-kit/we-will-call-you-back/we-will-call-you-back';
 
 export default function CallMeBackForm({

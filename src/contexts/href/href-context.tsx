@@ -1,15 +1,8 @@
 'use client';
 
-import { Routes } from "@constants/routes";
 import { createContext, useContext, useMemo } from "react";
-import { useCategoryData } from "./category-data-context";
-
-interface HrefContextProps {
-  getPageHref: (route: Routes) => string,
-  getCategoryHref: (id: string) => string,
-  getSubcategoryHref: (id: string) => string,
-  getServiceHref: (id: string) => string,
-};
+import { useCategoryData } from "../category-data/category-data-context";
+import { HrefContextProps } from "./href-context-props";
 
 const HrefContext = createContext<HrefContextProps>({
   getPageHref: () => '',

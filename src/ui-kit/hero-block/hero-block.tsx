@@ -4,7 +4,7 @@ import List from '@ui-kit/list/list';
 import styles from './hero-block.module.scss';
 import Button from '@ui-kit/button/button';
 import Image from 'next/image';
-import { useDialog } from '@contexts/dialog-context';
+import { useDialog } from '@contexts/dialog/dialog-context';
 import DialogForm from '@ui-kit/dialog-form/dialog-form';
 import useResponsive from '@hooks/use-responsive';
 import { contactInfo } from '@constants/contact-info';

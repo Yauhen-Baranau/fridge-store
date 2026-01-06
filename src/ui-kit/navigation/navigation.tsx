@@ -7,7 +7,7 @@ import './navigation.scss';
 import List from '@ui-kit/list/list';
 import Link from 'next/link';
 import { Routes } from '@src/constants/routes';
-import { useHrefHelper } from '@contexts/href-context';
+import { useHrefHelper } from '@contexts/href/href-context';
 import useResponsive from '@hooks/use-responsive';
 
 export default function Navigation({

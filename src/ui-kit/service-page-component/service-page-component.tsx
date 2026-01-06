@@ -7,7 +7,7 @@ import Image from 'next/image';
 import ServicesGrid from '../services-grid/services-grid';
 import CallMeBackForm from '../call-me-back-form/call-me-back-form';
 import Button from '@ui-kit/button/button';
-import { useDialog } from '@contexts/dialog-context';
+import { useDialog } from '@contexts/dialog/dialog-context';
 import DialogForm from '@ui-kit/dialog-form/dialog-form';
 import useResponsive from '@hooks/use-responsive';
 

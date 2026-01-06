@@ -7,7 +7,7 @@ import { contactInfo } from '@constants/contact-info';
 import Socials from '@ui-kit/socials/socials';
 import Button from '@ui-kit/button/button';
 import { Routes } from '@constants/routes';
-import { useHrefHelper } from '@contexts/href-context';
+import { useHrefHelper } from '@contexts/href/href-context';
 import useResponsive from '@hooks/use-responsive';
 import React, { useMemo } from 'react';
 import Accordion from '@ui-kit/accordion/accordion';

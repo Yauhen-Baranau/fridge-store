@@ -6,13 +6,14 @@ import Accordion from '@src/ui-kit/accordion/accordion';
 import { useEffect, useMemo, useState } from 'react';
 import Image from 'next/image';
 import BackgroundSnowflake from '@src/ui-kit/background-snowflake/background-snowflake';
-import { Subcategory, useCategoryData } from '@contexts/category-data-context';
+import { useCategoryData } from '@contexts/category-data/category-data-context';
 import List from '@ui-kit/list/list';
 import useResponsive from '@hooks/use-responsive';
 import Button from '@ui-kit/button/button';
 import DialogForm from '@ui-kit/dialog-form/dialog-form';
-import { useDialog } from '@contexts/dialog-context';
+import { useDialog } from '@contexts/dialog/dialog-context';
 import composeClassName from '@helpers/compose-class-name';
+import { Subcategory } from '@contexts/category-data/interfaces';
 
 export default function PricesPage() {
   const { isMobile } = useResponsive();

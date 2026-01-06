@@ -8,7 +8,7 @@ import { contactInfo } from '@constants/contact-info';
 import Link from 'next/link';
 import Image from 'next/image';
 import DialogForm from '../dialog-form/dialog-form';
-import { useDialog } from '@contexts/dialog-context';
+import { useDialog } from '@contexts/dialog/dialog-context';
 import useResponsive from '@hooks/use-responsive';
 import { useMemo, useState } from 'react';
 import Navigation from '@ui-kit/navigation/navigation';

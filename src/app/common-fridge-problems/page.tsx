@@ -6,7 +6,7 @@ import CallMeBackForm from '@ui-kit/call-me-back-form/call-me-back-form';
 import List from '@ui-kit/list/list';
 import Accordion from '@ui-kit/accordion/accordion';
 import useResponsive from '@hooks/use-responsive';
-import { useDialog } from '@contexts/dialog-context';
+import { useDialog } from '@contexts/dialog/dialog-context';
 import Button from '@ui-kit/button/button';
 import DialogForm from '@ui-kit/dialog-form/dialog-form';
 import React from 'react';

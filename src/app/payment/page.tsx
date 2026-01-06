@@ -7,7 +7,7 @@ import Image from 'next/image';
 import BackgroundSnowflake from '@src/ui-kit/background-snowflake/background-snowflake';
 import useResponsive from '@hooks/use-responsive';
 import Button from '@ui-kit/button/button';
-import { useDialog } from '@contexts/dialog-context';
+import { useDialog } from '@contexts/dialog/dialog-context';
 import DialogForm from '@ui-kit/dialog-form/dialog-form';
 
 export default function PaymentPage() {

@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Form, { FormFieldConfig } from '../form/form';
 import styles from './dialog-form.module.scss';
 import { Validators } from '../form/validators';
-import { useDialog } from '@src/contexts/dialog-context';
+import { useDialog } from '@contexts/dialog/dialog-context';
 import WeWillCallYouBack from '@ui-kit/we-will-call-you-back/we-will-call-you-back';
 import useResponsive from '@hooks/use-responsive';
 

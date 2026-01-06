@@ -4,7 +4,7 @@ import { CSSProperties, RefObject, useMemo, useRef } from 'react';
 import Button from '../button/button';
 import styles from './dialog.module.scss';
 import composeClassName from '@helpers/compose-class-name';
-import { useDialog } from '@contexts/dialog-context';
+import { useDialog } from '@contexts/dialog/dialog-context';
 
 export default function Dialog({
   children,

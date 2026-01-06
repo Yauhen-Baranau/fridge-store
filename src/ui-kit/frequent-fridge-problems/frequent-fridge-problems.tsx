@@ -5,10 +5,10 @@ import styles from './frequent-fridge-problems.module.scss';
 import Button from '../button/button';
 import composeClassName from '@src/helpers/compose-class-name';
 import Link from 'next/link';
-import { useDialog } from '@contexts/dialog-context';
+import { useDialog } from '@contexts/dialog/dialog-context';
 import DialogForm from '@ui-kit/dialog-form/dialog-form';
 import { Routes } from '@constants/routes';
-import { useHrefHelper } from '@contexts/href-context';
+import { useHrefHelper } from '@contexts/href/href-context';
 
 export default function FrequentFridgeProblems({ customClass }: { customClass?: string }) {
   const { showDialog } = useDialog();

@@ -3,22 +3,7 @@
 import Dialog from "@ui-kit/dialog/dialog";
 import { usePathname } from "next/navigation";
 import { createContext, useCallback, useContext, useEffect, useRef, useState } from "react";
-
-interface ShowDialogParams {
-  withCloseButton?: boolean,
-  withBackdropClose?: boolean,
-  withBackdropShadow?: boolean,
-  transparentBackdrop?: boolean,
-  customPosition?: { top?: number, right?: number, bottom?: number, left?: number },
-  onClose?: () => void,
-}
-
-interface DialogContextProps {
-  showDialog: (content?: React.ReactNode, params?: ShowDialogParams) => void,
-  setDialogContent: (content: React.ReactNode) => void,
-  closeDialog: () => void,
-  isOpen: boolean,
-}
+import { DialogContextProps, ShowDialogParams } from "./interfaces";
 
 const DialogContext = createContext<DialogContextProps>({
   showDialog: () => {},

@@ -2,8 +2,8 @@
 
 import styles from './service-page-client-component.module.scss';
 import ServicePageComponent from '@src/ui-kit/service-page-component/service-page-component';
-import { useCategoryData } from '@contexts/category-data-context';
-import { useHrefHelper } from '@contexts/href-context';
+import { useCategoryData } from '@contexts/category-data/category-data-context';
+import { useHrefHelper } from '@contexts/href/href-context';
 
 export default function ServicePageClientComponent({ serviceId }: { serviceId: string }) {
   const { getServiceById, getRelatedServices } = useCategoryData();

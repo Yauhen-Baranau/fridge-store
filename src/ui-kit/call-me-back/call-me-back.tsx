@@ -7,7 +7,7 @@ import composeClassName from '@src/helpers/compose-class-name';
 import { contactInfo } from '@constants/contact-info';
 import BackgroundSnowflake from '../background-snowflake/background-snowflake';
 import { Validators } from '../form/validators';
-import { useDialog } from '@contexts/dialog-context';
+import { useDialog } from '@contexts/dialog/dialog-context';
 import WeWillCallYouBack from '@ui-kit/we-will-call-you-back/we-will-call-you-back';
 import useResponsive from '@hooks/use-responsive';
 

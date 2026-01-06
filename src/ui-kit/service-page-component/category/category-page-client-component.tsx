@@ -1,7 +1,7 @@
 'use client';
 
-import { useCategoryData } from "@contexts/category-data-context";
-import { useHrefHelper } from "@contexts/href-context";
+import { useCategoryData } from "@contexts/category-data/category-data-context";
+import { useHrefHelper } from "@contexts/href/href-context";
 import ServicePageComponent from "../service-page-component";
 
 export default function CategoryPageClientComponent({ categoryId }: { categoryId: string }) {
