@@ -4,12 +4,11 @@ import { createContext, useContext } from "react";
 import categories from "@category-data/categories.json";
 import subcategories from "@category-data/subcategories.json";
 import services from "@category-data/services.json";
-import {
-  Category,
-  CategoryDataContextProps,
-  Service,
-  Subcategory,
-} from "./interfaces";
+import { CategoryDataContextProps } from "./types/category-data-context-props";
+import { Category } from "./types/category";
+import { Subcategory } from "./types/subcategory";
+import { Service } from "./types/service";
+import { freeWithRepairsServiceIds, popularServiceIds, withPriceIncludingPartsServiceIds } from "./constants/special-service-ids";
 
 const CategoryDataContext = createContext<CategoryDataContextProps>({
   getAllCategories: () => [],
@@ -24,6 +23,9 @@ const CategoryDataContext = createContext<CategoryDataContextProps>({
   getSubcategoryStartingPrice: () => null,
   getDiagnosticsService: () => null,
   getDiagnosticsServiceId: () => "",
+  getFreeWithRepairsServiceIds: () => [],
+  getServiceWithPriceIncludingPartsIds: () => [],
+  getPopularServiceIds: () => [],
 });
 
 export const CategoryDataContextProvider = ({
@@ -89,6 +91,9 @@ export const CategoryDataContextProvider = ({
         },
         getDiagnosticsService: () => getServiceById(diagnosticsServiceId),
         getDiagnosticsServiceId: () => diagnosticsServiceId,
+        getFreeWithRepairsServiceIds: () => freeWithRepairsServiceIds,
+        getServiceWithPriceIncludingPartsIds: () => withPriceIncludingPartsServiceIds,
+        getPopularServiceIds: () => popularServiceIds,
       }}
     >
       {children}

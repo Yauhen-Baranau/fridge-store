@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import styles from "./popular-services.module.scss";
 import Button from "@ui-kit/button/button";
 import Link from "next/link";
@@ -11,37 +10,35 @@ import { useCategoryData } from "@contexts/category-data/category-data-context";
 import useResponsive from "@hooks/use-responsive";
 import Slider from "@ui-kit/slider/slider";
 import composeClassName from "@helpers/compose-class-name";
-// TO DO: move to category data context
-import {
-  freeWithRepairsServiceIds,
-  popularServiceIds,
-  withIncludingPartsCommentServiceIds,
-} from "./constants/special-service-ids";
 import Service from "./subcomponents/service/service";
+import { useMemo } from "react";
 
 export default function PopularServices() {
-  const { getServiceById } = useCategoryData();
+  const { getServiceById, getFreeWithRepairsServiceIds, getServiceWithPriceIncludingPartsIds, getPopularServiceIds } = useCategoryData();
   const { getPageHref, getServiceHref } = useHrefHelper();
   const { isDesktop, isMobile } = useResponsive();
 
-  const services = popularServiceIds
-    .slice(0, isDesktop ? 9 : 6)
-    .map((id, index) => {
-      const serviceData = getServiceById(id);
-      return (
-        serviceData && (
-          <Service
-            key={index}
-            {...serviceData}
-            serviceHref={getServiceHref(serviceData.id)}
-            freeWithRepairs={freeWithRepairsServiceIds.includes(id)}
-            priceComment={withIncludingPartsCommentServiceIds.includes(id)
-              ? "включая запчасти"
-              : ""}
-          />
-        )
-      );
-    });
+  const services = useMemo(() => {
+    return getPopularServiceIds()
+      .slice(0, isDesktop ? 9 : 6)
+      .map((id, index) => {
+        const serviceData = getServiceById(id);
+        return (
+          serviceData && (
+            <Service
+              key={index}
+              {...serviceData}
+              serviceHref={getServiceHref(serviceData.id)}
+              freeWithRepairs={getFreeWithRepairsServiceIds().includes(id)}
+              priceComment={getServiceWithPriceIncludingPartsIds().includes(id)
+                ? "включая запчасти"
+                : ""}
+            />
+          )
+        );
+      });
+  }, []);
+
   return (
     <section className={styles["popular-services"]}>
       <h1 className={styles["popular-services-title"]}>Популярные услуги</h1>

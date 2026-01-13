@@ -1,23 +1,6 @@
-export interface Category {
-  id: string;
-  label: string;
-  description: Array<
-    | { type: "paragraph"; content: string }
-    | { type: "list"; title: string; items: Array<string> }
-  >;
-  imagePath: string;
-}
-
-export interface Subcategory extends Category {
-  parentCategoryId: string;
-}
-
-export interface Service extends Subcategory {
-  price: number;
-  requiredTime?: string;
-  guarantee?: string;
-  relatedServiceIds: Array<string>;
-}
+import { Category } from "./category";
+import { Service } from "./service";
+import { Subcategory } from "./subcategory";
 
 export interface CategoryDataContextProps {
   getAllCategories: () => Array<Category>;
@@ -32,4 +15,7 @@ export interface CategoryDataContextProps {
   getSubcategoryStartingPrice: (subcategoryId: string) => number | null;
   getDiagnosticsService: () => Service | null;
   getDiagnosticsServiceId: () => string;
+  getFreeWithRepairsServiceIds: () => Array<string>,
+  getServiceWithPriceIncludingPartsIds: () => Array<string>,
+  getPopularServiceIds: () => Array<string>,
 }
