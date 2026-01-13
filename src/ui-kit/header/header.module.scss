@@ -2,42 +2,12 @@
 @use "../../styles/colors.scss";
 @use "../../styles/responsive.scss";
 
-$main-black-color-filter: brightness(0) saturate(100%) invert(0%) sepia(3%)
-  saturate(3890%) hue-rotate(358deg) brightness(84%) contrast(75%);
-
 .header {
   display: flex;
   align-items: center;
   margin-bottom: 24px;
 
-  .logo-wrapper {
-    width: 227px;
-    height: 40px;
-    margin-right: 50px;
-    position: relative;
-  }
-
-  .contacts {
-    display: grid;
-    grid-template-rows: repeat(2, auto);
-    grid-template-columns: repeat(3, auto);
-    gap: 8px 50px;
-    grid-auto-flow: column;
-    font-style: normal;
-
-    .icon-text-pair {
-      @include fonts.font(14px, 400, 140%);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .socials {
-      grid-row: span 2;
-    }
-  }
-
-  .call-me-back {
+  .call-me-back-button {
     width: 187px;
     height: 48px;
     margin-left: auto;
@@ -53,32 +23,6 @@ $main-black-color-filter: brightness(0) saturate(100%) invert(0%) sepia(3%)
     justify-content: space-between;
     padding-bottom: 14px;
     border-bottom: solid colors.$color-gray-lighter 1px;
-
-    .logo-wrapper {
-      margin-right: 10px;
-    }
-
-    .contacts {
-      column-gap: 32px;
-
-      .icon-text-pair {
-        @include fonts.font(12px, 400, 140%);
-      }
-    }
-
-    .icons {
-      display: flex;
-      align-items: center;
-      gap: 30px;
-
-      .navigation-dialog-toggle-button {
-        &.toggled {
-          img {
-            filter: $main-black-color-filter;
-          }
-        }
-      }
-    }
   }
 
   @include responsive.mobile-styles {
@@ -86,71 +30,5 @@ $main-black-color-filter: brightness(0) saturate(100%) invert(0%) sepia(3%)
     margin: 0;
     border-bottom: none;
     background-color: colors.$color-gray-light;
-
-    .logo-wrapper {
-      width: 173px;
-      height: 33px;
-      margin: 0;
-    }
-
-    .icons {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-  }
-}
-
-.dialog-content {
-  width: 390px;
-  padding: 32px;
-  border-radius: 10px;
-  background-color: colors.$color-gray-light;
-
-  .dialog-address {
-    padding-top: 32px;
-    margin-top: 32px;
-    border-top: solid colors.$color-gray-lighter 1px;
-    font-style: normal;
-
-    &-title {
-      @include fonts.font(16px, 600, 140%);
-      margin-bottom: 16px;
-      text-transform: uppercase;
-    }
-
-    .contact-info {
-      @include fonts.font(14px, 400, 140%);
-      gap: 16px;
-      margin-bottom: 16px;
-
-      li {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-    }
-  }
-
-  .dialog-socials {
-    width: fit-content;
-  }
-
-  .call-me-back-dialog-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    width: 243px;
-    height: 54px;
-    margin-top: 32px;
-
-    img {
-      filter: var(--main-white-color-filter);
-    }
-  }
-
-  @include responsive.mobile-styles {
-    width: 100vw;
   }
 }

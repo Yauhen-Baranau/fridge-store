@@ -1,0 +1,31 @@
+@use '../../../../styles/colors.scss';
+@use '../../../../styles/fonts.scss';
+
+.dialog-address {
+  padding-top: 32px;
+  margin-top: 32px;
+  border-top: solid colors.$color-gray-lighter 1px;
+  font-style: normal;
+
+  &-title {
+    @include fonts.font(16px, 600, 140%);
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+
+  .contact-info {
+    @include fonts.font(14px, 400, 140%);
+    gap: 16px;
+    margin-bottom: 16px;
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+  }
+}
+
+.dialog-socials {
+  width: fit-content;
+}

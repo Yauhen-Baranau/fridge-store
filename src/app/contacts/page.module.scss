@@ -24,17 +24,6 @@
         font-style: normal;
       }
     }
-
-    .map-wrapper {
-      width: 570px;
-      height: 283px;
-      position: relative;
-
-      .map {
-        border-radius: 8px;
-        object-fit: cover;
-      }
-    }
   }
 
   @include responsive.ipad-styles {
@@ -50,11 +39,6 @@
           font-size: 14px;
         }
       }
-
-      .map-wrapper {
-        width: 360px;
-        height: 227px;
-      }
     }
   }
 
@@ -69,10 +53,6 @@
 
       .title {
         font-size: 24px;
-      }
-
-      .map-wrapper {
-        width: 100%;
       }
     }
   }

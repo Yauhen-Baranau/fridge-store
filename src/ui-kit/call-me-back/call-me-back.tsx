@@ -4,12 +4,13 @@ import Button from "@ui-kit/button/button";
 import styles from "./call-me-back.module.scss";
 import Form from "@ui-kit/form/form";
 import composeClassName from "@src/helpers/compose-class-name";
-import { contactInfo } from "@constants/contact-info";
+import { contactHrefs, contactInfo } from "@constants/contact-info";
 import BackgroundSnowflake from "../background-snowflake/background-snowflake";
 import { Validators } from "../form/validators";
 import { useDialog } from "@contexts/dialog/dialog-context";
 import WeWillCallYouBack from "@ui-kit/we-will-call-you-back/we-will-call-you-back";
 import useResponsive from "@hooks/use-responsive";
+import { validationRegexes } from "@constants/validation-regexes";
 
 export default function CallMeBack({ customClass }: { customClass?: string }) {
   const { showDialog } = useDialog();
@@ -43,19 +44,7 @@ export default function CallMeBack({ customClass }: { customClass?: string }) {
             height: 24,
           }}
           style="text-only"
-          onClick={() =>
-            window.open(
-              `tel:${contactInfo.phoneNumber
-                .split(" ")
-                .join("")
-                .split("-")
-                .join("")
-                .split("(")
-                .join("")
-                .split(")")
-                .join("")}`,
-            )
-          }
+          onClick={() => window.open(contactHrefs.phone)}
         />
       </div>
       <Form
@@ -76,7 +65,7 @@ export default function CallMeBack({ customClass }: { customClass?: string }) {
               validators: [
                 Validators.required,
                 Validators.minLength(3),
-                Validators.pattern(/^[а-яА-Я]+$/),
+                Validators.pattern(validationRegexes.name),
               ],
             },
             {
@@ -85,9 +74,7 @@ export default function CallMeBack({ customClass }: { customClass?: string }) {
               placeholder: "Телефон",
               validators: [
                 Validators.required,
-                Validators.pattern(
-                  /^\+375\s?\(?\d{2,4}\)?\s?\d{3}\-?\d{2}\-?\d{2}$/,
-                ),
+                Validators.pattern(validationRegexes.phone),
               ],
             },
           ],

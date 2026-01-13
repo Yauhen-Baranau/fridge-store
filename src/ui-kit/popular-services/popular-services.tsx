@@ -11,12 +11,13 @@ import { useCategoryData } from "@contexts/category-data/category-data-context";
 import useResponsive from "@hooks/use-responsive";
 import Slider from "@ui-kit/slider/slider";
 import composeClassName from "@helpers/compose-class-name";
-import { serviceFactory } from "./helpers/service-factory";
+// TO DO: move to category data context
 import {
   freeWithRepairsServiceIds,
   popularServiceIds,
   withIncludingPartsCommentServiceIds,
 } from "./constants/special-service-ids";
+import Service from "./subcomponents/service/service";
 
 export default function PopularServices() {
   const { getServiceById } = useCategoryData();
@@ -29,17 +30,15 @@ export default function PopularServices() {
       const serviceData = getServiceById(id);
       return (
         serviceData && (
-          <React.Fragment key={index}>
-            {serviceFactory({
-              ...serviceData,
-              serviceHref: getServiceHref(serviceData.id),
-              freeWithRepairs: freeWithRepairsServiceIds.includes(id),
-              priceComment: withIncludingPartsCommentServiceIds.includes(id)
-                ? "включая запчасти"
-                : "",
-              styles,
-            })}
-          </React.Fragment>
+          <Service
+            key={index}
+            {...serviceData}
+            serviceHref={getServiceHref(serviceData.id)}
+            freeWithRepairs={freeWithRepairsServiceIds.includes(id)}
+            priceComment={withIncludingPartsCommentServiceIds.includes(id)
+              ? "включая запчасти"
+              : ""}
+          />
         )
       );
     });

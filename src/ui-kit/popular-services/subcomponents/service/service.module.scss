@@ -1,0 +1,115 @@
+@use "../../../../styles/colors.scss";
+@use "../../../../styles/fonts.scss";
+@use "../../../../styles/responsive.scss";
+
+.service {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: 100%;
+  padding: 20px;
+  border: solid colors.$color-gray-darker 1px;
+  border-radius: 8px;
+  background-color: colors.$color-gray-light;
+  transition-duration: var(--global-transition-duration);
+
+  &:hover {
+    border: solid colors.$color-main-white 1px;
+    background-color: colors.$color-main-white;
+  }
+
+  .service-image-wrapper {
+    width: 263px;
+    height: 173px;
+    position: relative;
+
+    .service-image {
+      border-radius: 3px;
+      object-fit: cover;
+    }
+  }
+
+  .service-title {
+    @include fonts.font(20px, 600, 120%);
+  }
+
+  .price-block {
+    @include fonts.font(16px, 600, 140%);
+    white-space: nowrap;
+
+    .dynamic-price-text {
+      color: colors.$color-gray-dark;
+    }
+
+    .price,
+    .free-with-repairs-text {
+      color: colors.$color-main-blue;
+    }
+
+    .price-comment {
+      color: colors.$color-gray-darker;
+    }
+  }
+
+  .service-footer {
+    display: flex;
+    margin-top: auto;
+
+    &-block {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-weight: 600;
+
+      &-title {
+        color: colors.$color-gray-darker;
+      }
+
+      &:first-child {
+        margin-right: auto;
+      }
+    }
+  }
+
+  @include responsive.ipad-styles {
+    padding: 16px;
+
+    .service-image-wrapper {
+      width: 303px;
+      height: 180px;
+    }
+
+    .service-title {
+      font-size: 16px;
+    }
+
+    .price-block {
+      font-size: 14px;
+    }
+
+    .service-footer {
+      font-size: 14px;
+    }
+  }
+
+  @include responsive.mobile-styles {
+    padding: 16px;
+
+    .service-image-wrapper {
+      width: 271px;
+      height: 180px;
+    }
+
+    .service-title {
+      font-size: 16px;
+    }
+
+    .price-block {
+      font-size: 16px;
+    }
+
+    .service-footer {
+      font-size: 14px;
+    }
+  }
+}

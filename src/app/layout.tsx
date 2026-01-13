@@ -42,7 +42,7 @@ function RootLayoutBody({
       {initialResizeSettled && (
         <>
           {isDesktop && <Navigation />}
-          <Breadcrumbs customClass={styles.breadcrumbs} />
+          <Breadcrumbs />
           {children}
           <CallMeBack customClass={styles["call-me-back"]} />
           <Footer />

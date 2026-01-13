@@ -1,0 +1,16 @@
+@use "../../../styles/responsive.scss";
+
+.map-wrapper {
+  width: 570px;
+  height: 283px;
+  position: relative;
+
+  .map {
+    border-radius: 8px;
+    object-fit: cover;
+  }
+
+  @include responsive.mobile-styles {
+    width: 100%;
+  }
+}

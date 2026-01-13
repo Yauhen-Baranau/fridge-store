@@ -7,8 +7,8 @@ import composeClassName from "@src/helpers/compose-class-name";
 import BackgroundSnowflake from "../background-snowflake/background-snowflake";
 import useResponsive from "@hooks/use-responsive";
 import Slider from "@ui-kit/slider/slider";
-import { fridgeManufacturerFactory } from "./helpers/fridge-manufacturer-factory";
 import { fridgeManufacturers } from "./constants/fridge-manufacturers";
+import FridgeManufacturer from "./subcomponents/fridge-manufacturer/fridge-manufacturer";
 
 export default function FridgeManufacturers({
   customClass,
@@ -17,12 +17,11 @@ export default function FridgeManufacturers({
 }) {
   const { isMobile } = useResponsive();
 
-  const fridgeManufacturersJsx = useMemo(() => {
-    return fridgeManufacturers.map((params, index) => (
-      <React.Fragment key={index}>
-        {fridgeManufacturerFactory({ ...params, styles })}
-      </React.Fragment>
-    ));
+  const fridgeManufacturersJsxArray = useMemo(() => {
+    return fridgeManufacturers.map((params, index) => <FridgeManufacturer
+      key={index}
+      {...params}
+    />);
   }, []);
 
   return (
@@ -36,12 +35,11 @@ export default function FridgeManufacturers({
       </h1>
       {!isMobile ? (
         <div className={styles["fridge-manufacturers-list"]}>
-          {fridgeManufacturersJsx}
+          {fridgeManufacturersJsxArray}
         </div>
       ) : (
         <Slider
-          customClass={styles["fridge-manufacturers-slider"]}
-          slides={fridgeManufacturersJsx}
+          slides={fridgeManufacturersJsxArray}
           slidesGap={30}
         />
       )}

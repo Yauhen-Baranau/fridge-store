@@ -39,21 +39,6 @@
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     gap: 30px;
-
-    .difference {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-      padding: 32px;
-      border-radius: 8px;
-      background-color: colors.$color-main-white;
-
-      &-text {
-        @include fonts.font(20px, 600, 120%);
-        text-align: center;
-      }
-    }
   }
 
   @include responsive.ipad-styles {
@@ -70,16 +55,6 @@
       .image {
         width: 50%;
         height: 50%;
-      }
-    }
-
-    .differences {
-      .difference {
-        padding: 32px 20px;
-
-        &-text {
-          font-size: 16px;
-        }
       }
     }
   }

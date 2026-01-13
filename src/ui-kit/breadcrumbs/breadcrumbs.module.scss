@@ -1,0 +1,13 @@
+@use '../../styles/responsive.scss';
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 24px;
+  margin: 32px 0 56px 0;
+
+  @include responsive.mobile-styles {
+    margin: 15px 15px 40px 15px;
+  }
+}

@@ -8,10 +8,6 @@
     width: responsive.$desktop-to-ipad-breakpoint;
   }
 
-  .breadcrumbs {
-    margin: 32px 0 56px 0;
-  }
-
   .call-me-back {
     margin-top: 140px;
   }
@@ -36,10 +32,6 @@
 
   @include responsive.mobile-styles {
     padding: 0;
-
-    .breadcrumbs {
-      margin: 15px 15px 40px 15px;
-    }
 
     .call-me-back {
       margin-top: 72px;

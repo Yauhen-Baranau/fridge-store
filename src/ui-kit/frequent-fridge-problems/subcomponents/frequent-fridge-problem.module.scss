@@ -1,0 +1,45 @@
+@use "../../../styles/responsive.scss";
+@use "../../../styles/colors.scss";
+@use "../../../styles/fonts.scss";
+
+.frequent-problem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px;
+  border: solid colors.$color-main-blue 1px;
+  border-radius: 12px;
+
+  .frequent-problem-label {
+    @include fonts.font(18px, 600, 140%);
+    color: #202020;
+  }
+
+  .frequent-problem-button {
+    width: 50px;
+    height: 50px;
+    padding: 0;
+
+    img {
+      position: relative;
+      top: 2px;
+      transform: rotate(45deg);
+    }
+  }
+
+  @include responsive.ipad-styles {
+    .frequent-problem {
+      padding: 16px;
+
+      .frequent-problem-label {
+        font-size: 16px;
+      }
+    }
+  }
+
+  @include responsive.mobile-styles {
+    .frequent-problem {
+      gap: 20px;
+    }
+  }
+}

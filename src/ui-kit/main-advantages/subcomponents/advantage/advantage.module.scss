@@ -1,0 +1,89 @@
+@use "../../../../styles/fonts.scss";
+@use "../../../../styles/colors.scss";
+@use "../../../../styles/responsive.scss";
+
+.advantage {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .advantage-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 20px;
+    border-bottom: solid colors.$color-gray-lighter 1px;
+
+    .advantage-title {
+      @include fonts.font(20px, 600, 100%);
+
+      .advantage-subtitle {
+        @include fonts.font(14px, 600, 100%);
+        color: colors.$color-main-blue;
+      }
+    }
+  }
+
+  .advantage-content {
+    gap: 16px;
+
+    li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+
+      img {
+        position: relative;
+        top: 5px;
+      }
+    }
+  }
+
+  @include responsive.ipad-styles {
+    gap: 16px;
+
+    .advantage-header {
+      gap: 16px;
+      padding-bottom: 16px;
+
+      .advantage-title {
+        font-size: 16px;
+
+        .advantage-subtitle {
+          white-space: nowrap;
+        }
+      }
+
+      .advantage-content {
+        gap: 12px;
+
+        li {
+          @include fonts.font(14px, 400, 140%);
+        }
+      }
+    }
+  }
+
+  @include responsive.mobile-styles {
+    gap: 0;
+    padding-bottom: 16px;
+    border-bottom: solid colors.$color-gray-lighter 1px;
+
+    .advantage-toggle-area {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .advantage-header {
+        width: fit-content;
+        padding: 0;
+        border: none;
+      }
+    }
+
+    .advantage-content-wrapper {
+      padding: 16px 52px 0 52px;
+      font-size: 14px;
+    }
+  }
+}

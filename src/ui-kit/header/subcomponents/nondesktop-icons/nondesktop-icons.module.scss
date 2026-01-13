@@ -1,0 +1,13 @@
+@use '../../../../styles/responsive.scss';
+
+.icons {
+  @include responsive.ipad-styles {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  @include responsive.mobile-styles {
+    align-items: center;
+  }
+}

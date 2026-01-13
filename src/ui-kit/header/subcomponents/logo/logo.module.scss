@@ -1,0 +1,18 @@
+@use '../../../../styles/responsive.scss';
+
+.logo-wrapper {
+  width: 227px;
+  height: 40px;
+  margin-right: 50px;
+  position: relative;
+
+  @include responsive.ipad-styles {
+    margin-right: 10px;
+  }
+
+  @include responsive.mobile-styles {
+    width: 173px;
+    height: 33px;
+    margin: 0;
+  }
+}

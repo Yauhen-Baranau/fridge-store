@@ -1,16 +1,16 @@
 import composeClassName from "@src/helpers/compose-class-name";
 import styles from "./how-to-order-repairs.module.scss";
-import React from "react";
 import BackgroundSnowflake from "../background-snowflake/background-snowflake";
 import useResponsive from "@hooks/use-responsive";
-import { stepFactory } from "./helpers/step-factory";
+import { orderRepairsSteps } from "./constants/order-repairs-steps";
+import Step from "./subcomponents/step/step";
 
 export default function HowToOrderRepairs({
   customClass,
 }: {
   customClass?: string;
 }) {
-  const { isIpad, isMobile } = useResponsive();
+  const { isMobile } = useResponsive();
 
   return (
     <section
@@ -18,31 +18,13 @@ export default function HowToOrderRepairs({
     >
       <h1 className={styles.title}>Как заказать ремонт?</h1>
       <div className={styles.steps}>
-        {[
-          {
-            iconPath: "/icons/document.svg",
-            description:
-              "Оформите заявку онлайн или позвоните менеджеру, узнайте предварительную стоимость ремонта",
-          },
-          {
-            iconPath: "/icons/suitcase.svg",
-            description:
-              "Мастер проводит диагностику и называет точную цену ремонта",
-          },
-          {
-            iconPath: "/icons/wrench.svg",
-            description: "Проводим ремонт холодильника и оформляем гарантию",
-          },
-        ].map((params, index, arr) => (
-          <React.Fragment key={index}>
-            {stepFactory({
-              ...params,
-              stepNumber: index + 1,
-              hasRightArrow: index < arr.length - 1,
-              isIpad,
-              styles,
-            })}
-          </React.Fragment>
+        {orderRepairsSteps.map((params, index, arr) => (
+          <Step
+            key={index}
+            {...params}
+            stepNumber={index + 1}
+            hasRightArrow={index < arr.length - 1}
+          />
         ))}
       </div>
       {!isMobile ? (

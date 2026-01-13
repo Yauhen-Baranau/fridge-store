@@ -1,0 +1,35 @@
+@use '../../../../styles/colors.scss';
+@use '../../../../styles/responsive.scss';
+
+.navigation-dialog-toggle-button {
+  &.toggled {
+    img {
+      filter: var(--main-black-color-filter);
+    }
+  }
+}
+
+.dialog-content {
+  width: 390px;
+  padding: 32px;
+  border-radius: 10px;
+  background-color: colors.$color-gray-light;
+
+  .call-me-back-dialog-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    width: 243px;
+    height: 54px;
+    margin-top: 32px;
+
+    img {
+      filter: var(--main-white-color-filter);
+    }
+  }
+
+  @include responsive.mobile-styles {
+    width: 100vw;
+  }
+}

@@ -1,0 +1,51 @@
+@use '../../../../../../styles/responsive.scss';
+@use '../../../../../../styles/fonts.scss';
+@use '../../../../../../styles/colors.scss';
+
+.list {
+  gap: 12px;
+
+  li {
+    @include fonts.font(16px, 400, 140%);
+    color: colors.$color-gray-light;
+
+    .socials {
+      width: min-content;
+    }
+  }
+
+  &.contacts {
+    font-style: normal;
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
+
+      &:nth-of-type(3) {
+        padding-bottom: 20px;
+        border-bottom: solid colors.$color-gray-dark 1px;
+      }
+
+      &:nth-of-type(4) {
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  @include responsive.ipad-styles {
+    li {
+      font-size: 14px;
+    }
+  }
+
+  @include responsive.mobile-styles {
+    &.contacts {
+      li {
+        padding: 0;
+        border: none;
+      }
+    }
+  }
+}

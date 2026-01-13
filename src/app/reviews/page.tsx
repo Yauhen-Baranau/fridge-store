@@ -6,6 +6,7 @@ import List from "@ui-kit/list/list";
 import BackgroundSnowflake from "@ui-kit/background-snowflake/background-snowflake";
 import useResponsive from "@hooks/use-responsive";
 import { reviewListItemFactory } from "./helpers/review-list-item-factory";
+import { mockReviews } from "./mock/reviews";
 
 export default function ReviewsPage() {
   const { isMobile } = useResponsive();
@@ -25,37 +26,7 @@ export default function ReviewsPage() {
       />
       <List
         customClass={styles["reviews-list"]}
-        items={[
-          {
-            reviewerName: "Анна Ковальчук",
-            rating: 5,
-            comment:
-              "Обратилась в эту компанию впервые, заказывала генеральную уборку квартиры. Приехали два клинера, работали около 5-6 часов. Использовали профессиональную химию Grass, отчистили даже застарелые пятна на кухне. Очень довольна результатом, всё блестит!",
-            images: [
-              { path: "/water-bottles.webp", width: 570, height: 382 },
-              { path: "/water-bottles.webp", width: 570, height: 382 },
-              { path: "/water-bottles.webp", width: 570, height: 382 },
-            ],
-            reviewTimestamp: 1763240400000,
-          },
-          {
-            reviewerName: "Анна Ковальчук",
-            rating: 3,
-            comment:
-              "Обратилась в эту компанию впервые, заказывала генеральную уборку квартиры. Приехали два клинера, работали около 5-6 часов. Использовали профессиональную химию Grass, отчистили даже застарелые пятна на кухне. Очень довольна результатом, всё блестит!",
-            reviewTimestamp: 0,
-          },
-          {
-            reviewerName: "Анна Ковальчук",
-            rating: 4,
-            comment:
-              "Обратилась в эту компанию впервые, заказывала генеральную уборку квартиры. Приехали два клинера, работали около 5-6 часов. Использовали профессиональную химию Grass, отчистили даже застарелые пятна на кухне. Очень довольна результатом, всё блестит!",
-            images: [{ path: "/water-bottles.webp", width: 570, height: 382 }],
-            reviewTimestamp: 1668546000000,
-          },
-        ].map((params) =>
-          reviewListItemFactory({ ...params, isMobile, styles }),
-        )}
+        items={mockReviews.map((params) => reviewListItemFactory({ ...params, isMobile, styles }))}
       />
       {!isMobile && (
         <>

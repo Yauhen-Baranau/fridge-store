@@ -8,6 +8,7 @@ import { useDialog } from "@contexts/dialog/dialog-context";
 import DialogForm from "@ui-kit/dialog-form/dialog-form";
 import useResponsive from "@hooks/use-responsive";
 import { contactInfo } from "@constants/contact-info";
+import { guaranteeListItemFactory } from "./helpers/guarantee-list-item-factory";
 
 export default function HeroBlock() {
   const { showDialog } = useDialog();
@@ -31,43 +32,10 @@ export default function HeroBlock() {
         <List
           customClass={styles.guarantees}
           items={[
-            {
-              content: (
-                <span>
-                  Гарантия до <b>12 месяцев</b>
-                </span>
-              ),
-              icon: {
-                path: "/icons/circle.svg",
-                width: 7,
-                height: 7,
-              },
-            },
-            {
-              content: (
-                <span>
-                  <b>Любой</b> ремонт холодильников на&nbsp;дому
-                </span>
-              ),
-              icon: {
-                path: "/icons/circle.svg",
-                width: 7,
-                height: 7,
-              },
-            },
-            {
-              content: (
-                <span>
-                  Озвучиваем цену <b>ДО</b> начала ремонта
-                </span>
-              ),
-              icon: {
-                path: "/icons/circle.svg",
-                width: 7,
-                height: 7,
-              },
-            },
-          ]}
+            <>Гарантия до <b>12 месяцев</b></>,
+            <><b>Любой</b> ремонт холодильников на&nbsp;дому</>,
+            <>Озвучиваем цену <b>ДО</b> начала ремонта</>,
+          ].map(guaranteeListItemFactory)}
         />
         <Button
           customClass={styles["discount-button"]}

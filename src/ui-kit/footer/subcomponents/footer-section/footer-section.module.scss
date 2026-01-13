@@ -1,0 +1,62 @@
+@use '../../../../styles/responsive.scss';
+@use '../../../../styles/fonts.scss';
+@use '../../../../styles/colors.scss';
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  &:nth-of-type(2) {
+    flex-basis: 30%;
+  }
+
+  &-title {
+    @include fonts.font(16px, 600, 140%);
+    flex-basis: 2em;
+    text-transform: uppercase;
+    color: colors.$color-main-white;
+  }
+
+  &-content {
+    flex-basis: 100%;
+  }
+
+  &-footer {
+    display: flex;
+    align-items: flex-end;
+    gap: 40px;
+    flex-basis: 48px;
+    color: colors.$color-gray-darker;
+  }
+
+  @include responsive.ipad-styles {
+    &-title {
+      font-size: 14px;
+    }
+
+    &-footer {
+      font-size: 12px;
+    }
+  }
+}
+
+@include responsive.mobile-styles {
+  .footer-column {
+    padding: 20px 0;
+    border: solid colors.$color-gray-dark;
+    border-width: 1px 0;
+  }
+
+  .footer-accordion-toggle-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-top: solid colors.$color-gray-dark 1px;
+  }
+
+  .footer-accordion-content-wrapper {
+    padding-bottom: 20px;
+  }
+}

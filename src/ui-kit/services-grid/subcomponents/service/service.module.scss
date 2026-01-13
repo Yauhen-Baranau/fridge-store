@@ -1,0 +1,96 @@
+@use "../../../../styles/colors.scss";
+@use "../../../../styles/fonts.scss";
+@use "../../../../styles/responsive.scss";
+
+.service {
+  display: grid;
+  grid-template-areas:
+    "image upper"
+    "image middle"
+    "image lower";
+  grid-template-columns: min-content 1fr;
+  grid-template-rows: 1fr repeat(2, min-content);
+  column-gap: 30px;
+  padding: 30px;
+  border: solid colors.$color-gray-lighter 1px;
+  border-radius: 8px;
+  background-color: colors.$color-gray-light;
+
+  .service-image-wrapper {
+    grid-area: image;
+    width: 180px;
+    height: 180px;
+    position: relative;
+
+    .service-image {
+      border-radius: 3px;
+      object-fit: cover;
+    }
+  }
+
+  .service-label {
+    @include fonts.font(20px, 600, 120%);
+    grid-area: upper;
+  }
+
+  .with-parts {
+    @include fonts.font(16px, 600, 140%);
+    grid-area: middle;
+    color: colors.$color-gray-darker;
+  }
+
+  .service-footer {
+    grid-area: lower;
+    display: flex;
+    align-items: flex-end;
+
+    .price {
+      @include fonts.font(20px, 600, 120%);
+    }
+
+    .service-learn-more {
+      margin-left: auto;
+
+      &-button {
+        height: fit-content;
+        padding: 0;
+      }
+    }
+  }
+
+  @include responsive.ipad-styles {
+    column-gap: 16px;
+    padding: 16px;
+
+    .service-label {
+      font-size: 16px;
+    }
+
+    .with-parts {
+      font-size: 14px;
+    }
+
+    .service-image-wrapper {
+      width: 158px;
+      height: 170px;
+    }
+
+    .service-footer {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1em;
+
+      .price {
+        font-size: 16px;
+      }
+
+      .service-learn-more {
+        margin-left: 0;
+      }
+    }
+  }
+
+  @include responsive.mobile-styles {
+    width: 100%;
+  }
+}

@@ -6,6 +6,7 @@ import styles from "./call-me-back-form.module.scss";
 import { Validators } from "../form/validators";
 import { useDialog } from "@contexts/dialog/dialog-context";
 import WeWillCallYouBack from "@ui-kit/we-will-call-you-back/we-will-call-you-back";
+import { validationRegexes } from "@constants/validation-regexes";
 
 export default function CallMeBackForm({
   title = "Оформить заказ",
@@ -45,7 +46,7 @@ export default function CallMeBackForm({
             validators: [
               Validators.required,
               Validators.minLength(3),
-              Validators.pattern(/^[а-яА-Я]+$/),
+              Validators.pattern(validationRegexes.name),
             ],
           },
           {
@@ -54,9 +55,7 @@ export default function CallMeBackForm({
             placeholder: "Телефон",
             validators: [
               Validators.required,
-              Validators.pattern(
-                /^\+375\s?\(?\d{2,4}\)?\s?\d{3}\-?\d{2}\-?\d{2}$/,
-              ),
+              Validators.pattern(validationRegexes.phone),
             ],
           },
         ],

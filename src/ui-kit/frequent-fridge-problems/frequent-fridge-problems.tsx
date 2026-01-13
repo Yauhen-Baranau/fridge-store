@@ -8,7 +8,8 @@ import Link from "next/link";
 import { useDialog } from "@contexts/dialog/dialog-context";
 import DialogForm from "@ui-kit/dialog-form/dialog-form";
 import { Routes } from "@constants/routes";
-import { useHrefHelper } from "@contexts/href/href-context";
+import { problems } from "./constants/problems";
+import FrequentFridgeProblem from "./subcomponents/frequent-fridge-problem";
 
 export default function FrequentFridgeProblems({
   customClass,
@@ -16,7 +17,6 @@ export default function FrequentFridgeProblems({
   customClass?: string;
 }) {
   const { showDialog } = useDialog();
-  const { getPageHref } = useHrefHelper();
 
   return (
     <section
@@ -45,44 +45,11 @@ export default function FrequentFridgeProblems({
         />
       </div>
       <div className={styles["right-content"]}>
-        {[
-          {
-            label: "ПРОБЛЕМЫ С ОХЛАЖДЕНИЕМ",
-            link: getPageHref(Routes.CommonFridgeProblems),
-          },
-          {
-            label: "ПРОБЛЕМЫ С РАБОТОЙ ХОЛОДИЛЬНИКА",
-            link: getPageHref(Routes.CommonFridgeProblems),
-          },
-          {
-            label: "ШУМЫ И ПОСТОРОННИЕ ЗВУКИ",
-            link: getPageHref(Routes.CommonFridgeProblems),
-          },
-          {
-            label: "ПРОБЛЕМЫ С УТЕЧКАМИ И ПРОТЕКАНИЕМ",
-            link: getPageHref(Routes.CommonFridgeProblems),
-          },
-          {
-            label: "ПРОБЛЕМЫ С КОМПЛЕКТУЮЩИМИ",
-            link: getPageHref(Routes.CommonFridgeProblems),
-          },
-        ].map((frequentProblemData, index) => (
-          <div key={index} className={styles["frequent-problem"]}>
-            <span className={styles["frequent-problem-label"]}>
-              {frequentProblemData.label}
-            </span>
-            <Link href={frequentProblemData.link}>
-              <Button
-                customClass={styles["frequent-problem-button"]}
-                icon={{
-                  path: "/icons/thick-arrow-up.svg",
-                  width: 24,
-                  height: 24,
-                }}
-              />
-            </Link>
-          </div>
-        ))}
+        {problems.map((frequentProblemData, index) => <FrequentFridgeProblem
+          key={index}
+          label={frequentProblemData.label}
+          redirectTo={frequentProblemData.redirectTo}
+        />)}
         <Link href={`/${Routes.CommonFridgeProblems}`}>
           <Button
             customClass={styles["view-all-problems-button"]}
