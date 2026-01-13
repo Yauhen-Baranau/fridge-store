@@ -31,6 +31,8 @@ a {
 }
 
 html {
+  overflow-x: hidden;
+  
   @include responsive.ipad-styles {
     ::-webkit-scrollbar {
       display: none;
