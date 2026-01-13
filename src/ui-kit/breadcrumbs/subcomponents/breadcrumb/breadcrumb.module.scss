@@ -37,12 +37,16 @@ $icon-color-filter: brightness(0) saturate(100%) invert(60%) sepia(8%) saturate(
   }
 
   @include responsive.mobile-styles {
-    &-label.limited {
-      max-width: 25vw;
-      height: 1em;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+    &.limited {
+      // not proud of this; just manually calculated the width of the other breadcrumbs to the left
+      // since the left part will always be the same width
+      max-width: calc(100vw - 200px);
+
+      .breadcrumb-label {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
     }
   }
 }

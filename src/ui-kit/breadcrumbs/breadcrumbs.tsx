@@ -15,19 +15,24 @@ export default function Breadcrumbs() {
   return (
     breadcrumbs.length > 1 && (
       <div className={styles.breadcrumbs}>
-        {breadcrumbs.map((breadcrumb, index, arr) => {
-          const isFirst = index === 0;
-          const isLast = index === arr.length - 1;
-          return <Breadcrumb
-            key={index}
-            breadcrumb={breadcrumb}
-            hasHomeIcon={isFirst}
-            disabled={isLast}
-            hasArrowIcon={!isLast}
-            light={!isLast}
-            limitLabelWidth={isMobile && arr.length > 2}
-          />
-        })}
+        {!isMobile
+          ? breadcrumbs.map((breadcrumb, index, arr) => {
+            const isFirst = index === 0;
+            const isLast = index === arr.length - 1;
+            return <Breadcrumb
+              key={index}
+              breadcrumb={breadcrumb}
+              hasHomeIcon={isFirst}
+              disabled={isLast}
+              hasArrowIcon={!isLast}
+              light={!isLast}
+            />
+          })
+          : <>
+            <Breadcrumb breadcrumb={breadcrumbs[0]} hasHomeIcon={true} />
+            {breadcrumbs.length > 2 && <Breadcrumb breadcrumb={{ label: '...', redirectTo: '/' }} disabled={true} />}
+            {breadcrumbs.length > 1 && <Breadcrumb breadcrumb={breadcrumbs.at(-1)!} hasArrowIcon={false} disabled={true} light={false} limitWidth={breadcrumbs.length > 2} />}
+          </>}
       </div>
     )
   );

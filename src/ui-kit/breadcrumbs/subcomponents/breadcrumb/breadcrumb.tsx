@@ -10,18 +10,18 @@ export default function Breadcrumb({
   disabled = false,
   hasArrowIcon = true,
   light = true,
-  limitLabelWidth = false,
+  limitWidth = false,
 }: {
   breadcrumb: BreadcrumbInterface;
   hasHomeIcon?: boolean;
   disabled?: boolean;
   hasArrowIcon?: boolean,
   light?: boolean,
-  limitLabelWidth?: boolean,
+  limitWidth?: boolean,
 }) {
   return (
     <Link
-      className={composeClassName(styles.breadcrumb, disabled && "disabled")}
+      className={composeClassName(styles.breadcrumb, disabled && styles.disabled, limitWidth && styles.limited)}
       href={breadcrumb.redirectTo}
       aria-disabled={disabled}
     >
@@ -36,8 +36,7 @@ export default function Breadcrumb({
       )}
       <div className={composeClassName(
         styles["breadcrumb-label"],
-        light && styles.light,
-        limitLabelWidth && styles.limited,
+        light && styles.light
       )}>{breadcrumb.label}</div>
       {hasArrowIcon && (
         <Image
