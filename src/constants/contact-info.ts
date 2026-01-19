@@ -17,4 +17,5 @@ export const contactHrefs = {
     .join("")
     .split(")")
     .join("")}`,
+  website: 'https://example.com',
 }

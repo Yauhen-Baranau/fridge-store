@@ -16,7 +16,7 @@ export default function Header({ customClass }: { customClass?: string }) {
 
   return (
     initialResizeSettled && (
-      <header className={composeClassName(styles.header, customClass)}>
+      <header className={composeClassName(styles.header, customClass)} itemScope itemType='https://schema.org/WPHeader'>
         <Logo />
         {!isMobile && <Contacts />}
         {isDesktop && (

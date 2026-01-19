@@ -33,7 +33,7 @@ export default function Footer() {
   );
 
   return (
-    <footer className={styles.footer}>
+    <footer className={styles.footer} itemScope itemType='https://schema.org/WPFooter'>
       <FooterSection
         title={'Информация'}
         content={<FooterColumnList

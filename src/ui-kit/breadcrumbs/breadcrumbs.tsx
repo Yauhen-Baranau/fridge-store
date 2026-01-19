@@ -14,7 +14,7 @@ export default function Breadcrumbs() {
 
   return (
     breadcrumbs.length > 1 && (
-      <div className={styles.breadcrumbs}>
+      <div className={styles.breadcrumbs} itemScope itemType='https://schema.org/BreadcrumbList'>
         {!isMobile
           ? breadcrumbs.map((breadcrumb, index, arr) => {
             const isFirst = index === 0;
