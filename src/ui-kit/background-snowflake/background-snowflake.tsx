@@ -2,6 +2,7 @@ import Image from "next/image";
 import styles from "./background-snowflake.module.scss";
 import composeClassName from "@helpers/compose-class-name";
 import { colorToCssFilterMap } from "./constants/color-to-css-filter-map";
+import { BackgroundSnowflakeParams } from "./interfaces/background-snowflake-params";
 
 export default function BackgroundSnowflake({
   width,
@@ -15,19 +16,7 @@ export default function BackgroundSnowflake({
   opacity,
   zIndex,
   customClass,
-}: {
-  width: number;
-  height: number;
-  top?: number;
-  right?: number;
-  bottom?: number;
-  left?: number;
-  rotation?: number;
-  color?: string;
-  opacity?: number;
-  zIndex?: number;
-  customClass?: string;
-}) {
+}: BackgroundSnowflakeParams) {
   return (
     <Image
       className={composeClassName(styles.snowflake, customClass)}

@@ -3,7 +3,6 @@
 import styles from "./page.module.scss";
 import CallMeBackForm from "@src/ui-kit/call-me-back-form/call-me-back-form";
 import { useEffect, useMemo, useState } from "react";
-import BackgroundSnowflake from "@src/ui-kit/background-snowflake/background-snowflake";
 import { useCategoryData } from "@contexts/category-data/category-data-context";
 import List from "@ui-kit/list/list";
 import useResponsive from "@hooks/use-responsive";
@@ -11,6 +10,7 @@ import Button from "@ui-kit/button/button";
 import DialogForm from "@ui-kit/dialog-form/dialog-form";
 import { useDialog } from "@contexts/dialog/dialog-context";
 import { getSubcategoryAccordion } from "./helpers/get-subcategory-accordion";
+import BackgroundSnowflakes from "@ui-kit/background-snowflakes/background-snowflakes";
 
 export default function PricesPage() {
   const { isMobile } = useResponsive();
@@ -99,26 +99,18 @@ export default function PricesPage() {
             }),
           }))}
         />
-        {!isMobile && (
-          <>
-            <BackgroundSnowflake
-              width={247}
-              height={239}
-              left={81}
-              top={30}
-              rotation={-30}
-              color="main-white"
-            />
-            <BackgroundSnowflake
-              width={247}
-              height={239}
-              right={46}
-              top={30}
-              rotation={-30}
-              color="main-white"
-            />
-          </>
-        )}
+        <BackgroundSnowflakes snowflakes={[
+          {
+            snowflakeParams: { width: 247, height: 239, left: 81, top: 30, rotation: -30, color: "main-white" },
+            desktop: true,
+            ipad: true,
+          },
+          {
+            snowflakeParams: { width: 247, height: 239, right: 46, top: 30, rotation: -30, color: "main-white" },
+            desktop: true,
+            ipad: true,
+          },
+        ]} />
       </div>
     </main>
   );

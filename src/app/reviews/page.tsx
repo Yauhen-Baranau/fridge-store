@@ -7,6 +7,7 @@ import BackgroundSnowflake from "@ui-kit/background-snowflake/background-snowfla
 import useResponsive from "@hooks/use-responsive";
 import { reviewListItemFactory } from "./helpers/review-list-item-factory";
 import { mockReviews } from "./mock/reviews";
+import BackgroundSnowflakes from "@ui-kit/background-snowflakes/background-snowflakes";
 
 export default function ReviewsPage() {
   const { isMobile } = useResponsive();
@@ -28,26 +29,18 @@ export default function ReviewsPage() {
         customClass={styles["reviews-list"]}
         items={mockReviews.map((params) => reviewListItemFactory({ ...params, isMobile, styles }))}
       />
-      {!isMobile && (
-        <>
-          <BackgroundSnowflake
-            width={613}
-            height={595}
-            right={43}
-            top={909}
-            rotation={-30}
-            color="light-blue"
-          />
-          <BackgroundSnowflake
-            width={341}
-            height={331}
-            right={43}
-            top={909}
-            rotation={-30}
-            color="light-blue"
-          />
-        </>
-      )}
+      <BackgroundSnowflakes snowflakes={[
+        {
+          snowflakeParams: { width: 613, height: 595, right: 43, top: 909, rotation: -30, color: "light-blue" },
+          desktop: true,
+          ipad: true,
+        },
+        {
+          snowflakeParams: { width: 341, height: 331, right: 43, top: 909, rotation: -30, color: "light-blue" },
+          desktop: true,
+          ipad: true,
+        },
+      ]} />
     </main>
   );
 }

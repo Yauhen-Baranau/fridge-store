@@ -1,4 +1,5 @@
-import { Service, Subcategory } from "@contexts/category-data/types/interfaces";
+import { Subcategory } from "@contexts/category-data/types/subcategory";
+import { Service } from "@contexts/category-data/types/service";
 import composeClassName from "@helpers/compose-class-name";
 import Accordion from "@ui-kit/accordion/accordion";
 import BackgroundSnowflake from "@ui-kit/background-snowflake/background-snowflake";

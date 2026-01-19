@@ -3,14 +3,13 @@
 import CallMeBackForm from "@src/ui-kit/call-me-back-form/call-me-back-form";
 import styles from "./page.module.scss";
 import List from "@ui-kit/list/list";
-import Image from "next/image";
-import BackgroundSnowflake from "@src/ui-kit/background-snowflake/background-snowflake";
 import useResponsive from "@hooks/use-responsive";
 import Button from "@ui-kit/button/button";
 import { useDialog } from "@contexts/dialog/dialog-context";
 import DialogForm from "@ui-kit/dialog-form/dialog-form";
 import { listItemContentFactory } from "./helpers/payment-page-list-item-content-factory";
 import { advantages, paymentTypesListItems } from "./constants/payment-text-lists-items";
+import BackgroundSnowflakes from "@ui-kit/background-snowflakes/background-snowflakes";
 
 export default function PaymentPage() {
   const { isMobile } = useResponsive();
@@ -67,26 +66,18 @@ export default function PaymentPage() {
           onClick={() => showDialog(<DialogForm />)}
         />
       )}
-      {!isMobile && (
-        <>
-          <BackgroundSnowflake
-            width={613}
-            height={595}
-            right={40}
-            bottom={785}
-            rotation={-30}
-            color="light-blue"
-          />
-          <BackgroundSnowflake
-            width={341}
-            height={331}
-            right={40}
-            bottom={785}
-            rotation={-30}
-            color="light-blue"
-          />
-        </>
-      )}
+      <BackgroundSnowflakes snowflakes={[
+          {
+            snowflakeParams: { width: 613, height: 595, right: 40, bottom: 785, rotation: -30, color: "light-blue" },
+            desktop: true,
+            ipad: true,
+          },
+          {
+            snowflakeParams: { width: 341, height: 331, right: 40, bottom: 785, rotation: -30, color: "light-blue" },
+            desktop: true,
+            ipad: true,
+          },
+      ]} />
     </main>
   );
 }

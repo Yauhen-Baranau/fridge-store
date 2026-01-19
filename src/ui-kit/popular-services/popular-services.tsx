@@ -3,7 +3,6 @@
 import styles from "./popular-services.module.scss";
 import Button from "@ui-kit/button/button";
 import Link from "next/link";
-import BackgroundSnowflake from "../background-snowflake/background-snowflake";
 import { useHrefHelper } from "@contexts/href/href-context";
 import { Routes } from "@constants/routes";
 import { useCategoryData } from "@contexts/category-data/category-data-context";
@@ -12,6 +11,7 @@ import Slider from "@ui-kit/slider/slider";
 import composeClassName from "@helpers/compose-class-name";
 import Service from "./subcomponents/service/service";
 import { useMemo } from "react";
+import BackgroundSnowflakes from "@ui-kit/background-snowflakes/background-snowflakes";
 
 export default function PopularServices() {
   const { getServiceById, getFreeWithRepairsServiceIds, getServiceWithPriceIncludingPartsIds, getPopularServiceIds } = useCategoryData();
@@ -54,51 +54,26 @@ export default function PopularServices() {
       <Link href={getPageHref(Routes.Prices)}>
         <Button text="Смотреть все услуги" style="text-only" />
       </Link>
-      {!isMobile ? (
-        <>
-          <BackgroundSnowflake
-            width={658}
-            height={638}
-            left={0}
-            top={94}
-            rotation={-30}
-            color="main-white"
-            opacity={0.4}
-            zIndex={-1}
-          />
-          <BackgroundSnowflake
-            width={658}
-            height={638}
-            right={33}
-            bottom={222}
-            rotation={-30}
-            color="main-white"
-            opacity={0.4}
-            zIndex={-1}
-          />
-        </>
-      ) : (
-        <>
-          <BackgroundSnowflake
-            width={69}
-            height={64}
-            left={25}
-            bottom={25}
-            rotation={-30}
-            color="main-white"
-            zIndex={-1}
-          />
-          <BackgroundSnowflake
-            width={69}
-            height={64}
-            right={25}
-            bottom={25}
-            rotation={-30}
-            color="main-white"
-            zIndex={-1}
-          />
-        </>
-      )}
+      <BackgroundSnowflakes snowflakes={[
+        {
+          snowflakeParams: { width: 658, height: 638, left: 0, top: 94, rotation: -30, color: "main-white", opacity: 0.4, zIndex: -1 },
+          desktop: true,
+          ipad: true,
+        },
+        {
+          snowflakeParams: { width: 658, height: 638, right: 33, bottom: 222, rotation: -30, color: "main-white", opacity: 0.4, zIndex: -1 },
+          desktop: true,
+          ipad: true,
+        },
+        {
+          snowflakeParams: { width: 69, height: 64, left: 25, bottom: 25, rotation: -30, color: "main-white", zIndex: -1 },
+          mobile: true,
+        },
+        {
+          snowflakeParams: { width: 69, height: 64, right: 25, bottom: 25, rotation: -30, color: "main-white", zIndex: -1 },
+          mobile: true,
+        },
+      ]} />
     </section>
   );
 }
