@@ -19,16 +19,20 @@ export const reviewListItemFactory = ({
   isMobile: boolean;
   styles: Record<string, string>;
 }) => {
+  const reviewDate = new Date(reviewTimestamp);
+
   return {
     content: (
-      <div className={styles.review}>
-        <h3 className={styles["reviewer-name"]}>{reviewerName}</h3>
+      <div className={styles.review} itemScope itemType={'https://schema.org/Review'}>
+        <h3 className={styles["reviewer-name"]} itemProp='author' itemScope itemType='https://schema.org/Person'>
+          <span itemProp='name'>{reviewerName}</span>
+        </h3>
         <Stars customClass={styles["review-stars"]} stars={rating} />
         &nbsp;&nbsp;
-        <span className={styles["review-number-rating"]}>
-          {Math.round(rating)},0
+        <span className={styles["review-number-rating"]} itemProp='reviewRating' itemScope itemType='https://schema.org/Rating'>
+          <span itemProp='ratingValue'>{Math.round(rating)},0</span>
         </span>
-        <p className={styles["review-comment"]}>{comment}</p>
+        <p className={styles["review-comment"]} itemProp='reviewBody'>{comment}</p>
         <div className={styles["review-images"]}>
           {images.map(({ path, width, height }, index) => (
             <ImagePreview
@@ -41,9 +45,16 @@ export const reviewListItemFactory = ({
             />
           ))}
         </div>
-        <span className={styles["review-timestamp"]}>
-          {getTimelapseText(new Date(reviewTimestamp))}
+        <span className={styles["review-timestamp"]} >
+          {getTimelapseText(reviewDate)}
         </span>
+
+        <div hidden>
+          <span itemProp='datePublished'>{reviewDate.toISOString()}</span>
+          <div itemProp='itemReviewed' itemScope itemType='https://schema.org/LocalBusiness'>
+            <span itemProp='name'>Ремонт холодильников</span>
+          </div>
+        </div>
       </div>
     ),
   };
