@@ -10,6 +10,7 @@ import Button from "@ui-kit/button/button";
 import { useDialog } from "@contexts/dialog/dialog-context";
 import DialogForm from "@ui-kit/dialog-form/dialog-form";
 import { listItemContentFactory } from "./helpers/payment-page-list-item-content-factory";
+import { advantages, paymentTypesListItems } from "./constants/payment-text-lists-items";
 
 export default function PaymentPage() {
   const { isMobile } = useResponsive();
@@ -26,24 +27,7 @@ export default function PaymentPage() {
         </p>
         <List
           customClass={styles.list}
-          items={[
-            {
-              title: "Оплата наличными",
-              text: "Вы можете произвести оплату прямо мастеру после выполнения работ. Это быстрый и привычный способ, не требующий дополнительных действий.",
-            },
-            {
-              title: "Банковские карты и мобильные сервисы",
-              text: "Мы принимаем к оплате карты Visa, Mastercard, Белкарт, а также Apple Pay и Samsung Pay. Расплатиться можно онлайн или при встрече — у мастера всегда с собой терминал.",
-            },
-            {
-              title: "Безналичная оплата для юрлиц",
-              text: "Для компаний мы предоставляем полный пакет документов и возможность оплаты по безналичному расчету. После подтверждения заказа вы получите счёт и все необходимые бумаги.",
-            },
-            {
-              title: "Платеж через ЕРИП",
-              text: "Оплата доступна через систему «Расчет» (ЕРИП) — вы можете оплатить услугу через интернет-банк, терминал или мобильное приложение. Подробная инструкция будет отправлена вам после оформления заявки.",
-            },
-          ].map((params, index) => ({
+          items={paymentTypesListItems.map((params, index) => ({
             content: listItemContentFactory({ ...params, index, styles }),
           }))}
         />
@@ -69,28 +53,7 @@ export default function PaymentPage() {
         </p>
         <List
           customClass={styles.list}
-          items={[
-            {
-              title: "Честная оплата",
-              text: "Все цены озвучиваются заранее и не меняются в процессе. Никаких скрытых услуг или доплат — только прозрачные условия.",
-            },
-            {
-              title: "Удобная оплата на ваш выбор",
-              text: "Принимаем наличные, банковские карты, Apple Pay, Samsung Pay, ЕРИП и безналичный расчет — всё для вашего удобства.",
-            },
-            {
-              title: "Гарантия на услуги",
-              text: "Если вдруг возникнут вопросы к качеству работ — мы обязательно всё доработаем или вернём часть суммы. Мы не бросаем клиентов после визита.",
-            },
-            {
-              title: "Работаем с частными лицами и организациями",
-              text: "Предоставляем все необходимые документы: чеки, счета, акты и договоры — всё официально и по закону.",
-            },
-            {
-              title: "Оформление по правилам",
-              text: "Сумма ремонта фиксируется при оформлении заявки, а расчёт происходит только по факту выполненных работ.",
-            },
-          ].map((params, index) => ({
+          items={advantages.map((params, index) => ({
             content: listItemContentFactory({ ...params, index, styles }),
           }))}
         />
