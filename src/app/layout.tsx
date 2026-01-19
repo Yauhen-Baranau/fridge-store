@@ -17,6 +17,8 @@ import {
 import { HrefContextProvider } from "@contexts/href/href-context";
 import { CategoryDataContextProvider } from "@contexts/category-data/category-data-context";
 import useResponsive from "@hooks/use-responsive";
+import Script from "next/script";
+import { jsonLd } from "@constants/jsonld";
 
 const montserrat = Montserrat({
   subsets: ["cyrillic", "latin"],
@@ -38,6 +40,13 @@ function RootLayoutBody({
         isOpen && styles["dialog-open"],
       )}
     >
+      <Script
+        id='fridge-store-jsonld'
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd),
+        }}
+      />
       <Header />
       {initialResizeSettled && (
         <>
