@@ -7,23 +7,28 @@ export enum Routes {
   Reviews = "reviews",
   FAQ = "faq",
 
+  //categories
   RepairsCategory = "repairs",
+
+  //Subcategories
+  OtherSubcategory = "other",
   CoolingSubcategory = "cooling",
+  ElectricSubcategory = "electric",
+  NofrostSystemSubcategory = "nofrost",
+  MechanicalSubcategory = "mechanical",
+  HullAndDoorsCubcategory = "hull-and-doors",
+
+  //services
   CompressorService = "compressor",
   EvaporatorService = "evaporator",
   CondensatorService = "condensator",
   CapillaryTubeService = "capillary-tube",
   CoolantService = "coolant",
   ThermostatService = "thermostat",
-  ElectricSubcategory = "electric",
   ControlModuleService = "control-module",
-  NofrostSystemSubcategory = "nofrost",
   NofrostSystemService = "nofrost-system",
-  MechanicalSubcategory = "mechanical",
   SealantService = "sealant",
   VentilatorService = "ventilator",
-  HullAndDoorsCubcategory = "hull-and-doors",
-  OtherSubcategory = "other",
   DiagnosticsService = "diagnostics",
   DrainageService = "drainage",
   ExtraneousNoiseService = "extraneous-noise",
