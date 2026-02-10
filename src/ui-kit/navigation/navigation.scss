@@ -10,6 +10,7 @@ $navbar-item-horizontal-padding: 10px;
     @include fonts.font(14px, 400, 140%);
 
     height: 66px;
+    justify-content: space-between;
     align-items: center;
     gap: 16px;
     padding: 0 $navbar-horizontal-padding;

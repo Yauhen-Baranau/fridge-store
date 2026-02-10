@@ -14,16 +14,16 @@ export const navigationConfig: NavigationConfig = [
       { subcategoryId: '6', label: 'Прочие услуги' },
     ],
   },
-  {
-    label: 'Виды холодильников',
-    categoryId: '2',
-    subItems: [
-      { subcategoryId: '7', label: 'Ремонт бытовых холодильников' },
-      { subcategoryId: '8', label: 'Ремонт коммерческих холодильников' },
-      { subcategoryId: '9', label: 'Ремонт специальных холодильных установок' },
-      { subcategoryId: '10', label: 'Ремонт промышленных систем охлаждения' },
-    ],
-  },
+  // {
+  //   label: 'Виды холодильников',
+  //   categoryId: '2',
+  //   subItems: [
+  //     { subcategoryId: '7', label: 'Ремонт бытовых холодильников' },
+  //     { subcategoryId: '8', label: 'Ремонт коммерческих холодильников' },
+  //     { subcategoryId: '9', label: 'Ремонт специальных холодильных установок' },
+  //     { subcategoryId: '10', label: 'Ремонт промышленных систем охлаждения' },
+  //   ],
+  // },
   {
     label: 'Цены',
     route: Routes.Prices,
