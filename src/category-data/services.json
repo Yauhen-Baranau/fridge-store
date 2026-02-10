@@ -665,7 +665,7 @@
     "label": "Профилактическое обслуживание (замена фильтров, фреона, чистка конденсатора)",
     "description": [],
     "imagePath": "/services/compressor-repairs.webp",
-    "price": 0,
+    "price": 1,
     "requiredTime": "",
     "guarantee": "",
     "relatedServiceIds": []
@@ -676,7 +676,7 @@
     "label": "Перепрограммирование электронных блоков управления",
     "description": [],
     "imagePath": "/services/control-module-repairs.webp",
-    "price": 0,
+    "price": 1,
     "requiredTime": "",
     "guarantee": "",
     "relatedServiceIds": []
@@ -687,7 +687,7 @@
     "label": "Консультации по выбору и эксплуатации холодильного оборудования",
     "description": [],
     "imagePath": "/services/compressor-repairs.webp",
-    "price": 0,
+    "price": 1,
     "requiredTime": "",
     "guarantee": "",
     "relatedServiceIds": []
@@ -698,7 +698,7 @@
     "label": "Установка и запуск холодильных систем на предприятиях",
     "description": [],
     "imagePath": "/services/compressor-repairs.webp",
-    "price": 0,
+    "price": 1,
     "requiredTime": "",
     "guarantee": "",
     "relatedServiceIds": []
@@ -709,7 +709,7 @@
     "label": "Модернизация холодильного оборудования",
     "description": [],
     "imagePath": "/services/compressor-repairs.webp",
-    "price": 0,
+    "price": 1,
     "requiredTime": "",
     "guarantee": "",
     "relatedServiceIds": []
