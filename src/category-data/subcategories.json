@@ -4,41 +4,53 @@
     "parentCategoryId": "1",
     "label": "Замена и ремонт компонентов системы охлаждения",
     "description": [],
-    "imagePath": "/subcategories/cooling-system-component-repairs.webp"
+    "imagePath": "/subcategories/cooling-system-component-repairs.webp",
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "2",
     "parentCategoryId": "1",
     "label": "Ремонт и замена электрических компонентов",
     "description": [],
-    "imagePath": "/subcategories/cooling-system-component-repairs.webp"
+    "imagePath": "/subcategories/cooling-system-component-repairs.webp",
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "3",
     "parentCategoryId": "1",
     "label": "Замена элементов системы No Frost",
     "description": [],
-    "imagePath": "/subcategories/cooling-system-component-repairs.webp"
+    "imagePath": "/subcategories/cooling-system-component-repairs.webp",
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "4",
     "parentCategoryId": "1",
     "label": "Замена и ремонт механических узлов",
     "description": [],
-    "imagePath": "/subcategories/cooling-system-component-repairs.webp"
+    "imagePath": "/subcategories/cooling-system-component-repairs.webp",
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "5",
     "parentCategoryId": "1",
     "label": "Ремонт дверей и корпуса",
     "description": [],
-    "imagePath": "/subcategories/cooling-system-component-repairs.webp"
+    "imagePath": "/subcategories/cooling-system-component-repairs.webp",
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "6",
     "parentCategoryId": "1",
     "label": "Прочие услуги",
     "description": [],
-    "imagePath": "/subcategories/cooling-system-component-repairs.webp"
+    "imagePath": "/subcategories/cooling-system-component-repairs.webp",
+    "seoTitle": "",
+    "seoDescription": ""
   }
 ]

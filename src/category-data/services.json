@@ -8,7 +8,9 @@
     "price": 150,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "2",
@@ -19,7 +21,9 @@
     "price": 140,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "3",
@@ -30,7 +34,9 @@
     "price": 90,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "4",
@@ -41,7 +47,9 @@
     "price": 150,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "5",
@@ -52,7 +60,9 @@
     "price": 100,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "6",
@@ -63,7 +73,9 @@
     "price": 200,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "7",
@@ -74,7 +86,9 @@
     "price": 130,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "8",
@@ -85,7 +99,9 @@
     "price": 100,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "9",
@@ -96,7 +112,9 @@
     "price": 40,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "10",
@@ -107,7 +125,9 @@
     "price": 30,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "11",
@@ -118,7 +138,9 @@
     "price": 70,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "12",
@@ -129,7 +151,9 @@
     "price": 70,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "13",
@@ -140,7 +164,9 @@
     "price": 60,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "14",
@@ -151,7 +177,9 @@
     "price": 40,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "15",
@@ -162,7 +190,9 @@
     "price": 50,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "16",
@@ -173,7 +203,9 @@
     "price": 40,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "17",
@@ -184,7 +216,9 @@
     "price": 90,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "18",
@@ -195,7 +229,9 @@
     "price": 70,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "19",
@@ -206,7 +242,9 @@
     "price": 120,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "20",
@@ -217,7 +255,9 @@
     "price": 60,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "21",
@@ -228,7 +268,9 @@
     "price": 130,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "22",
@@ -239,7 +281,9 @@
     "price": 180,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "23",
@@ -250,7 +294,9 @@
     "price": 150,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "24",
@@ -261,7 +307,9 @@
     "price": 140,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "25",
@@ -272,7 +320,9 @@
     "price": 120,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "26",
@@ -283,7 +333,9 @@
     "price": 100,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "27",
@@ -294,7 +346,9 @@
     "price": 50,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "28",
@@ -305,7 +359,9 @@
     "price": 70,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "29",
@@ -316,7 +372,9 @@
     "price": 40,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "30",
@@ -327,7 +385,9 @@
     "price": 50,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "31",
@@ -338,7 +398,9 @@
     "price": 70,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "32",
@@ -349,7 +411,9 @@
     "price": 50,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "33",
@@ -360,7 +424,9 @@
     "price": 60,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "34",
@@ -371,7 +437,9 @@
     "price": 100,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "35",
@@ -382,7 +450,9 @@
     "price": 90,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "36",
@@ -393,7 +463,9 @@
     "price": 100,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "37",
@@ -404,7 +476,9 @@
     "price": 50,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "38",
@@ -415,7 +489,9 @@
     "price": 80,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "39",
@@ -426,7 +502,9 @@
     "price": 60,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "40",
@@ -437,7 +515,9 @@
     "price": 90,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "41",
@@ -448,7 +528,9 @@
     "price": 50,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "42",
@@ -459,7 +541,9 @@
     "price": 40,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "43",
@@ -470,7 +554,9 @@
     "price": 80,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "44",
@@ -481,7 +567,9 @@
     "price": 90,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "45",
@@ -492,7 +580,9 @@
     "price": 100,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "46",
@@ -503,7 +593,9 @@
     "price": 80,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "47",
@@ -514,7 +606,9 @@
     "price": 80,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "48",
@@ -525,7 +619,9 @@
     "price": 90,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "49",
@@ -536,7 +632,9 @@
     "price": 150,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "50",
@@ -547,7 +645,9 @@
     "price": 70,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "51",
@@ -558,7 +658,9 @@
     "price": 80,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "52",
@@ -569,7 +671,9 @@
     "price": 70,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "53",
@@ -580,7 +684,9 @@
     "price": 40,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "54",
@@ -591,7 +697,9 @@
     "price": 20,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "55",
@@ -602,7 +710,9 @@
     "price": 50,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "56",
@@ -613,7 +723,9 @@
     "price": 30,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "57",
@@ -624,7 +736,9 @@
     "price": 120,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "58",
@@ -635,7 +749,9 @@
     "price": 30,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "59",
@@ -646,7 +762,9 @@
     "price": 50,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "60",
@@ -657,7 +775,9 @@
     "price": 120,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "61",
@@ -668,7 +788,9 @@
     "price": 1,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "62",
@@ -679,7 +801,9 @@
     "price": 1,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "63",
@@ -690,7 +814,9 @@
     "price": 1,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "64",
@@ -701,7 +827,9 @@
     "price": 1,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   },
   {
     "id": "65",
@@ -712,6 +840,8 @@
     "price": 1,
     "requiredTime": "",
     "guarantee": "",
-    "relatedServiceIds": []
+    "relatedServiceIds": [],
+    "seoTitle": "",
+    "seoDescription": ""
   }
 ]
