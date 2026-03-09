@@ -33,7 +33,7 @@ export const CategoryDataContextProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const diagnosticsServiceId = "11";
+  const diagnosticsServiceId = "54";
 
   const getEntryById = <T extends { id: string }>(id: string, list: Array<T>) =>
     list.find((entry) => entry.id === id);
