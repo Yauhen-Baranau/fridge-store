@@ -37,12 +37,12 @@ export default function DialogForm({
             специалист
           </p>
         }
-        preSubmitButtonContent={
-          <p className={styles["pre-submit-text"]}>
-            Нажимая на кнопку «Жду звонка» Вы даете согласие на{" "}
-            <span className={styles.blue}>обработку данных</span>
-          </p>
-        }
+        // preSubmitButtonContent={
+        //   <p className={styles["pre-submit-text"]}>
+        //     Нажимая на кнопку «Жду звонка» Вы даете согласие на{" "}
+        //     <span className={styles.blue}>обработку данных</span>
+        //   </p>
+        // }
         submitButtonText="Жду звонка"
         submitCallback={(formValue) => {
           console.log(formValue);

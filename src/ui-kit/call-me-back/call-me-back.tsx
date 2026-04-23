@@ -50,12 +50,12 @@ export default function CallMeBack({ customClass }: { customClass?: string }) {
       <Form
         customClass={styles["call-me-back-form"]}
         submitButtonText="Получить консультацию"
-        preSubmitButtonContent={
-          <p className={styles["privacy-policy-notice"]}>
-            Оставляя заявку Вы соглашаетесь на обработку{" "}
-            <span className={styles.blue}>персональных данных</span>
-          </p>
-        }
+        // preSubmitButtonContent={
+        //   <p className={styles["privacy-policy-notice"]}>
+        //     Оставляя заявку Вы соглашаетесь на обработку{" "}
+        //     <span className={styles.blue}>персональных данных</span>
+        //   </p>
+        // }
         config={{
           fieldConfigs: [
             {

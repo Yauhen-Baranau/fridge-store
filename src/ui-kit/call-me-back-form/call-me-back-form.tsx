@@ -31,12 +31,12 @@ export default function CallMeBackForm({
           </p>
         </>
       }
-      preSubmitButtonContent={
-        <p className={styles["privacy-policy-notice"]}>
-          Нажимая на кнопку &quot;Отправить&quot; Вы даете согласие на{" "}
-          <span className={styles.blue}>обработку данных</span>
-        </p>
-      }
+      // preSubmitButtonContent={
+      //   <p className={styles["privacy-policy-notice"]}>
+      //     Нажимая на кнопку &quot;Отправить&quot; Вы даете согласие на{" "}
+      //     <span className={styles.blue}>обработку данных</span>
+      //   </p>
+      // }
       config={{
         fieldConfigs: [
           {
