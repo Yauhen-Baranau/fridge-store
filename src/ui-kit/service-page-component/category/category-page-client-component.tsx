@@ -4,6 +4,7 @@ import { useCategoryData } from "@contexts/category-data/category-data-context";
 import { useHrefHelper } from "@contexts/href/href-context";
 import ServicePageComponent from "../service-page-component";
 
+
 export default function CategoryPageClientComponent({
   categoryId,
 }: {
