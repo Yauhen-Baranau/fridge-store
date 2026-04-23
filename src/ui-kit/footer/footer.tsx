@@ -33,7 +33,7 @@ export default function Footer() {
             { type: 'link', label: 'Контакты', href: getPageHref(Routes.Contacts) },
           ]}
         />}
-        footerContent={!isMobile && <>&copy; Copyright</>}
+        footerContent={!isMobile && <>ИП Павловец С.П <br/> УНП: 693197337</>}
       />
       <FooterSection
         title={'Услуги'}
@@ -56,7 +56,7 @@ export default function Footer() {
               { type: 'link', label: contactInfo.email, href: contactHrefs.email, iconPath: '/icons/envelope-2.svg' },
               { type: 'link', label: contactInfo.address, href: contactHrefs.address, iconPath: '/icons/location-2.svg' },
               { type: 'general', content: contactInfo.openHours, iconPath: '/icons/clock-2.svg' },
-              { type: 'general', content: !isMobile && <Socials customClass={styles.socials} /> },
+              // { type: 'general', content: !isMobile && <Socials customClass={styles.socials} /> },
             ]}
             isContacts={true}
           />
