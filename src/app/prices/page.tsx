@@ -1,117 +1,14 @@
-"use client";
+import { Metadata } from "next";
+import { Prices } from "@src/app/prices/components";
 
-import styles from "./page.module.scss";
-import CallMeBackForm from "@src/ui-kit/call-me-back-form/call-me-back-form";
-import { useEffect, useMemo, useState } from "react";
-import { useCategoryData } from "@contexts/category-data/category-data-context";
-import List from "@ui-kit/list/list";
-import useResponsive from "@hooks/use-responsive";
-import Button from "@ui-kit/button/button";
-import DialogForm from "@ui-kit/dialog-form/dialog-form";
-import { useDialog } from "@contexts/dialog/dialog-context";
-import { getSubcategoryAccordion } from "./helpers/get-subcategory-accordion";
-import BackgroundSnowflakes from "@ui-kit/background-snowflakes/background-snowflakes";
+export const metadata: Metadata = {
+  title: 'Цены на ремонт холодильников в Минске',
+  description: 'Актуальные цены на ремонт холодильников в Минске. Доступные тарифы, выезд мастера на дом, ремонт всех брендов с гарантией и без скрытых платежей. +375 (44) 5581940',
+  alternates: {
+    canonical: 'https://icefix.by/prices',
+  },
+};
 
 export default function PricesPage() {
-  const { isMobile } = useResponsive();
-  const { showDialog } = useDialog();
-  const [descriptionExpanded, setDescriptionExpanded] = useState(false);
-  useEffect(() => setDescriptionExpanded(!isMobile), [isMobile]);
-
-  const {
-    getAllSubcategories,
-    getSubcategoryServices,
-    getDiagnosticsService,
-    getDiagnosticsServiceId,
-  } = useCategoryData();
-  const diagnosticsPrice = useMemo(
-    () => getDiagnosticsService()?.price ?? 0,
-    [getDiagnosticsService],
-  );
-
-  return (
-    <main className={styles.prices}>
-      <div className={styles["prices-description"]}>
-        <h1 className={styles.title}>Цены</h1>
-        {diagnosticsPrice && (
-          <div className={styles["diagnostics-price"]}>
-            <p className={styles["diagnostics-price-upper-row"]}>
-              <span>Диагностика холодильника</span>
-              <span>{diagnosticsPrice} руб.</span>
-            </p>
-            <p className={styles["diagnostics-price-lower-row"]}>
-              <span>При выполнении ремонта</span>
-              <span className={styles.free}>Бесплатно</span>
-            </p>
-          </div>
-        )}
-        <p className={styles["prices-description-text"]}>
-          Реле в холодильнике - это пускозащитный механизм, который приводит в
-          действие мотор-компрессор, когда на элемент поступает сигнал от
-          термостата, и прекращает его работу в момент нагрева двигателя. Если
-          деталь неисправна, потребуется ее восстановление или замена.
-          {isMobile && !descriptionExpanded && (
-            <span
-              className={styles["mobile-expand-description"]}
-              onClick={() => setDescriptionExpanded(true)}
-            >
-              {" "}
-              Подробнее
-            </span>
-          )}
-          {!isMobile ||
-            (descriptionExpanded && (
-              <span>
-                {" "}
-                Реле в холодильнике - это пускозащитный механизм, который
-                приводит в действие мотор-компрессор, когда на элемент поступает
-                сигнал от термостата, и прекращает его работу в момент нагрева
-                двигателя. Если деталь неисправна, потребуется ее восстановление
-                или замена.
-              </span>
-            ))}
-        </p>
-        {isMobile && (
-          <Button
-            customClass={styles["call-me-back-button"]}
-            text="Получить консультацию"
-            onClick={() => showDialog(<DialogForm />)}
-          />
-        )}
-      </div>
-      {!isMobile && (
-        <CallMeBackForm customClass={styles["call-me-back-form"]} />
-      )}
-      <div className={styles["prices-block"]}>
-        <h2 className={styles["prices-block-title"]}>Цены</h2>
-        <div className={styles["with-parts"]}>
-          Цены указаны с учетом новых запчастей
-        </div>
-        <List
-          customClass={styles["accordion-list"]}
-          items={getAllSubcategories().map((subcategory) => ({
-            content: getSubcategoryAccordion({
-              subcategory,
-              subcategoryServices: getSubcategoryServices(subcategory.id),
-              diagnosticsServiceId: getDiagnosticsServiceId(),
-              isMobile,
-              styles,
-            }),
-          }))}
-        />
-        <BackgroundSnowflakes snowflakes={[
-          {
-            snowflakeParams: { width: 247, height: 239, left: 81, top: 30, rotation: -30, color: "main-white" },
-            desktop: true,
-            ipad: true,
-          },
-          {
-            snowflakeParams: { width: 247, height: 239, right: 46, top: 30, rotation: -30, color: "main-white" },
-            desktop: true,
-            ipad: true,
-          },
-        ]} />
-      </div>
-    </main>
-  );
+  return <Prices />
 }
