@@ -43,7 +43,7 @@ export default function FridgeManufacturers({
           slidesGap={30}
         />
       )}
-      <Button text="Смотреть все модели" style="text-only" />
+      {/*<Button text="Смотреть все модели" style="text-only" />*/}
       <BackgroundSnowflakes snowflakes={[
           {
             snowflakeParams: { width: 131, height: 127, left: 40, top: 48, rotation: -30 },

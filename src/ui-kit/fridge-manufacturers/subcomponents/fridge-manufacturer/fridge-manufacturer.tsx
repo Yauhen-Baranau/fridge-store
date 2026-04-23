@@ -11,7 +11,7 @@ export default function FridgeManufacturer({
   imagePath: string;
 }) {
   return (
-    <Link href="https://google.com">
+    // <Link href="https://google.com">
       <div className={styles["fridge-manufacturer"]}>
         <Image
           src={imagePath}
@@ -20,12 +20,12 @@ export default function FridgeManufacturer({
           alt="Изображение холодильника"
         />
         <h3 className={styles["fridge-manufacturer-name"]}>{name}</h3>
-        <Button
-          customClass={styles["fridge-manufacturer-button"]}
-          text="Узнать подробнее"
-          style="monochrome"
-        />
+        {/*<Button*/}
+        {/*  customClass={styles["fridge-manufacturer-button"]}*/}
+        {/*  text="Узнать подробнее"*/}
+        {/*  style="monochrome"*/}
+        {/*/>*/}
       </div>
-    </Link>
+    // </Link>
   );
 };

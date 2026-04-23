@@ -25,6 +25,10 @@ export const navigationConfig: NavigationConfig = [
   //   ],
   // },
   {
+    label: 'Популярные вопросы',
+    route: Routes.FAQ,
+  },
+  {
     label: 'Цены',
     route: Routes.Prices,
   },
@@ -32,10 +36,10 @@ export const navigationConfig: NavigationConfig = [
     label: 'Оплата',
     route: Routes.Payment,
   },
-  {
-    label: 'Отзывы',
-    route: Routes.Reviews,
-  },
+  // {
+  //   label: 'Отзывы',
+  //   route: Routes.Reviews,
+  // },
   {
     label: 'О компании',
     route: Routes.AboutUs,

@@ -3,7 +3,6 @@
 import Button from "@ui-kit/button/button";
 import styles from "./page.module.scss";
 import List from "@ui-kit/list/list";
-import BackgroundSnowflake from "@ui-kit/background-snowflake/background-snowflake";
 import useResponsive from "@hooks/use-responsive";
 import { reviewListItemFactory } from "./helpers/review-list-item-factory";
 import { mockReviews } from "./mock/reviews";

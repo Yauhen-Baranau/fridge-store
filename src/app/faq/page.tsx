@@ -12,28 +12,56 @@ export default function FaqPage() {
       <h1 className={styles.title}>Популярные вопросы</h1>
       <List
         customClass={styles["faq-list"]}
-        items={faqList.map((params) => faqListItemFactory({ ...params, styles }))}
+        items={faqList.map((params) =>
+          faqListItemFactory({ ...params, styles }),
+        )}
       />
-      <BackgroundSnowflakes snowflakes={[
-            {
-              snowflakeParams: { width: 173, height: 168, left: 41, top: 57, rotation: -30 },
-              desktop: true,
-              ipad: true,
+      <BackgroundSnowflakes
+        snowflakes={[
+          {
+            snowflakeParams: {
+              width: 173,
+              height: 168,
+              left: 41,
+              top: 57,
+              rotation: -30,
             },
-            {
-              snowflakeParams: { width: 173, height: 168, right: 41, top: 57, rotation: -30 },
-              desktop: true,
-              ipad: true,
+            desktop: true,
+            ipad: true,
+          },
+          {
+            snowflakeParams: {
+              width: 173,
+              height: 168,
+              right: 41,
+              top: 57,
+              rotation: -30,
             },
-            {
-              snowflakeParams: { width: 69, height: 64, left: 20, bottom: 20, rotation: -30 },
-              mobile: true,
+            desktop: true,
+            ipad: true,
+          },
+          {
+            snowflakeParams: {
+              width: 69,
+              height: 64,
+              left: 20,
+              bottom: 20,
+              rotation: -30,
             },
-            {
-              snowflakeParams: { width: 69, height: 64, right: 20, bottom: 20, rotation: -30 },
-              mobile: true,
+            mobile: true,
+          },
+          {
+            snowflakeParams: {
+              width: 69,
+              height: 64,
+              right: 20,
+              bottom: 20,
+              rotation: -30,
             },
-      ]} />
+            mobile: true,
+          },
+        ]}
+      />
     </main>
   );
 }

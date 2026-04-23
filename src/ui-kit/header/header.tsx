@@ -19,13 +19,13 @@ export default function Header({ customClass }: { customClass?: string }) {
       <header className={composeClassName(styles.header, customClass)} itemScope itemType='https://schema.org/WPHeader'>
         <Logo />
         {!isMobile && <Contacts />}
-        {isDesktop && (
-          <Button
-            customClass={styles["call-me-back-button"]}
-            text="Заказать звонок"
-            onClick={() => showDialog(<DialogForm />)}
-          />
-        )}
+        {/*{isDesktop && (*/}
+        {/*  <Button*/}
+        {/*    customClass={styles["call-me-back-button"]}*/}
+        {/*    text="Заказать звонок"*/}
+        {/*    onClick={() => showDialog(<DialogForm />)}*/}
+        {/*  />*/}
+        {/*)}*/}
         {(isIpad || isMobile) && <NondesktopIcons />}
       </header>
     )

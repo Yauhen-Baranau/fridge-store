@@ -1,14 +1,12 @@
 "use client"; // to pass the scroll up callback to the button
 
 import styles from "./footer.module.scss";
-import Link from "next/link";
 import { contactHrefs, contactInfo } from "@constants/contact-info";
 import Socials from "@ui-kit/socials/socials";
 import Button from "@ui-kit/button/button";
 import { Routes } from "@constants/routes";
 import { useHrefHelper } from "@contexts/href/href-context";
 import useResponsive from "@hooks/use-responsive";
-import { useMemo } from "react";
 import FooterColumnList from "./subcomponents/footer-section/subcomponents/footer-column-list/footer-column-list";
 import FooterSection from "./subcomponents/footer-section/footer-section";
 
@@ -16,21 +14,9 @@ export default function Footer() {
   const { getPageHref, getCategoryHref } = useHrefHelper();
   const { isMobile } = useResponsive();
 
-  const privacyPolicyLink = useMemo(
-    () => <Link href="https://google.com">Политика конфиденциальности</Link>,
-    [],
-  );
-  const designedByLink = useMemo(
-    () => (
-      <Link
-        className={styles["designed-by-link"]}
-        href="https://www.instagram.com/kutsenko_olga1990?igsh=ZDlsY3JoNG0zeTh1"
-      >
-        Design by Volha Kutsenka
-      </Link>
-    ),
-    [],
-  );
+  // const privacyPolicyLink = <Link href="https://google.com">Политика конфиденциальности</Link>
+  const privacyPolicyLink = ""
+
 
   return (
     <footer className={styles.footer} itemScope itemType='https://schema.org/WPFooter'>
@@ -54,9 +40,9 @@ export default function Footer() {
         content={<FooterColumnList
           items={[
             { type: 'link', label: 'Услуги по ремонту холодильников', href: getCategoryHref('1') },
-            { type: 'link', label: 'Ремонт холодильников по виду', href: 'https://google.com' },
-            { type: 'link', label: 'Ремонт холодильников по модели', href: 'https://google.com' },
-            { type: 'link', label: 'Ремонт холодильников по городам', href: 'https://google.com' },
+            // { type: 'link', label: 'Ремонт холодильников по виду', href: 'https://google.com' },
+            // { type: 'link', label: 'Ремонт холодильников по модели', href: 'https://google.com' },
+            // { type: 'link', label: 'Ремонт холодильников по городам', href: 'https://google.com' },
           ]}
         />}
         footerContent={!isMobile && privacyPolicyLink}
@@ -76,7 +62,7 @@ export default function Footer() {
           />
         </address>}
         footerContent={<>
-          {!isMobile ? designedByLink : privacyPolicyLink}
+          {/*{!isMobile ? designedByLink : privacyPolicyLink}*/}
           <Button
             customClass={styles["scroll-up-button"]}
             icon={{
@@ -88,12 +74,12 @@ export default function Footer() {
           />
         </>}
       />
-      {isMobile && (
-        <div className={styles["mobile-footer-lower-block"]}>
-          <p>&copy; Copyright</p>
-          {designedByLink}
-        </div>
-      )}
+      {/*{isMobile && (*/}
+      {/*  <div className={styles["mobile-footer-lower-block"]}>*/}
+      {/*    <p>&copy; Copyright</p>*/}
+      {/*    {designedByLink}*/}
+      {/*  </div>*/}
+      {/*)}*/}
     </footer>
   );
 }

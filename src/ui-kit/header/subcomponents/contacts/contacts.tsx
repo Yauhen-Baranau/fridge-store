@@ -25,7 +25,7 @@ export default function Contacts() {
       </div>
     </>}
     {isDesktop && <>
-      <div className={styles["icon-text-pair"]}>
+      <div className={`${styles["icon-text-pair"]} ${styles.phone}`}>
         <Image
           src="/icons/phone.svg"
           alt="Телефон"
@@ -44,6 +44,6 @@ export default function Contacts() {
         <Link href={contactHrefs.email}>{contactInfo.email}</Link>
       </div>
     </>}
-    <Socials customClass={styles.socials} />
+    {/*<Socials customClass={styles.socials} />*/}
   </address>
 }

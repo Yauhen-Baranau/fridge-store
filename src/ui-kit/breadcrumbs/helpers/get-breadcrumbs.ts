@@ -11,7 +11,7 @@ export const getBreadcrumbs = (pathname: string): Array<Breadcrumb> => {
     .forEach((pathFragment, index, pathFragments) => {
       breadcrumbs.push({
         label:
-          routeToLabelMap.get(pathFragment as Routes) ?? "Страница без лейбла",
+          routeToLabelMap.get(pathFragment as Routes) ?? "",
         redirectTo: `/${pathFragments.slice(0, index + 1).join("/")}`,
       });
     });
