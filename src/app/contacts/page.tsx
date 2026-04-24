@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "Контакты мастерской по ремонту холодильников в Минске: телефон, адрес и режим работы. Срочный вызов мастера и консультация по неисправностям. +375 (44) 5581940",
   alternates: {
-    canonical: "https://icefix.by/contacts",
+    canonical: "https://holodcentr.by/contacts",
   },
 };
 

@@ -1,6 +1,6 @@
 export const contactInfo = {
   phoneNumber: "+375 (44) 5581940",
-  email: "info@icefix.by",
+  email: "info@holodcentr.by",
   address: "г. Минск, ул. Домбровская, 9",
   openHours: "Пн-Вс с 09.00 до 21.00",
 };

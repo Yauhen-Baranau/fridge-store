@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: 'Частозадаваемые вопросы о ремонте холодильников',
   description: 'Частозадаваемые вопросы о ремонте холодильников: диагностика, ремонт, замена деталей, стоимость и сроки работ. Ответы от профессиональных мастеров. +375 (44) 5581940',
   alternates: {
-    canonical: 'https://icefix.by/faq',
+    canonical: 'https://holodcentr.by/faq',
   },
 };
 
