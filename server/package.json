@@ -1,0 +1,23 @@
+{
+  "name": "lesa",
+  "version": "1.0.0",
+  "description": "local_server",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "NodeArchForm"
+  },
+  "author": "Yauhen Baranau",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "~2.8",
+    "express": "~5.2",
+    "nodemailer": "~8.0"
+  },
+  "devDependencies": {
+    "prettier": "~3.8"
+  }
+}

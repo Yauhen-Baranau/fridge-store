@@ -11,10 +11,31 @@ import WeWillCallYouBack from "@ui-kit/we-will-call-you-back/we-will-call-you-ba
 import useResponsive from "@hooks/use-responsive";
 import { validationRegexes } from "@constants/validation-regexes";
 import BackgroundSnowflakes from "@ui-kit/background-snowflakes/background-snowflakes";
+import { useApi } from "@hooks/useApi";
+import { useEffect } from "react";
+import Sorry from "@ui-kit/sorry/sorry";
 
 export default function CallMeBack({ customClass }: { customClass?: string }) {
   const { showDialog } = useDialog();
-  const { isMobile } = useResponsive();
+  // const { isMobile } = useResponsive();
+
+  const { request, error, success } = useApi();
+
+  useEffect(() => {
+    if (error) {
+      showDialog(<Sorry />);
+    }
+    if (success) {
+      showDialog(<WeWillCallYouBack />);    }
+  }, [success, error]);
+
+  const handleClick = async (formValues: {phone: string, name: string}) => {
+    await request(formValues);
+  };
+
+  // if (loading) {
+  //   return  <div className="lds-hourglass"></div>
+  // }
 
   return (
     <section className={composeClassName(styles["call-me-back"], customClass)}>
@@ -79,10 +100,7 @@ export default function CallMeBack({ customClass }: { customClass?: string }) {
             },
           ],
         }}
-        submitCallback={(formValue) => {
-          console.log(formValue);
-          showDialog(<WeWillCallYouBack />);
-        }}
+        submitCallback={handleClick}
       />
       <BackgroundSnowflakes snowflakes={[
         {

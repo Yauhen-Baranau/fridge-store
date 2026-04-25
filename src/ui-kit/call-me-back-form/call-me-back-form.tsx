@@ -7,6 +7,9 @@ import { Validators } from "../form/validators";
 import { useDialog } from "@contexts/dialog/dialog-context";
 import WeWillCallYouBack from "@ui-kit/we-will-call-you-back/we-will-call-you-back";
 import { validationRegexes } from "@constants/validation-regexes";
+import { useApi } from "@hooks/useApi";
+import { useEffect } from "react";
+import Sorry from "@ui-kit/sorry/sorry";
 
 export default function CallMeBackForm({
   title = "Оформить заказ",
@@ -18,6 +21,21 @@ export default function CallMeBackForm({
   customClass?: string;
 }) {
   const { showDialog } = useDialog();
+
+  const { request, error, success } = useApi();
+
+  useEffect(() => {
+    if (error) {
+      showDialog(<Sorry />);
+    }
+    if (success) {
+      showDialog(<WeWillCallYouBack />);
+    }
+  }, [success, error]);
+
+  const handleClick = async (formValues: {phone: string, name: string}) => {
+    await request(formValues);
+  };
 
   return (
     <Form
@@ -61,10 +79,7 @@ export default function CallMeBackForm({
         ],
       }}
       submitButtonText={submitButtonText}
-      submitCallback={(formValue) => {
-        console.log(formValue);
-        showDialog(<WeWillCallYouBack />);
-      }}
+      submitCallback={handleClick}
     />
   );
 }
