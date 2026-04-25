@@ -11,7 +11,7 @@ import WeWillCallYouBack from "@ui-kit/we-will-call-you-back/we-will-call-you-ba
 import useResponsive from "@hooks/use-responsive";
 import { validationRegexes } from "@constants/validation-regexes";
 import BackgroundSnowflakes from "@ui-kit/background-snowflakes/background-snowflakes";
-import { useApi } from "@hooks/useApi";
+import { Body, useApi } from "@hooks/useApi";
 import { useEffect } from "react";
 import Sorry from "@ui-kit/sorry/sorry";
 
@@ -29,8 +29,9 @@ export default function CallMeBack({ customClass }: { customClass?: string }) {
       showDialog(<WeWillCallYouBack />);    }
   }, [success, error]);
 
-  const handleClick = async (formValues: {phone: string, name: string}) => {
-    await request(formValues);
+
+  const handleClick = async <T,>(formValue: T): Promise<void> => {
+    await request(formValue as Body);
   };
 
   // if (loading) {

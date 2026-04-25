@@ -7,7 +7,7 @@ import { useDialog } from "@contexts/dialog/dialog-context";
 import WeWillCallYouBack from "@ui-kit/we-will-call-you-back/we-will-call-you-back";
 import useResponsive from "@hooks/use-responsive";
 import { getFieldConfigs } from "./helpers/get-field-configs";
-import { useApi } from "@hooks/useApi";
+import { Body, useApi } from "@hooks/useApi";
 import Sorry from "@ui-kit/sorry/sorry";
 import { useEffect } from "react";
 
@@ -19,7 +19,7 @@ export default function DialogForm({
 }) {
   const { setDialogContent } = useDialog();
   const { isMobile } = useResponsive();
-  const { request, loading, error, success } = useApi();
+  const { request, error, success } = useApi();
 
   useEffect(() => {
     if (error) {
@@ -30,18 +30,18 @@ export default function DialogForm({
     }
   }, [success, error]);
 
-  const handleClick = async (formValues: {phone: string, name: string}) => {
-    await request(formValues);
+  const handleClick = async <T,>(formValue: T): Promise<void> => {
+    await request(formValue as Body);
   };
 
-  if (loading) {
-    return  <div className="lds-hourglass"></div>
-  }
+  // if (loading) {
+  //   return  <div className="lds-hourglass"></div>
+  // }
 
   return (
     <div className={styles.wrapper}>
       <h1 className={styles.title}>Закажите бесплатный звонок сейчас</h1>
-      {isMobile && (
+      {!isMobile && (
         <div className={styles["image-wrapper"]}>
           <Image
             className={styles.image}

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-interface Body {
+export interface Body {
   name: string;
   phone: string;
 }

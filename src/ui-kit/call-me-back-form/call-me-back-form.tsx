@@ -7,7 +7,7 @@ import { Validators } from "../form/validators";
 import { useDialog } from "@contexts/dialog/dialog-context";
 import WeWillCallYouBack from "@ui-kit/we-will-call-you-back/we-will-call-you-back";
 import { validationRegexes } from "@constants/validation-regexes";
-import { useApi } from "@hooks/useApi";
+import { Body, useApi } from "@hooks/useApi";
 import { useEffect } from "react";
 import Sorry from "@ui-kit/sorry/sorry";
 
@@ -33,8 +33,8 @@ export default function CallMeBackForm({
     }
   }, [success, error]);
 
-  const handleClick = async (formValues: {phone: string, name: string}) => {
-    await request(formValues);
+  const handleClick = async <T,>(formValue: T): Promise<void> => {
+    await request(formValue as Body);
   };
 
   return (
