@@ -1,5 +1,5 @@
 import useResponsive from "@hooks/use-responsive";
-import Image from "next/image";
+import Image from "@ui-kit/static-image/static-image";
 import Link from "@ui-kit/static-link/static-link";
 import { useMemo } from "react";
 import { mapImageDimensions } from "../constants/map-image-dimensions";

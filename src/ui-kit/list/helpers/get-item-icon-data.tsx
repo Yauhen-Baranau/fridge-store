@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "@ui-kit/static-image/static-image";
 import { ListItem } from "../list-item-interface";
 
 export const getItemIconData = (item: ListItem) => {

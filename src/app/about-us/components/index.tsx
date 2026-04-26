@@ -1,6 +1,6 @@
 "use client"
 import styles from "@src/app/about-us/page.module.scss";
-import Image from "next/image";
+import Image from "@ui-kit/static-image/static-image";
 import MainAdvantages from "@ui-kit/main-advantages/main-advantages";
 import HowWeDiffer from "@ui-kit/how-we-differ/how-we-differ";
 import DiscountBlock from "@ui-kit/discount-block/discount-block";

@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Image from "@ui-kit/static-image/static-image";
 import styles from "./frequent-fridge-problems.module.scss";
 import Button from "../button/button";
 import composeClassName from "@src/helpers/compose-class-name";

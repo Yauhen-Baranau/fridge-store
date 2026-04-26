@@ -2,7 +2,7 @@ import composeClassName from '@helpers/compose-class-name';
 import { Breadcrumb as BreadcrumbInterface } from '../../interfaces/breadcrumb-interface';
 import styles from './breadcrumb.module.scss';
 import Link from '@ui-kit/static-link/static-link';
-import Image from 'next/image';
+import Image from '@ui-kit/static-image/static-image';
 
 export default function Breadcrumb({
   breadcrumb,

@@ -2,7 +2,7 @@ import useResponsive from "@hooks/use-responsive";
 import Accordion from "@ui-kit/accordion/accordion";
 import List from "@ui-kit/list/list";
 import { ListItem } from "@ui-kit/list/list-item-interface";
-import Image from "next/image";
+import Image from "@ui-kit/static-image/static-image";
 import styles from './advantage.module.scss';
 
 export default function Advantage({

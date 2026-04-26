@@ -1,5 +1,5 @@
 import Button from "@ui-kit/button/button";
-import Image from "next/image";
+import Image from "@ui-kit/static-image/static-image";
 import Link from "@ui-kit/static-link/static-link";
 import styles from './fridge-manufacturer.module.scss';
 

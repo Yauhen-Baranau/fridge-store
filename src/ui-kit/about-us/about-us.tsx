@@ -3,7 +3,7 @@
 import Button from "@ui-kit/button/button";
 import styles from "./about-us.module.scss";
 import Link from "@ui-kit/static-link/static-link";
-import Image from "next/image";
+import Image from "@ui-kit/static-image/static-image";
 import { Routes } from "@constants/routes";
 import { useHrefHelper } from "@contexts/href/href-context";
 

@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Image from "@ui-kit/static-image/static-image";
 import Form from "../form/form";
 import styles from "./dialog-form.module.scss";
 import { useDialog } from "@contexts/dialog/dialog-context";

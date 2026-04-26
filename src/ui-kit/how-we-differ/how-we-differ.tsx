@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "@ui-kit/static-image/static-image";
 import styles from "./how-we-differ.module.scss";
 import { differences } from "./constants/differences";
 import React from "react";

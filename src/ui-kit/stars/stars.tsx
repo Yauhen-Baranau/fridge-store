@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "@ui-kit/static-image/static-image";
 import styles from "./stars.module.scss";
 import composeClassName from "@helpers/compose-class-name";
 

@@ -3,7 +3,7 @@
 import composeClassName from "@src/helpers/compose-class-name";
 import "./socials.scss";
 import Link from "@ui-kit/static-link/static-link";
-import Image from "next/image";
+import Image from "@ui-kit/static-image/static-image";
 
 export default function Socials({ customClass }: { customClass?: string }) {
   return (
