@@ -1,59 +1,24 @@
-"use client";
-export const dynamic = "force-static";
+
 
 import "./globals.scss";
-import { Montserrat } from "next/font/google";
-import styles from "./layout.module.scss";
-import Header from "../ui-kit/header/header";
-import Navigation from "../ui-kit/navigation/navigation";
-import Footer from "../ui-kit/footer/footer";
-import composeClassName from "@src/helpers/compose-class-name";
-import CallMeBack from "../ui-kit/call-me-back/call-me-back";
-import Breadcrumbs from "@src/ui-kit/breadcrumbs/breadcrumbs";
+
 import {
   DialogContextProvider,
-  useDialog,
 } from "@contexts/dialog/dialog-context";
 import { HrefContextProvider } from "@contexts/href/href-context";
 import { CategoryDataContextProvider } from "@contexts/category-data/category-data-context";
-import useResponsive from "@hooks/use-responsive";
-import Script from "next/script";
-import { jsonLd } from "@constants/jsonld";
+import { RootLayoutBody } from "./LayoutBody";
+export const dynamic = "force-static";
 
-const montserrat = Montserrat({
-  subsets: ["cyrillic", "latin"],
-});
 
-function RootLayoutBody({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  const { isDesktop, initialResizeSettled } = useResponsive();
-  const { isOpen } = useDialog();
+export const metadata = {
+  verification: {
+    google: "7MoWBgorYCgjRnGmyJpiJnZ70FDl42iDgjf0P6h4HHI",
+    yandex: "d696d434f3da3530",
+  },
+};
 
-  return (
-    <body className={composeClassName(montserrat.className, styles.body, isOpen && styles["dialog-open"])}>
-      <Script
-        id='fridge-store-jsonld'
-        type='application/ld+json'
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(jsonLd),
-        }}
-      />
-      <Header />
-      {initialResizeSettled && (
-        <>
-          {isDesktop && <Navigation />}
-          <Breadcrumbs />
-          {children}
-          <CallMeBack customClass={styles["call-me-back"]} />
-          <Footer />
-        </>
-      )}
-    </body>
-  );
-}
+
 
 export default function RootLayout({
   children,
