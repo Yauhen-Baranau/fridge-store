@@ -10,6 +10,7 @@ import DialogForm from "@ui-kit/dialog-form/dialog-form";
 import { Routes } from "@constants/routes";
 import { problems } from "./constants/problems";
 import FrequentFridgeProblem from "./subcomponents/frequent-fridge-problem";
+import { useHrefHelper } from "@contexts/href/href-context";
 
 export default function FrequentFridgeProblems({
   customClass,
@@ -17,6 +18,7 @@ export default function FrequentFridgeProblems({
   customClass?: string;
 }) {
   const { showDialog } = useDialog();
+  const { getPageHref } = useHrefHelper();
 
   return (
     <section
@@ -50,7 +52,7 @@ export default function FrequentFridgeProblems({
           label={frequentProblemData.label}
           redirectTo={frequentProblemData.redirectTo}
         />)}
-        <Link href={`/${Routes.CommonFridgeProblems}`}>
+        <Link href={getPageHref(Routes.CommonFridgeProblems)}>
           <Button
             customClass={styles["view-all-problems-button"]}
             text="Смотреть все проблемы"

@@ -36,16 +36,22 @@ export const HrefContextProvider = ({
     return list.find((entry) => entry.id === id) ?? null;
   };
 
-  const getPageHref = (route: string) => `/${route}`;
-  const getCategoryHref = (id: string) =>
-    getPageHref(idToCategoryRouteMap.get(id) ?? "");
+  const getRoute = (fragments: (string | undefined)[]) => `/${fragments.filter(Boolean).join("/")}`;
+  const getPageHref = (route: string) => getRoute([route]);
+  const getCategoryHref = (id: string) => getRoute([idToCategoryRouteMap.get(id)]);
   const getSubcategoryHref = (id: string) => {
     const subcategory = findEntryById(id, subcategories);
-    return `${getCategoryHref(subcategory?.parentCategoryId ?? "")}/${idToSubcategoryRouteMap.get(id) ?? ""}`;
+    return getRoute([
+      subcategory?.parentCategoryId && getCategoryHref(subcategory.parentCategoryId),
+      idToSubcategoryRouteMap.get(id)
+    ]);
   };
   const getServiceHref = (id: string) => {
     const service = findEntryById(id, services);
-    return `${getSubcategoryHref(service?.parentCategoryId ?? "")}/${idToServiceRouteMap.get(id) ?? ""}`;
+    return getRoute([
+      service?.parentCategoryId && getSubcategoryHref(service.parentCategoryId),
+      idToServiceRouteMap.get(id)
+    ]);
   };
 
   return (
