@@ -1,7 +1,7 @@
 import { contactHrefs, contactInfo } from "@constants/contact-info"
 import List from "@ui-kit/list/list"
 import Socials from "@ui-kit/socials/socials"
-import Link from "next/link"
+import Link from "@ui-kit/static-link/static-link"
 import styles from './mobile-nav-menu-contacts.module.scss';
 
 export default function MobileNavMenuContacts() {
@@ -15,7 +15,7 @@ export default function MobileNavMenuContacts() {
         items={[
           {
             content: (
-              <Link prefetch={false} href={contactHrefs.phone}>{contactInfo.phoneNumber}</Link>
+              <Link href={contactHrefs.phone}>{contactInfo.phoneNumber}</Link>
             ),
             icon: {
               path: "/icons/phone.svg",
@@ -25,7 +25,7 @@ export default function MobileNavMenuContacts() {
           },
           {
             content: (
-              <Link prefetch={false} href={contactHrefs.email}>{contactInfo.email}</Link>
+              <Link href={contactHrefs.email}>{contactInfo.email}</Link>
             ),
             icon: {
               path: "/icons/envelope.svg",
@@ -35,7 +35,7 @@ export default function MobileNavMenuContacts() {
           },
           {
             content: (
-              <Link prefetch={false} href={contactHrefs.address}>{contactInfo.address}</Link>
+              <Link href={contactHrefs.address}>{contactInfo.address}</Link>
             ),
             icon: {
               path: "/icons/location.svg",

@@ -1,5 +1,5 @@
 import List from "@ui-kit/list/list";
-import Link from "next/link";
+import Link from "@ui-kit/static-link/static-link";
 import styles from './footer-column-list.module.scss';
 import composeClassName from "@helpers/compose-class-name";
 
@@ -20,7 +20,7 @@ export default function FooterColumnList({
     )}
     items={items.map(item => {
       const content = item.type === 'link'
-        ? <Link prefetch={false} href={item.href}>{item.label}</Link>
+        ? <Link href={item.href}>{item.label}</Link>
         : item.content;
       return {
         content,

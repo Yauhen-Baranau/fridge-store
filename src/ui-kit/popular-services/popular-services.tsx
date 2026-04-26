@@ -2,7 +2,7 @@
 
 import styles from "./popular-services.module.scss";
 import Button from "@ui-kit/button/button";
-import Link from "next/link";
+import Link from "@ui-kit/static-link/static-link";
 import { useHrefHelper } from "@contexts/href/href-context";
 import { Routes } from "@constants/routes";
 import { useCategoryData } from "@contexts/category-data/category-data-context";
@@ -51,7 +51,7 @@ export default function PopularServices() {
       ) : (
         <div className={styles["services-list"]}>{services}</div>
       )}
-      <Link prefetch={false} href={getPageHref(Routes.Prices)}>
+      <Link href={getPageHref(Routes.Prices)}>
         <Button text="Смотреть все услуги" style="text-only" />
       </Link>
       <BackgroundSnowflakes snowflakes={[

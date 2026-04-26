@@ -4,7 +4,7 @@ import Image from "next/image";
 import styles from "./frequent-fridge-problems.module.scss";
 import Button from "../button/button";
 import composeClassName from "@src/helpers/compose-class-name";
-import Link from "next/link";
+import Link from "@ui-kit/static-link/static-link";
 import { useDialog } from "@contexts/dialog/dialog-context";
 import DialogForm from "@ui-kit/dialog-form/dialog-form";
 import { Routes } from "@constants/routes";
@@ -52,7 +52,7 @@ export default function FrequentFridgeProblems({
           label={frequentProblemData.label}
           redirectTo={frequentProblemData.redirectTo}
         />)}
-        <Link prefetch={false} href={getPageHref(Routes.CommonFridgeProblems)}>
+        <Link href={getPageHref(Routes.CommonFridgeProblems)}>
           <Button
             customClass={styles["view-all-problems-button"]}
             text="Смотреть все проблемы"

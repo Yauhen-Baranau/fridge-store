@@ -3,7 +3,7 @@
 import composeClassName from "@src/helpers/compose-class-name";
 import "./navigation.scss";
 import List from "@ui-kit/list/list";
-import Link from "next/link";
+import Link from "@ui-kit/static-link/static-link";
 import { useHrefHelper } from "@contexts/href/href-context";
 import useResponsive from "@hooks/use-responsive";
 import { useCallback, useMemo } from "react";
@@ -29,9 +29,9 @@ export default function Navigation({
       }
 
       if (!!item.route) {
-        listItem.content = <Link prefetch={false} href={getPageHref(item.route)}>{item.label}</Link>
+        listItem.content = <Link href={getPageHref(item.route)}>{item.label}</Link>
       } else if (!!item.categoryId) {
-        listItem.content = <Link prefetch={false} href={getCategoryHref(item.categoryId)} onClick={e => e.stopPropagation()}>{item.label}</Link>;
+        listItem.content = <Link href={getCategoryHref(item.categoryId)} onClick={e => e.stopPropagation()}>{item.label}</Link>;
         listItem.icon = {
           path: "/icons/chevron-down.svg",
           width: 10,
@@ -39,7 +39,7 @@ export default function Navigation({
           position: "after",
         };
       } else if (!!item.subcategoryId) {
-        listItem.content = <Link prefetch={false} href={getSubcategoryHref(item.subcategoryId)}>{item.label}</Link>;
+        listItem.content = <Link href={getSubcategoryHref(item.subcategoryId)}>{item.label}</Link>;
         listItem.icon = {
           path: "/icons/square-small.svg",
           width: 14,

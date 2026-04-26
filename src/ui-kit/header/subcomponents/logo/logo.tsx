@@ -1,9 +1,9 @@
 import Image from "next/image";
-import Link from "next/link";
+import Link from "@ui-kit/static-link/static-link";
 import styles from './logo.module.scss';
 
 export default function Logo() {
-  return <Link prefetch={false} className={styles["logo-wrapper"]} href="/">
+  return <Link className={styles["logo-wrapper"]} href="/">
     <Image className={styles.logo} src="/logo.webp" fill alt="Логотип" />
   </Link>
 }

@@ -2,7 +2,7 @@
 
 import Button from "@ui-kit/button/button";
 import styles from "./about-us.module.scss";
-import Link from "next/link";
+import Link from "@ui-kit/static-link/static-link";
 import Image from "next/image";
 import { Routes } from "@constants/routes";
 import { useHrefHelper } from "@contexts/href/href-context";
@@ -37,7 +37,7 @@ export default function AboutUs() {
           отремонтировать технику, а сделать так, чтобы вы больше не волновались
           о её работе.
         </p>
-        <Link prefetch={false} className={styles["about-us-link"]} href={getPageHref(Routes.AboutUs)}>
+        <Link className={styles["about-us-link"]} href={getPageHref(Routes.AboutUs)}>
           <Button text="Подробнее" style="text-only" />
         </Link>
       </div>

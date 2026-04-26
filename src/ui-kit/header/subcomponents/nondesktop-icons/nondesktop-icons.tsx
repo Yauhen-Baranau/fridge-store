@@ -1,5 +1,5 @@
 import { contactHrefs } from "@constants/contact-info";
-import Link from "next/link";
+import Link from "@ui-kit/static-link/static-link";
 import Image from "next/image";
 import useResponsive from "@hooks/use-responsive";
 import NondesktopNavToggleButton from "../nondesktop-nav-toggle-button/nondesktop-nav-toggle-button";
@@ -10,7 +10,7 @@ export default function NondesktopIcons() {
 
   return <div className={styles.icons}>
     {isMobile && (
-      <Link prefetch={false} href={contactHrefs.address}>
+      <Link href={contactHrefs.address}>
         <Image
           src="/icons/location.svg"
           alt="Маркер на карте"
@@ -19,7 +19,7 @@ export default function NondesktopIcons() {
         />
       </Link>
     )}
-    <Link prefetch={false} href={contactHrefs.email}>
+    <Link href={contactHrefs.email}>
       <Image
         src="/icons/envelope.svg"
         alt="Конверт"
@@ -27,7 +27,7 @@ export default function NondesktopIcons() {
         height={isMobile ? 20 : 30}
       />
     </Link>
-    <Link prefetch={false} href={contactHrefs.phone}>
+    <Link href={contactHrefs.phone}>
       <Image
         src="/icons/phone.svg"
         alt="Телефон"

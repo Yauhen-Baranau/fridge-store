@@ -1,6 +1,6 @@
 import { Routes } from "@constants/routes";
 import styles from './frequent-fridge-problem.module.scss';
-import Link from "next/link";
+import Link from "@ui-kit/static-link/static-link";
 import Button from "@ui-kit/button/button";
 import { useHrefHelper } from "@contexts/href/href-context";
 
@@ -15,7 +15,7 @@ export default function FrequentFridgeProblem({
 
   return <div className={styles["frequent-problem"]}>
     <span className={styles["frequent-problem-label"]}>{label}</span>
-    <Link prefetch={false} href={getPageHref(redirectTo)}>
+    <Link href={getPageHref(redirectTo)}>
       <Button
         customClass={styles["frequent-problem-button"]}
         icon={{

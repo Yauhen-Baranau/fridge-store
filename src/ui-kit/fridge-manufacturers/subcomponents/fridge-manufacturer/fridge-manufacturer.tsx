@@ -1,6 +1,6 @@
 import Button from "@ui-kit/button/button";
 import Image from "next/image";
-import Link from "next/link";
+import Link from "@ui-kit/static-link/static-link";
 import styles from './fridge-manufacturer.module.scss';
 
 export default function FridgeManufacturer({
@@ -11,7 +11,7 @@ export default function FridgeManufacturer({
   imagePath: string;
 }) {
   return (
-    // <Link prefetch={false} href="https://google.com">
+    // <Link href="https://google.com">
       <div className={styles["fridge-manufacturer"]}>
         <Image
           src={imagePath}

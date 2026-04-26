@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import Link from "@ui-kit/static-link/static-link";
 import styles from './service.module.scss';
 
 export default function Service({
@@ -24,7 +24,7 @@ export default function Service({
   guarantee?: string;
 }) {
   return (
-    <Link prefetch={false} className={styles["service-link"]} href={serviceHref}>
+    <Link className={styles["service-link"]} href={serviceHref}>
       <div className={styles.service}>
         <div className={styles["service-image-wrapper"]}>
           <Image
