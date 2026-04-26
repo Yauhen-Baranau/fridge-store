@@ -8,10 +8,10 @@ import BackgroundSnowflakes from "@ui-kit/background-snowflakes/background-snowf
 export default function MainAdvantages() {
   return (
     <section className={styles["main-advantages"]}>
-      <h1 className={styles.title}>
+      <h2 className={styles.title}>
         Основные преимущества <br />
         нашей компании
-      </h1>
+      </h2>
       <div className={styles["advantages-block"]}>
         {advantages.map((params, index) => <Advantage key={index} {...params} />)}
       </div>

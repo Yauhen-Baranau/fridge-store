@@ -13,7 +13,7 @@ export default function HowToOrderRepairs({
     <section
       className={composeClassName(styles["how-to-order-repairs"], customClass)}
     >
-      <h1 className={styles.title}>Как заказать ремонт?</h1>
+      <h2 className={styles.title}>Как заказать ремонт?</h2>
       <div className={styles.steps}>
         {orderRepairsSteps.map((params, index, arr) => (
           <Step

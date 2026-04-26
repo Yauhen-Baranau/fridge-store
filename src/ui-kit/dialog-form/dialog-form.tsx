@@ -40,7 +40,7 @@ export default function DialogForm({
 
   return (
     <div className={styles.wrapper}>
-      <h1 className={styles.title}>Закажите бесплатный звонок сейчас</h1>
+      <h2 className={styles.title}>Закажите бесплатный звонок сейчас</h2>
       {!isMobile && (
         <div className={styles["image-wrapper"]}>
           <Image

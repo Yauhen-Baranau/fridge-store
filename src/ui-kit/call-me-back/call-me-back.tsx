@@ -41,7 +41,7 @@ export default function CallMeBack({ customClass }: { customClass?: string }) {
   return (
     <section className={composeClassName(styles["call-me-back"], customClass)}>
       <div className={styles["call-me-back-left-block"]}>
-        <h1 className={styles["call-me-back-title"]}>Остались вопросы?</h1>
+        <h2 className={styles["call-me-back-title"]}>Остались вопросы?</h2>
         <p className={styles["call-me-back-text"]}>
           Оставьте контактный телефон и в ближайшее время с вами свяжется наш
           специалист

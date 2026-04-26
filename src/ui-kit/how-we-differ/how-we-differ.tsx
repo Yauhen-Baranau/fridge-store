@@ -7,7 +7,7 @@ import Difference from "./subcomponents/difference/difference";
 export default function HowWeDiffer() {
   return (
     <section className={styles["how-we-differ"]}>
-      <h1 className={styles.title}>Чем мы отличаемся от конкурентов?</h1>
+      <h2 className={styles.title}>Чем мы отличаемся от конкурентов?</h2>
       <div className={styles["image-wrapper"]}>
         <Image
           className={styles.image}

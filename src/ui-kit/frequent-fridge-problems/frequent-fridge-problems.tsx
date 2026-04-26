@@ -27,7 +27,7 @@ export default function FrequentFridgeProblems({
         customClass,
       )}
     >
-      <h1 className={styles.title}>Частые проблемы с холодильником</h1>
+      <h2 className={styles.title}>Частые проблемы с холодильником</h2>
       <div className={styles["left-content"]}>
         <div className={styles["image-container"]}>
           <Image

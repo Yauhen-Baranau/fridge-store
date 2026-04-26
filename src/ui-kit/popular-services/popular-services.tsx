@@ -41,7 +41,7 @@ export default function PopularServices() {
 
   return (
     <section className={styles["popular-services"]}>
-      <h1 className={styles["popular-services-title"]}>Популярные услуги</h1>
+      <h2 className={styles["popular-services-title"]}>Популярные услуги</h2>
       {isMobile ? (
         <Slider
           customClass={composeClassName(styles["services-slider"])}

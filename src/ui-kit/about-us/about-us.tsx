@@ -12,7 +12,7 @@ export default function AboutUs() {
 
   return (
     <section className={styles["about-us"]}>
-      <h1 className={styles["about-us-title"]}>О компании</h1>
+      <h2 className={styles["about-us-title"]}>О компании</h2>
       <div className={styles["about-us-content"]}>
         <p className={styles["about-us-text"]}>
           Наша компания специализируется на профессиональном ремонте
