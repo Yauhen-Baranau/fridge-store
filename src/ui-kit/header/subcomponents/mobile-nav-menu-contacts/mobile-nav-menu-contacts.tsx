@@ -1,7 +1,7 @@
 import { contactHrefs, contactInfo } from "@constants/contact-info"
 import List from "@ui-kit/list/list"
 import Socials from "@ui-kit/socials/socials"
-import Link from "next/link"
+import Link from "@ui-kit/static-link/static-link"
 import styles from './mobile-nav-menu-contacts.module.scss';
 
 export default function MobileNavMenuContacts() {

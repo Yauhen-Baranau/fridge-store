@@ -1,6 +1,6 @@
 "use client"
 import styles from "@src/app/common-fridge-problems/page.module.scss";
-import Image from "next/image";
+import Image from "@ui-kit/static-image/static-image";
 import CallMeBackForm from "@ui-kit/call-me-back-form/call-me-back-form";
 import Button from "@ui-kit/button/button";
 import DialogForm from "@ui-kit/dialog-form/dialog-form";

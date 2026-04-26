@@ -1,5 +1,5 @@
-import Image from "next/image";
-import Link from "next/link";
+import Image from "@ui-kit/static-image/static-image";
+import Link from "@ui-kit/static-link/static-link";
 import styles from './service.module.scss';
 
 export default function Service({

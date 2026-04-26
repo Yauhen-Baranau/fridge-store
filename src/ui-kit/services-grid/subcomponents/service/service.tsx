@@ -1,8 +1,8 @@
 import Button from "@ui-kit/button/button";
-import Link from "next/link";
+import Link from "@ui-kit/static-link/static-link";
 import { Service as ServiceInterface } from "../../interfaces/service";
 import styles from './service.module.scss';
-import Image from "next/image";
+import Image from "@ui-kit/static-image/static-image";
 
 export default function Service({
   serviceData

@@ -1,6 +1,6 @@
 import { contactHrefs } from "@constants/contact-info";
-import Link from "next/link";
-import Image from "next/image";
+import Link from "@ui-kit/static-link/static-link";
+import Image from "@ui-kit/static-image/static-image";
 import useResponsive from "@hooks/use-responsive";
 import NondesktopNavToggleButton from "../nondesktop-nav-toggle-button/nondesktop-nav-toggle-button";
 import styles from './nondesktop-icons.module.scss';

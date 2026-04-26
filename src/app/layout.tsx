@@ -1,8 +1,8 @@
 "use client";
 export const dynamic = "force-static";
 
-import { Montserrat } from "next/font/google";
 import "./globals.scss";
+import { Montserrat } from "next/font/google";
 import styles from "./layout.module.scss";
 import Header from "../ui-kit/header/header";
 import Navigation from "../ui-kit/navigation/navigation";
@@ -33,13 +33,7 @@ function RootLayoutBody({
   const { isOpen } = useDialog();
 
   return (
-    <body
-      className={composeClassName(
-        montserrat.className,
-        styles.body,
-        isOpen && styles["dialog-open"],
-      )}
-    >
+    <body className={composeClassName(montserrat.className, styles.body, isOpen && styles["dialog-open"])}>
       <Script
         id='fridge-store-jsonld'
         type='application/ld+json'
@@ -70,7 +64,7 @@ export default function RootLayout({
     <CategoryDataContextProvider>
       <HrefContextProvider>
         <DialogContextProvider>
-          <html lang="ru">
+          <html lang='ru'>
             <RootLayoutBody>{children}</RootLayoutBody>
           </html>
         </DialogContextProvider>

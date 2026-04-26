@@ -3,7 +3,7 @@
 import composeClassName from "@src/helpers/compose-class-name";
 import "./navigation.scss";
 import List from "@ui-kit/list/list";
-import Link from "next/link";
+import Link from "@ui-kit/static-link/static-link";
 import { useHrefHelper } from "@contexts/href/href-context";
 import useResponsive from "@hooks/use-responsive";
 import { useCallback, useMemo } from "react";
