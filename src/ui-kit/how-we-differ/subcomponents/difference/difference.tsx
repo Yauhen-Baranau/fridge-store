@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from '@ui-kit/static-image/static-image';
 import styles from './difference.module.scss';
 
 export default function Difference({

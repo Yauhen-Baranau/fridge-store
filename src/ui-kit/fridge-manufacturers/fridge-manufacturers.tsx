@@ -28,11 +28,11 @@ export default function FridgeManufacturers({
     <section
       className={composeClassName(styles["fridge-manufacturers"], customClass)}
     >
-      <h1 className={styles["fridge-manufacturers-title"]}>
+      <h2 className={styles["fridge-manufacturers-title"]}>
         Ремонтируем холодильники
         <br />
         всех производителей
-      </h1>
+      </h2>
       {!isMobile ? (
         <div className={styles["fridge-manufacturers-list"]}>
           {fridgeManufacturersJsxArray}

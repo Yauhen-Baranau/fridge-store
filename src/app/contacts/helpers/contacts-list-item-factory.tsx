@@ -1,5 +1,5 @@
 import { ListItem } from "@ui-kit/list/list-item-interface";
-import Link from "next/link";
+import Link from "@ui-kit/static-link/static-link";
 
 export const contactsListItemFactory = ({
   content,

@@ -3,7 +3,7 @@ import { Service } from "@contexts/category-data/types/service";
 import composeClassName from "@helpers/compose-class-name";
 import Accordion from "@ui-kit/accordion/accordion";
 import BackgroundSnowflake from "@ui-kit/background-snowflake/background-snowflake";
-import Image from "next/image";
+import Image from "@ui-kit/static-image/static-image";
 
 export const getSubcategoryAccordion = ({
   subcategory,

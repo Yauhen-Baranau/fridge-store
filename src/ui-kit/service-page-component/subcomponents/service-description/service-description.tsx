@@ -6,7 +6,7 @@ import { Service } from "../../service-interface";
 import styles from './service-description.module.scss';
 import useResponsive from "@hooks/use-responsive";
 import { useDialog } from "@contexts/dialog/dialog-context";
-import Image from "next/image";
+import Image from "@ui-kit/static-image/static-image";
 
 export default function ServiceDescription({
   serviceData

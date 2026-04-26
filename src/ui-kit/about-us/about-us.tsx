@@ -2,8 +2,8 @@
 
 import Button from "@ui-kit/button/button";
 import styles from "./about-us.module.scss";
-import Link from "next/link";
-import Image from "next/image";
+import Link from "@ui-kit/static-link/static-link";
+import Image from "@ui-kit/static-image/static-image";
 import { Routes } from "@constants/routes";
 import { useHrefHelper } from "@contexts/href/href-context";
 
@@ -12,7 +12,7 @@ export default function AboutUs() {
 
   return (
     <section className={styles["about-us"]}>
-      <h1 className={styles["about-us-title"]}>О компании</h1>
+      <h2 className={styles["about-us-title"]}>О компании</h2>
       <div className={styles["about-us-content"]}>
         <p className={styles["about-us-text"]}>
           Наша компания специализируется на профессиональном ремонте

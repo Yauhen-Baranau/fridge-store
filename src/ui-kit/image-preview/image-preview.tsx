@@ -2,7 +2,7 @@
 
 import styles from "./image-preview.module.scss";
 import { useDialog } from "@contexts/dialog/dialog-context";
-import Image from "next/image";
+import Image from "@ui-kit/static-image/static-image";
 
 export default function ImagePreview({
   path,

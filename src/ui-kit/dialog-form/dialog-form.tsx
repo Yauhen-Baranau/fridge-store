@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Image from "@ui-kit/static-image/static-image";
 import Form from "../form/form";
 import styles from "./dialog-form.module.scss";
 import { useDialog } from "@contexts/dialog/dialog-context";
@@ -40,7 +40,7 @@ export default function DialogForm({
 
   return (
     <div className={styles.wrapper}>
-      <h1 className={styles.title}>Закажите бесплатный звонок сейчас</h1>
+      <h2 className={styles.title}>Закажите бесплатный звонок сейчас</h2>
       {!isMobile && (
         <div className={styles["image-wrapper"]}>
           <Image

@@ -2,7 +2,7 @@
 
 import styles from "./popular-services.module.scss";
 import Button from "@ui-kit/button/button";
-import Link from "next/link";
+import Link from "@ui-kit/static-link/static-link";
 import { useHrefHelper } from "@contexts/href/href-context";
 import { Routes } from "@constants/routes";
 import { useCategoryData } from "@contexts/category-data/category-data-context";
@@ -41,7 +41,7 @@ export default function PopularServices() {
 
   return (
     <section className={styles["popular-services"]}>
-      <h1 className={styles["popular-services-title"]}>Популярные услуги</h1>
+      <h2 className={styles["popular-services-title"]}>Популярные услуги</h2>
       {isMobile ? (
         <Slider
           customClass={composeClassName(styles["services-slider"])}

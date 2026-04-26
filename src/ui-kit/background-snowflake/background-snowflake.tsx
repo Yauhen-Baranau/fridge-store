@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "@ui-kit/static-image/static-image";
 import styles from "./background-snowflake.module.scss";
 import composeClassName from "@helpers/compose-class-name";
 import { colorToCssFilterMap } from "./constants/color-to-css-filter-map";

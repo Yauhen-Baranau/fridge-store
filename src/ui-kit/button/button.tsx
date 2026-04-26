@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Image from "@ui-kit/static-image/static-image";
 import "./button.scss";
 import composeClassName from "@src/helpers/compose-class-name";
 

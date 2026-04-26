@@ -40,7 +40,10 @@ export const HrefContextProvider = ({
   const getSubcategoryRouteFragment = (id: string) => idToSubcategoryRouteMap.get(id);
   const getServiceRouteFragment = (id: string) => idToServiceRouteMap.get(id);
 
-  const getHref = (fragments: (string | undefined)[]) => `/${fragments.filter(Boolean).join("/")}/`;
+  const getHref = (fragments: (string | undefined)[]) => {
+    const path = fragments.filter(Boolean).join("/");
+    return path ? `/${path}` : "/";
+  };
   const getPageHref = (route: string) => getHref([route]);
   const getCategoryHref = (id: string) => getHref([getCategoryRouteFragment(id)]);
   const getSubcategoryHref = (id: string) => {

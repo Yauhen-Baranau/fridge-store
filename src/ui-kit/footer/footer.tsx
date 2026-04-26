@@ -14,7 +14,7 @@ export default function Footer() {
   const { getPageHref, getCategoryHref } = useHrefHelper();
   const { isMobile } = useResponsive();
 
-  // const privacyPolicyLink = <Link href="https://google.com">Политика конфиденциальности</Link>
+  // const privacyPolicyLink = <Link prefetch={false} href="https://google.com">Политика конфиденциальности</Link>
   const privacyPolicyLink = ""
 
 

@@ -17,11 +17,11 @@ export default function DiscountBlock({
     <section
       className={composeClassName(styles["discount-block"], customClass)}
     >
-      <h1 className={styles["discount-block-title"]}>
+      <h2 className={styles["discount-block-title"]}>
         Дарим{" "}
         <span className={styles["discount-block-title-bold"]}>скидку 10%</span>{" "}
         на первый заказ
-      </h1>
+      </h2>
       <p className={styles["discount-block-text"]}>
         В благодарность{" "}
         <span className={styles["discount-block-text-bold"]}>

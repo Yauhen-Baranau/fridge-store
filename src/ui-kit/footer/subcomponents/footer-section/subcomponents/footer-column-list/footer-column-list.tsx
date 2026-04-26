@@ -1,5 +1,5 @@
 import List from "@ui-kit/list/list";
-import Link from "next/link";
+import Link from "@ui-kit/static-link/static-link";
 import styles from './footer-column-list.module.scss';
 import composeClassName from "@helpers/compose-class-name";
 

@@ -1,6 +1,6 @@
-import Image from 'next/image';
+import Image from '@ui-kit/static-image/static-image';
 import styles from './contacts.module.scss';
-import Link from 'next/link';
+import Link from '@ui-kit/static-link/static-link';
 import { contactHrefs, contactInfo } from '@constants/contact-info';
 import useResponsive from '@hooks/use-responsive';
 import Socials from '@ui-kit/socials/socials';
