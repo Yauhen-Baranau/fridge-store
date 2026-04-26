@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "node scripts/serve-export.js",
     "lint": "eslint",
-    "preview": "node scripts/serve-export.js"
+    "preview": "node scripts/serve-export.js",
+    "sitemap": "next-sitemap"
   },
   "dependencies": {
     "next": "16.2.4",
@@ -23,6 +24,7 @@
     "eslint-config-next": "16.0.5",
     "prettier": "^3.7.4",
     "sass": "^1.94.2",
-    "typescript": "^5"
+    "typescript": "^5",
+    "next-sitemap": "^4.2.3"
   }
 }
