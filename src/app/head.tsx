@@ -16,7 +16,7 @@ export default function Head() {
         content='Профессиональный ремонт холодильников в Минске: диагностика, выезд мастера в день обращения и гарантия на работы.'
       />
       <meta property='og:url' content='https://holodcentr.by/' />
-      <link rel='canonical' href='https://holodcentr.by/' />
+      <link rel='canonical' href='https://holodcentr.by' />
     </>
   );
 }

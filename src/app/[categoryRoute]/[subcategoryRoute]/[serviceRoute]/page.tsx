@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: service?.seoTitle,
     description: service?.seoDescription,
     alternates: {
-      canonical: `https://holodcentr.by/${categoryRoute}/${subcategoryRoute}/${serviceRoute}/`,
+      canonical: `https://holodcentr.by/${categoryRoute}/${subcategoryRoute}/${serviceRoute}`,
     },
   };
 }
