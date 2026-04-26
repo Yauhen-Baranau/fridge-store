@@ -15,7 +15,7 @@ export default function MobileNavMenuContacts() {
         items={[
           {
             content: (
-              <Link href={contactHrefs.phone}>{contactInfo.phoneNumber}</Link>
+              <Link prefetch={false} href={contactHrefs.phone}>{contactInfo.phoneNumber}</Link>
             ),
             icon: {
               path: "/icons/phone.svg",
@@ -25,7 +25,7 @@ export default function MobileNavMenuContacts() {
           },
           {
             content: (
-              <Link href={contactHrefs.email}>{contactInfo.email}</Link>
+              <Link prefetch={false} href={contactHrefs.email}>{contactInfo.email}</Link>
             ),
             icon: {
               path: "/icons/envelope.svg",
@@ -35,7 +35,7 @@ export default function MobileNavMenuContacts() {
           },
           {
             content: (
-              <Link href={contactHrefs.address}>{contactInfo.address}</Link>
+              <Link prefetch={false} href={contactHrefs.address}>{contactInfo.address}</Link>
             ),
             icon: {
               path: "/icons/location.svg",

@@ -52,7 +52,7 @@ export default function FrequentFridgeProblems({
           label={frequentProblemData.label}
           redirectTo={frequentProblemData.redirectTo}
         />)}
-        <Link href={getPageHref(Routes.CommonFridgeProblems)}>
+        <Link prefetch={false} href={getPageHref(Routes.CommonFridgeProblems)}>
           <Button
             customClass={styles["view-all-problems-button"]}
             text="Смотреть все проблемы"

@@ -37,7 +37,7 @@ export default function AboutUs() {
           отремонтировать технику, а сделать так, чтобы вы больше не волновались
           о её работе.
         </p>
-        <Link className={styles["about-us-link"]} href={getPageHref(Routes.AboutUs)}>
+        <Link prefetch={false} className={styles["about-us-link"]} href={getPageHref(Routes.AboutUs)}>
           <Button text="Подробнее" style="text-only" />
         </Link>
       </div>

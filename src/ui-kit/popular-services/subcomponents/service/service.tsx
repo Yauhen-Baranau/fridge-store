@@ -24,7 +24,7 @@ export default function Service({
   guarantee?: string;
 }) {
   return (
-    <Link className={styles["service-link"]} href={serviceHref}>
+    <Link prefetch={false} className={styles["service-link"]} href={serviceHref}>
       <div className={styles.service}>
         <div className={styles["service-image-wrapper"]}>
           <Image

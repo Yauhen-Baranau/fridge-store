@@ -20,7 +20,7 @@ export default function FooterColumnList({
     )}
     items={items.map(item => {
       const content = item.type === 'link'
-        ? <Link href={item.href}>{item.label}</Link>
+        ? <Link prefetch={false} href={item.href}>{item.label}</Link>
         : item.content;
       return {
         content,

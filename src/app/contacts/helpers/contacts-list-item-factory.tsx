@@ -11,7 +11,7 @@ export const contactsListItemFactory = ({
   href?: string,
 }): ListItem => {
   return {
-    content: href ? <Link href={href}>{content}</Link> : content,
+    content: href ? <Link prefetch={false} href={href}>{content}</Link> : content,
     icon: {
       path: iconPath,
       width: 24,

@@ -10,7 +10,7 @@ export default function NondesktopIcons() {
 
   return <div className={styles.icons}>
     {isMobile && (
-      <Link href={contactHrefs.address}>
+      <Link prefetch={false} href={contactHrefs.address}>
         <Image
           src="/icons/location.svg"
           alt="Маркер на карте"
@@ -19,7 +19,7 @@ export default function NondesktopIcons() {
         />
       </Link>
     )}
-    <Link href={contactHrefs.email}>
+    <Link prefetch={false} href={contactHrefs.email}>
       <Image
         src="/icons/envelope.svg"
         alt="Конверт"
@@ -27,7 +27,7 @@ export default function NondesktopIcons() {
         height={isMobile ? 20 : 30}
       />
     </Link>
-    <Link href={contactHrefs.phone}>
+    <Link prefetch={false} href={contactHrefs.phone}>
       <Image
         src="/icons/phone.svg"
         alt="Телефон"

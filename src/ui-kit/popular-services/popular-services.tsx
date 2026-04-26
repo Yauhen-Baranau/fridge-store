@@ -51,7 +51,7 @@ export default function PopularServices() {
       ) : (
         <div className={styles["services-list"]}>{services}</div>
       )}
-      <Link href={getPageHref(Routes.Prices)}>
+      <Link prefetch={false} href={getPageHref(Routes.Prices)}>
         <Button text="Смотреть все услуги" style="text-only" />
       </Link>
       <BackgroundSnowflakes snowflakes={[

@@ -15,7 +15,7 @@ export default function FrequentFridgeProblem({
 
   return <div className={styles["frequent-problem"]}>
     <span className={styles["frequent-problem-label"]}>{label}</span>
-    <Link href={getPageHref(redirectTo)}>
+    <Link prefetch={false} href={getPageHref(redirectTo)}>
       <Button
         customClass={styles["frequent-problem-button"]}
         icon={{

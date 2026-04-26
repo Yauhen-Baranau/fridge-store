@@ -17,7 +17,7 @@ export default function Contacts() {
           width={20}
           height={20}
         />
-        <Link href={contactHrefs.address}>{contactInfo.address}</Link>
+        <Link prefetch={false} href={contactHrefs.address}>{contactInfo.address}</Link>
       </div>
       <div className={styles["icon-text-pair"]}>
         <Image src="/icons/clock.svg" alt="Часы" width={20} height={20} />
@@ -32,7 +32,7 @@ export default function Contacts() {
           width={20}
           height={20}
         />
-        <Link href={contactHrefs.phone}>{contactInfo.phoneNumber}</Link>
+        <Link prefetch={false} href={contactHrefs.phone}>{contactInfo.phoneNumber}</Link>
       </div>
       <div className={styles["icon-text-pair"]}>
         <Image
@@ -41,7 +41,7 @@ export default function Contacts() {
           width={20}
           height={20}
         />
-        <Link href={contactHrefs.email}>{contactInfo.email}</Link>
+        <Link prefetch={false} href={contactHrefs.email}>{contactInfo.email}</Link>
       </div>
     </>}
     {/*<Socials customClass={styles.socials} />*/}

@@ -11,7 +11,7 @@ export default function FridgeManufacturer({
   imagePath: string;
 }) {
   return (
-    // <Link href="https://google.com">
+    // <Link prefetch={false} href="https://google.com">
       <div className={styles["fridge-manufacturer"]}>
         <Image
           src={imagePath}

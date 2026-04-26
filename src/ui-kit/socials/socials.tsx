@@ -8,7 +8,7 @@ import Image from "next/image";
 export default function Socials({ customClass }: { customClass?: string }) {
   return (
     <div className={composeClassName("socials", customClass)}>
-      <Link href="https://viber.com">
+      <Link prefetch={false} href="https://viber.com">
         <Image
           className="socials-icon"
           src="/icons/viber.svg"
@@ -17,7 +17,7 @@ export default function Socials({ customClass }: { customClass?: string }) {
           alt="Viber"
         />
       </Link>
-      <Link href="https://whatsapp.com">
+      <Link prefetch={false} href="https://whatsapp.com">
         <Image
           className="socials-icon"
           src="/icons/whatsapp.svg"
@@ -26,7 +26,7 @@ export default function Socials({ customClass }: { customClass?: string }) {
           alt="WhatsApp"
         />
       </Link>
-      <Link href="https://telegram.com">
+      <Link prefetch={false} href="https://telegram.com">
         <Image
           className="socials-icon"
           src="/icons/telegram.svg"
