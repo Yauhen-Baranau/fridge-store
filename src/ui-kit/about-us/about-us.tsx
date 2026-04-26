@@ -1,10 +1,15 @@
+"use client";
+
 import Button from "@ui-kit/button/button";
 import styles from "./about-us.module.scss";
 import Link from "next/link";
 import Image from "next/image";
 import { Routes } from "@constants/routes";
+import { useHrefHelper } from "@contexts/href/href-context";
 
-export default async function AboutUs() {
+export default function AboutUs() {
+  const { getPageHref } = useHrefHelper();
+
   return (
     <section className={styles["about-us"]}>
       <h1 className={styles["about-us-title"]}>О компании</h1>
@@ -32,7 +37,7 @@ export default async function AboutUs() {
           отремонтировать технику, а сделать так, чтобы вы больше не волновались
           о её работе.
         </p>
-        <Link className={styles["about-us-link"]} href={`/${Routes.AboutUs}`}>
+        <Link className={styles["about-us-link"]} href={getPageHref(Routes.AboutUs)}>
           <Button text="Подробнее" style="text-only" />
         </Link>
       </div>
