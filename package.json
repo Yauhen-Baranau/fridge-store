@@ -5,8 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
+    "start": "node scripts/serve-export.js",
+    "lint": "eslint",
+    "preview": "node scripts/serve-export.js"
   },
   "dependencies": {
     "next": "16.2.4",
