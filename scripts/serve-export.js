@@ -21,6 +21,14 @@ const contentTypes = {
 
 const normalizeRepeatedSlashes = (requestPath) => requestPath.replace(/\/{2,}/g, '/');
 
+const normalizeTrailingSlash = (requestPath) => {
+  if (requestPath === '/') {
+    return requestPath;
+  }
+
+  return requestPath.endsWith('/') ? requestPath.slice(0, -1) : requestPath;
+};
+
 const sanitizePath = (requestPath) => {
   const normalized = path.posix.normalize(requestPath).replace(/^\/+/, '');
   if (normalized.includes('..')) {
@@ -56,7 +64,7 @@ const server = http.createServer((req, res) => {
   const requestUrl = req.url || "/";
   const [rawPathname, rawSearch] = requestUrl.split("?");
   const pathname = rawPathname || "/";
-  const normalizedPathname = normalizeRepeatedSlashes(pathname);
+  const normalizedPathname = normalizeTrailingSlash(normalizeRepeatedSlashes(pathname));
 
   if (normalizedPathname !== pathname) {
     const search = rawSearch ? `?${rawSearch}` : "";

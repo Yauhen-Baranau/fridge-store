@@ -15,7 +15,7 @@ export default function NotFoundPage() {
           <Link href='/' className={styles.button}>
             На главную
           </Link>
-          <Link href='/prices/' className={styles.secondary}>
+          <Link href='/prices' className={styles.secondary}>
             Посмотреть цены
           </Link>
         </div>
