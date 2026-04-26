@@ -36,21 +36,27 @@ export const HrefContextProvider = ({
     return list.find((entry) => entry.id === id) ?? null;
   };
 
-  const getRoute = (fragments: (string | undefined)[]) => `/${fragments.filter(Boolean).join("/")}`;
-  const getPageHref = (route: string) => getRoute([route]);
-  const getCategoryHref = (id: string) => getRoute([idToCategoryRouteMap.get(id)]);
+  const getCategoryRouteFragment = (id: string) => idToCategoryRouteMap.get(id);
+  const getSubcategoryRouteFragment = (id: string) => idToSubcategoryRouteMap.get(id);
+  const getServiceRouteFragment = (id: string) => idToServiceRouteMap.get(id);
+
+  const getHref = (fragments: (string | undefined)[]) => `/${fragments.filter(Boolean).join("/")}/`;
+  const getPageHref = (route: string) => getHref([route]);
+  const getCategoryHref = (id: string) => getHref([getCategoryRouteFragment(id)]);
   const getSubcategoryHref = (id: string) => {
     const subcategory = findEntryById(id, subcategories);
-    return getRoute([
-      subcategory?.parentCategoryId && getCategoryHref(subcategory.parentCategoryId),
-      idToSubcategoryRouteMap.get(id)
+    return getHref([
+      subcategory?.parentCategoryId && getCategoryRouteFragment(subcategory.parentCategoryId),
+      getSubcategoryRouteFragment(id)
     ]);
   };
   const getServiceHref = (id: string) => {
     const service = findEntryById(id, services);
-    return getRoute([
-      service?.parentCategoryId && getSubcategoryHref(service.parentCategoryId),
-      idToServiceRouteMap.get(id)
+    const subcategory = service && findEntryById(service.parentCategoryId, subcategories);
+    return getHref([
+      subcategory?.parentCategoryId && getCategoryRouteFragment(subcategory.parentCategoryId),
+      service?.parentCategoryId && getSubcategoryRouteFragment(service.parentCategoryId),
+      getServiceRouteFragment(id)
     ]);
   };
 
