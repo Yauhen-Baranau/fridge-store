@@ -5,6 +5,14 @@ type StaticLinkProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "href"> & {
   children: ReactNode;
 };
 
+const normalizeInternalHref = (href: string) => {
+  if (!href.startsWith("/")) {
+    return href;
+  }
+
+  return href.replace(/\/{2,}/g, "/");
+};
+
 const getNodeText = (node: ReactNode): string => {
   if (typeof node === "string" || typeof node === "number") {
     return String(node);
@@ -24,11 +32,12 @@ const getNodeText = (node: ReactNode): string => {
 };
 
 export default function StaticLink({ href, children, title, ...props }: StaticLinkProps) {
+  const normalizedHref = normalizeInternalHref(href);
   const textFromChildren = getNodeText(Children.toArray(children));
-  const resolvedTitle = title ?? (textFromChildren || (typeof props["aria-label"] === "string" ? props["aria-label"] : href));
+  const resolvedTitle = title ?? (textFromChildren || (typeof props["aria-label"] === "string" ? props["aria-label"] : normalizedHref));
 
   return (
-    <a href={href} title={resolvedTitle} {...props}>
+    <a href={normalizedHref} title={resolvedTitle} {...props}>
       {children}
     </a>
   );

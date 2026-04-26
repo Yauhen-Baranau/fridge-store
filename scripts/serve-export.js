@@ -19,6 +19,8 @@ const contentTypes = {
   '.ico': 'image/x-icon',
 };
 
+const normalizeRepeatedSlashes = (requestPath) => requestPath.replace(/\/{2,}/g, '/');
+
 const sanitizePath = (requestPath) => {
   const normalized = path.posix.normalize(requestPath).replace(/^\/+/, '');
   if (normalized.includes('..')) {
@@ -51,9 +53,19 @@ const resolveFilePath = (requestPath) => {
 };
 
 const server = http.createServer((req, res) => {
-  const { pathname } = new URL(req.url, `http://${req.headers.host}`);
+  const requestUrl = req.url || "/";
+  const [rawPathname, rawSearch] = requestUrl.split("?");
+  const pathname = rawPathname || "/";
+  const normalizedPathname = normalizeRepeatedSlashes(pathname);
 
-  const filePath = resolveFilePath(pathname);
+  if (normalizedPathname !== pathname) {
+    const search = rawSearch ? `?${rawSearch}` : "";
+    res.writeHead(301, { Location: `${normalizedPathname}${search}` });
+    res.end();
+    return;
+  }
+
+  const filePath = resolveFilePath(normalizedPathname);
   if (!filePath) {
     res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
     res.end('Not Found');
