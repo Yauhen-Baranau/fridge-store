@@ -2,6 +2,7 @@
 export const dynamic = "force-static";
 
 import "./globals.scss";
+import { Montserrat } from "next/font/google";
 import styles from "./layout.module.scss";
 import Header from "../ui-kit/header/header";
 import Navigation from "../ui-kit/navigation/navigation";
@@ -19,6 +20,10 @@ import useResponsive from "@hooks/use-responsive";
 import Script from "next/script";
 import { jsonLd } from "@constants/jsonld";
 
+const montserrat = Montserrat({
+  subsets: ["cyrillic", "latin"],
+});
+
 function RootLayoutBody({
   children,
 }: Readonly<{
@@ -28,7 +33,7 @@ function RootLayoutBody({
   const { isOpen } = useDialog();
 
   return (
-    <body className={composeClassName(styles.body, isOpen && styles["dialog-open"])}>
+    <body className={composeClassName(montserrat.className, styles.body, isOpen && styles["dialog-open"])}>
       <Script
         id='fridge-store-jsonld'
         type='application/ld+json'

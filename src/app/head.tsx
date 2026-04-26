@@ -17,12 +17,6 @@ export default function Head() {
       />
       <meta property='og:url' content='https://holodcentr.by/' />
       <link rel='canonical' href='https://holodcentr.by/' />
-      <link rel='preconnect' href='https://fonts.googleapis.com' />
-      <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin='anonymous' />
-      <link
-        href='https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap'
-        rel='stylesheet'
-      />
     </>
   );
 }
