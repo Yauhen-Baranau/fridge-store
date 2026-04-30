@@ -6,6 +6,7 @@ import Image from '@ui-kit/static-image/static-image';
 
 export default function Breadcrumb({
   breadcrumb,
+  position,
   hasHomeIcon = false,
   disabled = false,
   hasArrowIcon = true,
@@ -13,6 +14,7 @@ export default function Breadcrumb({
   limitWidth = false,
 }: {
   breadcrumb: BreadcrumbInterface;
+  position?: number;
   hasHomeIcon?: boolean;
   disabled?: boolean;
   hasArrowIcon?: boolean,
@@ -24,6 +26,7 @@ export default function Breadcrumb({
       className={composeClassName(styles.breadcrumb, disabled && styles.disabled, limitWidth && styles.limited)}
       href={breadcrumb.redirectTo}
       aria-disabled={disabled}
+      itemProp={typeof position === "number" ? "item" : undefined}
     >
       {hasHomeIcon && (
         <Image
@@ -34,10 +37,14 @@ export default function Breadcrumb({
           alt="Дом"
         />
       )}
-      <div className={composeClassName(
+      <div
+        className={composeClassName(
         styles["breadcrumb-label"],
         light && styles.light
-      )}>{breadcrumb.label}</div>
+      )}
+        itemProp={typeof position === "number" ? "name" : undefined}
+      >{breadcrumb.label}</div>
+      {typeof position === "number" && <meta itemProp="position" content={`${position + 1}`} />}
       {hasArrowIcon && (
         <Image
           className={styles["breadcrumb-arrow-icon"]}
